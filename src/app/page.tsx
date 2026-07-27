@@ -103,6 +103,10 @@ const featuredServiceSlugs = [
   "workflow-automation",
 ];
 
+const featuredServices = services.filter((service) =>
+  featuredServiceSlugs.includes(service.slug),
+);
+
 const featuredIndustrySlugs = ["hvac", "plumbing", "med-spas", "dentists"];
 
 const homeFaqs = faqs.slice(0, 6);
@@ -291,4 +295,4 @@ export default function Home() {
     </>
   );
 }
-  
+    
