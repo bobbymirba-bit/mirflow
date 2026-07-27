@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Practical AI automation for Southern California businesses",
   description:
     "Mirflow helps Southern California home-service and appointment-based businesses capture more leads, book more work, and give their teams time back with practical AI automation.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cadence-ai-kohl.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mirflow-bmir-agency.vercel.app",
   ogImage: "/opengraph-image",
   email: "hello@mirflow.ai",
   supportEmail: "support@mirflow.ai",
@@ -14,7 +14,7 @@ export const siteConfig = {
   social: {
     twitter: "https://twitter.com/mirflow",
     linkedin: "https://www.linkedin.com/company/mirflow",
-    github: "https://github.com/bobbymirba-bit/cadence-ai",
+    github: "https://github.com/bobbymirba-bit/mirflow",
     youtube: "https://youtube.com/@mirflow",
   },
   calendlyUrl:
