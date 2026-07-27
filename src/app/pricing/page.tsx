@@ -32,12 +32,11 @@ export default function PricingPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="brand">Pricing</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              Flat pricing. No per-seat fees.
+              Start small. Add workflows as you grow.
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Pricing scales with the number of workflows and conversation volume — not
-              headcount. Every plan includes deployment, integration, and ongoing
-              optimization.
+              Purchase a focused lead-automation subscription online, or tell us exactly
+              what you need and receive a custom implementation quote.
             </p>
           </div>
         </div>
@@ -53,8 +52,12 @@ export default function PricingPage() {
             ))}
           </RevealGroup>
           <p className="mt-8 text-center text-sm text-muted-foreground">
-            All plans include a one-time implementation fee, scoped during onboarding based
-            on complexity.{" "}
+            Software, phone, messaging, and AI usage are billed separately. Need something
+            outside these packages?{" "}
+            <Link href="/quote" className="font-medium text-foreground underline underline-offset-4">
+              Request a custom quote
+            </Link>
+            .{" "}
             <Link href="/faq" className="font-medium text-foreground underline underline-offset-4">
               See pricing FAQs
             </Link>
@@ -92,8 +95,10 @@ export default function PricingPage() {
       ) : null}
 
       <CtaSection
-        title="Not sure which plan fits?"
-        description="Book a 30-minute call. We'll scope your automation needs and recommend the right plan — no obligation."
+        title="Need a workflow built around your business?"
+        description="Describe your tools, lead flow, bottlenecks, and budget. We'll respond with a tailored recommendation and quote."
+        primaryLabel="Get a custom quote"
+        primaryHref="/quote"
         secondaryLabel="See case studies"
         secondaryHref="/case-studies"
       />

@@ -7,8 +7,8 @@ import { Reveal } from "@/components/motion/reveal";
 export function CtaSection({
   title = "Ready to stop losing revenue to manual work?",
   description = "Book a 30-minute call. We'll map your highest-leverage automation opportunity and show you exactly what it would look like — no obligation.",
-  primaryLabel = "Book a call",
-  primaryHref = "/book-a-call",
+  primaryLabel = "Get a custom quote",
+  primaryHref = "/quote",
   secondaryLabel = "See pricing",
   secondaryHref = "/pricing",
 }: {

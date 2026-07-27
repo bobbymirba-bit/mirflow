@@ -1,9 +1,16 @@
 import { NextResponse } from "next/server";
 
 type ContactPayload = {
+  type?: string;
   name?: string;
   email?: string;
   company?: string;
+  website?: string;
+  businessType?: string;
+  leadVolume?: string;
+  budget?: string;
+  timeline?: string;
+  tools?: string;
   message?: string;
 };
 
@@ -36,12 +43,7 @@ export async function POST(request: Request) {
   // Wire up an email/CRM provider here (e.g. Resend, Postmark, HubSpot) using an
   // API key stored in an environment variable. For now, the submission is logged
   // server-side so it's visible during development and in deployment logs.
-  console.log("New contact form submission:", {
-    name,
-    email,
-    company: company ?? "",
-    message,
-  });
+  console.log("New website submission:", payload);
 
   return NextResponse.json({ ok: true });
 }

@@ -47,6 +47,11 @@ Create a `.env.local` file (all variables are optional — the site works withou
 | -------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------ |
 | `NEXT_PUBLIC_CALENDLY_URL`       | Booking link used by every "Book a call" CTA (`src/lib/site-config.ts`)                          | `https://calendly.com/mirflow/intro-call`     |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID`  | Google Analytics measurement ID. When set, GA loads only after a visitor accepts the cookie banner (`src/components/analytics.tsx`) | Analytics is disabled entirely                   |
+| `STRIPE_SECRET_KEY` | Stripe secret key used only by the server checkout route | Checkout stays disabled |
+| `STRIPE_FOUNDING_MONTHLY_PRICE_ID` | Recurring Stripe Price for the $199 Founding subscription | Checkout stays disabled |
+| `STRIPE_FOUNDING_SETUP_PRICE_ID` | One-time Stripe Price for the $500 Founding setup | Checkout stays disabled |
+| `STRIPE_GROWTH_MONTHLY_PRICE_ID` | Recurring Stripe Price for the $349 Growth subscription | Checkout stays disabled |
+| `STRIPE_GROWTH_SETUP_PRICE_ID` | One-time Stripe Price for the $1,000 Growth setup | Checkout stays disabled |
 
 ## Contact Form
 

@@ -28,6 +28,9 @@ export function PricingCard({ tier, className }: { tier: PricingTier; className?
         <span className="font-display text-4xl font-semibold text-foreground">{tier.price}</span>
         <span className="text-sm text-muted-foreground">{tier.priceSuffix}</span>
       </div>
+      {tier.setupFee ? (
+        <p className="mt-2 text-sm font-medium text-muted-foreground">{tier.setupFee}</p>
+      ) : null}
       <Button
         asChild
         variant={tier.featured ? "gradient" : "secondary"}

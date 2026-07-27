@@ -60,8 +60,8 @@ export function Navbar() {
             <ThemeToggle />
           </div>
           <Button asChild variant="gradient" size="default" className="hidden lg:inline-flex">
-            <Link href="/book-a-call">
-              Book a call
+            <Link href="/quote">
+              Get a quote
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -124,8 +124,8 @@ export function Navbar() {
               <div className="mt-6 flex items-center justify-between border-t border-border pt-6">
                 <ThemeToggle />
                 <Button asChild variant="gradient">
-                  <Link href="/book-a-call" onClick={() => setMobileOpen(false)}>
-                    Book a call
+                  <Link href="/quote" onClick={() => setMobileOpen(false)}>
+                    Get a quote
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
