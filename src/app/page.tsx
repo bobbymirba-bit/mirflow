@@ -109,6 +109,10 @@ const featuredServices = services.filter((service) =>
 
 const featuredIndustrySlugs = ["hvac", "plumbing", "med-spas", "dentists"];
 
+const featuredIndustries = industries.filter((industry) =>
+  featuredIndustrySlugs.includes(industry.slug),
+);
+
 const homeFaqs = faqs.slice(0, 6);
 
 export default function Home() {
