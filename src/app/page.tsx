@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, Shield, Zap } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Shield } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Icon } from "@/components/icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { StatsBar } from "@/components/stats-bar";
 import { WorkflowVisualizer } from "@/components/workflow-visualizer";
 import { ServiceCard } from "@/components/cards/service-card";
 import { IndustryCard } from "@/components/cards/industry-card";
@@ -33,36 +32,42 @@ const capabilities = [
     title: "Conversational & Voice AI",
     description:
       "Chat and voice agents that answer instantly, in your brand voice, trained on your product and policies.",
+    tone: "bg-[#c77e6b]",
   },
   {
     icon: "TrendingUp",
     title: "Sales & Revenue",
     description:
       "Qualify inbound leads, run outbound sequences, and book meetings straight into your calendar.",
+    tone: "bg-[#8da9b5]",
   },
   {
     icon: "Headset",
     title: "Customer Experience",
     description:
       "Deflect repetitive tickets, resolve common issues, and route complex cases to the right person.",
+    tone: "bg-[#d5b18e]",
   },
   {
     icon: "FileText",
     title: "Documents & Knowledge",
     description:
       "Extract, summarize, and route information from contracts, invoices, and internal documents.",
+    tone: "bg-[#98a18c]",
   },
   {
     icon: "Workflow",
     title: "Workflow Automation",
     description:
       "Connect your CRM, calendar, and internal tools so work moves without anyone touching a keyboard.",
+    tone: "bg-[#ddd4c8]",
   },
   {
     icon: "Cpu",
     title: "Advanced AI Systems",
     description:
       "Custom multi-agent systems and applications for businesses whose workflows don't fit off-the-shelf tools.",
+    tone: "bg-[#b79c91]",
   },
 ];
 
@@ -119,58 +124,76 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-grid bg-radial-glow noise-overlay relative overflow-hidden border-b border-border">
-        <div className="container-page relative py-24 sm:py-32 lg:py-36">
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <Badge variant="brand" className="mx-auto">
-              <Zap className="h-3 w-3" />
-              Serving Southern California
-            </Badge>
-            <h1 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-6xl">
-              AI automation that <span className="text-gradient">captures every lead</span>
-            </h1>
-            <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Mirflow helps Southern California home-service and appointment-based businesses respond faster, book more work, and give their teams time back with practical AI systems.
+      <section className="relative min-h-[760px] overflow-hidden border-b border-border sm:min-h-[820px]">
+        <Image
+          src="/mirflow-editorial-hero.jpg"
+          alt="A business owner working in a calm, modern Southern California studio"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
+        <div className="container-page relative flex min-h-[760px] items-center py-16 sm:min-h-[820px] sm:py-20">
+          <div className="max-w-3xl text-white">
+            <p className="border-b border-white/50 pb-3 text-xs font-semibold uppercase tracking-[0.24em]">
+              Mirflow — Southern California
             </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <h1 className="mt-8 text-balance font-display text-6xl font-normal leading-[0.9] tracking-[-0.055em] sm:text-7xl lg:text-[92px]">
+              The business runs. You move forward.
+            </h1>
+            <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-white/80 sm:text-xl">
+              Quiet, capable AI systems that answer every lead, arrange the next step,
+              and keep your operation moving—without adding more admin.
+            </p>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
-                <Link href="/quote">
-                  Get a custom quote
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                <Link href="/quote">Design my workflow<ArrowRight className="h-4 w-4" /></Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/pricing">View plans and pricing</Link>
+              <Button asChild variant="outline" size="lg" className="border-white/60 text-white hover:bg-white hover:text-black">
+                <Link href="/pricing">Plans from $199</Link>
               </Button>
             </div>
-          </Reveal>
+          </div>
+        </div>
+        <div className="absolute bottom-6 right-8 hidden text-right text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70 lg:block">
+          Respond · Qualify · Book · Follow up
+        </div>
+      </section>
 
-          <Reveal delay={0.15} className="mx-auto mt-16 max-w-4xl">
-            <StatsBar stats={heroStats} />
-          </Reveal>
+      <section className="border-b border-border bg-[#171713] text-[#f3efe7]">
+        <div className="container-page grid gap-px bg-white/20 sm:grid-cols-4">
+          {heroStats.map((stat, index) => (
+            <div key={stat.label} className="bg-[#171713] px-6 py-8">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">0{index + 1}</p>
+              <p className="mt-5 font-display text-4xl">{stat.value}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.12em] text-white/60">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Capabilities */}
-      <section className="container-page py-20 sm:py-28">
+      <section className="container-page py-24 sm:py-32">
         <SectionHeading
           eyebrow="Capabilities"
-          title="Start with the workflows that protect revenue"
+          title="A composed operating system for the work that never stops"
           description="We begin with the bottlenecks that cost local businesses the most: missed calls, slow lead response, manual booking, and repetitive follow-up."
         />
-        <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map((capability) => (
+        <RevealGroup className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {capabilities.map((capability, index) => (
             <RevealItem
               key={capability.title}
-              className="rounded-2xl border border-border bg-card p-6"
+              className={`${capability.tone} min-h-[320px] p-8 text-[#171713]`}
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <div className="flex items-start justify-between">
+                <span className="text-xs font-semibold">0{index + 1}</span>
                 <Icon name={capability.icon} className="h-5 w-5" />
-              </span>
-              <h3 className="mt-5 font-display text-lg font-semibold text-foreground">
+              </div>
+              <h3 className="mt-20 font-display text-3xl font-normal leading-none">
                 {capability.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-xs text-sm leading-relaxed text-black/65">
                 {capability.description}
               </p>
             </RevealItem>

@@ -10,17 +10,17 @@ export function IndustryCard({ industry, className }: { industry: Industry; clas
     <Link
       href={`/industries/${industry.slug}`}
       className={cn(
-        "group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5",
+        "group relative flex flex-col border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-secondary/35",
         className
       )}
     >
       <div className="flex items-start justify-between">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+        <span className="flex h-11 w-11 items-center justify-center border border-border bg-background text-primary">
           <Icon name={industry.icon} className="h-5 w-5" />
         </span>
         <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
       </div>
-      <h3 className="mt-5 font-display text-lg font-semibold text-foreground">
+      <h3 className="mt-8 font-display text-2xl font-normal tracking-[-0.025em] text-foreground">
         {industry.name}
       </h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">

@@ -13,7 +13,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Logo } from "@/components/logo";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { MegaMenu } from "@/components/layout/mega-menu";
 import { primaryNav, secondaryNav } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -34,11 +33,11 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 w-full transition-colors duration-300",
         scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+          ? "border-b border-border bg-background/95 backdrop-blur-xl"
+          : "border-b border-border bg-background"
       )}
     >
-      <div className="container-page flex h-16 items-center justify-between">
+      <div className="container-page flex h-[76px] items-center justify-between">
         <Logo />
 
         <MegaMenu groups={primaryNav} />
@@ -48,7 +47,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
+              className="px-3 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-foreground/75 transition-colors hover:text-primary"
             >
               {item.label}
             </Link>
@@ -56,9 +55,6 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="hidden lg:block">
-            <ThemeToggle />
-          </div>
           <Button asChild variant="gradient" size="default" className="hidden lg:inline-flex">
             <Link href="/quote">
               Get a quote
@@ -121,8 +117,7 @@ export function Navbar() {
                 </div>
               </div>
 
-              <div className="mt-6 flex items-center justify-between border-t border-border pt-6">
-                <ThemeToggle />
+              <div className="mt-6 flex items-center justify-end border-t border-border pt-6">
                 <Button asChild variant="gradient">
                   <Link href="/quote" onClick={() => setMobileOpen(false)}>
                     Get a quote

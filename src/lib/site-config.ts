@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Mirflow helps Southern California home-service and appointment-based businesses capture more leads, book more work, and give their teams time back with practical AI automation.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mirflow.online",
-  ogImage: "/opengraph-image",
+  ogImage: "/og.jpg",
   email: "hello@mirflow.online",
   supportEmail: "support@mirflow.online",
   phone: "+1 (415) 555-0148",
