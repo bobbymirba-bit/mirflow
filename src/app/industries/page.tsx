@@ -13,11 +13,11 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Industries",
   description:
-    "See how Cadence's AI automation is built for 18+ industries — from HVAC and law firms to ecommerce and healthcare — with real benchmarks for each vertical.",
+    "See how Mirflow's AI automation is built for 18+ industries — from HVAC and law firms to ecommerce and healthcare — with real benchmarks for each vertical.",
   openGraph: {
     title: `Industries | ${siteConfig.name}`,
     description:
-      "See how Cadence's AI automation is built for 18+ industries with real benchmarks for each vertical.",
+      "See how Mirflow's AI automation is built for 18+ industries with real benchmarks for each vertical.",
   },
 };
 
@@ -33,7 +33,7 @@ export default function IndustriesPage() {
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
               Every vertical has a different bottleneck — missed calls, slow intake,
-              manual scheduling. Cadence starts with the pattern that&apos;s specific to
+              manual scheduling. Mirflow starts with the pattern that&apos;s specific to
               your business, not a generic template.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

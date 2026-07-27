@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     category: "Automation Strategy",
     date: "2026-06-02",
     readTime: "7 min read",
-    author: { name: "Cadence Team", role: "Editorial", initials: "CT" },
+    author: { name: "Mirflow Team", role: "Editorial", initials: "CT" },
     content: [
       {
         heading: "Start with cost, not capability",
@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
     category: "Voice & Conversational AI",
     date: "2026-05-18",
     readTime: "6 min read",
-    author: { name: "Cadence Team", role: "Editorial", initials: "CT" },
+    author: { name: "Mirflow Team", role: "Editorial", initials: "CT" },
     content: [
       {
         heading: "IVR was built for routing, not resolution",
@@ -78,7 +78,7 @@ export const blogPosts: BlogPost[] = [
     category: "Automation Strategy",
     date: "2026-05-02",
     readTime: "5 min read",
-    author: { name: "Cadence Team", role: "Editorial", initials: "CT" },
+    author: { name: "Mirflow Team", role: "Editorial", initials: "CT" },
     content: [
       {
         heading: "The 90% problem",
@@ -102,7 +102,7 @@ export const blogPosts: BlogPost[] = [
     category: "Industry",
     date: "2026-04-20",
     readTime: "6 min read",
-    author: { name: "Cadence Team", role: "Editorial", initials: "CT" },
+    author: { name: "Mirflow Team", role: "Editorial", initials: "CT" },
     content: [
       {
         heading: "Missed calls don't show up on your P&L",
@@ -126,7 +126,7 @@ export const blogPosts: BlogPost[] = [
     category: "Automation Strategy",
     date: "2026-04-05",
     readTime: "8 min read",
-    author: { name: "Cadence Team", role: "Editorial", initials: "CT" },
+    author: { name: "Mirflow Team", role: "Editorial", initials: "CT" },
     content: [
       {
         heading: "The hallucination problem",
@@ -150,7 +150,7 @@ export const blogPosts: BlogPost[] = [
     category: "Operations",
     date: "2026-03-14",
     readTime: "5 min read",
-    author: { name: "Cadence Team", role: "Editorial", initials: "CT" },
+    author: { name: "Mirflow Team", role: "Editorial", initials: "CT" },
     content: [
       {
         heading: "1. Your process is repeatable, even if it's not written down",

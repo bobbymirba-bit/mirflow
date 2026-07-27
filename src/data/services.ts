@@ -44,7 +44,7 @@ export const services: Service[] = [
     icon: "MessageSquare",
     tagline: "Answer every website visitor instantly, in your brand voice.",
     description:
-      "Cadence deploys a chatbot trained on your product, pricing, and policies that resolves questions, qualifies leads, and routes conversations to the right team member in real time.",
+      "Mirflow deploys a chatbot trained on your product, pricing, and policies that resolves questions, qualifies leads, and routes conversations to the right team member in real time.",
     businessValue:
       "Website visitors expect an answer within seconds. A trained chatbot captures leads that would otherwise bounce, and removes repetitive Tier-1 questions from your support queue.",
     roiStat: { value: "3.4x", label: "increase in captured leads" },
@@ -55,7 +55,7 @@ export const services: Service[] = [
       "Collect contact info and book meetings automatically",
     ],
     workflow: [
-      { title: "Ingest", description: "Cadence indexes your site, docs, and FAQs into a live knowledge base." },
+      { title: "Ingest", description: "Mirflow indexes your site, docs, and FAQs into a live knowledge base." },
       { title: "Converse", description: "The assistant answers in your tone of voice, citing your source content." },
       { title: "Qualify", description: "Structured questions capture intent, budget, and timeline." },
       { title: "Route", description: "Hot leads are pushed to your CRM or a rep's calendar instantly." },
@@ -69,7 +69,7 @@ export const services: Service[] = [
     icon: "Phone",
     tagline: "A phone agent that sounds human and never misses a call.",
     description:
-      "Cadence Voice AI answers inbound calls, understands natural speech, and completes tasks like booking, triage, and FAQ resolution with latency low enough to feel like a real conversation.",
+      "Mirflow Voice AI answers inbound calls, understands natural speech, and completes tasks like booking, triage, and FAQ resolution with latency low enough to feel like a real conversation.",
     businessValue:
       "Every missed call is a missed job or lost patient. Voice AI guarantees coverage during peak hours, after hours, and on holidays without the cost of a 24/7 call center.",
     roiStat: { value: "100%", label: "call answer rate" },
@@ -94,7 +94,7 @@ export const services: Service[] = [
     icon: "Headset",
     tagline: "A front desk that never takes a break.",
     description:
-      "Cadence acts as a virtual receptionist across phone, text, and chat — greeting callers, scheduling visits, and answering common questions exactly like your best front-desk hire.",
+      "Mirflow acts as a virtual receptionist across phone, text, and chat — greeting callers, scheduling visits, and answering common questions exactly like your best front-desk hire.",
     businessValue:
       "Front-desk staff are frequently pulled away to help clients in person. An AI receptionist ensures no call goes unanswered, protecting revenue without adding payroll.",
     roiStat: { value: "9 hrs", label: "saved per week per location" },
@@ -119,7 +119,7 @@ export const services: Service[] = [
     icon: "PhoneIncoming",
     tagline: "Convert inbound interest before it goes cold.",
     description:
-      "Cadence responds to every inbound sales inquiry within seconds across chat, phone, and SMS, qualifying budget and intent before handing a warm, ready-to-close lead to your reps.",
+      "Mirflow responds to every inbound sales inquiry within seconds across chat, phone, and SMS, qualifying budget and intent before handing a warm, ready-to-close lead to your reps.",
     businessValue:
       "Speed to lead is the single biggest predictor of close rate. Automating the first response guarantees every inbound inquiry gets engaged while interest is highest.",
     roiStat: { value: "5x", label: "faster first response" },
@@ -144,7 +144,7 @@ export const services: Service[] = [
     icon: "Bot",
     tagline: "A personal assistant for every operator on your team.",
     description:
-      "Cadence builds custom AI assistants that draft emails, prep meeting briefs, manage task lists, and answer internal questions — accessible from Slack, Teams, or a private web app.",
+      "Mirflow builds custom AI assistants that draft emails, prep meeting briefs, manage task lists, and answer internal questions — accessible from Slack, Teams, or a private web app.",
     businessValue:
       "Knowledge workers spend hours a week on repetitive coordination tasks. A dedicated AI assistant reclaims that time for higher-value work.",
     roiStat: { value: "6 hrs", label: "reclaimed per employee weekly" },
@@ -169,7 +169,7 @@ export const services: Service[] = [
     icon: "UserRound",
     tagline: "A named, dedicated AI teammate with its own workflows.",
     description:
-      "Cadence deploys role-specific AI employees — like an SDR, support agent, or ops coordinator — that own an end-to-end process rather than a single task, complete with reporting and oversight.",
+      "Mirflow deploys role-specific AI employees — like an SDR, support agent, or ops coordinator — that own an end-to-end process rather than a single task, complete with reporting and oversight.",
     businessValue:
       "Instead of stitching together point tools, businesses get a single accountable digital worker that executes a full job function reliably, at a fraction of the cost of a hire.",
     roiStat: { value: "70%", label: "lower cost than a full-time hire" },
@@ -196,7 +196,7 @@ export const services: Service[] = [
     icon: "PhoneOutgoing",
     tagline: "Prospecting and follow-up that never stops working.",
     description:
-      "Cadence runs outbound calling and messaging campaigns that reach cold and warm leads, handle objections with a natural voice, and book meetings directly onto your team's calendar.",
+      "Mirflow runs outbound calling and messaging campaigns that reach cold and warm leads, handle objections with a natural voice, and book meetings directly onto your team's calendar.",
     businessValue:
       "Outbound is a volume game constrained by rep capacity. Automating first-touch outreach multiplies pipeline without multiplying headcount.",
     roiStat: { value: "4x", label: "more meetings booked per rep" },
@@ -221,7 +221,7 @@ export const services: Service[] = [
     icon: "ListChecks",
     tagline: "Only talk to leads worth talking to.",
     description:
-      "Cadence scores and qualifies every inbound lead against your ideal customer profile using conversational forms, call analysis, and CRM signals — before a rep spends a minute on it.",
+      "Mirflow scores and qualifies every inbound lead against your ideal customer profile using conversational forms, call analysis, and CRM signals — before a rep spends a minute on it.",
     businessValue:
       "Sales teams waste enormous time on leads that were never going to close. Automated qualification protects rep time for opportunities that matter.",
     roiStat: { value: "38%", label: "increase in rep close rate" },
@@ -246,7 +246,7 @@ export const services: Service[] = [
     icon: "CalendarCheck",
     tagline: "Booking, confirmations, and reminders on autopilot.",
     description:
-      "Cadence manages your entire scheduling flow — checking real-time availability, booking directly into your calendar, and sending confirmations and reminders to cut no-shows.",
+      "Mirflow manages your entire scheduling flow — checking real-time availability, booking directly into your calendar, and sending confirmations and reminders to cut no-shows.",
     businessValue:
       "Back-and-forth scheduling costs hours weekly and causes drop-off before a booking is even confirmed. Automated booking removes friction at the exact moment intent is highest.",
     roiStat: { value: "24%", label: "fewer no-shows" },
@@ -271,9 +271,9 @@ export const services: Service[] = [
     icon: "Send",
     tagline: "Personalized outbound sequences at scale.",
     description:
-      "Cadence researches prospects, personalizes multi-channel sequences across email and LinkedIn, and adapts messaging based on engagement — without sounding automated.",
+      "Mirflow researches prospects, personalizes multi-channel sequences across email and LinkedIn, and adapts messaging based on engagement — without sounding automated.",
     businessValue:
-      "Generic outreach gets ignored. Personalization at scale was previously impossible without a large SDR team; Cadence makes it a repeatable system.",
+      "Generic outreach gets ignored. Personalization at scale was previously impossible without a large SDR team; Mirflow makes it a repeatable system.",
     roiStat: { value: "3.1x", label: "higher reply rate" },
     useCases: [
       "Build and enrich targeted prospect lists",
@@ -296,7 +296,7 @@ export const services: Service[] = [
     icon: "FileSignature",
     tagline: "From call to signed proposal in minutes.",
     description:
-      "Cadence auto-generates branded, accurate proposals and quotes from call notes or intake forms, cutting turnaround time from days to minutes.",
+      "Mirflow auto-generates branded, accurate proposals and quotes from call notes or intake forms, cutting turnaround time from days to minutes.",
     businessValue:
       "Slow proposals lose deals to faster competitors. Automating generation lets reps send a polished quote while interest is still high.",
     roiStat: { value: "68%", label: "faster proposal turnaround" },
@@ -321,7 +321,7 @@ export const services: Service[] = [
     icon: "TrendingUp",
     tagline: "Remove the busywork between pipeline stages.",
     description:
-      "Cadence automates the administrative work between sales stages — data entry, task creation, follow-up sequencing, and deal-risk alerts — so reps spend their time selling.",
+      "Mirflow automates the administrative work between sales stages — data entry, task creation, follow-up sequencing, and deal-risk alerts — so reps spend their time selling.",
     businessValue:
       "Reps spend up to a third of their time on non-selling admin. Automating pipeline mechanics directly increases selling time and forecast accuracy.",
     roiStat: { value: "31%", label: "more selling time per rep" },
@@ -348,7 +348,7 @@ export const services: Service[] = [
     icon: "LifeBuoy",
     tagline: "Resolve tickets instantly, escalate what matters.",
     description:
-      "Cadence resolves common support requests instantly across chat and email, using your help docs and order data, while intelligently escalating complex cases to human agents.",
+      "Mirflow resolves common support requests instantly across chat and email, using your help docs and order data, while intelligently escalating complex cases to human agents.",
     businessValue:
       "The majority of support volume is repetitive. Automating resolution cuts response time to seconds and lets your team focus on high-value, relationship-driving conversations.",
     roiStat: { value: "68%", label: "of tickets resolved without a human" },
@@ -373,7 +373,7 @@ export const services: Service[] = [
     icon: "BookOpen",
     tagline: "Every employee gets an instant answer, sourced correctly.",
     description:
-      "Cadence turns your scattered docs, wikis, and Slack threads into a searchable AI knowledge base that answers employee questions with citations back to the source.",
+      "Mirflow turns your scattered docs, wikis, and Slack threads into a searchable AI knowledge base that answers employee questions with citations back to the source.",
     businessValue:
       "Employees lose hours weekly hunting for information across tools. A unified, AI-searchable knowledge base collapses that time to seconds.",
     roiStat: { value: "50%", label: "less time spent searching for answers" },
@@ -398,7 +398,7 @@ export const services: Service[] = [
     icon: "Star",
     tagline: "Turn happy customers into public proof.",
     description:
-      "Cadence automatically requests reviews at the right moment after service completion, routes unhappy customers to private feedback, and helps respond to reviews at scale.",
+      "Mirflow automatically requests reviews at the right moment after service completion, routes unhappy customers to private feedback, and helps respond to reviews at scale.",
     businessValue:
       "Review volume and rating directly influence local search ranking and conversion. Automating requests compounds review growth without manual chasing.",
     roiStat: { value: "3.1x", label: "more reviews collected" },
@@ -423,7 +423,7 @@ export const services: Service[] = [
     icon: "MessageCircle",
     tagline: "The channel with the highest open rate, fully automated.",
     description:
-      "Cadence sends and responds to text messages for booking, reminders, quotes, and updates — the channel customers actually read, with a 98% open rate.",
+      "Mirflow sends and responds to text messages for booking, reminders, quotes, and updates — the channel customers actually read, with a 98% open rate.",
     businessValue:
       "SMS consistently outperforms email in open and response rate. Automating two-way texting captures conversions that would otherwise be missed.",
     roiStat: { value: "98%", label: "message open rate" },
@@ -448,7 +448,7 @@ export const services: Service[] = [
     icon: "Mail",
     tagline: "Inboxes that answer themselves.",
     description:
-      "Cadence drafts and sends replies to common email inquiries, triages incoming messages by intent, and keeps nurture sequences running without manual sends.",
+      "Mirflow drafts and sends replies to common email inquiries, triages incoming messages by intent, and keeps nurture sequences running without manual sends.",
     businessValue:
       "Shared inboxes become a bottleneck as volume grows. Automating triage and response keeps reply times fast without adding support headcount.",
     roiStat: { value: "72%", label: "faster average reply time" },
@@ -475,7 +475,7 @@ export const services: Service[] = [
     icon: "Database",
     tagline: "A CRM that updates itself.",
     description:
-      "Cadence keeps your CRM current automatically — logging calls, updating deal stages, enriching contact records, and triggering workflows without manual data entry.",
+      "Mirflow keeps your CRM current automatically — logging calls, updating deal stages, enriching contact records, and triggering workflows without manual data entry.",
     businessValue:
       "CRMs are only as valuable as the data inside them. Automating entry improves forecast accuracy and frees reps from the most-hated part of the job.",
     roiStat: { value: "5 hrs", label: "saved per rep weekly" },
@@ -486,7 +486,7 @@ export const services: Service[] = [
       "Trigger workflows when records meet defined criteria",
     ],
     workflow: [
-      { title: "Sync", description: "Cadence connects to your CRM and communication tools." },
+      { title: "Sync", description: "Mirflow connects to your CRM and communication tools." },
       { title: "Capture", description: "Every interaction is logged without manual entry." },
       { title: "Enrich", description: "Records are automatically completed with missing data." },
       { title: "Trigger", description: "Workflows fire automatically based on record changes." },
@@ -500,7 +500,7 @@ export const services: Service[] = [
     icon: "CalendarClock",
     tagline: "Scheduling that respects everyone's time.",
     description:
-      "Cadence coordinates meeting scheduling across internal and external calendars, finds optimal times automatically, and handles reschedules without email back-and-forth.",
+      "Mirflow coordinates meeting scheduling across internal and external calendars, finds optimal times automatically, and handles reschedules without email back-and-forth.",
     businessValue:
       "Manual scheduling costs knowledge workers hours weekly. Automated coordination eliminates the back-and-forth entirely.",
     roiStat: { value: "4 hrs", label: "saved per employee weekly" },
@@ -525,7 +525,7 @@ export const services: Service[] = [
     icon: "NotebookPen",
     tagline: "Every meeting, summarized and actioned automatically.",
     description:
-      "Cadence joins calls, transcribes discussion, and delivers a structured summary with action items pushed directly into your CRM or task manager.",
+      "Mirflow joins calls, transcribes discussion, and delivers a structured summary with action items pushed directly into your CRM or task manager.",
     businessValue:
       "Manual note-taking splits attention and loses detail. Automated capture ensures nothing falls through the cracks after a call ends.",
     roiStat: { value: "100%", label: "of meetings auto-summarized" },
@@ -550,7 +550,7 @@ export const services: Service[] = [
     icon: "Plug",
     tagline: "Connect every tool in your stack, reliably.",
     description:
-      "Cadence builds and maintains custom integrations between your CRM, calendar, billing, and internal systems so data flows automatically without manual exports.",
+      "Mirflow builds and maintains custom integrations between your CRM, calendar, billing, and internal systems so data flows automatically without manual exports.",
     businessValue:
       "Disconnected tools force manual data transfer and create errors. Reliable integrations turn your stack into a single connected system.",
     roiStat: { value: "100%", label: "data consistency across systems" },
@@ -577,7 +577,7 @@ export const services: Service[] = [
     icon: "FileText",
     tagline: "Turn any document into structured, usable data.",
     description:
-      "Cadence extracts and structures data from contracts, forms, and PDFs automatically, feeding it directly into your downstream systems without manual re-keying.",
+      "Mirflow extracts and structures data from contracts, forms, and PDFs automatically, feeding it directly into your downstream systems without manual re-keying.",
     businessValue:
       "Manual document handling is slow and error-prone. Automated processing turns unstructured paperwork into a real-time data source.",
     roiStat: { value: "4x", label: "faster document turnaround" },
@@ -602,7 +602,7 @@ export const services: Service[] = [
     icon: "FileScan",
     tagline: "Pull structured fields from any PDF, instantly.",
     description:
-      "Cadence extracts tables, line items, and key fields from invoices, statements, and reports — even from scanned or inconsistently formatted PDFs.",
+      "Mirflow extracts tables, line items, and key fields from invoices, statements, and reports — even from scanned or inconsistently formatted PDFs.",
     businessValue:
       "PDFs remain the most common format for business documents, yet the hardest to automate. Reliable extraction eliminates manual transcription entirely.",
     roiStat: { value: "99.2%", label: "extraction accuracy" },
@@ -627,7 +627,7 @@ export const services: Service[] = [
     icon: "ScanLine",
     tagline: "Convert scans and images into searchable text.",
     description:
-      "Cadence applies advanced optical character recognition to scanned documents, handwriting, and images — making them searchable, structured, and usable by downstream automations.",
+      "Mirflow applies advanced optical character recognition to scanned documents, handwriting, and images — making them searchable, structured, and usable by downstream automations.",
     businessValue:
       "Paper archives and scanned records lock up valuable information. OCR unlocks that data for search, compliance, and automation.",
     roiStat: { value: "10x", label: "faster archive digitization" },
@@ -641,7 +641,7 @@ export const services: Service[] = [
       { title: "Scan", description: "Physical or image-based documents are ingested." },
       { title: "Recognize", description: "Text and structure are extracted with high accuracy." },
       { title: "Index", description: "Content becomes fully searchable and structured." },
-      { title: "Integrate", description: "Output feeds directly into other Cadence workflows." },
+      { title: "Integrate", description: "Output feeds directly into other Mirflow workflows." },
     ],
     industries: ["law-firms", "healthcare", "insurance", "manufacturing"],
   },
@@ -652,7 +652,7 @@ export const services: Service[] = [
     icon: "Search",
     tagline: "Answers grounded in your own data, never hallucinated.",
     description:
-      "Cadence builds retrieval-augmented generation systems that ground AI responses in your proprietary documents, ensuring accurate, citable answers instead of generic AI guesses.",
+      "Mirflow builds retrieval-augmented generation systems that ground AI responses in your proprietary documents, ensuring accurate, citable answers instead of generic AI guesses.",
     businessValue:
       "Generic AI models don't know your business. RAG systems combine the reasoning of large language models with the accuracy of your verified internal data.",
     roiStat: { value: "94%", label: "answer accuracy vs. source docs" },
@@ -677,7 +677,7 @@ export const services: Service[] = [
     icon: "Boxes",
     tagline: "The infrastructure behind every AI knowledge system.",
     description:
-      "Cadence designs and manages the vector database infrastructure that powers semantic search, RAG, and recommendation systems at production scale.",
+      "Mirflow designs and manages the vector database infrastructure that powers semantic search, RAG, and recommendation systems at production scale.",
     businessValue:
       "Search and retrieval quality determines whether an AI system feels magical or useless. Proper vector infrastructure is the foundation of reliable AI applications.",
     roiStat: { value: "<100ms", label: "average retrieval latency" },
@@ -704,7 +704,7 @@ export const services: Service[] = [
     icon: "Workflow",
     tagline: "Multi-step processes that run themselves.",
     description:
-      "Cadence maps your manual, multi-step business processes and automates them end-to-end — connecting tools, applying business logic, and handling exceptions gracefully.",
+      "Mirflow maps your manual, multi-step business processes and automates them end-to-end — connecting tools, applying business logic, and handling exceptions gracefully.",
     businessValue:
       "Every manual handoff between systems is a source of delay and error. End-to-end automation compresses cycle time and removes human bottlenecks.",
     roiStat: { value: "31%", label: "reduction in process cycle time" },
@@ -729,7 +729,7 @@ export const services: Service[] = [
     icon: "Slack",
     tagline: "Turn Slack into an execution layer, not just chat.",
     description:
-      "Cadence builds Slack-native bots and workflows that answer questions, trigger approvals, and surface alerts directly where your team already works.",
+      "Mirflow builds Slack-native bots and workflows that answer questions, trigger approvals, and surface alerts directly where your team already works.",
     businessValue:
       "Context-switching between tools kills productivity. Bringing automation directly into Slack keeps teams in flow.",
     roiStat: { value: "3 hrs", label: "saved per employee weekly" },
@@ -740,7 +740,7 @@ export const services: Service[] = [
       "Run standups and status updates without meetings",
     ],
     workflow: [
-      { title: "Install", description: "The Cadence app is installed into your workspace." },
+      { title: "Install", description: "The Mirflow app is installed into your workspace." },
       { title: "Configure", description: "Channels, triggers, and permissions are set up." },
       { title: "Automate", description: "Bots respond to questions and run workflows in real time." },
       { title: "Extend", description: "New automations are added as needs evolve." },
@@ -754,7 +754,7 @@ export const services: Service[] = [
     icon: "Users",
     tagline: "Automation built for Microsoft Teams environments.",
     description:
-      "Cadence brings the same automation capabilities to Microsoft Teams — bots, approvals, and alerts — for organizations standardized on the Microsoft ecosystem.",
+      "Mirflow brings the same automation capabilities to Microsoft Teams — bots, approvals, and alerts — for organizations standardized on the Microsoft ecosystem.",
     businessValue:
       "Enterprise teams often can't adopt new chat tools. Native Teams automation delivers the same efficiency gains within existing IT policy.",
     roiStat: { value: "3 hrs", label: "saved per employee weekly" },
@@ -779,7 +779,7 @@ export const services: Service[] = [
     icon: "Sparkles",
     tagline: "Purpose-built AI models for a single job.",
     description:
-      "Cadence fine-tunes and configures custom GPT-style models scoped to a specific task — support, sales, or internal ops — so responses are accurate, on-brand, and fast.",
+      "Mirflow fine-tunes and configures custom GPT-style models scoped to a specific task — support, sales, or internal ops — so responses are accurate, on-brand, and fast.",
     businessValue:
       "General-purpose AI models are unreliable for specialized business tasks. A narrowly scoped custom model performs dramatically better on the job it's built for.",
     roiStat: { value: "2.3x", label: "improvement in response accuracy" },
@@ -806,7 +806,7 @@ export const services: Service[] = [
     icon: "Megaphone",
     tagline: "Campaigns that run and optimize themselves.",
     description:
-      "Cadence automates campaign execution — segmentation, send timing, and follow-up — across email and SMS, continuously optimizing based on engagement data.",
+      "Mirflow automates campaign execution — segmentation, send timing, and follow-up — across email and SMS, continuously optimizing based on engagement data.",
     businessValue:
       "Manual campaign management doesn't scale with list size or channel count. Automation keeps every segment engaged without added marketing headcount.",
     roiStat: { value: "27%", label: "increase in campaign engagement" },
@@ -831,7 +831,7 @@ export const services: Service[] = [
     icon: "PenTool",
     tagline: "On-brand content at the speed of your roadmap.",
     description:
-      "Cadence generates first-draft blog posts, ad copy, and product descriptions trained on your brand voice, giving marketing teams a running start on every piece of content.",
+      "Mirflow generates first-draft blog posts, ad copy, and product descriptions trained on your brand voice, giving marketing teams a running start on every piece of content.",
     businessValue:
       "Content bottlenecks slow down marketing velocity. AI-assisted drafting compresses production time while keeping a human in the loop for quality and accuracy.",
     roiStat: { value: "3x", label: "faster content production" },
@@ -856,7 +856,7 @@ export const services: Service[] = [
     icon: "Share2",
     tagline: "Consistent posting without the daily lift.",
     description:
-      "Cadence plans, drafts, and schedules social content across platforms, and can auto-respond to common comments and DMs to keep engagement high.",
+      "Mirflow plans, drafts, and schedules social content across platforms, and can auto-respond to common comments and DMs to keep engagement high.",
     businessValue:
       "Inconsistent posting is one of the biggest drivers of stalled social growth. Automating the pipeline keeps a consistent presence without daily manual work.",
     roiStat: { value: "4x", label: "more consistent posting cadence" },
@@ -883,7 +883,7 @@ export const services: Service[] = [
     icon: "Receipt",
     tagline: "Invoicing and collections without the chasing.",
     description:
-      "Cadence generates, sends, and follows up on invoices automatically, matching payments and flagging overdue accounts without manual bookkeeping work.",
+      "Mirflow generates, sends, and follows up on invoices automatically, matching payments and flagging overdue accounts without manual bookkeeping work.",
     businessValue:
       "Delayed invoicing directly delays cash flow. Automating generation and follow-up shortens days-sales-outstanding significantly.",
     roiStat: { value: "9 days", label: "reduction in DSO" },
@@ -908,7 +908,7 @@ export const services: Service[] = [
     icon: "Calculator",
     tagline: "Books that close themselves every month.",
     description:
-      "Cadence categorizes transactions, reconciles accounts, and prepares month-end reporting automatically, integrated directly with your accounting software.",
+      "Mirflow categorizes transactions, reconciles accounts, and prepares month-end reporting automatically, integrated directly with your accounting software.",
     businessValue:
       "Manual bookkeeping is slow, error-prone, and often delayed until month-end crunch. Automation keeps books continuously accurate and audit-ready.",
     roiStat: { value: "15 hrs", label: "saved per month" },
@@ -933,7 +933,7 @@ export const services: Service[] = [
     icon: "FileBarChart",
     tagline: "Every report, generated on schedule, automatically.",
     description:
-      "Cadence pulls data from across your systems to generate recurring reports — financial, operational, or client-facing — without a spreadsheet ever being touched manually.",
+      "Mirflow pulls data from across your systems to generate recurring reports — financial, operational, or client-facing — without a spreadsheet ever being touched manually.",
     businessValue:
       "Recurring reporting consumes hours of analyst time each month. Automating generation frees that time for actual analysis and decision-making.",
     roiStat: { value: "12 hrs", label: "saved per month" },
@@ -958,7 +958,7 @@ export const services: Service[] = [
     icon: "BarChart3",
     tagline: "Understand what's actually driving your business.",
     description:
-      "Cadence unifies data across marketing, sales, and operations into a single analytics layer, surfacing the metrics that actually explain performance changes.",
+      "Mirflow unifies data across marketing, sales, and operations into a single analytics layer, surfacing the metrics that actually explain performance changes.",
     businessValue:
       "Fragmented data across tools makes it impossible to see the full picture. A unified analytics layer turns raw data into clear, actionable decisions.",
     roiStat: { value: "1", label: "source of truth across teams" },
@@ -983,7 +983,7 @@ export const services: Service[] = [
     icon: "LineChart",
     tagline: "Plan ahead with models, not guesswork.",
     description:
-      "Cadence builds demand, revenue, and cash-flow forecasting models trained on your historical data, continuously updated as new data arrives.",
+      "Mirflow builds demand, revenue, and cash-flow forecasting models trained on your historical data, continuously updated as new data arrives.",
     businessValue:
       "Spreadsheet-based forecasts go stale immediately and rarely account for seasonality or leading indicators. Model-based forecasting improves planning accuracy significantly.",
     roiStat: { value: "23%", label: "improvement in forecast accuracy" },
@@ -1008,7 +1008,7 @@ export const services: Service[] = [
     icon: "PieChart",
     tagline: "Executive-ready insight, always current.",
     description:
-      "Cadence builds BI systems that give leadership a live view of the metrics that matter, replacing static slide decks with always-current dashboards.",
+      "Mirflow builds BI systems that give leadership a live view of the metrics that matter, replacing static slide decks with always-current dashboards.",
     businessValue:
       "Leadership decisions are often made on outdated data. Live BI systems keep every stakeholder aligned on the same current numbers.",
     roiStat: { value: "100%", label: "real-time visibility across teams" },
@@ -1033,7 +1033,7 @@ export const services: Service[] = [
     icon: "LayoutDashboard",
     tagline: "Ask your data questions in plain English.",
     description:
-      "Cadence builds conversational dashboards where any team member can ask a question in natural language and get an accurate chart or answer, no SQL required.",
+      "Mirflow builds conversational dashboards where any team member can ask a question in natural language and get an accurate chart or answer, no SQL required.",
     businessValue:
       "Most employees can't write queries, so they wait on analysts for simple answers. Conversational dashboards make data self-service for everyone.",
     roiStat: { value: "80%", label: "fewer ad hoc analyst requests" },
@@ -1060,7 +1060,7 @@ export const services: Service[] = [
     icon: "AppWindow",
     tagline: "A bespoke AI product built around your workflow.",
     description:
-      "When off-the-shelf tools don't fit, Cadence designs and ships a fully custom AI application — internal tool or customer-facing product — built for your exact process.",
+      "When off-the-shelf tools don't fit, Mirflow designs and ships a fully custom AI application — internal tool or customer-facing product — built for your exact process.",
     businessValue:
       "Unique processes deserve purpose-built software. Custom AI applications deliver a competitive advantage that generic tools can't replicate.",
     roiStat: { value: "100%", label: "fit to your exact workflow" },
@@ -1085,7 +1085,7 @@ export const services: Service[] = [
     icon: "Camera",
     tagline: "See and act on visual data at scale.",
     description:
-      "Cadence builds computer vision systems for quality inspection, inventory counting, and safety monitoring — processing images and video far faster than manual review.",
+      "Mirflow builds computer vision systems for quality inspection, inventory counting, and safety monitoring — processing images and video far faster than manual review.",
     businessValue:
       "Manual visual inspection doesn't scale and is inconsistent between reviewers. Computer vision applies a consistent standard at a fraction of the cost.",
     roiStat: { value: "17%", label: "reduction in defect escape rate" },
@@ -1110,7 +1110,7 @@ export const services: Service[] = [
     icon: "Cpu",
     tagline: "AI that plans, acts, and completes tasks autonomously.",
     description:
-      "Cadence builds agentic systems that can independently break down a goal into steps, use tools and APIs, and complete multi-step tasks with minimal human input.",
+      "Mirflow builds agentic systems that can independently break down a goal into steps, use tools and APIs, and complete multi-step tasks with minimal human input.",
     businessValue:
       "Traditional automation only handles predefined paths. Agentic AI adapts to novel situations, handling a far broader range of tasks reliably.",
     roiStat: { value: "10x", label: "broader task coverage than rules-based automation" },
@@ -1135,7 +1135,7 @@ export const services: Service[] = [
     icon: "Network",
     tagline: "A coordinated team of specialized AI agents.",
     description:
-      "Cadence architects multi-agent systems where specialized agents — research, drafting, validation, execution — collaborate to complete complex business processes end-to-end.",
+      "Mirflow architects multi-agent systems where specialized agents — research, drafting, validation, execution — collaborate to complete complex business processes end-to-end.",
     businessValue:
       "Complex workflows often exceed what a single AI agent can reliably handle. Coordinated multi-agent systems divide work the way a specialized team would.",
     roiStat: { value: "45%", label: "faster complex process completion" },

@@ -11,12 +11,12 @@ import { CtaSection } from "@/components/cta-section";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "About Cadence",
+  title: "About Mirflow",
   description:
-    "Cadence builds practical AI automation for Southern California home-service and appointment-based businesses.",
+    "Mirflow builds practical AI automation for Southern California home-service and appointment-based businesses.",
   openGraph: {
     title: `About | ${siteConfig.name}`,
-    description: "Cadence builds practical AI automation for Southern California home-service and appointment-based businesses.",
+    description: "Mirflow builds practical AI automation for Southern California home-service and appointment-based businesses.",
   },
 };
 
@@ -31,7 +31,7 @@ const values = [
     icon: ShieldCheck,
     title: "Own the system, end to end",
     description:
-      "We don't hand you a dashboard and walk away. Cadence designs, deploys, monitors, and improves every system we build for as long as you're a customer.",
+      "We don't hand you a dashboard and walk away. Mirflow designs, deploys, monitors, and improves every system we build for as long as you're a customer.",
   },
   {
     icon: Gauge,
@@ -60,12 +60,12 @@ export default function AboutPage() {
       <section className="bg-grid bg-radial-glow noise-overlay relative overflow-hidden border-b border-border">
         <div className="container-page py-20 sm:py-28">
           <div className="mx-auto max-w-3xl text-center">
-            <Badge variant="brand">About Cadence</Badge>
+            <Badge variant="brand">About Mirflow</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
               Practical AI automation for Southern California businesses
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Cadence exists because most businesses lose revenue to things that never
+              Mirflow exists because most businesses lose revenue to things that never
               needed a human in the first place — a missed call, a slow follow-up, a
               manual report. We build the systems that close those gaps and keep running
               long after launch day.
@@ -94,11 +94,11 @@ export default function AboutPage() {
         <div className="container-page py-16 sm:py-20">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
             <Reveal>
-              <SectionHeading align="left" eyebrow="Our story" title="Why Cadence exists" className="mx-0 max-w-xl" />
+              <SectionHeading align="left" eyebrow="Our story" title="Why Mirflow exists" className="mx-0 max-w-xl" />
             </Reveal>
             <Reveal delay={0.1} className="space-y-5 text-base leading-relaxed text-muted-foreground">
               <p>
-                Cadence started with a simple observation: the businesses losing the most
+                Mirflow started with a simple observation: the businesses losing the most
                 revenue to inefficiency weren&apos;t lacking effort — they were lacking systems.
                 Front desks were understaffed for call volume. Sales teams were qualifying
                 leads by hand. Back offices were re-keying the same data across five tools.
@@ -106,12 +106,12 @@ export default function AboutPage() {
               <p>
                 Generic software wasn&apos;t solving this. Off-the-shelf AI tools required teams
                 to configure, train, and maintain them — on top of everything else they were
-                already doing. So we built Cadence to do the opposite: design the system
+                already doing. So we built Mirflow to do the opposite: design the system
                 around how the business actually works, deploy it, and keep improving it
                 as a standing part of the relationship, not a one-time software purchase.
               </p>
               <p>
-                Today, Cadence deploys automation across more than 40 services and 18
+                Today, Mirflow deploys automation across more than 40 services and 18
                 industries — from AI receptionists for local service businesses to
                 multi-agent systems for complex back-office operations.
               </p>

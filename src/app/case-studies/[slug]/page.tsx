@@ -113,7 +113,7 @@ export default async function CaseStudyPage({
           <div className="flex items-start gap-3 rounded-xl border border-border bg-card px-5 py-4 text-sm text-muted-foreground">
             <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             <p>
-              This is an illustrative example built from typical outcomes Cadence produces
+              This is an illustrative example built from typical outcomes Mirflow produces
               for {study.industry.toLowerCase()} businesses — used to show how the workflow
               is structured and the kind of impact it produces.
             </p>
@@ -132,7 +132,7 @@ export default async function CaseStudyPage({
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <SectionHeading align="left" eyebrow="The solution" title="What Cadence deployed" className="mx-0 max-w-xl" />
+              <SectionHeading align="left" eyebrow="The solution" title="What Mirflow deployed" className="mx-0 max-w-xl" />
               <p className="mt-6 text-base leading-relaxed text-muted-foreground">
                 {study.solution}
               </p>

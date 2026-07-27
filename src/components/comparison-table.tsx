@@ -35,7 +35,7 @@ export function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
               Capability
             </th>
             <th className="px-6 py-4 font-display text-sm font-semibold text-primary">
-              Cadence
+              Mirflow
             </th>
             <th className="px-6 py-4 text-sm font-medium text-muted-foreground">
               Hiring in-house

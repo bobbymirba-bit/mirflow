@@ -28,7 +28,7 @@ export default function PrivacyPage() {
                 1. Overview
               </h2>
               <p className="mt-3">
-                {siteConfig.legalName} (&ldquo;Cadence,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo;
+                {siteConfig.legalName} (&ldquo;Mirflow,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo;
                 or &ldquo;our&rdquo;) provides this Privacy Policy to explain what
                 information we collect through {siteConfig.url}, why we collect it, and
                 how it&apos;s used, shared, and protected.

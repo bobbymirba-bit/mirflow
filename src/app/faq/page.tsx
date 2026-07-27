@@ -11,10 +11,10 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Answers to common questions about how Cadence AI works, implementation timelines, pricing, technical integrations, and data security.",
+    "Answers to common questions about how Mirflow AI works, implementation timelines, pricing, technical integrations, and data security.",
   openGraph: {
     title: `FAQ | ${siteConfig.name}`,
-    description: "Answers to common questions about how Cadence AI works.",
+    description: "Answers to common questions about how Mirflow AI works.",
   },
 };
 
@@ -43,7 +43,7 @@ export default function FaqPage() {
               Frequently asked questions
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Everything you need to know before booking a call — how Cadence works,
+              Everything you need to know before booking a call — how Mirflow works,
               what it costs, and how we handle your data.
             </p>
           </div>

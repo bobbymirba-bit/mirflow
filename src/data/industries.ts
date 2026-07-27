@@ -15,7 +15,7 @@ export const industries: Industry[] = [
     name: "Med Spas",
     icon: "Sparkles",
     summary:
-      "Med spas lose a majority of inbound calls to voicemail during treatments. Cadence answers every call, books consultations, and follows up on quotes automatically.",
+      "Med spas lose a majority of inbound calls to voicemail during treatments. Mirflow answers every call, books consultations, and follows up on quotes automatically.",
     heroStat: { value: "31%", label: "more consultations booked" },
     painPoints: [
       "Front desk can't answer the phone while assisting clients",
@@ -34,7 +34,7 @@ export const industries: Industry[] = [
     name: "Dentists",
     icon: "Stethoscope",
     summary:
-      "Cadence fills last-minute cancellations, confirms appointments, and handles insurance intake questions so hygienists and front-desk staff stay focused on patients.",
+      "Mirflow fills last-minute cancellations, confirms appointments, and handles insurance intake questions so hygienists and front-desk staff stay focused on patients.",
     heroStat: { value: "18%", label: "fewer no-shows" },
     painPoints: [
       "Cancellations create empty chair time with no rebooking system",
@@ -53,7 +53,7 @@ export const industries: Industry[] = [
     name: "Law Firms",
     icon: "Scale",
     summary:
-      "Cadence pre-qualifies intake calls, drafts client-ready document summaries, and automates conflict checks — giving associates back billable hours.",
+      "Mirflow pre-qualifies intake calls, drafts client-ready document summaries, and automates conflict checks — giving associates back billable hours.",
     heroStat: { value: "12 hrs", label: "saved per attorney weekly" },
     painPoints: [
       "Intake calls consume paralegal time on unqualified leads",
@@ -72,7 +72,7 @@ export const industries: Industry[] = [
     name: "HVAC",
     icon: "Wind",
     summary:
-      "Cadence answers every emergency call, dispatches the right technician, and follows up on quotes — turning missed calls into booked jobs.",
+      "Mirflow answers every emergency call, dispatches the right technician, and follows up on quotes — turning missed calls into booked jobs.",
     heroStat: { value: "27%", label: "more jobs booked per month" },
     painPoints: [
       "Emergency calls after hours go to voicemail and competitors",
@@ -91,7 +91,7 @@ export const industries: Industry[] = [
     name: "Plumbing",
     icon: "Droplets",
     summary:
-      "Plumbing emergencies happen at 2am. Cadence's voice AI triages urgency, books the job, and texts the customer a confirmation before a human ever wakes up.",
+      "Plumbing emergencies happen at 2am. Mirflow's voice AI triages urgency, books the job, and texts the customer a confirmation before a human ever wakes up.",
     heroStat: { value: "35%", label: "more after-hours jobs captured" },
     painPoints: [
       "After-hours emergencies are the highest-margin jobs and hardest to catch",
@@ -110,7 +110,7 @@ export const industries: Industry[] = [
     name: "Roofing",
     icon: "Home",
     summary:
-      "Cadence qualifies storm-damage leads, schedules inspections, and automates the proposal-to-signature process for roofing sales teams.",
+      "Mirflow qualifies storm-damage leads, schedules inspections, and automates the proposal-to-signature process for roofing sales teams.",
     heroStat: { value: "2.4x", label: "more inspections booked" },
     painPoints: [
       "Storm season floods the phone lines with unqualified leads",
@@ -129,7 +129,7 @@ export const industries: Industry[] = [
     name: "Cleaning Companies",
     icon: "Sparkle",
     summary:
-      "Cadence handles quote requests, recurring booking changes, and crew reminders automatically, freeing owners from constant scheduling texts.",
+      "Mirflow handles quote requests, recurring booking changes, and crew reminders automatically, freeing owners from constant scheduling texts.",
     heroStat: { value: "22%", label: "more recurring clients retained" },
     painPoints: [
       "Owners field scheduling texts around the clock",
@@ -148,7 +148,7 @@ export const industries: Industry[] = [
     name: "Auto Detailers",
     icon: "Car",
     summary:
-      "Cadence books mobile detailing appointments by text, upsells packages automatically, and requests reviews after every job.",
+      "Mirflow books mobile detailing appointments by text, upsells packages automatically, and requests reviews after every job.",
     heroStat: { value: "29%", label: "increase in package upsells" },
     painPoints: [
       "Booking happens across Instagram DMs, texts, and calls with no system",
@@ -167,7 +167,7 @@ export const industries: Industry[] = [
     name: "Real Estate",
     icon: "Building2",
     summary:
-      "Cadence responds to listing inquiries in seconds, qualifies buyer intent, and keeps nurture sequences running long after a showing.",
+      "Mirflow responds to listing inquiries in seconds, qualifies buyer intent, and keeps nurture sequences running long after a showing.",
     heroStat: { value: "5x", label: "faster lead response time" },
     painPoints: [
       "Listing inquiries need a response within minutes or leads go cold",
@@ -186,7 +186,7 @@ export const industries: Industry[] = [
     name: "Construction",
     icon: "HardHat",
     summary:
-      "Cadence automates bid intake, subcontractor scheduling, and daily reporting, keeping projects on track without added project-management overhead.",
+      "Mirflow automates bid intake, subcontractor scheduling, and daily reporting, keeping projects on track without added project-management overhead.",
     heroStat: { value: "31%", label: "reduction in admin hours" },
     painPoints: [
       "Bid requests and RFPs arrive across email, phone, and portals",
@@ -205,7 +205,7 @@ export const industries: Industry[] = [
     name: "Insurance",
     icon: "ShieldCheck",
     summary:
-      "Cadence pre-qualifies quote requests, automates policy document processing, and handles renewal outreach so agents focus on closing coverage.",
+      "Mirflow pre-qualifies quote requests, automates policy document processing, and handles renewal outreach so agents focus on closing coverage.",
     heroStat: { value: "44%", label: "faster quote turnaround" },
     painPoints: [
       "Quote intake requires manually re-keying data from PDFs and forms",
@@ -224,7 +224,7 @@ export const industries: Industry[] = [
     name: "Financial Advisors",
     icon: "TrendingUp",
     summary:
-      "Cadence automates meeting prep, note-taking, and client onboarding paperwork so advisors spend their time on planning, not admin.",
+      "Mirflow automates meeting prep, note-taking, and client onboarding paperwork so advisors spend their time on planning, not admin.",
     heroStat: { value: "10 hrs", label: "saved per advisor weekly" },
     painPoints: [
       "Meeting notes and follow-up tasks are captured manually or forgotten",
@@ -243,7 +243,7 @@ export const industries: Industry[] = [
     name: "Restaurants",
     icon: "UtensilsCrossed",
     summary:
-      "Cadence handles reservation calls, waitlist texts, and catering inquiries so host stands stay focused on the guests in front of them.",
+      "Mirflow handles reservation calls, waitlist texts, and catering inquiries so host stands stay focused on the guests in front of them.",
     heroStat: { value: "38%", label: "fewer missed reservation calls" },
     painPoints: [
       "Phone lines are unmanageable during peak service",
@@ -262,7 +262,7 @@ export const industries: Industry[] = [
     name: "Ecommerce",
     icon: "ShoppingCart",
     summary:
-      "Cadence resolves order-status questions instantly, recovers abandoned carts, and automates returns — reducing support volume while lifting conversion.",
+      "Mirflow resolves order-status questions instantly, recovers abandoned carts, and automates returns — reducing support volume while lifting conversion.",
     heroStat: { value: "21%", label: "cart recovery lift" },
     painPoints: [
       "Support tickets are dominated by repetitive order-status questions",
@@ -281,7 +281,7 @@ export const industries: Industry[] = [
     name: "Healthcare",
     icon: "HeartPulse",
     summary:
-      "Cadence automates patient intake, appointment reminders, and clinical documentation support — always with a human-in-the-loop for compliance.",
+      "Mirflow automates patient intake, appointment reminders, and clinical documentation support — always with a human-in-the-loop for compliance.",
     heroStat: { value: "45%", label: "less administrative burden" },
     painPoints: [
       "Front-office staff are overwhelmed with scheduling and intake calls",
@@ -300,7 +300,7 @@ export const industries: Industry[] = [
     name: "Professional Services",
     icon: "Briefcase",
     summary:
-      "Cadence automates proposal generation, client reporting, and internal knowledge search for consultancies and agencies scaling delivery.",
+      "Mirflow automates proposal generation, client reporting, and internal knowledge search for consultancies and agencies scaling delivery.",
     heroStat: { value: "3x", label: "faster proposal delivery" },
     painPoints: [
       "Proposals and SOWs are rebuilt from scratch for every client",
@@ -319,7 +319,7 @@ export const industries: Industry[] = [
     name: "Manufacturing",
     icon: "Factory",
     summary:
-      "Cadence connects shop-floor data to automated reporting and forecasting, and uses computer vision for quality inspection at scale.",
+      "Mirflow connects shop-floor data to automated reporting and forecasting, and uses computer vision for quality inspection at scale.",
     heroStat: { value: "17%", label: "reduction in defect escape rate" },
     painPoints: [
       "Quality inspection relies on manual spot checks",
@@ -338,7 +338,7 @@ export const industries: Industry[] = [
     name: "Logistics",
     icon: "Truck",
     summary:
-      "Cadence automates load-status communication, document processing for bills of lading, and exception handling across carriers and dispatchers.",
+      "Mirflow automates load-status communication, document processing for bills of lading, and exception handling across carriers and dispatchers.",
     heroStat: { value: "33%", label: "fewer manual status calls" },
     painPoints: [
       "Dispatchers spend hours a day on status update calls",

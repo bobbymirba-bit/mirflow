@@ -125,7 +125,7 @@ export default async function IndustryPage({
               align="left"
               eyebrow="Recommended"
               title="Where to start"
-              description={`These are the services Cadence most often deploys first for ${industry.name.toLowerCase()} businesses.`}
+              description={`These are the services Mirflow most often deploys first for ${industry.name.toLowerCase()} businesses.`}
               className="mx-0 max-w-2xl"
             />
             <RevealGroup className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

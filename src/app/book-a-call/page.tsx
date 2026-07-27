@@ -8,10 +8,10 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Book a Call",
   description:
-    "Book a 30-minute call with Cadence. We'll map your highest-leverage automation opportunity and show you exactly what it would look like — no obligation.",
+    "Book a 30-minute call with Mirflow. We'll map your highest-leverage automation opportunity and show you exactly what it would look like — no obligation.",
   openGraph: {
     title: `Book a Call | ${siteConfig.name}`,
-    description: "Book a 30-minute call with Cadence — no obligation.",
+    description: "Book a 30-minute call with Mirflow — no obligation.",
   },
 };
 
@@ -55,7 +55,7 @@ export default function BookACallPage() {
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
               30 minutes, no slide deck. We&apos;ll look at your actual workflow and tell
-              you honestly whether Cadence is a fit — and what it would cost and deliver
+              you honestly whether Mirflow is a fit — and what it would cost and deliver
               if it is.
             </p>
 
@@ -102,7 +102,7 @@ export default function BookACallPage() {
             <div className="h-full overflow-hidden rounded-3xl border border-border bg-card">
               <iframe
                 src={`${siteConfig.calendlyUrl}?hide_gdpr_banner=1&hide_event_type_details=1`}
-                title="Schedule a call with Cadence"
+                title="Schedule a call with Mirflow"
                 className="h-[720px] w-full"
                 loading="lazy"
               />

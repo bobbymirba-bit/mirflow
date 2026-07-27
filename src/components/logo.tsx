@@ -27,7 +27,7 @@ export function Logo({ className }: { className?: string }) {
           />
         </svg>
       </span>
-      Cadence
+      Mirflow
     </Link>
   );
 }

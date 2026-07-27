@@ -63,7 +63,7 @@ export default function ResourcesPage() {
           <SectionHeading
             eyebrow="ROI Calculator"
             title="What is a missed inquiry costing you?"
-            description="Adjust the sliders to match your business and see the revenue Cadence typically recovers."
+            description="Adjust the sliders to match your business and see the revenue Mirflow typically recovers."
             className="mb-10"
           />
           <RoiCalculator />

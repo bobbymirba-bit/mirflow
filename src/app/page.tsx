@@ -130,7 +130,7 @@ export default function Home() {
               AI automation that <span className="text-gradient">captures every lead</span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Cadence helps Southern California home-service and appointment-based businesses respond faster, book more work, and give their teams time back with practical AI systems.
+              Mirflow helps Southern California home-service and appointment-based businesses respond faster, book more work, and give their teams time back with practical AI systems.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
@@ -184,7 +184,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="How it works"
             title="From audit to live system, without the guesswork"
-            description="Every Cadence engagement follows the same disciplined process — built for speed without cutting corners on reliability."
+            description="Every Mirflow engagement follows the same disciplined process — built for speed without cutting corners on reliability."
           />
           <div className="mt-14">
             <WorkflowVisualizer steps={workflowSteps} />
@@ -247,7 +247,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="ROI calculator"
           title="See what missed calls are costing you"
-          description="Adjust the sliders to estimate the revenue Cadence could recover for your business every month."
+          description="Adjust the sliders to estimate the revenue Mirflow could recover for your business every month."
         />
         <div className="mt-14">
           <RoiCalculator />
@@ -257,9 +257,9 @@ export default function Home() {
       {/* Comparison */}
       <section className="container-page py-20 sm:py-28">
         <SectionHeading
-          eyebrow="Why Cadence"
+          eyebrow="Why Mirflow"
           title="Compare your options"
-          description="Cadence combines the coverage of a full-time hire with the speed of software — without the per-seat cost of point solutions."
+          description="Mirflow combines the coverage of a full-time hire with the speed of software — without the per-seat cost of point solutions."
         />
         <div className="mt-14">
           <ComparisonTable rows={comparisonRows} />

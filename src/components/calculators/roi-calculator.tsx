@@ -68,8 +68,8 @@ export function RoiCalculator({ className }: { className?: string }) {
   const annualRevenue = monthlyRevenue * 12;
 
   const chartData = [
-    { name: "Before Cadence", revenue: 0 },
-    { name: "With Cadence", revenue: Math.round(monthlyRevenue) },
+    { name: "Before Mirflow", revenue: 0 },
+    { name: "With Mirflow", revenue: Math.round(monthlyRevenue) },
   ];
 
   return (
@@ -108,7 +108,7 @@ export function RoiCalculator({ className }: { className?: string }) {
           format={(v) => `${v}%`}
         />
         <p className="text-xs leading-relaxed text-muted-foreground">
-          Estimate assumes Cadence recovers {Math.round(RECOVERY_RATE * 100)}% of
+          Estimate assumes Mirflow recovers {Math.round(RECOVERY_RATE * 100)}% of
           currently missed inquiries at your existing close rate. Actual results
           vary by industry and implementation.
         </p>

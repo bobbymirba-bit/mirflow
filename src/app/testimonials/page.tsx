@@ -11,10 +11,10 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "See what businesses say about deploying Cadence AI automation — from recovered revenue to hours saved every week.",
+    "See what businesses say about deploying Mirflow AI automation — from recovered revenue to hours saved every week.",
   openGraph: {
     title: `Testimonials | ${siteConfig.name}`,
-    description: "See what businesses say about deploying Cadence AI automation.",
+    description: "See what businesses say about deploying Mirflow AI automation.",
   },
 };
 
@@ -26,7 +26,7 @@ export default function TestimonialsPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="brand">Testimonials</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              What it&apos;s like to work with Cadence
+              What it&apos;s like to work with Mirflow
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
               From the first discovery call to a live system running in production —

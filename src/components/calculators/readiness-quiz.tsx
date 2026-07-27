@@ -73,7 +73,7 @@ function getResult(score: number) {
     return {
       tier: "High-impact fit",
       description:
-        "Your business has significant volume, real manual overhead, and clear revenue at risk. This is exactly the profile where Cadence produces the fastest, most visible ROI.",
+        "Your business has significant volume, real manual overhead, and clear revenue at risk. This is exactly the profile where Mirflow produces the fastest, most visible ROI.",
       percent,
     };
   }

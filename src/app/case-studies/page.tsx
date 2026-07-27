@@ -13,11 +13,11 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Case Studies",
   description:
-    "See how businesses across HVAC, dental, legal, real estate, ecommerce, and manufacturing use Cadence AI to recover revenue and eliminate manual work.",
+    "See how businesses across HVAC, dental, legal, real estate, ecommerce, and manufacturing use Mirflow AI to recover revenue and eliminate manual work.",
   openGraph: {
     title: `Case Studies | ${siteConfig.name}`,
     description:
-      "See how businesses across every industry use Cadence AI to recover revenue and eliminate manual work.",
+      "See how businesses across every industry use Mirflow AI to recover revenue and eliminate manual work.",
   },
 };
 
@@ -32,7 +32,7 @@ export default function CaseStudiesPage() {
               Real workflows, real numbers
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Each example below walks through a specific problem, the automation Cadence
+              Each example below walks through a specific problem, the automation Mirflow
               deployed to solve it, and the measurable outcome — the same process we&apos;d run
               for your business.
             </p>
@@ -57,7 +57,7 @@ export default function CaseStudiesPage() {
             <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             <p>
               These are illustrative examples built from typical outcomes across the
-              industries Cadence serves, used to show how our workflows are structured and
+              industries Mirflow serves, used to show how our workflows are structured and
               the kind of impact they produce. We&apos;ll replace these with verified,
               named customer results as case studies are published.
             </p>

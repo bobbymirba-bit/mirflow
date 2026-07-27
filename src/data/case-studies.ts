@@ -14,7 +14,7 @@ export type CaseStudy = {
   timeframe: string;
 };
 
-// Illustrative examples built from typical outcomes across the industries Cadence serves.
+// Illustrative examples built from typical outcomes across the industries Mirflow serves.
 // Replace with verified customer data and named logos as case studies are published.
 export const caseStudies: CaseStudy[] = [
   {
@@ -24,11 +24,11 @@ export const caseStudies: CaseStudy[] = [
     industrySlug: "hvac",
     logoInitial: "C",
     summary:
-      "A 22-technician HVAC company was losing an estimated $40K a month in after-hours emergency calls before deploying Cadence Voice AI.",
+      "A 22-technician HVAC company was losing an estimated $40K a month in after-hours emergency calls before deploying Mirflow Voice AI.",
     problem:
       "Coastline's office closed at 5pm, but nearly a third of service requests came in after hours. Calls routed to a generic answering service that couldn't triage urgency, book jobs, or dispatch technicians — costing the business high-margin emergency work to competitors.",
     solution:
-      "Cadence deployed a Voice AI agent trained on Coastline's service catalog, pricing, and dispatch rules. The agent now answers every call, triages urgency, books directly into the scheduling system, and texts a confirmation before transferring only true emergencies to the on-call technician.",
+      "Mirflow deployed a Voice AI agent trained on Coastline's service catalog, pricing, and dispatch rules. The agent now answers every call, triages urgency, books directly into the scheduling system, and texts a confirmation before transferring only true emergencies to the on-call technician.",
     workflow: [
       { title: "Answer", description: "Voice AI answers every inbound call within one second, 24/7." },
       { title: "Triage", description: "The agent determines urgency and service type from natural conversation." },
@@ -59,7 +59,7 @@ export const caseStudies: CaseStudy[] = [
     problem:
       "Front-desk staff across four locations spent hours daily on scheduling calls, insurance verification questions, and manual reminder calls — while still carrying a persistent no-show rate that left chairs empty.",
     solution:
-      "Cadence deployed an AI receptionist across all locations to handle scheduling, rescheduling, and FAQ calls, paired with an automated SMS reminder sequence tuned to reduce no-shows without feeling impersonal.",
+      "Mirflow deployed an AI receptionist across all locations to handle scheduling, rescheduling, and FAQ calls, paired with an automated SMS reminder sequence tuned to reduce no-shows without feeling impersonal.",
     workflow: [
       { title: "Answer", description: "The receptionist handles scheduling and FAQ calls at every location." },
       { title: "Confirm", description: "New bookings trigger an instant text confirmation." },
@@ -90,7 +90,7 @@ export const caseStudies: CaseStudy[] = [
     problem:
       "Associates were spending significant billable time on manual discovery document review and client intake calls that frequently turned out to be outside the firm's practice areas.",
     solution:
-      "Cadence built a document processing pipeline to extract and flag key terms across discovery documents, plus a lead qualification system for intake calls that pre-screens fit before a paralegal is involved.",
+      "Mirflow built a document processing pipeline to extract and flag key terms across discovery documents, plus a lead qualification system for intake calls that pre-screens fit before a paralegal is involved.",
     workflow: [
       { title: "Intake", description: "Inbound inquiries are qualified against practice-area and case criteria." },
       { title: "Route", description: "Qualified leads are scheduled directly with an attorney." },
@@ -121,7 +121,7 @@ export const caseStudies: CaseStudy[] = [
     problem:
       "Listing inquiries from portals and the website were only reaching agents hours later, by which point many buyers had already engaged a competing agent who responded faster.",
     solution:
-      "Cadence deployed an AI chatbot and lead qualification system that responds to every inquiry within seconds, qualifies buyer intent and timeline, and hands warm leads directly to the right agent with full context.",
+      "Mirflow deployed an AI chatbot and lead qualification system that responds to every inquiry within seconds, qualifies buyer intent and timeline, and hands warm leads directly to the right agent with full context.",
     workflow: [
       { title: "Respond", description: "Every listing inquiry receives a response within seconds." },
       { title: "Qualify", description: "Budget, timeline, and financing status are captured conversationally." },
@@ -152,7 +152,7 @@ export const caseStudies: CaseStudy[] = [
     problem:
       "Support volume scaled faster than the team could hire, with order-status questions alone consuming most of the queue, while abandoned-cart recovery relied on generic, low-performing email blasts.",
     solution:
-      "Cadence deployed a support AI trained on order data and policies to resolve common tickets instantly, alongside a personalized, behavior-triggered cart recovery sequence across email and SMS.",
+      "Mirflow deployed a support AI trained on order data and policies to resolve common tickets instantly, alongside a personalized, behavior-triggered cart recovery sequence across email and SMS.",
     workflow: [
       { title: "Classify", description: "Incoming tickets are categorized by intent automatically." },
       { title: "Resolve", description: "Order-status and policy questions are answered instantly." },
@@ -183,7 +183,7 @@ export const caseStudies: CaseStudy[] = [
     problem:
       "Manual spot-checks couldn't keep pace with production line speed, and inconsistent inspection standards between shifts let defects reach customers more often than leadership wanted.",
     solution:
-      "Cadence built a computer vision system that inspects parts in real time on the line, flagging defects instantly and logging quality data for trend analysis across shifts.",
+      "Mirflow built a computer vision system that inspects parts in real time on the line, flagging defects instantly and logging quality data for trend analysis across shifts.",
     workflow: [
       { title: "Capture", description: "Line cameras feed real-time images into the vision system." },
       { title: "Detect", description: "Defects are identified against a trained quality standard." },

@@ -40,7 +40,7 @@ export default function TermsPage() {
                 2. Description of service
               </h2>
               <p className="mt-3">
-                Cadence designs, builds, and operates AI automation systems for
+                Mirflow designs, builds, and operates AI automation systems for
                 businesses, including voice AI, chat automation, workflow automation,
                 and related services described on this site. Specific engagements are
                 governed by a separate service agreement entered into with each client.

@@ -15,7 +15,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "t1",
     quote:
-      "Cadence answers every call we used to miss. It paid for itself in the first month just from recovered emergency jobs.",
+      "Mirflow answers every call we used to miss. It paid for itself in the first month just from recovered emergency jobs.",
     name: "Example Testimonial",
     role: "Operations Director",
     company: "HVAC Services Company",
@@ -68,7 +68,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "t6",
     quote:
-      "The onboarding process was faster than any software vendor we've worked with. Cadence felt like an extension of our team from week one.",
+      "The onboarding process was faster than any software vendor we've worked with. Mirflow felt like an extension of our team from week one.",
     name: "Example Testimonial",
     role: "VP of Operations",
     company: "Field Services Company",

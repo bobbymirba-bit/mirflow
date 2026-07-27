@@ -15,7 +15,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Flat monthly pricing based on workflows and volume, not per-seat fees. Compare Cadence AI plans and see how automation stacks up against hiring or point solutions.",
+    "Flat monthly pricing based on workflows and volume, not per-seat fees. Compare Mirflow AI plans and see how automation stacks up against hiring or point solutions.",
   openGraph: {
     title: `Pricing | ${siteConfig.name}`,
     description: "Flat monthly pricing based on workflows and volume, not per-seat fees.",
@@ -65,7 +65,7 @@ export default function PricingPage() {
       <section className="border-b border-border bg-secondary/20">
         <div className="container-page py-16 sm:py-20">
           <SectionHeading
-            eyebrow="Why Cadence"
+            eyebrow="Why Mirflow"
             title="How this compares to your alternatives"
             description="Hiring in-house and stitching together point solutions both come with hidden costs and ceilings that automation doesn't have."
             className="mb-10"

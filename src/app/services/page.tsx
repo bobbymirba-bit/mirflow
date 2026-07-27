@@ -14,11 +14,11 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "AI Automation Services",
   description:
-    "Explore Cadence's full catalog of 40+ AI automation services — conversational AI, sales automation, customer experience, documents, workflows, and advanced AI systems.",
+    "Explore Mirflow's full catalog of 40+ AI automation services — conversational AI, sales automation, customer experience, documents, workflows, and advanced AI systems.",
   openGraph: {
     title: `AI Automation Services | ${siteConfig.name}`,
     description:
-      "Explore Cadence's full catalog of 40+ AI automation services across every function of your business.",
+      "Explore Mirflow's full catalog of 40+ AI automation services across every function of your business.",
   },
 };
 
@@ -33,7 +33,7 @@ export default function ServicesPage() {
               {services.length}+ ways to put AI to work in your business
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Every service below is deployed, monitored, and improved by Cadence — not
+              Every service below is deployed, monitored, and improved by Mirflow — not
               a self-serve tool you have to configure yourself. Browse by category to
               find where automation will move the needle fastest.
             </p>

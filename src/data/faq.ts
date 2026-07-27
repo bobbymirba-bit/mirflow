@@ -7,15 +7,15 @@ export type FaqItem = {
 export const faqs: FaqItem[] = [
   {
     category: "General",
-    question: "What exactly does Cadence do?",
+    question: "What exactly does Mirflow do?",
     answer:
-      "Cadence designs, builds, and operates AI automation systems for your business — from AI receptionists and chatbots to back-office and document automation. We handle the strategy, build, deployment, and ongoing optimization, not just the software.",
+      "Mirflow designs, builds, and operates AI automation systems for your business — from AI receptionists and chatbots to back-office and document automation. We handle the strategy, build, deployment, and ongoing optimization, not just the software.",
   },
   {
     category: "General",
-    question: "How is Cadence different from buying a SaaS AI tool myself?",
+    question: "How is Mirflow different from buying a SaaS AI tool myself?",
     answer:
-      "Off-the-shelf tools require you to configure, train, and maintain them yourself, and rarely handle more than one narrow task. Cadence designs a system around your actual workflows, integrates it with your existing tools, and continues optimizing it after launch.",
+      "Off-the-shelf tools require you to configure, train, and maintain them yourself, and rarely handle more than one narrow task. Mirflow designs a system around your actual workflows, integrates it with your existing tools, and continues optimizing it after launch.",
   },
   {
     category: "Implementation",
@@ -25,7 +25,7 @@ export const faqs: FaqItem[] = [
   },
   {
     category: "Implementation",
-    question: "Do I need technical staff to work with Cadence?",
+    question: "Do I need technical staff to work with Mirflow?",
     answer:
       "No. We handle the technical implementation, integrations, and hosting. Your team's job is to share context about how the business runs — we translate that into a working system.",
   },
@@ -33,7 +33,7 @@ export const faqs: FaqItem[] = [
     category: "Implementation",
     question: "What if the AI doesn't understand a customer's request?",
     answer:
-      "Every Cadence deployment includes clear escalation paths. When the system isn't confident or a request falls outside its scope, it hands off to a human with full context, rather than guessing.",
+      "Every Mirflow deployment includes clear escalation paths. When the system isn't confident or a request falls outside its scope, it hands off to a human with full context, rather than guessing.",
   },
   {
     category: "Pricing",
@@ -55,13 +55,13 @@ export const faqs: FaqItem[] = [
   },
   {
     category: "Technical",
-    question: "What systems does Cadence integrate with?",
+    question: "What systems does Mirflow integrate with?",
     answer:
-      "Cadence integrates with most common CRMs, calendars, help desks, and communication platforms out of the box, and we build custom integrations for proprietary or legacy systems as part of enterprise engagements.",
+      "Mirflow integrates with most common CRMs, calendars, help desks, and communication platforms out of the box, and we build custom integrations for proprietary or legacy systems as part of enterprise engagements.",
   },
   {
     category: "Technical",
-    question: "Can Cadence work with our existing phone number and tools?",
+    question: "Can Mirflow work with our existing phone number and tools?",
     answer:
       "Yes. Voice and messaging automations are typically deployed on your existing phone number and channels, so there's no disruption to how customers already reach you.",
   },
@@ -73,7 +73,7 @@ export const faqs: FaqItem[] = [
   },
   {
     category: "Security",
-    question: "Is Cadence compliant with industry regulations like HIPAA?",
+    question: "Is Mirflow compliant with industry regulations like HIPAA?",
     answer:
       "For healthcare, legal, and financial clients, we configure deployments to align with relevant regulatory requirements, including signed BAAs where applicable. Talk to our team about your specific compliance needs during onboarding.",
   },

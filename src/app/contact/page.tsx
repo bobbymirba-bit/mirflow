@@ -10,10 +10,10 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Cadence. For scheduling, book a call directly — for anything else, send us a message and we'll reply within one business day.",
+    "Get in touch with Mirflow. For scheduling, book a call directly — for anything else, send us a message and we'll reply within one business day.",
   openGraph: {
     title: `Contact | ${siteConfig.name}`,
-    description: "Get in touch with Cadence.",
+    description: "Get in touch with Mirflow.",
   },
 };
 

@@ -1,24 +1,24 @@
 export const siteConfig = {
-  name: "Cadence",
-  legalName: "Cadence AI, Inc.",
+  name: "Mirflow",
+  legalName: "Mirflow AI",
   tagline: "Practical AI automation for Southern California businesses",
   description:
-    "Cadence helps Southern California home-service and appointment-based businesses capture more leads, book more work, and give their teams time back with practical AI automation.",
-  url: "https://www.cadence.ai",
+    "Mirflow helps Southern California home-service and appointment-based businesses capture more leads, book more work, and give their teams time back with practical AI automation.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cadence-ai-kohl.vercel.app",
   ogImage: "/opengraph-image",
-  email: "hello@cadence.ai",
-  supportEmail: "support@cadence.ai",
+  email: "hello@mirflow.ai",
+  supportEmail: "support@mirflow.ai",
   phone: "+1 (415) 555-0148",
   address: "Serving Southern California",
   founded: "2026",
   social: {
-    twitter: "https://twitter.com/cadence",
-    linkedin: "https://www.linkedin.com/company/cadence-ai",
-    github: "https://github.com/cadence-ai",
-    youtube: "https://youtube.com/@cadence-ai",
+    twitter: "https://twitter.com/mirflow",
+    linkedin: "https://www.linkedin.com/company/mirflow",
+    github: "https://github.com/bobbymirba-bit/cadence-ai",
+    youtube: "https://youtube.com/@mirflow",
   },
   calendlyUrl:
-    process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/cadence-ai/intro-call",
+    process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/mirflow/intro-call",
 };
 
 export type NavItem = {

@@ -5,8 +5,8 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
-export const COOKIE_CONSENT_KEY = "cadence-cookie-consent";
-export const COOKIE_CONSENT_EVENT = "cadence-cookie-consent-change";
+export const COOKIE_CONSENT_KEY = "mirflow-cookie-consent";
+export const COOKIE_CONSENT_EVENT = "mirflow-cookie-consent-change";
 
 export type ConsentValue = "accepted" | "declined";
 
