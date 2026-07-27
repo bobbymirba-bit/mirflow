@@ -37,7 +37,7 @@ const values = [
     icon: Gauge,
     title: "Fast without being reckless",
     description:
-      "Most deployments go live in weeks, not quarters — but nothing ships without escalation paths, guardrails, and a human fallback built in.",
+      "Our standard lead follow-up system can launch within 24 hours once access is ready. Custom systems take longer, and nothing ships without escalation paths, guardrails, and a human fallback built in.",
   },
   {
     icon: Users,

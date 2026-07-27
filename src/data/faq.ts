@@ -21,7 +21,7 @@ export const faqs: FaqItem[] = [
     category: "Implementation",
     question: "How long does it take to go live?",
     answer:
-      "Most single-workflow automations (like an AI receptionist or chatbot) go live within 2 to 4 weeks. Multi-workflow or custom AI application projects typically take 6 to 12 weeks depending on complexity and integration requirements.",
+      "Our standard lead follow-up system can go live within 24 hours after we receive access to your lead source, calendar, and messaging tools. Custom voice agents, multiple workflows, complex integrations, or incomplete account access take longer; we confirm that timeline in your quote before work begins.",
   },
   {
     category: "Implementation",

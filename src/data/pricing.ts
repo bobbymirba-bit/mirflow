@@ -76,7 +76,7 @@ export type ComparisonRow = {
 };
 
 export const comparisonRows: ComparisonRow[] = [
-  { feature: "Time to live", cadence: "2–6 weeks", hiring: "2–4 months to hire + train", pointSolutions: "Days, but narrow scope" },
+  { feature: "Time to live", cadence: "Within 24 hours for standard setup", hiring: "2–4 months to hire + train", pointSolutions: "Days, but narrow scope" },
   { feature: "Coverage", cadence: "24/7/365", hiring: "Business hours only", pointSolutions: "Varies by tool" },
   { feature: "Handles multiple workflows", cadence: true, hiring: "Limited by headcount", pointSolutions: false },
   { feature: "Custom to your business", cadence: true, hiring: true, pointSolutions: false },
