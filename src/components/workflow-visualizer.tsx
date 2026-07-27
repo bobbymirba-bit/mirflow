@@ -23,7 +23,19 @@ export function WorkflowVisualizer({
   }, [steps.length]);
 
   return (
-    <div className={cn("grid gap-6 lg:grid-cols-[280px_1fr]", className)}>
+    <>
+      <div className={cn("divide-y divide-border border-y border-border lg:hidden", className)}>
+        {steps.map((step, index) => (
+          <div key={step.title} className="grid grid-cols-[34px_1fr] gap-3 py-5">
+            <span className="font-mono text-xs text-primary">0{index + 1}</span>
+            <div>
+              <h4 className="font-display text-xl font-normal text-foreground">{step.title}</h4>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className={cn("hidden gap-6 lg:grid lg:grid-cols-[280px_1fr]", className)}>
       <div className="flex flex-col gap-1">
         {steps.map((step, index) => (
           <button
@@ -106,6 +118,7 @@ export function WorkflowVisualizer({
           ))}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

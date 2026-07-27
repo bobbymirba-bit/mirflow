@@ -32,42 +32,42 @@ const capabilities = [
     title: "Conversational & Voice AI",
     description:
       "Chat and voice agents that answer instantly, in your brand voice, trained on your product and policies.",
-    tone: "bg-[#c77e6b]",
+    tone: "sm:bg-[#c77e6b]",
   },
   {
     icon: "TrendingUp",
     title: "Sales & Revenue",
     description:
       "Qualify inbound leads, run outbound sequences, and book meetings straight into your calendar.",
-    tone: "bg-[#8da9b5]",
+    tone: "sm:bg-[#8da9b5]",
   },
   {
     icon: "Headset",
     title: "Customer Experience",
     description:
       "Deflect repetitive tickets, resolve common issues, and route complex cases to the right person.",
-    tone: "bg-[#d5b18e]",
+    tone: "sm:bg-[#d5b18e]",
   },
   {
     icon: "FileText",
     title: "Documents & Knowledge",
     description:
       "Extract, summarize, and route information from contracts, invoices, and internal documents.",
-    tone: "bg-[#98a18c]",
+    tone: "sm:bg-[#98a18c]",
   },
   {
     icon: "Workflow",
     title: "Workflow Automation",
     description:
       "Connect your CRM, calendar, and internal tools so work moves without anyone touching a keyboard.",
-    tone: "bg-[#ddd4c8]",
+    tone: "sm:bg-[#ddd4c8]",
   },
   {
     icon: "Cpu",
     title: "Advanced AI Systems",
     description:
       "Custom multi-agent systems and applications for businesses whose workflows don't fit off-the-shelf tools.",
-    tone: "bg-[#b79c91]",
+    tone: "sm:bg-[#b79c91]",
   },
 ];
 
@@ -124,7 +124,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[680px] overflow-hidden border-b border-border sm:min-h-[820px]">
+      <section className="relative min-h-[620px] overflow-hidden border-b border-border sm:min-h-[820px]">
         <Image
           src="/mirflow-editorial-hero.jpg"
           alt="A business owner working in a calm, modern Southern California studio"
@@ -134,19 +134,19 @@ export default function Home() {
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
-        <div className="container-page relative flex min-h-[680px] items-center py-12 sm:min-h-[820px] sm:py-20">
+        <div className="container-page relative flex min-h-[620px] items-end pb-12 pt-28 sm:min-h-[820px] sm:items-center sm:py-20">
           <div className="w-full min-w-0 max-w-3xl text-white">
             <p className="border-b border-white/50 pb-3 text-[9px] font-semibold uppercase tracking-[0.18em] sm:text-xs sm:tracking-[0.24em]">
               Mirflow — Southern California
             </p>
-            <h1 className="mt-7 text-balance font-display text-[52px] font-normal leading-[0.92] tracking-[-0.05em] sm:mt-8 sm:text-7xl lg:text-[92px]">
+            <h1 className="mt-6 max-w-[340px] text-balance font-display text-[46px] font-normal leading-[0.94] tracking-[-0.045em] sm:mt-8 sm:max-w-none sm:text-7xl lg:text-[92px]">
               The business runs. You move forward.
             </h1>
-            <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/80 sm:mt-7 sm:text-xl">
+            <p className="mt-5 max-w-[330px] text-pretty text-[15px] leading-relaxed text-white/80 sm:mt-7 sm:max-w-xl sm:text-xl">
               Quiet, capable AI systems that answer every lead, arrange the next step,
               and keep your operation moving—without adding more admin.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
+            <div className="mt-7 flex flex-col gap-2 sm:mt-10 sm:flex-row sm:gap-3">
               <Button asChild variant="gradient" size="lg" className="w-full sm:w-auto">
                 <Link href="/quote">Design my workflow<ArrowRight className="h-4 w-4" /></Link>
               </Button>
@@ -162,11 +162,11 @@ export default function Home() {
       </section>
 
       <section className="border-b border-border bg-[#171713] text-[#f3efe7]">
-        <div className="container-page grid gap-px bg-white/20 px-0 sm:grid-cols-4 lg:px-8">
+        <div className="grid grid-cols-2 gap-px bg-white/20 sm:container-page sm:grid-cols-4 lg:px-8">
           {heroStats.map((stat, index) => (
-            <div key={stat.label} className="bg-[#171713] px-6 py-8">
+            <div key={stat.label} className="bg-[#171713] px-5 py-6 sm:px-6 sm:py-8">
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">0{index + 1}</p>
-              <p className="mt-5 font-display text-4xl">{stat.value}</p>
+              <p className="mt-3 font-display text-3xl sm:mt-5 sm:text-4xl">{stat.value}</p>
               <p className="mt-1 text-xs uppercase tracking-[0.12em] text-white/60">{stat.label}</p>
             </div>
           ))}
@@ -174,26 +174,26 @@ export default function Home() {
       </section>
 
       {/* Capabilities */}
-      <section className="container-page py-24 sm:py-32">
+      <section className="container-page py-16 sm:py-32">
         <SectionHeading
           eyebrow="Capabilities"
           title="A composed operating system for the work that never stops"
           description="We begin with the bottlenecks that cost local businesses the most: missed calls, slow lead response, manual booking, and repetitive follow-up."
         />
-        <RevealGroup className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup className="mt-10 grid gap-px border border-border bg-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
           {capabilities.map((capability, index) => (
             <RevealItem
               key={capability.title}
-              className={`${capability.tone} min-h-[320px] p-8 text-[#171713]`}
+              className={`${capability.tone} ${index >= 3 ? "hidden sm:block" : ""} min-h-0 bg-[#f3efe7] p-5 text-[#171713] sm:min-h-[320px] sm:p-8`}
             >
               <div className="flex items-start justify-between">
                 <span className="text-xs font-semibold">0{index + 1}</span>
                 <Icon name={capability.icon} className="h-5 w-5" />
               </div>
-              <h3 className="mt-20 font-display text-3xl font-normal leading-none">
+              <h3 className="mt-10 font-display text-[26px] font-normal leading-none sm:mt-20 sm:text-3xl">
                 {capability.title}
               </h3>
-              <p className="mt-6 max-w-xs text-sm leading-relaxed text-black/65">
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-black/65 sm:mt-6">
                 {capability.description}
               </p>
             </RevealItem>
@@ -202,29 +202,29 @@ export default function Home() {
       </section>
 
       {/* Interactive workflow demo */}
-      <section className="border-y border-border bg-secondary/20 py-20 sm:py-28">
+      <section className="border-y border-border bg-secondary/20 py-16 sm:py-28">
         <div className="container-page">
           <SectionHeading
             eyebrow="How it works"
             title="From audit to live system, without the guesswork"
             description="Every Mirflow engagement follows the same disciplined process — built for speed without cutting corners on reliability."
           />
-          <div className="mt-14">
+          <div className="mt-10 sm:mt-14">
             <WorkflowVisualizer steps={workflowSteps} />
           </div>
         </div>
       </section>
 
       {/* Popular services */}
-      <section className="container-page py-20 sm:py-28">
+      <section className="container-page py-16 sm:py-28">
         <SectionHeading
           eyebrow="Services"
           title="Popular automation services"
           description="Start with one high-impact workflow, prove the result, then expand from there."
         />
-        <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredServices.map((service) => (
-            <RevealItem key={service.slug}>
+        <RevealGroup className="mt-10 grid gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+          {featuredServices.map((service, index) => (
+            <RevealItem key={service.slug} className={index >= 3 ? "hidden sm:block" : ""}>
               <ServiceCard service={service} />
             </RevealItem>
           ))}
@@ -240,7 +240,7 @@ export default function Home() {
       </section>
 
       {/* Industries */}
-      <section className="border-y border-border bg-secondary/20 py-20 sm:py-28">
+      <section className="hidden border-y border-border bg-secondary/20 py-20 sm:block sm:py-28">
         <div className="container-page">
           <SectionHeading
             eyebrow="Industries"
@@ -266,19 +266,19 @@ export default function Home() {
       </section>
 
       {/* ROI calculator */}
-      <section id="roi-calculator" className="container-page py-20 sm:py-28">
+      <section id="roi-calculator" className="container-page py-16 sm:py-28">
         <SectionHeading
           eyebrow="ROI calculator"
           title="See what missed calls are costing you"
           description="Adjust the sliders to estimate the revenue Mirflow could recover for your business every month."
         />
-        <div className="mt-14">
+        <div className="mt-10 sm:mt-14">
           <RoiCalculator />
         </div>
       </section>
 
       {/* Comparison */}
-      <section className="container-page py-20 sm:py-28">
+      <section className="hidden container-page py-20 sm:block sm:py-28">
         <SectionHeading
           eyebrow="Why Mirflow"
           title="Compare your options"
@@ -290,7 +290,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="border-y border-border bg-secondary/20 py-20 sm:py-28">
+      <section className="border-y border-border bg-secondary/20 py-16 sm:py-28">
         <div className="container-page">
           <div className="grid gap-14 lg:grid-cols-[1fr_1.4fr]">
             <SectionHeading

@@ -10,7 +10,7 @@ export function ServiceCard({ service, className }: { service: Service; classNam
     <Link
       href={`/services/${service.slug}`}
       className={cn(
-        "group relative flex flex-col border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-secondary/35",
+        "group relative flex flex-col border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-secondary/35 sm:p-7",
         className
       )}
     >
@@ -20,7 +20,7 @@ export function ServiceCard({ service, className }: { service: Service; classNam
         </span>
         <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
       </div>
-      <h3 className="mt-8 font-display text-2xl font-normal tracking-[-0.025em] text-foreground">
+      <h3 className="mt-5 font-display text-[22px] font-normal tracking-[-0.025em] text-foreground sm:mt-8 sm:text-2xl">
         {service.name}
       </h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
