@@ -105,7 +105,7 @@ const featuredServiceSlugs = [
 
 const featuredIndustrySlugs = ["hvac", "plumbing", "med-spas", "dentists"];
 
-const homeFaqsconst homeFaqs = faqs.slice(0, 6);
+const homeFaqs = faqs.slice(0, 6);
 
 export default function Home() {
   return (
@@ -291,3 +291,4 @@ export default function Home() {
     </>
   );
 }
+  
