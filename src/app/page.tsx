@@ -13,7 +13,6 @@ import { RoiCalculator } from "@/components/calculators/roi-calculator";
 import { ComparisonTable } from "@/components/comparison-table";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { CtaSection } from "@/components/cta-section";
-import { MobileHome } from "@/components/mobile-home";
 
 import { services } from "@/data/services";
 import { industries } from "@/data/industries";
@@ -124,10 +123,44 @@ const homeFaqs = faqs.slice(0, 6);
 export default function Home() {
   return (
     <>
-      <MobileHome />
-      <div className="hidden sm:block">
+      {/* Mobile hero: a shallow image followed by a compact editorial introduction. */}
+      <section className="border-b border-border bg-[#f3efe7] sm:hidden">
+        <div className="relative h-[230px] overflow-hidden">
+          <Image
+            src="/mirflow-editorial-hero.jpg"
+            alt="A business owner working in a calm, modern Southern California studio"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[58%_45%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+          <p className="absolute bottom-4 left-5 text-[9px] font-semibold uppercase tracking-[0.2em] text-white">
+            Mirflow — Southern California
+          </p>
+        </div>
+        <div className="px-5 pb-8 pt-7">
+          <h1 className="max-w-[350px] text-balance font-display text-[43px] font-normal leading-[0.94] tracking-[-0.045em] text-[#171713]">
+            The business runs. You move forward.
+          </h1>
+          <p className="mt-4 max-w-[345px] text-[15px] leading-6 text-[#171713]/60">
+            Quiet, capable AI systems that answer every lead, arrange the next step,
+            and keep your operation moving—without adding more admin.
+          </p>
+          <div className="mt-6 grid gap-2">
+            <Button asChild variant="gradient" size="lg" className="w-full">
+              <Link href="/quote">Design my workflow<ArrowRight className="h-4 w-4" /></Link>
+            </Button>
+            <Link href="/pricing" className="py-2 text-center text-xs font-semibold uppercase tracking-[0.12em] text-[#171713]/55">
+              Plans from $199
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <div>
       {/* Hero */}
-      <section className="relative min-h-[620px] overflow-hidden border-b border-border sm:min-h-[820px]">
+      <section className="relative hidden min-h-[820px] overflow-hidden border-b border-border sm:block">
         <Image
           src="/mirflow-editorial-hero.jpg"
           alt="A business owner working in a calm, modern Southern California studio"
