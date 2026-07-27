@@ -1,16 +1,16 @@
 export const siteConfig = {
   name: "Cadence",
   legalName: "Cadence AI, Inc.",
-  tagline: "The AI operating layer for revenue teams",
+  tagline: "Practical AI automation for Southern California businesses",
   description:
-    "Cadence designs, builds, and operates AI automation systems that qualify leads, answer customers, and run back-office work around the clock — so your team scales without adding headcount.",
+    "Cadence helps Southern California home-service and appointment-based businesses capture more leads, book more work, and give their teams time back with practical AI automation.",
   url: "https://www.cadence.ai",
   ogImage: "/opengraph-image",
   email: "hello@cadence.ai",
   supportEmail: "support@cadence.ai",
   phone: "+1 (415) 555-0148",
-  address: "548 Market St, PMB 42891, San Francisco, CA 94104",
-  founded: "2022",
+  address: "Serving Southern California",
+  founded: "2026",
   social: {
     twitter: "https://twitter.com/cadence",
     linkedin: "https://www.linkedin.com/company/cadence-ai",
@@ -71,9 +71,9 @@ export const primaryNav: NavGroup[] = [
       },
     ],
     featured: {
-      label: "View all 40+ services",
+      label: "Explore automation options",
       href: "/services",
-      description: "Browse the full automation catalog by category.",
+      description: "Explore the workflows we can tailor to your business.",
     },
   },
   {
@@ -136,7 +136,7 @@ export const primaryNav: NavGroup[] = [
     featured: {
       label: "View all industries",
       href: "/industries",
-      description: "See ROI benchmarks for 18+ verticals.",
+      description: "Start with our focused industry playbooks.",
     },
   },
 ];
@@ -173,3 +173,4 @@ export const footerNav = {
     { label: "Terms of Service", href: "/terms" },
   ],
 };
+  
