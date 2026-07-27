@@ -11,9 +11,9 @@ import { caseStudies } from "@/data/case-studies";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Case Studies",
+  title: "Modeled Workflows",
   description:
-    "See how businesses across HVAC, dental, legal, real estate, ecommerce, and manufacturing use Mirflow AI to recover revenue and eliminate manual work.",
+    "Explore transparent, modeled AI workflow scenarios across HVAC, dental, legal, real estate, ecommerce, and manufacturing.",
   openGraph: {
     title: `Case Studies | ${siteConfig.name}`,
     description:
@@ -27,19 +27,18 @@ export default function CaseStudiesPage() {
       <section className="bg-grid bg-radial-glow noise-overlay relative overflow-hidden border-b border-border">
         <div className="container-page py-20 sm:py-28">
           <div className="mx-auto max-w-3xl text-center">
-            <Badge variant="brand">Case Studies</Badge>
+            <Badge variant="brand">Modeled workflows</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              Real workflows, real numbers
+              See the system before the sales conversation
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Each example below walks through a specific problem, the automation Mirflow
-              deployed to solve it, and the measurable outcome — the same process we&apos;d run
-              for your business.
+              These planning scenarios show the trigger, logic, integrations, handoff, and
+              modeled business impact. They are demonstrations—not invented customer proof.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
-                <Link href="/book-a-call">
-                  Book a call
+                <Link href="/quote">
+                  Model my workflow
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
@@ -78,8 +77,12 @@ export default function CaseStudiesPage() {
       </section>
 
       <CtaSection
-        title="Want results like these for your business?"
-        description="Book a 30-minute call. We'll map the highest-leverage automation opportunity for your specific business — no obligation."
+        title="Want a model built from your real numbers?"
+        description="Submit your volume, conversion rate, tools, and bottleneck. We'll return a tailored workflow and quote."
+        primaryLabel="Model my workflow"
+        primaryHref="/quote"
+        secondaryLabel="See standard plans"
+        secondaryHref="/pricing"
       />
     </>
   );

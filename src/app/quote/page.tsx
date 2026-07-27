@@ -7,7 +7,16 @@ export const metadata: Metadata = {
   description: "Tell Mirflow what you want to automate and receive a tailored implementation quote.",
 };
 
-export default function QuotePage() {
+export default async function QuotePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string; solution?: string; industry?: string }>;
+}) {
+  const params = await searchParams;
+  const initialInterest =
+    params.service ? `Service: ${params.service}` :
+    params.solution ? `Solution: ${params.solution}` :
+    params.industry ? `Industry: ${params.industry}` : "";
   return (
     <section className="bg-grid bg-radial-glow min-h-screen">
       <div className="container-page py-16 sm:py-24">
@@ -21,7 +30,7 @@ export default function QuotePage() {
             workflow and send a tailored scope and price.
           </p>
         </div>
-        <div className="mx-auto mt-12 max-w-4xl"><QuoteForm /></div>
+        <div className="mx-auto mt-12 max-w-4xl"><QuoteForm initialInterest={initialInterest} /></div>
       </div>
     </section>
   );

@@ -26,11 +26,11 @@ export default function TestimonialsPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="brand">Testimonials</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              What it&apos;s like to work with Mirflow
+              The customer experience we are building
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              From the first discovery call to a live system running in production —
-              here&apos;s what businesses experience along the way.
+              We are early, so we will not pretend example quotes are verified endorsements.
+              This page shows the experience and outcomes we intend to earn with founding clients.
             </p>
           </div>
         </div>
@@ -91,7 +91,11 @@ export default function TestimonialsPage() {
 
       <CtaSection
         title="Ready to write your own results?"
-        description="Book a 30-minute call. We'll map the highest-leverage automation opportunity for your specific business — no obligation."
+        description="Founding clients receive launch pricing in exchange for candid feedback and permission to publish verified results."
+        primaryLabel="Apply as a founding client"
+        primaryHref="/quote"
+        secondaryLabel="See founding pricing"
+        secondaryHref="/pricing"
       />
     </>
   );

@@ -11,6 +11,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { WorkflowVisualizer } from "@/components/workflow-visualizer";
 import { ServiceCard } from "@/components/cards/service-card";
 import { CtaSection } from "@/components/cta-section";
+import { BuyerDecisionPanel } from "@/components/buyer-decision-panel";
 import { getServiceBySlug, getRelatedServices, services } from "@/data/services";
 import { getIndustryBySlug } from "@/data/industries";
 import { siteConfig } from "@/lib/site-config";
@@ -83,13 +84,13 @@ export default async function ServicePage({
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild variant="gradient" size="lg">
-                  <Link href="/book-a-call">
-                    Book a call
+                <Link href={`/quote?service=${service.slug}`}>
+                    Get a custom quote
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/case-studies">See case studies</Link>
+                  <Link href="/pricing">See packages and pricing</Link>
                 </Button>
               </div>
             </Reveal>
@@ -100,6 +101,9 @@ export default async function ServicePage({
                   {service.roiStat.value}
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">{service.roiStat.label}</p>
+                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                  Planning benchmark from a modeled workflow—not a verified Mirflow customer result.
+                </p>
               </div>
             </Reveal>
           </div>
@@ -179,9 +183,14 @@ export default async function ServicePage({
         </section>
       ) : null}
 
+      <BuyerDecisionPanel context={service.name.toLowerCase()} />
       <CtaSection
         title={`Ready to put ${service.name} to work?`}
-        description="Book a 30-minute call. We'll map exactly how this fits your business and what it takes to go live."
+        description="Submit your current process and tools. We'll return a tailored scope, required access, launch timing, and price."
+        primaryLabel="Request a detailed quote"
+        primaryHref={`/quote?service=${service.slug}`}
+        secondaryLabel="Purchase a standard plan"
+        secondaryHref="/pricing"
       />
     </>
   );

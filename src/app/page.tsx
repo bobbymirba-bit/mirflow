@@ -22,7 +22,7 @@ import { faqs } from "@/data/faq";
 
 const heroStats = [
   { value: "24/7", label: "Lead coverage" },
-  { value: "2–6 wks", label: "To first system live" },
+  { value: "24 hrs", label: "Standard launch target" },
   { value: "SoCal", label: "Local focus" },
   { value: "1", label: "Clear first workflow" },
 ];
@@ -134,13 +134,13 @@ export default function Home() {
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
-                <Link href="/book-a-call">
-                  Book your automation audit
+                <Link href="/quote">
+                  Get a custom quote
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/industries">See who we help</Link>
+                <Link href="/pricing">View plans and pricing</Link>
               </Button>
             </div>
           </Reveal>

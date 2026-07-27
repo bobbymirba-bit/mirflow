@@ -11,6 +11,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { ServiceCard } from "@/components/cards/service-card";
 import { IndustryCard } from "@/components/cards/industry-card";
 import { CtaSection } from "@/components/cta-section";
+import { BuyerDecisionPanel } from "@/components/buyer-decision-panel";
 import { getSolutionBySlug, solutions } from "@/data/solutions";
 import { getServiceBySlug } from "@/data/services";
 import { getIndustryBySlug } from "@/data/industries";
@@ -86,13 +87,13 @@ export default async function SolutionPage({
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
-                <Link href="/book-a-call">
-                  Book a call
+                <Link href={`/quote?solution=${solution.slug}`}>
+                  Get a custom quote
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/case-studies">See case studies</Link>
+                <Link href="/pricing">See packages and pricing</Link>
               </Button>
             </div>
           </Reveal>
@@ -159,9 +160,14 @@ export default async function SolutionPage({
         </section>
       ) : null}
 
+      <BuyerDecisionPanel context={solution.name.toLowerCase()} />
       <CtaSection
         title={`Ready to deploy ${solution.name}?`}
-        description="Book a 30-minute call. We'll map exactly how this solution fits your business and what it takes to go live."
+        description="Tell us what the finished system needs to do. We'll respond with the workflow, implementation requirements, timeline, and price."
+        primaryLabel="Request a detailed quote"
+        primaryHref={`/quote?solution=${solution.slug}`}
+        secondaryLabel="Purchase a standard plan"
+        secondaryHref="/pricing"
       />
     </>
   );

@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 const selectClass =
   "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
-export function QuoteForm() {
+export function QuoteForm({ initialInterest = "" }: { initialInterest?: string }) {
   const [status, setStatus] = React.useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError] = React.useState("");
 
@@ -52,6 +52,12 @@ export function QuoteForm() {
 
   return (
     <form onSubmit={submit} className="rounded-3xl border border-border bg-card p-6 sm:p-8">
+      {initialInterest ? (
+        <div className="mb-6 rounded-xl border border-primary/20 bg-primary/5 px-4 py-3 text-sm">
+          Quote context: <span className="font-semibold">{initialInterest}</span>
+          <input type="hidden" name="interest" value={initialInterest} />
+        </div>
+      ) : null}
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Name" name="name" placeholder="Jane Smith" required />
         <Field label="Work email" name="email" type="email" placeholder="jane@company.com" required />

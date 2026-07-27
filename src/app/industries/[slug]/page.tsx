@@ -11,6 +11,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { StatsBar } from "@/components/stats-bar";
 import { ServiceCard } from "@/components/cards/service-card";
 import { CtaSection } from "@/components/cta-section";
+import { BuyerDecisionPanel } from "@/components/buyer-decision-panel";
 import { getIndustryBySlug, industries } from "@/data/industries";
 import { getServiceBySlug } from "@/data/services";
 import { siteConfig } from "@/lib/site-config";
@@ -78,19 +79,22 @@ export default async function IndustryPage({
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
-                <Link href="/book-a-call">
-                  Book a call
+                <Link href={`/quote?industry=${industry.slug}`}>
+                  Get an industry quote
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/case-studies">See case studies</Link>
+                <Link href="/case-studies">View modeled workflows</Link>
               </Button>
             </div>
           </Reveal>
 
           <div className="mt-14 border-t border-border pt-10">
             <StatsBar stats={industry.stats} />
+            <p className="mt-6 text-center text-xs text-muted-foreground">
+              Industry planning benchmarks shown for evaluation; they are not represented as verified Mirflow customer results.
+            </p>
           </div>
         </div>
       </section>
@@ -139,9 +143,14 @@ export default async function IndustryPage({
         </section>
       ) : null}
 
+      <BuyerDecisionPanel context={`${industry.name.toLowerCase()} automation`} />
       <CtaSection
         title={`Ready to fix this for your ${industry.name.toLowerCase()} business?`}
-        description="Book a 30-minute call. We'll map your highest-leverage automation opportunity and show you exactly what it would look like — no obligation."
+        description="Submit your lead flow, tools, bottleneck, and volume. We'll return a tailored implementation path and price."
+        primaryLabel="Get an industry quote"
+        primaryHref={`/quote?industry=${industry.slug}`}
+        secondaryLabel="See standard pricing"
+        secondaryHref="/pricing"
       />
     </>
   );

@@ -1,7 +1,6 @@
-import { Star } from "lucide-react";
-
 import type { Testimonial } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 
 export function TestimonialCard({
   testimonial,
@@ -17,11 +16,7 @@ export function TestimonialCard({
         className
       )}
     >
-      <div className="flex gap-0.5 text-primary">
-        {Array.from({ length: testimonial.rating }).map((_, i) => (
-          <Star key={i} className="h-3.5 w-3.5 fill-current" />
-        ))}
-      </div>
+      <Badge variant="outline" className="self-start">Example copy—not customer proof</Badge>
       <p className="mt-4 flex-1 text-sm leading-relaxed text-foreground/90">
         &ldquo;{testimonial.quote}&rdquo;
       </p>

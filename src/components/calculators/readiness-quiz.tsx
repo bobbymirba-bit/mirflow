@@ -148,8 +148,8 @@ export function ReadinessQuiz({ className }: { className?: string }) {
 
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button asChild variant="gradient" size="lg">
-            <Link href="/book-a-call">
-              Book a call
+            <Link href="/quote">
+              Get a tailored quote
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

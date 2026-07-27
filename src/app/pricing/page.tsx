@@ -99,7 +99,7 @@ export default function PricingPage() {
         description="Describe your tools, lead flow, bottlenecks, and budget. We'll respond with a tailored recommendation and quote."
         primaryLabel="Get a custom quote"
         primaryHref="/quote"
-        secondaryLabel="See case studies"
+        secondaryLabel="View modeled workflows"
         secondaryHref="/case-studies"
       />
     </>

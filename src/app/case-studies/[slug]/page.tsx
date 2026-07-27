@@ -59,7 +59,7 @@ export default async function CaseStudyPage({
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
-            All case studies
+            All modeled workflows
           </Link>
 
           <Reveal className="mt-8 max-w-3xl">
@@ -82,8 +82,8 @@ export default async function CaseStudyPage({
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
-                <Link href="/book-a-call">
-                  Book a call
+                <Link href={`/quote?industry=${study.industrySlug}`}>
+                  Build this for my business
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
@@ -180,8 +180,12 @@ export default async function CaseStudyPage({
       ) : null}
 
       <CtaSection
-        title={`Want results like ${study.client}'s for your business?`}
-        description="Book a 30-minute call. We'll map the highest-leverage automation opportunity for your specific business — no obligation."
+        title="Want this workflow modeled with your real numbers?"
+        description="Submit your current volume, process, and tools. We'll tailor the architecture, assumptions, and implementation price to your business."
+        primaryLabel="Build my workflow"
+        primaryHref={`/quote?industry=${study.industrySlug}`}
+        secondaryLabel="See standard plans"
+        secondaryHref="/pricing"
       />
     </>
   );

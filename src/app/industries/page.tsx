@@ -38,8 +38,8 @@ export default function IndustriesPage() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
-                <Link href="/book-a-call">
-                  Book a call
+                <Link href="/quote">
+                  Get an industry quote
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>

@@ -142,7 +142,7 @@ export const primaryNav: NavGroup[] = [
 ];
 
 export const secondaryNav: NavItem[] = [
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Workflow Examples", href: "/case-studies" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Resources", href: "/resources" },
@@ -151,8 +151,8 @@ export const secondaryNav: NavItem[] = [
 export const footerNav = {
   Company: [
     { label: "About", href: "/about" },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Testimonials", href: "/testimonials" },
+    { label: "Modeled Workflows", href: "/case-studies" },
+    { label: "Founding Client Experience", href: "/testimonials" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],

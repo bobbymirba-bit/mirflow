@@ -72,8 +72,8 @@ export default function AboutPage() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
-                <Link href="/book-a-call">
-                  Book your automation audit
+                <Link href="/quote">
+                  Tell us what you need
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>

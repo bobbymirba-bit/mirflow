@@ -21,7 +21,10 @@ export function CaseStudyCard({ study, className }: { study: CaseStudy; classNam
           </span>
           <div>
             <p className="text-sm font-semibold text-foreground">{study.client}</p>
-            <Badge variant="outline" className="mt-0.5">{study.industry}</Badge>
+            <div className="mt-1 flex flex-wrap gap-1.5">
+              <Badge variant="outline">{study.industry}</Badge>
+              <Badge variant="brand">Modeled scenario</Badge>
+            </div>
           </div>
         </div>
         <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
