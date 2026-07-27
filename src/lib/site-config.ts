@@ -4,10 +4,10 @@ export const siteConfig = {
   tagline: "Practical AI automation for Southern California businesses",
   description:
     "Mirflow helps Southern California home-service and appointment-based businesses capture more leads, book more work, and give their teams time back with practical AI automation.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mirflow-bmir-agency.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mirflow.online",
   ogImage: "/opengraph-image",
-  email: "hello@mirflow.ai",
-  supportEmail: "support@mirflow.ai",
+  email: "hello@mirflow.online",
+  supportEmail: "support@mirflow.online",
   phone: "+1 (415) 555-0148",
   address: "Serving Southern California",
   founded: "2026",
