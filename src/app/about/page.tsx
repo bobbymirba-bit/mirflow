@@ -11,12 +11,12 @@ import { CtaSection } from "@/components/cta-section";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Cadence",
   description:
-    "Cadence designs, builds, and operates AI automation systems for growing businesses. Learn about our mission, values, and how we work.",
+    "Cadence builds practical AI automation for Southern California home-service and appointment-based businesses.",
   openGraph: {
     title: `About | ${siteConfig.name}`,
-    description: "Cadence designs, builds, and operates AI automation systems for growing businesses.",
+    description: "Cadence builds practical AI automation for Southern California home-service and appointment-based businesses.",
   },
 };
 
@@ -48,9 +48,9 @@ const values = [
 ];
 
 const stats = [
-  { value: siteConfig.founded, label: "Founded" },
-  { value: "18+", label: "Industries served" },
-  { value: "40+", label: "Automation services" },
+  { value: "SoCal", label: "Where we serve" },
+  { value: "Home services", label: "First focus" },
+  { value: "Appointments", label: "First focus" },
   { value: "24/7", label: "System coverage" },
 ];
 
@@ -62,7 +62,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="brand">About Cadence</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              The AI operating layer for revenue teams
+              Practical AI automation for Southern California businesses
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
               Cadence exists because most businesses lose revenue to things that never
@@ -73,12 +73,12 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
                 <Link href="/book-a-call">
-                  Book a call
+                  Book your automation audit
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/case-studies">See case studies</Link>
+                <Link href="/industries">See who we help</Link>
               </Button>
             </div>
           </div>
@@ -145,9 +145,10 @@ export default function AboutPage() {
       </section>
 
       <CtaSection
-        title="Want to see if we're a fit?"
+        title="Want to find your highest-impact workflow?"
         description="Book a 30-minute call. We'll map your highest-leverage automation opportunity and show you exactly what it would look like — no obligation."
       />
     </>
   );
 }
+  
