@@ -13,6 +13,7 @@ import { RoiCalculator } from "@/components/calculators/roi-calculator";
 import { ComparisonTable } from "@/components/comparison-table";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { CtaSection } from "@/components/cta-section";
+import { MobileHome } from "@/components/mobile-home";
 
 import { services } from "@/data/services";
 import { industries } from "@/data/industries";
@@ -123,6 +124,8 @@ const homeFaqs = faqs.slice(0, 6);
 export default function Home() {
   return (
     <>
+      <MobileHome />
+      <div className="hidden sm:block">
       {/* Hero */}
       <section className="relative min-h-[620px] overflow-hidden border-b border-border sm:min-h-[820px]">
         <Image
@@ -319,6 +322,7 @@ export default function Home() {
 
       {/* Final CTA */}
       <CtaSection />
+      </div>
     </>
   );
 }

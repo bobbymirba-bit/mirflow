@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,8 @@ import { primaryNav, secondaryNav } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
+  const pathname = usePathname();
+  const mobileHome = pathname === "/";
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -32,13 +35,14 @@ export function Navbar() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-colors duration-300",
+        mobileHome && "max-sm:border-white/8 max-sm:bg-[#06070a] max-sm:text-white",
         scrolled
-          ? "border-b border-border bg-background/95 backdrop-blur-xl"
+          ? cn("border-b border-border bg-background/95 backdrop-blur-xl", mobileHome && "max-sm:bg-[#06070a]/95")
           : "border-b border-border bg-background"
       )}
     >
       <div className="container-page flex h-[76px] items-center justify-between">
-        <Logo />
+        <Logo className={cn(mobileHome && "max-sm:text-white [&>span]:max-sm:bg-white [&_svg]:max-sm:text-black")} />
 
         <MegaMenu groups={primaryNav} />
 
@@ -64,7 +68,7 @@ export function Navbar() {
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
+              <Button variant="ghost" size="icon" className={cn("lg:hidden", mobileHome && "max-sm:text-white max-sm:hover:bg-white/10")} aria-label="Open menu">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
