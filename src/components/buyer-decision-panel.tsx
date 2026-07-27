@@ -51,7 +51,7 @@ export function BuyerDecisionPanel({ context }: { context: string }) {
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {paths.map((path) => (
-            <article key={path.title} className="flex h-full flex-col rounded-2xl border border-border bg-card p-6">
+            <article key={path.title} className="flex h-full flex-col border border-border bg-card p-6 sm:p-7">
               <path.icon className="h-6 w-6 text-primary" />
               <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">{path.eyebrow}</p>
               <h3 className="mt-2 font-display text-xl font-semibold">{path.title}</h3>

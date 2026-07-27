@@ -10,7 +10,7 @@ export function PricingCard({ tier, className }: { tier: PricingTier; className?
   return (
     <div
       className={cn(
-        "relative flex flex-col rounded-2xl border p-8",
+        "relative flex min-w-0 w-full flex-col border p-5 sm:p-8",
         tier.featured
           ? "border-primary/50 bg-card shadow-2xl shadow-primary/10 lg:scale-[1.03]"
           : "border-border bg-card",
@@ -34,7 +34,7 @@ export function PricingCard({ tier, className }: { tier: PricingTier; className?
       <Button
         asChild
         variant={tier.featured ? "gradient" : "secondary"}
-        className="mt-6 w-full"
+        className="mt-6 w-full px-3 text-[11px] sm:px-6 sm:text-sm"
       >
         <Link href={tier.ctaHref}>{tier.cta}</Link>
       </Button>

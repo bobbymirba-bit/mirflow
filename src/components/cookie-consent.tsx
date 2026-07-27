@@ -35,18 +35,16 @@ export function CookieConsent() {
     <div
       role="region"
       aria-label="Cookie consent"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80"
+      className="fixed inset-x-3 bottom-3 z-50 border border-border bg-background/95 shadow-2xl backdrop-blur sm:inset-x-auto sm:bottom-5 sm:right-5 sm:max-w-md"
     >
-      <div className="container-page flex flex-col items-start gap-4 py-5 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          We use cookies to understand how visitors use our site and to improve your
-          experience. See our{" "}
+      <div className="flex flex-col gap-3 p-4">
+        <p className="text-xs leading-relaxed text-muted-foreground">
+          We use optional analytics cookies to improve the site.{" "}
           <Link href="/privacy" className="text-foreground underline underline-offset-4">
-            Privacy Policy
-          </Link>{" "}
-          for details.
+            Privacy policy
+          </Link>
         </p>
-        <div className="flex shrink-0 gap-3">
+        <div className="flex gap-2">
           <Button variant="outline" size="sm" onClick={() => setConsent("declined")}>
             Decline
           </Button>

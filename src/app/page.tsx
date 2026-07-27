@@ -124,7 +124,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[760px] overflow-hidden border-b border-border sm:min-h-[820px]">
+      <section className="relative min-h-[680px] overflow-hidden border-b border-border sm:min-h-[820px]">
         <Image
           src="/mirflow-editorial-hero.jpg"
           alt="A business owner working in a calm, modern Southern California studio"
@@ -134,23 +134,23 @@ export default function Home() {
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
-        <div className="container-page relative flex min-h-[760px] items-center py-16 sm:min-h-[820px] sm:py-20">
-          <div className="max-w-3xl text-white">
-            <p className="border-b border-white/50 pb-3 text-xs font-semibold uppercase tracking-[0.24em]">
+        <div className="container-page relative flex min-h-[680px] items-center py-12 sm:min-h-[820px] sm:py-20">
+          <div className="w-full min-w-0 max-w-3xl text-white">
+            <p className="border-b border-white/50 pb-3 text-[9px] font-semibold uppercase tracking-[0.18em] sm:text-xs sm:tracking-[0.24em]">
               Mirflow — Southern California
             </p>
-            <h1 className="mt-8 text-balance font-display text-6xl font-normal leading-[0.9] tracking-[-0.055em] sm:text-7xl lg:text-[92px]">
+            <h1 className="mt-7 text-balance font-display text-[52px] font-normal leading-[0.92] tracking-[-0.05em] sm:mt-8 sm:text-7xl lg:text-[92px]">
               The business runs. You move forward.
             </h1>
-            <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-white/80 sm:text-xl">
+            <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/80 sm:mt-7 sm:text-xl">
               Quiet, capable AI systems that answer every lead, arrange the next step,
               and keep your operation moving—without adding more admin.
             </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Button asChild variant="gradient" size="lg">
+            <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
+              <Button asChild variant="gradient" size="lg" className="w-full sm:w-auto">
                 <Link href="/quote">Design my workflow<ArrowRight className="h-4 w-4" /></Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white/60 text-white hover:bg-white hover:text-black">
+              <Button asChild variant="outline" size="lg" className="w-full border-white/60 text-white hover:bg-white hover:text-black sm:w-auto">
                 <Link href="/pricing">Plans from $199</Link>
               </Button>
             </div>
@@ -162,7 +162,7 @@ export default function Home() {
       </section>
 
       <section className="border-b border-border bg-[#171713] text-[#f3efe7]">
-        <div className="container-page grid gap-px bg-white/20 sm:grid-cols-4">
+        <div className="container-page grid gap-px bg-white/20 px-0 sm:grid-cols-4 lg:px-8">
           {heroStats.map((stat, index) => (
             <div key={stat.label} className="bg-[#171713] px-6 py-8">
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">0{index + 1}</p>
@@ -230,7 +230,7 @@ export default function Home() {
           ))}
         </RevealGroup>
         <div className="mt-10 flex justify-center">
-          <Button asChild variant="outline" size="lg">
+          <Button asChild variant="outline" size="lg" className="w-full px-4 text-xs sm:w-auto sm:px-8 sm:text-base">
             <Link href="/services">
               Explore automation options
               <ArrowRight className="h-4 w-4" />
@@ -255,7 +255,7 @@ export default function Home() {
             ))}
           </RevealGroup>
           <div className="mt-10 flex justify-center">
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="w-full px-4 text-xs sm:w-auto sm:px-8 sm:text-base">
               <Link href="/industries">
                 See industry playbooks
                 <ArrowRight className="h-4 w-4" />

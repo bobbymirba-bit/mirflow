@@ -46,7 +46,7 @@ export default function PricingPage() {
         <div className="container-page py-16 sm:py-20">
           <RevealGroup className="grid gap-6 lg:grid-cols-3">
             {pricingTiers.map((tier) => (
-              <RevealItem key={tier.id}>
+              <RevealItem key={tier.id} className="min-w-0">
                 <PricingCard tier={tier} className="h-full" />
               </RevealItem>
             ))}

@@ -75,7 +75,7 @@ export function RoiCalculator({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "grid gap-8 rounded-3xl border border-border bg-card p-8 lg:grid-cols-2 lg:p-10",
+        "grid gap-8 border border-border bg-card p-5 sm:p-8 lg:grid-cols-2 lg:p-10",
         className
       )}
     >
