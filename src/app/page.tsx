@@ -1,18 +1,15 @@
 import Link from "next/link";
-import { ArrowRight, Play, Shield, Zap } from "lucide-react";
+import { ArrowRight, Shield, Zap } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Icon } from "@/components/icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { LogoMarquee } from "@/components/logo-marquee";
 import { StatsBar } from "@/components/stats-bar";
 import { WorkflowVisualizer } from "@/components/workflow-visualizer";
 import { ServiceCard } from "@/components/cards/service-card";
 import { IndustryCard } from "@/components/cards/industry-card";
-import { CaseStudyCard } from "@/components/cards/case-study-card";
-import { TestimonialCard } from "@/components/cards/testimonial-card";
 import { RoiCalculator } from "@/components/calculators/roi-calculator";
 import { ComparisonTable } from "@/components/comparison-table";
 import { FaqAccordion } from "@/components/faq-accordion";
@@ -20,16 +17,14 @@ import { CtaSection } from "@/components/cta-section";
 
 import { services } from "@/data/services";
 import { industries } from "@/data/industries";
-import { caseStudies } from "@/data/case-studies";
-import { testimonials, videoTestimonials } from "@/data/testimonials";
 import { comparisonRows } from "@/data/pricing";
 import { faqs } from "@/data/faq";
 
 const heroStats = [
-  { value: "24/7", label: "Always-on coverage" },
-  { value: "44+", label: "Automation services" },
-  { value: "18", label: "Industries served" },
+  { value: "24/7", label: "Lead coverage" },
   { value: "2–6 wks", label: "To first system live" },
+  { value: "SoCal", label: "Local focus" },
+  { value: "1", label: "Clear first workflow" },
 ];
 
 const capabilities = [
@@ -108,25 +103,9 @@ const featuredServiceSlugs = [
   "workflow-automation",
 ];
 
-const featuredIndustrySlugs = ["med-spas", "hvac", "law-firms", "real-estate"];
+const featuredIndustrySlugs = ["hvac", "plumbing", "med-spas", "dentists"];
 
-const featuredCaseStudySlugs = ["coastline-hvac", "harborview-dental", "veyra-commerce"];
-
-const featuredServices = featuredServiceSlugs
-  .map((slug) => services.find((service) => service.slug === slug))
-  .filter((service): service is (typeof services)[number] => Boolean(service));
-
-const featuredIndustries = featuredIndustrySlugs
-  .map((slug) => industries.find((industry) => industry.slug === slug))
-  .filter((industry): industry is (typeof industries)[number] => Boolean(industry));
-
-const featuredCaseStudies = featuredCaseStudySlugs
-  .map((slug) => caseStudies.find((study) => study.slug === slug))
-  .filter((study): study is (typeof caseStudies)[number] => Boolean(study));
-
-const featuredTestimonials = testimonials.filter((t) => t.featured);
-
-const homeFaqs = faqs.slice(0, 6);
+const homeFaqsconst homeFaqs = faqs.slice(0, 6);
 
 export default function Home() {
   return (
@@ -137,25 +116,23 @@ export default function Home() {
           <Reveal className="mx-auto max-w-3xl text-center">
             <Badge variant="brand" className="mx-auto">
               <Zap className="h-3 w-3" />
-              Now onboarding for Q3 2026
+              Serving Southern California
             </Badge>
             <h1 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-6xl">
-              The AI operating layer for <span className="text-gradient">revenue teams</span>
+              AI automation that <span className="text-gradient">captures every lead</span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Cadence designs, builds, and operates AI automation systems that qualify leads,
-              answer customers, and run back-office work around the clock — so your team scales
-              without adding headcount.
+              Cadence helps Southern California home-service and appointment-based businesses respond faster, book more work, and give their teams time back with practical AI systems.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
                 <Link href="/book-a-call">
-                  Book a call
+                  Book your automation audit
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/case-studies">See case studies</Link>
+                <Link href="/industries">See who we help</Link>
               </Button>
             </div>
           </Reveal>
@@ -166,24 +143,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust bar */}
-      <section className="border-b border-border py-12">
-        <div className="container-page">
-          <p className="text-center text-xs font-medium uppercase tracking-wide text-muted-foreground">
-            Trusted by growing teams across 18 industries
-          </p>
-          <div className="mt-6">
-            <LogoMarquee />
-          </div>
-        </div>
-      </section>
-
       {/* Capabilities */}
       <section className="container-page py-20 sm:py-28">
         <SectionHeading
           eyebrow="Capabilities"
-          title="One partner. Every automation surface."
-          description="Cadence covers the full stack of AI automation — from the first customer touchpoint to the back-office system that closes the loop."
+          title="Start with the workflows that protect revenue"
+          description="We begin with the bottlenecks that cost local businesses the most: missed calls, slow lead response, manual booking, and repetitive follow-up."
         />
         <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {capabilities.map((capability) => (
@@ -224,7 +189,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Services"
           title="Popular automation services"
-          description="A sample of the 44+ services Cadence deploys across conversational AI, sales, support, and operations."
+          description="Start with one high-impact workflow, prove the result, then expand from there."
         />
         <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featuredServices.map((service) => (
@@ -236,7 +201,7 @@ export default function Home() {
         <div className="mt-10 flex justify-center">
           <Button asChild variant="outline" size="lg">
             <Link href="/services">
-              View all services
+              Explore automation options
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -249,7 +214,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Industries"
             title="Built around how your industry actually works"
-            description="Cadence ships with pre-built playbooks for 18+ verticals, so your system reflects the way your business already operates."
+            description="Our first playbooks are built for Southern California businesses where every missed inquiry or empty appointment has a cost."
           />
           <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {featuredIndustries.map((industry) => (
@@ -261,64 +226,7 @@ export default function Home() {
           <div className="mt-10 flex justify-center">
             <Button asChild variant="outline" size="lg">
               <Link href="/industries">
-                View all industries
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Video testimonials */}
-      <section className="container-page py-20 sm:py-28">
-        <SectionHeading
-          eyebrow="In their words"
-          title="See Cadence in action"
-          description="Short walkthroughs of how teams use Cadence day to day. Example content shown for illustration — replace with real customer recordings at launch."
-        />
-        <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-3">
-          {videoTestimonials.map((video) => (
-            <RevealItem key={video.id}>
-              <div className="group overflow-hidden rounded-2xl border border-border bg-card">
-                <div className="bg-grid relative flex aspect-video items-center justify-center bg-secondary/60">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/25 transition-transform group-hover:scale-105">
-                    <Play className="h-5 w-5 fill-current" />
-                  </span>
-                  <span className="absolute bottom-3 right-3 rounded-md bg-background/80 px-2 py-1 font-mono text-[11px] text-foreground backdrop-blur">
-                    {video.duration}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <p className="text-sm font-medium text-foreground">{video.thumbnailLabel}</p>
-                  <p className="mt-2 text-xs text-muted-foreground">
-                    {video.name} · {video.role}, {video.company}
-                  </p>
-                </div>
-              </div>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </section>
-
-      {/* Case studies */}
-      <section className="border-y border-border bg-secondary/20 py-20 sm:py-28">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="Case studies"
-            title="Illustrative results across industries"
-            description="These examples model typical outcomes based on the workflows Cadence automates. They are illustrative, not verified customer results."
-          />
-          <RevealGroup className="mt-14 grid gap-6 lg:grid-cols-3">
-            {featuredCaseStudies.map((study) => (
-              <RevealItem key={study.slug}>
-                <CaseStudyCard study={study} />
-              </RevealItem>
-            ))}
-          </RevealGroup>
-          <div className="mt-10 flex justify-center">
-            <Button asChild variant="outline" size="lg">
-              <Link href="/case-studies">
-                View all case studies
+                See industry playbooks
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -335,24 +243,6 @@ export default function Home() {
         />
         <div className="mt-14">
           <RoiCalculator />
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="border-y border-border bg-secondary/20 py-20 sm:py-28">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="Testimonials"
-            title="What teams say about working with Cadence"
-            description="Example testimonial content shown for layout purposes — replace with verified customer quotes before launch."
-          />
-          <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredTestimonials.map((testimonial) => (
-              <RevealItem key={testimonial.id}>
-                <TestimonialCard testimonial={testimonial} />
-              </RevealItem>
-            ))}
-          </RevealGroup>
         </div>
       </section>
 
