@@ -52,6 +52,20 @@ Create a `.env.local` file (all variables are optional — the site works withou
 | `STRIPE_FOUNDING_SETUP_PRICE_ID` | One-time Stripe Price for the $500 Founding setup | Checkout stays disabled |
 | `STRIPE_GROWTH_MONTHLY_PRICE_ID` | Recurring Stripe Price for the $349 Growth subscription | Checkout stays disabled |
 | `STRIPE_GROWTH_SETUP_PRICE_ID` | One-time Stripe Price for the $1,000 Growth setup | Checkout stays disabled |
+| `STRIPE_WEBHOOK_SECRET` | Signing secret for the Stripe webhook endpoint (`src/app/api/stripe-webhook/route.ts`) | Webhook returns 503 and ignores events |
+
+## Stripe
+
+Checkout ([`/api/checkout`](src/app/api/checkout/route.ts)) creates a Stripe Checkout Session combining the recurring plan price and the one-time setup price. It calls Stripe's REST API directly, so no `stripe` npm dependency is needed.
+
+Fulfillment runs through the webhook at [`/api/stripe-webhook`](src/app/api/stripe-webhook/route.ts), which verifies Stripe's signature manually (HMAC-SHA256, 5-minute replay tolerance) and currently **logs** events rather than provisioning anything.
+
+Setup:
+
+1. Create the four Prices in the [Stripe Dashboard](https://dashboard.stripe.com/products) (recurring for plans, one-time for setup fees) and set the `STRIPE_*_PRICE_ID` vars above.
+2. Add a webhook endpoint at `https://mirflow.online/api/stripe-webhook` subscribed to `checkout.session.completed`, `invoice.payment_failed`, `customer.subscription.updated`, and `customer.subscription.deleted`. Copy its signing secret into `STRIPE_WEBHOOK_SECRET`.
+3. Replace the `console.log` calls in the webhook's switch statement with real fulfillment before taking live payments.
+4. Test in Stripe **test mode** with card `4242 4242 4242 4242` (any future expiry/CVC), then swap Vercel's production env to live keys.
 
 ## Contact Form
 
