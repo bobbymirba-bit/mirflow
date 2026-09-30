@@ -30,9 +30,6 @@ export function ServiceCard({ service, className }: { service: Service; classNam
         <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
           {service.category}
         </span>
-        <span className="font-mono text-xs font-semibold text-primary">
-          {service.roiStat.value}
-        </span>
       </div>
     </Link>
   );

@@ -26,14 +26,6 @@ export function IndustryCard({ industry, className }: { industry: Industry; clas
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
         {industry.summary}
       </p>
-      <div className="mt-5 border-t border-border pt-4">
-        <span className="font-mono text-sm font-semibold text-primary">
-          {industry.heroStat.value}
-        </span>
-        <span className="ml-2 text-xs text-muted-foreground">
-          {industry.heroStat.label}
-        </span>
-      </div>
     </Link>
   );
 }

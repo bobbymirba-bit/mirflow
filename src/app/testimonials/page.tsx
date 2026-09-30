@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Info, Play } from "lucide-react";
+import { Play } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
@@ -11,10 +11,10 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "See what businesses say about deploying Mirflow AI automation — from recovered revenue to hours saved every week.",
+    "Founding clients: testimonials coming soon. Mirflow only publishes verified, named customer quotes.",
   openGraph: {
     title: `Testimonials | ${siteConfig.name}`,
-    description: "See what businesses say about deploying Mirflow AI automation.",
+    description: "Founding clients: testimonials coming soon.",
   },
 };
 
@@ -26,29 +26,18 @@ export default function TestimonialsPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="brand">Testimonials</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              The customer experience we are building
+              Founding clients: testimonials coming soon
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              We are early, so we will not pretend example quotes are verified endorsements.
-              This page shows the experience and outcomes we intend to earn with founding clients.
+              We&apos;re early, and we only publish verified, named customer quotes shared
+              with permission. They&apos;ll appear here as founding clients go live.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="border-b border-border bg-secondary/20">
-        <div className="container-page py-4">
-          <div className="flex items-start gap-3 rounded-xl border border-border bg-card px-5 py-4 text-sm text-muted-foreground">
-            <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-            <p>
-              Example testimonial content shown for layout and design purposes. We&apos;ll
-              replace these with verified, named customer quotes as they&apos;re collected.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Video testimonials */}
+      {/* Video testimonials (rendered only once verified ones exist) */}
+      {videoTestimonials.length > 0 ? (
       <section className="border-b border-border">
         <div className="container-page py-16 sm:py-20">
           <RevealGroup className="grid gap-6 sm:grid-cols-3">
@@ -75,8 +64,10 @@ export default function TestimonialsPage() {
           </RevealGroup>
         </div>
       </section>
+      ) : null}
 
-      {/* Written testimonials */}
+      {/* Written testimonials (rendered only once verified ones exist) */}
+      {testimonials.length > 0 ? (
       <section>
         <div className="container-page py-16 sm:py-20">
           <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -88,13 +79,14 @@ export default function TestimonialsPage() {
           </RevealGroup>
         </div>
       </section>
+      ) : null}
 
       <CtaSection
-        title="Ready to write your own results?"
-        description="Founding clients receive launch pricing in exchange for candid feedback and permission to publish verified results."
-        primaryLabel="Apply as a founding client"
+        title="Want to be one of our first clients?"
+        description="Tell us about your business and the workflow you want handled. We'll recommend a first system and quote it."
+        primaryLabel="Tell us what you need"
         primaryHref="/quote"
-        secondaryLabel="See founding pricing"
+        secondaryLabel="See pricing"
         secondaryHref="/pricing"
       />
     </>

@@ -97,12 +97,12 @@ export default async function ServicePage({
 
             <Reveal delay={0.1}>
               <div className="card-glass rounded-2xl border border-border p-8 text-center">
-                <p className="font-mono text-5xl font-semibold text-primary">
-                  {service.roiStat.value}
+                <p className="font-display text-2xl font-semibold text-foreground">
+                  Founding clients
                 </p>
-                <p className="mt-2 text-sm text-muted-foreground">{service.roiStat.label}</p>
-                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-                  Planning benchmark from a modeled workflow—not a verified Mirflow customer result.
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Case studies coming soon. We&apos;ll publish verified, named results as
+                  founding clients go live.
                 </p>
               </div>
             </Reveal>

@@ -8,7 +8,6 @@ import { Badge } from "@/components/ui/badge";
 import { Icon } from "@/components/icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { StatsBar } from "@/components/stats-bar";
 import { ServiceCard } from "@/components/cards/service-card";
 import { CtaSection } from "@/components/cta-section";
 import { BuyerDecisionPanel } from "@/components/buyer-decision-panel";
@@ -85,17 +84,11 @@ export default async function IndustryPage({
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/case-studies">View modeled workflows</Link>
+                <Link href="/pricing">See plans and pricing</Link>
               </Button>
             </div>
           </Reveal>
 
-          <div className="mt-14 border-t border-border pt-10">
-            <StatsBar stats={industry.stats} />
-            <p className="mt-6 text-center text-xs text-muted-foreground">
-              Industry planning benchmarks shown for evaluation; they are not represented as verified Mirflow customer results.
-            </p>
-          </div>
         </div>
       </section>
 

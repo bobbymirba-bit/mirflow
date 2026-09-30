@@ -17,7 +17,6 @@ export type Service = {
   tagline: string;
   description: string;
   businessValue: string;
-  roiStat: { value: string; label: string };
   useCases: string[];
   workflow: { title: string; description: string }[];
   industries: string[];
@@ -47,7 +46,6 @@ export const services: Service[] = [
       "Mirflow deploys a chatbot trained on your product, pricing, and policies that resolves questions, qualifies leads, and routes conversations to the right team member in real time.",
     businessValue:
       "Website visitors expect an answer within seconds. A trained chatbot captures leads that would otherwise bounce, and removes repetitive Tier-1 questions from your support queue.",
-    roiStat: { value: "3.4x", label: "increase in captured leads" },
     useCases: [
       "Qualify inbound leads before they reach sales",
       "Answer product and pricing questions 24/7",
@@ -72,7 +70,6 @@ export const services: Service[] = [
       "Mirflow Voice AI answers inbound calls, understands natural speech, and completes tasks like booking, triage, and FAQ resolution with latency low enough to feel like a real conversation.",
     businessValue:
       "Every missed call is a missed job or lost patient. Voice AI guarantees coverage during peak hours, after hours, and on holidays without the cost of a 24/7 call center.",
-    roiStat: { value: "100%", label: "call answer rate" },
     useCases: [
       "Answer emergency and after-hours service calls",
       "Triage urgency and route to on-call staff",
@@ -97,7 +94,6 @@ export const services: Service[] = [
       "Mirflow acts as a virtual receptionist across phone, text, and chat — greeting callers, scheduling visits, and answering common questions exactly like your best front-desk hire.",
     businessValue:
       "Front-desk staff are frequently pulled away to help clients in person. An AI receptionist ensures no call goes unanswered, protecting revenue without adding payroll.",
-    roiStat: { value: "9 hrs", label: "saved per week per location" },
     useCases: [
       "Greet and route callers across departments",
       "Answer hours, location, and policy questions",
@@ -122,7 +118,6 @@ export const services: Service[] = [
       "Mirflow responds to every inbound sales inquiry within seconds across chat, phone, and SMS, qualifying budget and intent before handing a warm, ready-to-close lead to your reps.",
     businessValue:
       "Speed to lead is the single biggest predictor of close rate. Automating the first response guarantees every inbound inquiry gets engaged while interest is highest.",
-    roiStat: { value: "5x", label: "faster first response" },
     useCases: [
       "Respond to demo requests and contact-form fills instantly",
       "Qualify budget, authority, need, and timeline",
@@ -147,7 +142,6 @@ export const services: Service[] = [
       "Mirflow builds custom AI assistants that draft emails, prep meeting briefs, manage task lists, and answer internal questions — accessible from Slack, Teams, or a private web app.",
     businessValue:
       "Knowledge workers spend hours a week on repetitive coordination tasks. A dedicated AI assistant reclaims that time for higher-value work.",
-    roiStat: { value: "6 hrs", label: "reclaimed per employee weekly" },
     useCases: [
       "Draft and summarize emails and documents",
       "Prepare meeting briefs from CRM and calendar data",
@@ -172,7 +166,6 @@ export const services: Service[] = [
       "Mirflow deploys role-specific AI employees — like an SDR, support agent, or ops coordinator — that own an end-to-end process rather than a single task, complete with reporting and oversight.",
     businessValue:
       "Instead of stitching together point tools, businesses get a single accountable digital worker that executes a full job function reliably, at a fraction of the cost of a hire.",
-    roiStat: { value: "70%", label: "lower cost than a full-time hire" },
     useCases: [
       "Digital SDR that prospects and books meetings",
       "Digital support agent that owns Tier-1 and Tier-2 tickets",
@@ -199,7 +192,6 @@ export const services: Service[] = [
       "Mirflow runs outbound calling and messaging campaigns that reach cold and warm leads, handle objections with a natural voice, and book meetings directly onto your team's calendar.",
     businessValue:
       "Outbound is a volume game constrained by rep capacity. Automating first-touch outreach multiplies pipeline without multiplying headcount.",
-    roiStat: { value: "4x", label: "more meetings booked per rep" },
     useCases: [
       "Call cold and warm lead lists at scale",
       "Follow up on quotes and proposals automatically",
@@ -224,7 +216,6 @@ export const services: Service[] = [
       "Mirflow scores and qualifies every inbound lead against your ideal customer profile using conversational forms, call analysis, and CRM signals — before a rep spends a minute on it.",
     businessValue:
       "Sales teams waste enormous time on leads that were never going to close. Automated qualification protects rep time for opportunities that matter.",
-    roiStat: { value: "38%", label: "increase in rep close rate" },
     useCases: [
       "Score inbound leads against ICP criteria automatically",
       "Ask qualifying questions via chat, form, or phone",
@@ -249,7 +240,6 @@ export const services: Service[] = [
       "Mirflow manages your entire scheduling flow — checking real-time availability, booking directly into your calendar, and sending confirmations and reminders to cut no-shows.",
     businessValue:
       "Back-and-forth scheduling costs hours weekly and causes drop-off before a booking is even confirmed. Automated booking removes friction at the exact moment intent is highest.",
-    roiStat: { value: "24%", label: "fewer no-shows" },
     useCases: [
       "Book appointments directly by chat, voice, or SMS",
       "Send automated confirmations and reminders",
@@ -274,7 +264,6 @@ export const services: Service[] = [
       "Mirflow researches prospects, personalizes multi-channel sequences across email and LinkedIn, and adapts messaging based on engagement — without sounding automated.",
     businessValue:
       "Generic outreach gets ignored. Personalization at scale was previously impossible without a large SDR team; Mirflow makes it a repeatable system.",
-    roiStat: { value: "3.1x", label: "higher reply rate" },
     useCases: [
       "Build and enrich targeted prospect lists",
       "Personalize opening lines using researched signals",
@@ -299,7 +288,6 @@ export const services: Service[] = [
       "Mirflow auto-generates branded, accurate proposals and quotes from call notes or intake forms, cutting turnaround time from days to minutes.",
     businessValue:
       "Slow proposals lose deals to faster competitors. Automating generation lets reps send a polished quote while interest is still high.",
-    roiStat: { value: "68%", label: "faster proposal turnaround" },
     useCases: [
       "Generate quotes automatically from intake data",
       "Apply your pricing rules and approved templates",
@@ -324,7 +312,6 @@ export const services: Service[] = [
       "Mirflow automates the administrative work between sales stages — data entry, task creation, follow-up sequencing, and deal-risk alerts — so reps spend their time selling.",
     businessValue:
       "Reps spend up to a third of their time on non-selling admin. Automating pipeline mechanics directly increases selling time and forecast accuracy.",
-    roiStat: { value: "31%", label: "more selling time per rep" },
     useCases: [
       "Auto-log calls, emails, and notes to the CRM",
       "Trigger follow-up tasks based on deal stage",
@@ -351,7 +338,6 @@ export const services: Service[] = [
       "Mirflow resolves common support requests instantly across chat and email, using your help docs and order data, while intelligently escalating complex cases to human agents.",
     businessValue:
       "The majority of support volume is repetitive. Automating resolution cuts response time to seconds and lets your team focus on high-value, relationship-driving conversations.",
-    roiStat: { value: "68%", label: "of tickets resolved without a human" },
     useCases: [
       "Resolve order-status and account questions instantly",
       "Answer product and troubleshooting questions",
@@ -376,7 +362,6 @@ export const services: Service[] = [
       "Mirflow turns your scattered docs, wikis, and Slack threads into a searchable AI knowledge base that answers employee questions with citations back to the source.",
     businessValue:
       "Employees lose hours weekly hunting for information across tools. A unified, AI-searchable knowledge base collapses that time to seconds.",
-    roiStat: { value: "50%", label: "less time spent searching for answers" },
     useCases: [
       "Answer HR and policy questions instantly",
       "Surface the right SOP for a given task",
@@ -401,7 +386,6 @@ export const services: Service[] = [
       "Mirflow automatically requests reviews at the right moment after service completion, routes unhappy customers to private feedback, and helps respond to reviews at scale.",
     businessValue:
       "Review volume and rating directly influence local search ranking and conversion. Automating requests compounds review growth without manual chasing.",
-    roiStat: { value: "3.1x", label: "more reviews collected" },
     useCases: [
       "Request reviews automatically after job completion",
       "Route negative feedback privately before it's public",
@@ -426,7 +410,6 @@ export const services: Service[] = [
       "Mirflow sends and responds to text messages for booking, reminders, quotes, and updates — the channel customers actually read, with a 98% open rate.",
     businessValue:
       "SMS consistently outperforms email in open and response rate. Automating two-way texting captures conversions that would otherwise be missed.",
-    roiStat: { value: "98%", label: "message open rate" },
     useCases: [
       "Send appointment reminders and confirmations",
       "Follow up on quotes and abandoned bookings",
@@ -451,7 +434,6 @@ export const services: Service[] = [
       "Mirflow drafts and sends replies to common email inquiries, triages incoming messages by intent, and keeps nurture sequences running without manual sends.",
     businessValue:
       "Shared inboxes become a bottleneck as volume grows. Automating triage and response keeps reply times fast without adding support headcount.",
-    roiStat: { value: "72%", label: "faster average reply time" },
     useCases: [
       "Auto-respond to common inquiries with accurate answers",
       "Triage and label incoming email by intent",
@@ -478,7 +460,6 @@ export const services: Service[] = [
       "Mirflow keeps your CRM current automatically — logging calls, updating deal stages, enriching contact records, and triggering workflows without manual data entry.",
     businessValue:
       "CRMs are only as valuable as the data inside them. Automating entry improves forecast accuracy and frees reps from the most-hated part of the job.",
-    roiStat: { value: "5 hrs", label: "saved per rep weekly" },
     useCases: [
       "Auto-log calls, emails, and meeting notes",
       "Enrich contact and company records automatically",
@@ -503,7 +484,6 @@ export const services: Service[] = [
       "Mirflow coordinates meeting scheduling across internal and external calendars, finds optimal times automatically, and handles reschedules without email back-and-forth.",
     businessValue:
       "Manual scheduling costs knowledge workers hours weekly. Automated coordination eliminates the back-and-forth entirely.",
-    roiStat: { value: "4 hrs", label: "saved per employee weekly" },
     useCases: [
       "Coordinate multi-party meeting scheduling automatically",
       "Suggest optimal times based on real availability",
@@ -528,7 +508,6 @@ export const services: Service[] = [
       "Mirflow joins calls, transcribes discussion, and delivers a structured summary with action items pushed directly into your CRM or task manager.",
     businessValue:
       "Manual note-taking splits attention and loses detail. Automated capture ensures nothing falls through the cracks after a call ends.",
-    roiStat: { value: "100%", label: "of meetings auto-summarized" },
     useCases: [
       "Transcribe and summarize sales and client calls",
       "Extract action items and owners automatically",
@@ -553,7 +532,6 @@ export const services: Service[] = [
       "Mirflow builds and maintains custom integrations between your CRM, calendar, billing, and internal systems so data flows automatically without manual exports.",
     businessValue:
       "Disconnected tools force manual data transfer and create errors. Reliable integrations turn your stack into a single connected system.",
-    roiStat: { value: "100%", label: "data consistency across systems" },
     useCases: [
       "Sync leads and customers across CRM and marketing tools",
       "Connect scheduling systems to billing and invoicing",
@@ -580,7 +558,6 @@ export const services: Service[] = [
       "Mirflow extracts and structures data from contracts, forms, and PDFs automatically, feeding it directly into your downstream systems without manual re-keying.",
     businessValue:
       "Manual document handling is slow and error-prone. Automated processing turns unstructured paperwork into a real-time data source.",
-    roiStat: { value: "4x", label: "faster document turnaround" },
     useCases: [
       "Extract data from intake forms and applications",
       "Process contracts and flag key terms for review",
@@ -605,7 +582,6 @@ export const services: Service[] = [
       "Mirflow extracts tables, line items, and key fields from invoices, statements, and reports — even from scanned or inconsistently formatted PDFs.",
     businessValue:
       "PDFs remain the most common format for business documents, yet the hardest to automate. Reliable extraction eliminates manual transcription entirely.",
-    roiStat: { value: "99.2%", label: "extraction accuracy" },
     useCases: [
       "Extract line items from vendor invoices",
       "Pull data from bank and financial statements",
@@ -630,7 +606,6 @@ export const services: Service[] = [
       "Mirflow applies advanced optical character recognition to scanned documents, handwriting, and images — making them searchable, structured, and usable by downstream automations.",
     businessValue:
       "Paper archives and scanned records lock up valuable information. OCR unlocks that data for search, compliance, and automation.",
-    roiStat: { value: "10x", label: "faster archive digitization" },
     useCases: [
       "Digitize physical archives and paper records",
       "Make scanned contracts full-text searchable",
@@ -655,7 +630,6 @@ export const services: Service[] = [
       "Mirflow builds retrieval-augmented generation systems that ground AI responses in your proprietary documents, ensuring accurate, citable answers instead of generic AI guesses.",
     businessValue:
       "Generic AI models don't know your business. RAG systems combine the reasoning of large language models with the accuracy of your verified internal data.",
-    roiStat: { value: "94%", label: "answer accuracy vs. source docs" },
     useCases: [
       "Ground customer support answers in product docs",
       "Power internal Q&A over policy and compliance documents",
@@ -680,7 +654,6 @@ export const services: Service[] = [
       "Mirflow designs and manages the vector database infrastructure that powers semantic search, RAG, and recommendation systems at production scale.",
     businessValue:
       "Search and retrieval quality determines whether an AI system feels magical or useless. Proper vector infrastructure is the foundation of reliable AI applications.",
-    roiStat: { value: "<100ms", label: "average retrieval latency" },
     useCases: [
       "Power semantic search across large document sets",
       "Enable similarity-based product or content recommendations",
@@ -707,7 +680,6 @@ export const services: Service[] = [
       "Mirflow maps your manual, multi-step business processes and automates them end-to-end — connecting tools, applying business logic, and handling exceptions gracefully.",
     businessValue:
       "Every manual handoff between systems is a source of delay and error. End-to-end automation compresses cycle time and removes human bottlenecks.",
-    roiStat: { value: "31%", label: "reduction in process cycle time" },
     useCases: [
       "Automate multi-step approval and onboarding processes",
       "Connect disparate tools into a single automated flow",
@@ -732,7 +704,6 @@ export const services: Service[] = [
       "Mirflow builds Slack-native bots and workflows that answer questions, trigger approvals, and surface alerts directly where your team already works.",
     businessValue:
       "Context-switching between tools kills productivity. Bringing automation directly into Slack keeps teams in flow.",
-    roiStat: { value: "3 hrs", label: "saved per employee weekly" },
     useCases: [
       "Answer internal questions directly in Slack channels",
       "Trigger approvals and notifications automatically",
@@ -757,7 +728,6 @@ export const services: Service[] = [
       "Mirflow brings the same automation capabilities to Microsoft Teams — bots, approvals, and alerts — for organizations standardized on the Microsoft ecosystem.",
     businessValue:
       "Enterprise teams often can't adopt new chat tools. Native Teams automation delivers the same efficiency gains within existing IT policy.",
-    roiStat: { value: "3 hrs", label: "saved per employee weekly" },
     useCases: [
       "Answer internal questions inside Teams channels",
       "Automate approvals within existing M365 workflows",
@@ -782,7 +752,6 @@ export const services: Service[] = [
       "Mirflow fine-tunes and configures custom GPT-style models scoped to a specific task — support, sales, or internal ops — so responses are accurate, on-brand, and fast.",
     businessValue:
       "General-purpose AI models are unreliable for specialized business tasks. A narrowly scoped custom model performs dramatically better on the job it's built for.",
-    roiStat: { value: "2.3x", label: "improvement in response accuracy" },
     useCases: [
       "Build a support GPT trained only on your product",
       "Create a sales GPT that follows your exact playbook",
@@ -809,7 +778,6 @@ export const services: Service[] = [
       "Mirflow automates campaign execution — segmentation, send timing, and follow-up — across email and SMS, continuously optimizing based on engagement data.",
     businessValue:
       "Manual campaign management doesn't scale with list size or channel count. Automation keeps every segment engaged without added marketing headcount.",
-    roiStat: { value: "27%", label: "increase in campaign engagement" },
     useCases: [
       "Segment audiences automatically by behavior",
       "Trigger campaigns based on lifecycle events",
@@ -834,7 +802,6 @@ export const services: Service[] = [
       "Mirflow generates first-draft blog posts, ad copy, and product descriptions trained on your brand voice, giving marketing teams a running start on every piece of content.",
     businessValue:
       "Content bottlenecks slow down marketing velocity. AI-assisted drafting compresses production time while keeping a human in the loop for quality and accuracy.",
-    roiStat: { value: "3x", label: "faster content production" },
     useCases: [
       "Draft blog posts and long-form content",
       "Generate ad copy variations for testing",
@@ -859,7 +826,6 @@ export const services: Service[] = [
       "Mirflow plans, drafts, and schedules social content across platforms, and can auto-respond to common comments and DMs to keep engagement high.",
     businessValue:
       "Inconsistent posting is one of the biggest drivers of stalled social growth. Automating the pipeline keeps a consistent presence without daily manual work.",
-    roiStat: { value: "4x", label: "more consistent posting cadence" },
     useCases: [
       "Plan and schedule a content calendar automatically",
       "Draft platform-specific captions and copy",
@@ -886,7 +852,6 @@ export const services: Service[] = [
       "Mirflow generates, sends, and follows up on invoices automatically, matching payments and flagging overdue accounts without manual bookkeeping work.",
     businessValue:
       "Delayed invoicing directly delays cash flow. Automating generation and follow-up shortens days-sales-outstanding significantly.",
-    roiStat: { value: "9 days", label: "reduction in DSO" },
     useCases: [
       "Generate invoices automatically from completed jobs",
       "Send automated payment reminders before and after due dates",
@@ -911,7 +876,6 @@ export const services: Service[] = [
       "Mirflow categorizes transactions, reconciles accounts, and prepares month-end reporting automatically, integrated directly with your accounting software.",
     businessValue:
       "Manual bookkeeping is slow, error-prone, and often delayed until month-end crunch. Automation keeps books continuously accurate and audit-ready.",
-    roiStat: { value: "15 hrs", label: "saved per month" },
     useCases: [
       "Categorize transactions automatically by rule and history",
       "Reconcile bank and credit card accounts continuously",
@@ -936,7 +900,6 @@ export const services: Service[] = [
       "Mirflow pulls data from across your systems to generate recurring reports — financial, operational, or client-facing — without a spreadsheet ever being touched manually.",
     businessValue:
       "Recurring reporting consumes hours of analyst time each month. Automating generation frees that time for actual analysis and decision-making.",
-    roiStat: { value: "12 hrs", label: "saved per month" },
     useCases: [
       "Generate recurring financial and operational reports",
       "Build client-facing performance reports automatically",
@@ -961,7 +924,6 @@ export const services: Service[] = [
       "Mirflow unifies data across marketing, sales, and operations into a single analytics layer, surfacing the metrics that actually explain performance changes.",
     businessValue:
       "Fragmented data across tools makes it impossible to see the full picture. A unified analytics layer turns raw data into clear, actionable decisions.",
-    roiStat: { value: "1", label: "source of truth across teams" },
     useCases: [
       "Unify marketing, sales, and product data",
       "Build real-time dashboards for leadership",
@@ -986,7 +948,6 @@ export const services: Service[] = [
       "Mirflow builds demand, revenue, and cash-flow forecasting models trained on your historical data, continuously updated as new data arrives.",
     businessValue:
       "Spreadsheet-based forecasts go stale immediately and rarely account for seasonality or leading indicators. Model-based forecasting improves planning accuracy significantly.",
-    roiStat: { value: "23%", label: "improvement in forecast accuracy" },
     useCases: [
       "Forecast demand and inventory needs",
       "Project revenue and cash flow scenarios",
@@ -1011,7 +972,6 @@ export const services: Service[] = [
       "Mirflow builds BI systems that give leadership a live view of the metrics that matter, replacing static slide decks with always-current dashboards.",
     businessValue:
       "Leadership decisions are often made on outdated data. Live BI systems keep every stakeholder aligned on the same current numbers.",
-    roiStat: { value: "100%", label: "real-time visibility across teams" },
     useCases: [
       "Build executive dashboards across departments",
       "Standardize KPI definitions company-wide",
@@ -1036,7 +996,6 @@ export const services: Service[] = [
       "Mirflow builds conversational dashboards where any team member can ask a question in natural language and get an accurate chart or answer, no SQL required.",
     businessValue:
       "Most employees can't write queries, so they wait on analysts for simple answers. Conversational dashboards make data self-service for everyone.",
-    roiStat: { value: "80%", label: "fewer ad hoc analyst requests" },
     useCases: [
       "Let managers ask questions about their team's metrics",
       "Generate charts on demand without a BI ticket",
@@ -1063,7 +1022,6 @@ export const services: Service[] = [
       "When off-the-shelf tools don't fit, Mirflow designs and ships a fully custom AI application — internal tool or customer-facing product — built for your exact process.",
     businessValue:
       "Unique processes deserve purpose-built software. Custom AI applications deliver a competitive advantage that generic tools can't replicate.",
-    roiStat: { value: "100%", label: "fit to your exact workflow" },
     useCases: [
       "Build an internal tool for a unique operational process",
       "Ship an AI-powered feature inside your own product",
@@ -1088,7 +1046,6 @@ export const services: Service[] = [
       "Mirflow builds computer vision systems for quality inspection, inventory counting, and safety monitoring — processing images and video far faster than manual review.",
     businessValue:
       "Manual visual inspection doesn't scale and is inconsistent between reviewers. Computer vision applies a consistent standard at a fraction of the cost.",
-    roiStat: { value: "17%", label: "reduction in defect escape rate" },
     useCases: [
       "Automate quality inspection on production lines",
       "Count and track inventory from camera feeds",
@@ -1113,7 +1070,6 @@ export const services: Service[] = [
       "Mirflow builds agentic systems that can independently break down a goal into steps, use tools and APIs, and complete multi-step tasks with minimal human input.",
     businessValue:
       "Traditional automation only handles predefined paths. Agentic AI adapts to novel situations, handling a far broader range of tasks reliably.",
-    roiStat: { value: "10x", label: "broader task coverage than rules-based automation" },
     useCases: [
       "Autonomously research and compile reports",
       "Complete multi-step processes across several tools",
@@ -1138,7 +1094,6 @@ export const services: Service[] = [
       "Mirflow architects multi-agent systems where specialized agents — research, drafting, validation, execution — collaborate to complete complex business processes end-to-end.",
     businessValue:
       "Complex workflows often exceed what a single AI agent can reliably handle. Coordinated multi-agent systems divide work the way a specialized team would.",
-    roiStat: { value: "45%", label: "faster complex process completion" },
     useCases: [
       "Coordinate research, drafting, and review agents for content",
       "Run end-to-end lead-to-close sales processes autonomously",
