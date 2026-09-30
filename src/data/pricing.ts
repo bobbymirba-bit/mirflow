@@ -7,64 +7,76 @@ export type PricingTier = {
   cta: string;
   ctaHref: string;
   featured?: boolean;
+  badge?: string;
   setupFee?: string;
   features: string[];
 };
 
+// Tier ids "founding" and "growth" map to Stripe price env vars in /api/checkout.
+// Keep those ids stable. Growth's $997 setup + $399/mo needs new Stripe Prices
+// (STRIPE_GROWTH_SETUP_PRICE_ID / STRIPE_GROWTH_MONTHLY_PRICE_ID) before checkout matches this page.
+// The pilot has no Stripe checkout; it books through /book-a-call.
 export const pricingTiers: PricingTier[] = [
   {
+    id: "pilot",
+    name: "Pilot",
+    price: "$197",
+    priceSuffix: " one-time",
+    setupFee: "Credited toward Starter or Growth setup",
+    description:
+      "Seven days of missed-call text-back on your real line, so you can see what you've been missing before you commit to anything.",
+    cta: "Book the pilot",
+    ctaHref: "/book-a-call",
+    features: [
+      "Call capture live within 24 hours",
+      "Missed callers get a text back within a minute",
+      "Text-back starts once carrier approval clears (10DLC, usually 2–7 business days)",
+      "Your 7 days start when texts go live, not before",
+      "Email alert with the caller's number and time for every missed call",
+      "End-of-pilot recap: missed calls, replies, and what they were worth to you",
+      "$197 credited toward setup if you continue",
+    ],
+  },
+  {
     id: "founding",
-    name: "Founding",
+    name: "Starter",
     price: "$199",
     priceSuffix: "/mo",
     setupFee: "$497 one-time setup",
-    description: "$497 one-time setup + $199/mo. Month-to-month, no long-term contract. Start with a $197 7-Day Missed-Call Text-Back Pilot, credited toward setup.",
-    cta: "Purchase subscription",
+    description:
+      "An AI receptionist for the hours you're closed, plus text-back for the calls you can't get to during the day.",
+    cta: "Start with Starter",
     ctaHref: "/checkout?plan=founding",
     featured: true,
+    badge: "Where most businesses start",
     features: [
-      "One lead source and one core workflow",
-      "Instant SMS and email follow-up",
-      "Lead qualification and calendar booking",
-      "CRM or spreadsheet updates",
-      "Monitoring for up to 250 leads / month",
-      "Month-to-month, no long-term contract",
-      "Start with a $197 7-Day Missed-Call Text-Back Pilot, credited toward setup",
+      "After-hours AI receptionist on your existing number",
+      "Missed-call text-back during business hours",
+      "A short summary of every call, sent by text or email",
+      "Urgent calls flagged to your cell",
+      "Answers trained on your services, hours, and service area",
+      "Month-to-month. Cancel anytime.",
+      "$197 pilot credited toward setup",
     ],
   },
   {
     id: "growth",
     name: "Growth",
-    price: "$349",
+    price: "$399",
     priceSuffix: "/mo",
-    setupFee: "$1,000 one-time setup",
-    description: "For businesses ready to automate a larger lead-conversion workflow.",
-    cta: "Purchase subscription",
+    setupFee: "$997 one-time setup",
+    description:
+      "Every call answered around the clock, booked straight onto your calendar, with follow-up and reviews handled for you.",
+    cta: "Start with Growth",
     ctaHref: "/checkout?plan=growth",
     features: [
-      "Up to two lead sources",
-      "SMS and email nurture sequences",
-      "Custom qualification logic",
-      "Calendar and CRM integrations",
-      "Monitoring for up to 750 leads / month",
-      "Monthly performance summary",
-    ],
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    price: "Custom",
-    priceSuffix: "",
-    description: "For voice AI, multiple workflows, complex integrations or higher volume.",
-    cta: "Request a custom quote",
-    ctaHref: "/quote",
-    features: [
-      "AI receptionists and voice agents",
-      "Multiple connected workflows",
-      "Custom applications and integrations",
-      "Higher conversation and lead volume",
-      "Tailored implementation plan",
-      "Ongoing optimization options",
+      "Everything in Starter",
+      "24/7 answering, including overflow when your line is busy",
+      "Books appointments directly on your calendar",
+      "Follow-up texts for quotes and callers who didn't book",
+      "Review requests after completed jobs or visits",
+      "Monthly call report and script tuning",
+      "Month-to-month. Cancel anytime.",
     ],
   },
 ];

@@ -19,7 +19,7 @@ export function PricingCard({ tier, className }: { tier: PricingTier; className?
     >
       {tier.featured ? (
         <Badge variant="brand" className="absolute -top-3 left-8">
-          Most popular
+          {tier.badge ?? "Recommended"}
         </Badge>
       ) : null}
       <h3 className="font-display text-lg font-semibold text-foreground">{tier.name}</h3>

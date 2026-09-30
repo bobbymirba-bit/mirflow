@@ -15,10 +15,10 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Flat monthly pricing based on workflows and volume, not per-seat fees. Compare Mirflow AI plans and see how automation stacks up against hiring or point solutions.",
+    "Three plans, published prices, month-to-month. Start with a $197 missed-call pilot, then $497 setup + $199/mo for an after-hours AI receptionist, or $997 setup + $399/mo for 24/7 answering and booking.",
   openGraph: {
     title: `Pricing | ${siteConfig.name}`,
-    description: "Flat monthly pricing based on workflows and volume, not per-seat fees.",
+    description: "Three plans, published prices, month-to-month. Start with a $197 pilot.",
   },
 };
 
@@ -32,11 +32,12 @@ export default function PricingPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="brand">Pricing</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              Start small. Add workflows as you grow.
+              Start with one week. Keep what works.
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
               $497 one-time setup + $199/mo. Month-to-month, no long-term contract.
               Start with a $197 7-Day Missed-Call Text-Back Pilot, credited toward setup.
+              Every price is on this page. Cancel anytime.
             </p>
           </div>
         </div>
@@ -52,8 +53,9 @@ export default function PricingPage() {
             ))}
           </RevealGroup>
           <p className="mt-8 text-center text-sm text-muted-foreground">
-            Software, phone, messaging, and AI usage are billed separately. Need something
-            outside these packages?{" "}
+            Software, phone, messaging, and AI usage are billed separately. Texting requires
+            carrier (10DLC) registration under your business name, which usually takes 2–7 business days.
+            Multiple locations, custom integrations, or outbound campaigns?{" "}
             <Link href="/quote" className="font-medium text-foreground underline underline-offset-4">
               Request a custom quote
             </Link>

@@ -39,19 +39,25 @@ export const faqs: FaqItem[] = [
     category: "Pricing",
     question: "How is pricing structured?",
     answer:
-      "Pricing is a flat monthly fee based on the number of workflows and conversation volume, not a per-seat or per-agent fee. This means costs stay predictable even as usage grows. See our Pricing page for current tiers.",
+      "Three published plans. The Pilot is $197 one-time for seven days of missed-call text-back, credited toward setup. Starter is $497 setup + $199/mo for an after-hours AI receptionist, text-back, and call summaries. Growth is $997 setup + $399/mo for 24/7 answering, calendar booking, follow-ups, and review requests. No per-seat fees. Multi-location and custom builds are quoted separately.",
   },
   {
     category: "Pricing",
     question: "Is there a setup fee?",
     answer:
-      "Yes. The standard plan is $497 one-time setup + $199/mo, month-to-month, with no long-term contract. You can start with a $197 7-Day Missed-Call Text-Back Pilot, and the $197 is credited toward setup. Custom and enterprise builds are scoped and quoted separately.",
+      "Yes, one time. Starter is $497 setup + $199/mo and Growth is $997 setup + $399/mo, both month-to-month with no long-term contract. If you start with the $197 7-Day Missed-Call Text-Back Pilot, the $197 is credited toward either setup fee. Custom and multi-location builds are scoped and quoted separately.",
   },
   {
     category: "Pricing",
-    question: "Can I cancel or change plans?",
+    question: "Is there a contract? Can I cancel?",
     answer:
-      "Yes. Monthly plans can be adjusted or canceled with 30 days' notice. Enterprise agreements follow the terms set in your custom contract.",
+      "No long-term contract. Starter and Growth are month-to-month, and you can cancel anytime. You can also move between plans from one month to the next. Custom builds follow the terms in your quote.",
+  },
+  {
+    category: "Pricing",
+    question: "How does the $197 pilot work?",
+    answer:
+      "We connect to your line and call capture is live within 24 hours, so you get an email for every missed call right away. The text-back needs carrier approval (10DLC) under your business name, which usually takes 2 to 7 business days. Your seven days start when texts go live. At the end you get a plain recap of what came in. If you continue, the $197 is credited toward setup.",
   },
   {
     category: "Technical",
