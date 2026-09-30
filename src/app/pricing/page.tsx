@@ -35,8 +35,8 @@ export default function PricingPage() {
               Start small. Add workflows as you grow.
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Purchase a focused lead-automation subscription online, or tell us exactly
-              what you need and receive a custom implementation quote.
+              $497 one-time setup + $199/mo. Month-to-month, no long-term contract.
+              Start with a $197 7-Day Missed-Call Text-Back Pilot, credited toward setup.
             </p>
           </div>
         </div>

@@ -45,7 +45,7 @@ export const faqs: FaqItem[] = [
     category: "Pricing",
     question: "Is there a setup fee?",
     answer:
-      "Most engagements include a one-time implementation fee that covers discovery, integration, and training the system on your business — scoped and quoted during your onboarding call based on complexity.",
+      "Yes. The standard plan is $497 one-time setup + $199/mo, month-to-month, with no long-term contract. You can start with a $197 7-Day Missed-Call Text-Back Pilot, and the $197 is credited toward setup. Custom and enterprise builds are scoped and quoted separately.",
   },
   {
     category: "Pricing",

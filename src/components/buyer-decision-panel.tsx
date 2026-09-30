@@ -9,7 +9,7 @@ const paths = [
     title: "Purchase a focused system",
     description:
       "Best when you need one lead source connected to instant follow-up, qualification, booking, and CRM updates.",
-    details: ["From $199/month", "$500 setup", "24-hour target after access"],
+    details: ["$497 setup + $199/month", "Month-to-month, no long-term contract", "$197 7-day pilot, credited toward setup"],
     label: "View plans",
     href: "/pricing",
   },

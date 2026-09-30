@@ -79,7 +79,7 @@ const organizationJsonLd = {
   logo: `${siteConfig.url}${siteConfig.ogImage}`,
   description: siteConfig.description,
   email: siteConfig.email,
-  telephone: siteConfig.phone,
+  telephone: siteConfig.phoneSchema,
   foundingDate: siteConfig.founded,
   address: {
     "@type": "PostalAddress",

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const contactDetails = [
   { icon: Mail, label: siteConfig.email, href: `mailto:${siteConfig.email}` },
-  { icon: Phone, label: siteConfig.phone, href: `tel:${siteConfig.phone.replace(/[^\d+]/g, "")}` },
+  { icon: Phone, label: siteConfig.phone, href: `tel:${siteConfig.phoneTel}` },
   { icon: MapPin, label: siteConfig.address, href: undefined },
 ];
 

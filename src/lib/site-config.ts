@@ -8,7 +8,9 @@ export const siteConfig = {
   ogImage: "/og.jpg",
   email: "hello@mirflow.online",
   supportEmail: "support@mirflow.online",
-  phone: "+1 (415) 555-0148",
+  phone: "(949) 422-8674",
+  phoneTel: "+19494228674",
+  phoneSchema: "+1-949-422-8674",
   address: "Serving Southern California",
   founded: "2026",
   social: {
