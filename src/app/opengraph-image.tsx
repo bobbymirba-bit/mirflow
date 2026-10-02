@@ -6,6 +6,8 @@ export const alt = `${siteConfig.name} — ${siteConfig.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+const pillars = ["Strategy", "Automation", "Security", "Tax", "Product"];
+
 export default async function OpengraphImage() {
   return new ImageResponse(
     (
@@ -15,85 +17,86 @@ export default async function OpengraphImage() {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(135deg, #0a0a12 0%, #14121f 50%, #0a0a12 100%)",
-          position: "relative",
+          justifyContent: "space-between",
+          background: "#0e1621",
+          color: "#f7f6f2",
+          padding: "72px 80px",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(circle at 30% 20%, rgba(99,102,241,0.35), transparent 55%), radial-gradient(circle at 75% 75%, rgba(139,92,246,0.3), transparent 55%)",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "relative",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            padding: "0 80px",
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           <div
             style={{
+              width: 48,
+              height: 48,
+              background: "#f7f6f2",
               display: "flex",
               alignItems: "center",
-              gap: 14,
-              marginBottom: 36,
+              justifyContent: "center",
             }}
           >
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4 15c2-4 4-9 8-9s6 5 8 9"
+                stroke="#0e1621"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+          <span style={{ fontSize: 34, letterSpacing: "-0.02em", fontFamily: "serif" }}>
+            {siteConfig.name}
+          </span>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div
+            style={{
+              fontSize: 22,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "#8fb3d1",
+              display: "flex",
+            }}
+          >
+            AI transformation for finance and operations
+          </div>
+          <div
+            style={{
+              marginTop: 24,
+              fontSize: 72,
+              lineHeight: 1.02,
+              letterSpacing: "-0.035em",
+              fontFamily: "serif",
+              maxWidth: 980,
+              display: "flex",
+            }}
+          >
+            AI that does the work, and protects what it touches.
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            gap: 0,
+            borderTop: "1px solid rgba(247,246,242,0.25)",
+            paddingTop: 28,
+          }}
+        >
+          {pillars.map((pillar) => (
             <div
+              key={pillar}
               style={{
-                width: 44,
-                height: 44,
-                borderRadius: 12,
-                background:
-                  "linear-gradient(100deg, #6366f1, #8b5cf6, #3b82f6)",
                 display: "flex",
-              }}
-            />
-            <span
-              style={{
-                fontSize: 34,
-                fontWeight: 700,
-                color: "#f5f5f7",
-                letterSpacing: "-0.02em",
+                fontSize: 24,
+                color: "rgba(247,246,242,0.75)",
+                marginRight: 48,
               }}
             >
-              {siteConfig.name}
-            </span>
-          </div>
-          <div
-            style={{
-              fontSize: 60,
-              fontWeight: 700,
-              color: "#f5f5f7",
-              textAlign: "center",
-              lineHeight: 1.15,
-              letterSpacing: "-0.02em",
-              display: "flex",
-            }}
-          >
-            {siteConfig.tagline}
-          </div>
-          <div
-            style={{
-              marginTop: 28,
-              fontSize: 26,
-              color: "#a1a1aa",
-              textAlign: "center",
-              maxWidth: 820,
-              display: "flex",
-            }}
-          >
-            AI systems that qualify leads, answer customers, and run your
-            back office around the clock.
-          </div>
+              {pillar}
+            </div>
+          ))}
         </div>
       </div>
     ),

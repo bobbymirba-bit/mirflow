@@ -1,362 +1,462 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Shield } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Building2,
+  Calculator,
+  Check,
+  Code2,
+  Eye,
+  FileCheck2,
+  KeyRound,
+  Landmark,
+  Lock,
+  Scale,
+  ShieldCheck,
+  UserCheck,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/icon";
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { SectionHeading } from "@/components/section-heading";
-import { WorkflowVisualizer } from "@/components/workflow-visualizer";
-import { ServiceCard } from "@/components/cards/service-card";
-import { IndustryCard } from "@/components/cards/industry-card";
-import { RoiCalculator } from "@/components/calculators/roi-calculator";
-import { ComparisonTable } from "@/components/comparison-table";
-import { FaqAccordion } from "@/components/faq-accordion";
+import { JsonLd } from "@/components/json-ld";
 import { CtaSection } from "@/components/cta-section";
-
-import { services } from "@/data/services";
-import { industries } from "@/data/industries";
-import { comparisonRows } from "@/data/pricing";
+import { FaqAccordion } from "@/components/faq-accordion";
+import { ProcessSteps } from "@/components/process-steps";
+import { WorkflowPreview } from "@/components/workflow-preview";
+import { capabilities } from "@/data/capabilities";
 import { faqs } from "@/data/faq";
+import { pageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site-config";
 
-const heroStats = [
-  { value: "24/7", label: "Lead coverage" },
-  { value: "24 hrs", label: "Standard launch target" },
-  { value: "SoCal", label: "Local focus" },
-  { value: "1", label: "Clear first workflow" },
-];
+export const metadata = {
+  ...pageMetadata({
+    title: "AI Strategy, Automation, Security & Tax Operations",
+    description: siteConfig.description,
+    path: "/",
+  }),
+  // Use the root title as-is on the homepage.
+  title: { absolute: `${siteConfig.name} — ${siteConfig.tagline}` },
+};
 
-const capabilities = [
+const outcomes = [
   {
-    icon: "MessageSquare",
-    title: "Conversational & Voice AI",
+    title: "Lower operating costs",
     description:
-      "Chat and voice agents that answer instantly, in your brand voice, trained on your product and policies.",
-    tone: "sm:bg-[#c77e6b]",
+      "Automate repetitive intake, extraction, and reconciliation so skilled people spend their time on higher-value work.",
   },
   {
-    icon: "TrendingUp",
-    title: "Sales & Revenue",
+    title: "Faster workflows",
     description:
-      "Qualify inbound leads, run outbound sequences, and book meetings straight into your calendar.",
-    tone: "sm:bg-[#8da9b5]",
+      "Shorten cycle times for approvals, close, reporting, and customer requests by removing manual hand-offs.",
   },
   {
-    icon: "Headset",
-    title: "Customer Experience",
+    title: "Reduced risk",
     description:
-      "Deflect repetitive tickets, resolve common issues, and route complex cases to the right person.",
-    tone: "sm:bg-[#d5b18e]",
+      "Bring informal AI use under clear policy, with access controls, logging, and review built into each workflow.",
   },
   {
-    icon: "FileText",
-    title: "Documents & Knowledge",
+    title: "Better tax operations",
     description:
-      "Extract, summarize, and route information from contracts, invoices, and internal documents.",
-    tone: "sm:bg-[#98a18c]",
+      "Help tax teams process documents, classify data, and prepare for review with more consistency and less rework.",
   },
   {
-    icon: "Workflow",
-    title: "Workflow Automation",
+    title: "Stronger products",
     description:
-      "Connect your CRM, calendar, and internal tools so work moves without anyone touching a keyboard.",
-    tone: "sm:bg-[#ddd4c8]",
-  },
-  {
-    icon: "Cpu",
-    title: "Advanced AI Systems",
-    description:
-      "Custom multi-agent systems and applications for businesses whose workflows don't fit off-the-shelf tools.",
-    tone: "sm:bg-[#b79c91]",
+      "Ship AI features customers trust, backed by validated demand and experienced product leadership.",
   },
 ];
 
-const workflowSteps = [
+const process = [
   {
-    title: "Discover",
+    title: "Assess",
     description:
-      "We audit your current workflows and identify the highest-leverage automation opportunity — the one with the clearest ROI.",
+      "Review workflows, data, systems, and current AI use to find where value and risk are concentrated.",
   },
   {
-    title: "Design",
+    title: "Prioritize",
     description:
-      "We map the system architecture around your existing tools: CRM, calendar, phone system, and knowledge base.",
+      "Rank opportunities by value, feasibility, and data sensitivity, and agree on what to do first.",
   },
   {
-    title: "Build",
+    title: "Design with controls",
     description:
-      "We train and configure the AI system on your business — your pricing, your policies, your tone of voice.",
+      "Define access, review points, logging, and escalation before anything is built.",
   },
   {
-    title: "Launch",
+    title: "Build and integrate",
     description:
-      "The system goes live with human oversight and guardrails, handling real conversations from day one.",
+      "Deliver working systems connected to your existing tools, and pilot them alongside current processes.",
   },
   {
-    title: "Optimize",
+    title: "Operate and improve",
     description:
-      "We continuously tune the system using real conversation data, so performance compounds every month.",
+      "Monitor accuracy, usage, and risk, then expand to the next workflow once the results hold up.",
   },
 ];
 
-const featuredServiceSlugs = [
-  "ai-chatbots",
-  "voice-ai",
-  "ai-receptionists",
-  "lead-qualification",
-  "customer-support-ai",
-  "workflow-automation",
+const principles = [
+  {
+    icon: UserCheck,
+    title: "Human review where it matters",
+    description:
+      "Financial, tax, legal, and customer-impacting decisions route to accountable people, with thresholds you set.",
+  },
+  {
+    icon: KeyRound,
+    title: "Least-privilege access",
+    description:
+      "Users, agents, and integrations get only the access they need, tied to your identity provider.",
+  },
+  {
+    icon: Lock,
+    title: "Sensitive data stays scoped",
+    description:
+      "Data flows, retention, and approved vendors are defined and agreed before a system touches production data.",
+  },
+  {
+    icon: Eye,
+    title: "Auditable by design",
+    description:
+      "Inputs, outputs, and approvals are logged, so you can explain how an AI-assisted result was produced.",
+  },
+  {
+    icon: Scale,
+    title: "Vendor-neutral advice",
+    description:
+      "We recommend what fits your environment and risk profile, including tools you already license.",
+  },
+  {
+    icon: FileCheck2,
+    title: "Careful, honest claims",
+    description:
+      "We help you reduce risk and prepare for review. We don't promise outcomes that only auditors, regulators, or advisors can determine.",
+  },
 ];
 
-const featuredServices = services.filter((service) =>
-  featuredServiceSlugs.includes(service.slug),
-);
+const audiences = [
+  {
+    icon: Calculator,
+    title: "Finance and accounting teams",
+    description: "High volumes of invoices, statements, reconciliations, and reporting.",
+  },
+  {
+    icon: Landmark,
+    title: "Tax departments and firms",
+    description: "Document-heavy, deadline-driven work across entities and jurisdictions.",
+  },
+  {
+    icon: Building2,
+    title: "Operations-driven businesses",
+    description: "Multi-system processes where manual hand-offs slow everything down.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Data-sensitive organizations",
+    description: "Financial services, insurance, professional services, and other teams handling confidential data.",
+  },
+  {
+    icon: Code2,
+    title: "Software and product companies",
+    description: "Teams adding AI to their product and needing senior product leadership.",
+  },
+];
 
-const featuredIndustrySlugs = ["hvac", "plumbing", "med-spas", "dentists"];
+const homeFaqs = faqs.filter((faq) => faq.featured);
 
-const featuredIndustries = industries.filter((industry) =>
-  featuredIndustrySlugs.includes(industry.slug),
-);
-
-const homeFaqs = faqs.slice(0, 6);
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Mirflow AI capabilities",
+  itemListElement: capabilities.map((capability, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: capability.name,
+    url: `${siteConfig.url}/${capability.slug}`,
+  })),
+};
 
 export default function Home() {
   return (
     <>
-      {/* Mobile hero: a shallow image followed by a compact editorial introduction. */}
-      <section className="border-b border-border bg-[#f3efe7] sm:hidden">
-        <div className="relative h-[230px] overflow-hidden">
-          <Image
-            src="/mirflow-editorial-hero.jpg"
-            alt="A business owner working in a calm, modern Southern California studio"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[58%_45%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-          <p className="absolute bottom-4 left-5 text-[9px] font-semibold uppercase tracking-[0.2em] text-white">
-            Mirflow — Southern California
-          </p>
-        </div>
-        <div className="px-5 pb-8 pt-7">
-          <h1 className="max-w-[350px] text-balance font-display text-[43px] font-normal leading-[0.94] tracking-[-0.045em] text-[#171713]">
-            The business runs. You move forward.
-          </h1>
-          <p className="mt-4 max-w-[345px] text-[15px] leading-6 text-[#171713]/60">
-            Quiet, capable AI systems that answer every lead, arrange the next step,
-            and keep your operation moving—without adding more admin.
-          </p>
-          <div className="mt-6 grid gap-2">
-            <Button asChild variant="gradient" size="lg" className="w-full">
-              <Link href="/quote">Design my workflow<ArrowRight className="h-4 w-4" /></Link>
-            </Button>
-            <Link href="/pricing" className="py-2 text-center text-xs font-semibold uppercase tracking-[0.12em] text-[#171713]/55">
-              Plans from $199
-            </Link>
-          </div>
-        </div>
-      </section>
+      <JsonLd data={homeJsonLd} />
 
-      <div>
       {/* Hero */}
-      <section className="relative hidden min-h-[820px] overflow-hidden border-b border-border sm:block">
-        <Image
-          src="/mirflow-editorial-hero.jpg"
-          alt="A business owner working in a calm, modern Southern California studio"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
-        <div className="container-page relative flex min-h-[620px] items-end pb-12 pt-28 sm:min-h-[820px] sm:items-center sm:py-20">
-          <div className="w-full min-w-0 max-w-3xl text-white">
-            <p className="border-b border-white/50 pb-3 text-[9px] font-semibold uppercase tracking-[0.18em] sm:text-xs sm:tracking-[0.24em]">
-              Mirflow — Southern California
+      <section aria-labelledby="hero-heading" className="relative overflow-hidden border-b border-border">
+        <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" aria-hidden="true" />
+        <div className="container-page relative grid gap-14 pb-16 pt-14 sm:pb-24 sm:pt-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16 lg:pb-28">
+          <div className="min-w-0">
+            <p className="inline-flex items-center gap-2 border-b border-foreground/30 pb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              AI transformation for finance and operations
             </p>
-            <h1 className="mt-6 max-w-[340px] text-balance font-display text-[46px] font-normal leading-[0.94] tracking-[-0.045em] sm:mt-8 sm:max-w-none sm:text-7xl lg:text-[92px]">
-              The business runs. You move forward.
+            <h1
+              id="hero-heading"
+              className="mt-7 text-balance font-display text-[44px] font-normal leading-[0.98] tracking-[-0.04em] text-foreground sm:text-7xl lg:text-[80px]"
+            >
+              AI that does the work, and protects what it touches.
             </h1>
-            <p className="mt-5 max-w-[330px] text-pretty text-[15px] leading-relaxed text-white/80 sm:mt-7 sm:max-w-xl sm:text-xl">
-              Quiet, capable AI systems that answer every lead, arrange the next step,
-              and keep your operation moving—without adding more admin.
+            <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+              {siteConfig.description}
             </p>
-            <div className="mt-7 flex flex-col gap-2 sm:mt-10 sm:flex-row sm:gap-3">
-              <Button asChild variant="gradient" size="lg" className="w-full sm:w-auto">
-                <Link href="/quote">Design my workflow<ArrowRight className="h-4 w-4" /></Link>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <Button asChild variant="gradient" size="lg">
+                <Link href={siteConfig.assessmentHref}>
+                  Book an AI Assessment
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="w-full border-white/60 text-white hover:bg-white hover:text-black sm:w-auto">
-                <Link href="/pricing">Plans from $199</Link>
+              <Button asChild variant="outline" size="lg">
+                <Link href="#capabilities">Explore our AI capabilities</Link>
               </Button>
             </div>
+            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-xs text-muted-foreground">
+              {["Human review built in", "Least-privilege access", "Vendor-neutral"].map((item) => (
+                <li key={item} className="flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-        <div className="absolute bottom-6 right-8 hidden text-right text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70 lg:block">
-          Respond · Qualify · Book · Follow up
-        </div>
-      </section>
 
-      <section className="border-b border-border bg-[#171713] text-[#f3efe7]">
-        <div className="grid grid-cols-2 gap-px bg-white/20 sm:container-page sm:grid-cols-4 lg:px-8">
-          {heroStats.map((stat, index) => (
-            <div key={stat.label} className="bg-[#171713] px-5 py-6 sm:px-6 sm:py-8">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">0{index + 1}</p>
-              <p className="mt-3 font-display text-3xl sm:mt-5 sm:text-4xl">{stat.value}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.12em] text-white/60">{stat.label}</p>
-            </div>
-          ))}
+          <WorkflowPreview />
         </div>
       </section>
 
       {/* Capabilities */}
-      <section className="container-page py-16 sm:py-32">
-        <SectionHeading
-          eyebrow="Capabilities"
-          title="A composed operating system for the work that never stops"
-          description="We begin with the bottlenecks that cost local businesses the most: missed calls, slow lead response, manual booking, and repetitive follow-up."
-        />
-        <RevealGroup className="mt-10 grid gap-px border border-border bg-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map((capability, index) => (
-            <RevealItem
-              key={capability.title}
-              className={`${capability.tone} ${index >= 3 ? "hidden sm:block" : ""} min-h-0 bg-[#f3efe7] p-5 text-[#171713] sm:min-h-[320px] sm:p-8`}
-            >
-              <div className="flex items-start justify-between">
-                <span className="text-xs font-semibold">0{index + 1}</span>
-                <Icon name={capability.icon} className="h-5 w-5" />
-              </div>
-              <h3 className="mt-10 font-display text-[26px] font-normal leading-none sm:mt-20 sm:text-3xl">
-                {capability.title}
-              </h3>
-              <p className="mt-3 max-w-xs text-sm leading-relaxed text-black/65 sm:mt-6">
-                {capability.description}
+      <section id="capabilities" aria-labelledby="capabilities-heading" className="scroll-mt-24 border-b border-border">
+        <div className="container-page py-16 sm:py-28">
+          <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                Capabilities
               </p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </section>
-
-      {/* Interactive workflow demo */}
-      <section className="border-y border-border bg-secondary/20 py-16 sm:py-28">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="How it works"
-            title="From audit to live system, without the guesswork"
-            description="Every Mirflow engagement follows the same disciplined process — built for speed without cutting corners on reliability."
-          />
-          <div className="mt-10 sm:mt-14">
-            <WorkflowVisualizer steps={workflowSteps} />
+              <h2
+                id="capabilities-heading"
+                className="mt-4 text-balance font-display text-[34px] font-normal leading-[1.03] tracking-[-0.035em] sm:text-5xl"
+              >
+                Five ways we help you put AI to work safely
+              </h2>
+            </div>
+            <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground lg:justify-self-end">
+              Start with one capability or combine them. Strategy, automation, security,
+              tax operations, and product leadership share the same principle: useful AI,
+              deployed with clear controls.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Popular services */}
-      <section className="container-page py-16 sm:py-28">
-        <SectionHeading
-          eyebrow="Services"
-          title="Popular automation services"
-          description="Start with one high-impact workflow, prove the result, then expand from there."
-        />
-        <RevealGroup className="mt-10 grid gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-          {featuredServices.map((service, index) => (
-            <RevealItem key={service.slug} className={index >= 3 ? "hidden sm:block" : ""}>
-              <ServiceCard service={service} />
-            </RevealItem>
-          ))}
-        </RevealGroup>
-        <div className="mt-10 flex justify-center">
-          <Button asChild variant="outline" size="lg" className="w-full px-4 text-xs sm:w-auto sm:px-8 sm:text-base">
-            <Link href="/services">
-              Explore automation options
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Industries */}
-      <section className="hidden border-y border-border bg-secondary/20 py-20 sm:block sm:py-28">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="Industries"
-            title="Built around how your industry actually works"
-            description="Our first playbooks are built for Southern California businesses where every missed inquiry or empty appointment has a cost."
-          />
-          <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredIndustries.map((industry) => (
-              <RevealItem key={industry.slug}>
-                <IndustryCard industry={industry} />
-              </RevealItem>
+          <ul className="mt-12 grid gap-px border border-border bg-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-6">
+            {capabilities.map((capability, index) => (
+              <li
+                key={capability.slug}
+                className={index < 3 ? "bg-background lg:col-span-2" : "bg-background lg:col-span-3"}
+              >
+                <Link
+                  href={`/${capability.slug}`}
+                  className="group flex h-full flex-col p-6 transition-colors hover:bg-card sm:p-8"
+                >
+                  <span className="flex items-center justify-between">
+                    <span className="flex h-10 w-10 items-center justify-center border border-border bg-card text-primary">
+                      <Icon name={capability.icon} className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <ArrowUpRight
+                      className="h-5 w-5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <h3 className="mt-10 font-display text-[26px] font-normal leading-tight tracking-[-0.02em] text-foreground">
+                    {capability.label}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {capability.summary}
+                  </p>
+                  <ul className="mt-6 space-y-2 border-t border-border pt-5">
+                    {capability.offerings.slice(0, 3).map((offering) => (
+                      <li key={offering.title} className="flex gap-2 text-sm text-foreground/85">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                        {offering.title}
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="mt-auto pt-6 text-xs font-semibold uppercase tracking-[0.12em] text-primary">
+                    Explore {capability.label}
+                  </span>
+                </Link>
+              </li>
             ))}
-          </RevealGroup>
-          <div className="mt-10 flex justify-center">
-            <Button asChild variant="outline" size="lg" className="w-full px-4 text-xs sm:w-auto sm:px-8 sm:text-base">
-              <Link href="/industries">
-                See industry playbooks
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
+          </ul>
+        </div>
+      </section>
+
+      {/* Outcomes */}
+      <section aria-labelledby="outcomes-heading" className="border-b border-border bg-foreground text-background">
+        <div className="container-page grid gap-12 py-16 sm:py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-signal">
+              Business outcomes
+            </p>
+            <h2
+              id="outcomes-heading"
+              className="mt-4 text-balance font-display text-[34px] font-normal leading-[1.03] tracking-[-0.035em] sm:text-5xl"
+            >
+              Measured in operations, not demos
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-white/70">
+              Every engagement starts with the business result it is meant to improve,
+              and how you&apos;ll measure it.
+            </p>
           </div>
+          <ol className="divide-y divide-white/15 border-y border-white/15">
+            {outcomes.map((outcome, index) => (
+              <li key={outcome.title} className="grid gap-2 py-7 sm:grid-cols-[64px_1fr] sm:gap-6">
+                <span className="font-mono text-xs text-signal">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="font-display text-2xl font-normal tracking-[-0.02em] sm:text-3xl">
+                    {outcome.title}
+                  </h3>
+                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
+                    {outcome.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* ROI calculator */}
-      <section id="roi-calculator" className="container-page py-16 sm:py-28">
-        <SectionHeading
-          eyebrow="ROI calculator"
-          title="See what missed calls are costing you"
-          description="Adjust the sliders to estimate the revenue Mirflow could recover for your business every month."
-        />
-        <div className="mt-10 sm:mt-14">
-          <RoiCalculator />
+      {/* How we work */}
+      <section aria-labelledby="process-heading" className="border-b border-border">
+        <div className="container-page py-16 sm:py-28">
+          <div className="max-w-2xl">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              How we work
+            </p>
+            <h2
+              id="process-heading"
+              className="mt-4 text-balance font-display text-[34px] font-normal leading-[1.03] tracking-[-0.035em] sm:text-5xl"
+            >
+              A disciplined path from assessment to production
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Controls are designed in from the start, not bolted on after launch.
+            </p>
+          </div>
+          <ProcessSteps steps={process} className="mt-12 sm:mt-16" />
         </div>
       </section>
 
-      {/* Comparison */}
-      <section className="hidden container-page py-20 sm:block sm:py-28">
-        <SectionHeading
-          eyebrow="Why Mirflow"
-          title="Compare your options"
-          description="Mirflow combines the coverage of a full-time hire with the speed of software — without the per-seat cost of point solutions."
-        />
-        <div className="mt-14">
-          <ComparisonTable rows={comparisonRows} />
+      {/* Trust, security, governance */}
+      <section aria-labelledby="trust-heading" className="border-b border-border bg-secondary/50">
+        <div className="container-page py-16 sm:py-28">
+          <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                Trust, security, and governance
+              </p>
+              <h2
+                id="trust-heading"
+                className="mt-4 text-balance font-display text-[34px] font-normal leading-[1.03] tracking-[-0.035em] sm:text-5xl"
+              >
+                Built for teams that handle sensitive data
+              </h2>
+            </div>
+            <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground lg:justify-self-end">
+              Finance, tax, and customer data deserve more than a chatbot and a privacy
+              policy. These principles shape every system we design.
+            </p>
+          </div>
+          <ul className="mt-12 grid gap-px border border-border bg-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
+            {principles.map((principle) => (
+              <li key={principle.title} className="bg-background p-6 sm:p-8">
+                <principle.icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                <h3 className="mt-6 font-display text-xl font-normal tracking-[-0.01em] text-foreground">
+                  {principle.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {principle.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 max-w-3xl text-xs leading-relaxed text-muted-foreground">
+            Mirflow supports, and does not replace, your legal, tax, audit, and compliance
+            advisors. Our work is designed to reduce risk and help you prepare for review.
+            It is not a guarantee of security, compliance, or tax outcomes.{" "}
+            <Link href="/ai-security" className="font-medium text-foreground underline underline-offset-4">
+              Read about AI Security
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* Ideal customers */}
+      <section aria-labelledby="audience-heading" className="border-b border-border">
+        <div className="container-page grid gap-12 py-16 sm:py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Who we work with
+            </p>
+            <h2
+              id="audience-heading"
+              className="mt-4 text-balance font-display text-[34px] font-normal leading-[1.03] tracking-[-0.035em] sm:text-5xl"
+            >
+              For businesses where accuracy and trust are non-negotiable
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
+              We work best with leadership teams who want AI to make a measurable
+              difference to operations and are serious about doing it responsibly.
+            </p>
+          </div>
+          <ul className="divide-y divide-border border-y border-border">
+            {audiences.map((audience) => (
+              <li key={audience.title} className="flex gap-5 py-6">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-border bg-card text-primary">
+                  <audience.icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <div>
+                  <h3 className="font-display text-xl font-normal text-foreground">{audience.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    {audience.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="border-y border-border bg-secondary/20 py-16 sm:py-28">
-        <div className="container-page">
-          <div className="grid gap-14 lg:grid-cols-[1fr_1.4fr]">
-            <SectionHeading
-              align="left"
-              eyebrow="FAQ"
-              title="Common questions"
-              description="Have a different question? Reach out and we'll get back to you within one business day."
-              className="lg:sticky lg:top-28 lg:self-start"
-            />
-            <Reveal>
-              <FaqAccordion faqs={homeFaqs} />
-              <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
-                <Shield className="h-4 w-4 text-primary" />
-                <span>
-                  See our full{" "}
-                  <Link href="/faq" className="font-medium text-foreground underline underline-offset-4">
-                    FAQ page
-                  </Link>{" "}
-                  for pricing, security, and implementation details.
-                </span>
-              </div>
-            </Reveal>
+      <section aria-labelledby="faq-heading" className="border-b border-border">
+        <div className="container-page grid gap-12 py-16 sm:py-24 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              FAQ
+            </p>
+            <h2
+              id="faq-heading"
+              className="mt-4 font-display text-[34px] font-normal leading-[1.03] tracking-[-0.035em] sm:text-5xl"
+            >
+              Common questions
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+              See the{" "}
+              <Link href="/faq" className="font-medium text-foreground underline underline-offset-4">
+                full FAQ
+              </Link>{" "}
+              or{" "}
+              <Link href="/contact" className="font-medium text-foreground underline underline-offset-4">
+                ask us directly
+              </Link>
+              .
+            </p>
           </div>
+          <FaqAccordion faqs={homeFaqs} />
         </div>
       </section>
 
-      {/* Final CTA */}
       <CtaSection />
-      </div>
     </>
   );
 }
-    

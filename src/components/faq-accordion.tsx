@@ -4,9 +4,10 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import type { FaqItem } from "@/data/faq";
 
-export function FaqAccordion({ faqs }: { faqs: FaqItem[] }) {
+type Faq = { question: string; answer: string };
+
+export function FaqAccordion({ faqs }: { faqs: Faq[] }) {
   return (
     <Accordion type="single" collapsible className="w-full">
       {faqs.map((faq, index) => (

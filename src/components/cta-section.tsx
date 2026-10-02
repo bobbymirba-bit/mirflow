@@ -3,15 +3,18 @@ import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
+import { siteConfig } from "@/lib/site-config";
 
 export function CtaSection({
-  title = "Ready to stop losing revenue to manual work?",
-  description = "Tell us what happens today, where it breaks, and what the finished workflow should do. We'll return a clear scope and price.",
-  primaryLabel = "Get a custom quote",
-  primaryHref = "/quote",
-  secondaryLabel = "See pricing",
-  secondaryHref = "/pricing",
+  eyebrow = "Next step",
+  title = "See where AI can safely take work off your team’s plate.",
+  description = "Book an AI Assessment. We’ll review your workflows, data, and risk profile and come back with a prioritized view of where AI can help first, and what it needs to be done safely.",
+  primaryLabel = "Book an AI Assessment",
+  primaryHref = siteConfig.assessmentHref,
+  secondaryLabel = "Explore our AI capabilities",
+  secondaryHref = "/#capabilities",
 }: {
+  eyebrow?: string;
   title?: string;
   description?: string;
   primaryLabel?: string;
@@ -20,28 +23,45 @@ export function CtaSection({
   secondaryHref?: string;
 }) {
   return (
-    <section className="border-y border-border bg-[#171713] text-[#f3efe7]">
+    <section
+      aria-labelledby="cta-heading"
+      className="border-y border-border bg-foreground text-background"
+    >
       <Reveal>
         <div className="container-page grid gap-10 py-20 sm:py-28 lg:grid-cols-[1.35fr_.65fr] lg:items-end">
           <div className="min-w-0 max-w-4xl">
-            <p className="border-b border-white/30 pb-3 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 sm:text-[10px] sm:tracking-[0.22em]">Your next operating system</p>
-            <h2 className="mt-8 text-balance font-display text-[42px] font-normal leading-[.95] tracking-[-0.045em] text-[#f3efe7] sm:text-6xl">
+            <p className="border-b border-white/25 pb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-signal">
+              {eyebrow}
+            </p>
+            <h2
+              id="cta-heading"
+              className="mt-8 text-balance font-display text-[38px] font-normal leading-[1] tracking-[-0.035em] sm:text-6xl"
+            >
               {title}
             </h2>
-            <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg">
+            <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
               {description}
             </p>
           </div>
           <div className="flex min-w-0 flex-col gap-3 lg:items-stretch">
-              <Button asChild variant="gradient" size="lg" className="w-full px-3 text-[11px] sm:px-6 sm:text-sm">
-                <Link href={primaryHref}>
-                  {primaryLabel}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="w-full border-white/40 px-3 text-[11px] text-white hover:bg-white hover:text-black sm:px-6 sm:text-sm">
-                <Link href={secondaryHref}>{secondaryLabel}</Link>
-              </Button>
+            <Button
+              asChild
+              size="lg"
+              className="w-full bg-background px-4 text-xs text-foreground hover:bg-white hover:opacity-100 sm:px-6 sm:text-sm"
+            >
+              <Link href={primaryHref}>
+                {primaryLabel}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="w-full border-white/40 px-4 text-xs text-white hover:bg-white/10 sm:px-6 sm:text-sm"
+            >
+              <Link href={secondaryHref}>{secondaryLabel}</Link>
+            </Button>
           </div>
         </div>
       </Reveal>

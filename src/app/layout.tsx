@@ -34,18 +34,26 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  applicationName: siteConfig.name,
   keywords: [
+    "AI transformation",
+    "AI strategy",
+    "AI implementation",
+    "enterprise copilots",
     "AI automation",
-    "AI agents",
-    "voice AI",
-    "AI chatbots",
-    "business automation",
-    "workflow automation",
-    "AI receptionist",
-    "conversational AI",
+    "finance automation",
+    "AI governance",
+    "AI security",
+    "AI risk management",
+    "AI for tax",
+    "tax workflow automation",
+    "fractional CPO",
+    "AI product leadership",
   ],
   authors: [{ name: siteConfig.legalName }],
   creator: siteConfig.legalName,
+  alternates: { canonical: "/" },
+  // Open Graph and Twitter images come from app/opengraph-image.tsx.
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -53,13 +61,11 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
   },
   icons: {
     icon: "/favicon.ico",
@@ -72,7 +78,7 @@ export const metadata: Metadata = {
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
   name: siteConfig.legalName,
   alternateName: siteConfig.name,
   url: siteConfig.url,
@@ -83,8 +89,16 @@ const organizationJsonLd = {
   foundingDate: siteConfig.founded,
   address: {
     "@type": "PostalAddress",
-    streetAddress: siteConfig.address,
+    addressRegion: siteConfig.region,
+    addressCountry: siteConfig.country,
   },
+  knowsAbout: [
+    "AI strategy",
+    "AI automation",
+    "AI governance and security",
+    "AI for tax operations",
+    "AI product management",
+  ],
   sameAs: Object.values(siteConfig.social),
 };
 

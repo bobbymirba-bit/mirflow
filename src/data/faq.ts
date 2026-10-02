@@ -1,40 +1,90 @@
 export type FaqItem = {
   question: string;
   answer: string;
-  category: "General" | "Implementation" | "Pricing" | "Technical" | "Security";
+  category: "General" | "Engagements" | "Security & Data" | "Tax" | "Pricing";
+  /** Shown on the homepage. */
+  featured?: boolean;
 };
 
 export const faqs: FaqItem[] = [
   {
     category: "General",
-    question: "What exactly does Mirflow do?",
+    featured: true,
+    question: "What does Mirflow do?",
     answer:
-      "Mirflow designs, builds, and operates AI automation systems for your business — from AI receptionists and chatbots to back-office and document automation. We handle the strategy, build, deployment, and ongoing optimization, not just the software.",
+      "Mirflow helps finance-heavy and operations-driven businesses deploy AI safely. We work across five areas: AI strategy and implementation, AI automation for business workflows, AI security and governance, AI for tax operations, and AI product leadership. We advise, build, and help operate what we deliver.",
   },
   {
     category: "General",
-    question: "How is Mirflow different from buying a SaaS AI tool myself?",
+    featured: true,
+    question: "How is Mirflow different from a typical AI consultancy?",
     answer:
-      "Off-the-shelf tools require you to configure, train, and maintain them yourself, and rarely handle more than one narrow task. Mirflow designs a system around your actual workflows, integrates it with your existing tools, and continues optimizing it after launch.",
+      "We focus on businesses where accuracy and data protection matter, especially finance, tax, and operations. Security, governance, and human review are designed into every engagement from the start rather than added at the end. Our recommendations are vendor-neutral.",
   },
   {
-    category: "Implementation",
-    question: "How long does it take to go live?",
+    category: "General",
+    question: "Who is a good fit for Mirflow?",
     answer:
-      "Our standard lead follow-up system can go live within 24 hours after we receive access to your lead source, calendar, and messaging tools. Custom voice agents, multiple workflows, complex integrations, or incomplete account access take longer; we confirm that timeline in your quote before work begins.",
+      "Leadership teams at mid-market and growing businesses, tax departments and accounting firms, data-sensitive organizations, and software companies adding AI to their products. If your work involves high volumes of documents, sensitive data, or multi-system processes, we're likely a good fit.",
   },
   {
-    category: "Implementation",
-    question: "Do I need technical staff to work with Mirflow?",
+    category: "Engagements",
+    featured: true,
+    question: "What happens in an AI Assessment?",
     answer:
-      "No. We handle the technical implementation, integrations, and hosting. Your team's job is to share context about how the business runs — we translate that into a working system.",
+      "We start with a working session to understand your goals, workflows, systems, and current AI use. From there, we outline the most promising opportunities, the readiness gaps and risks to address, and recommended next steps. The scope of any deeper assessment is agreed in writing before work begins.",
   },
   {
-    category: "Implementation",
-    question: "What if the AI doesn't understand a customer's request?",
+    category: "Engagements",
+    question: "How are engagements structured?",
     answer:
-      "Every Mirflow deployment includes clear escalation paths. When the system isn't confident or a request falls outside its scope, it hands off to a human with full context, rather than guessing.",
+      "Most clients start with an assessment or a focused first project, such as one automated workflow or a governance baseline. Larger programs are delivered in phases with defined deliverables and checkpoints. Fractional product leadership is typically a recurring engagement.",
   },
+  {
+    category: "Engagements",
+    question: "Do we need technical staff to work with you?",
+    answer:
+      "It helps to have someone who owns each system we integrate with, but you don't need an in-house AI team. We work with your IT, security, finance, and operations leads and document everything we deliver.",
+  },
+  {
+    category: "Engagements",
+    question: "What does pricing look like?",
+    answer:
+      "Pricing depends on scope. Assessments and focused projects are quoted as fixed fees where possible. Ongoing work, such as fractional leadership or managed automation, is quoted as a recurring fee. You'll receive a written proposal before any commitment.",
+  },
+  {
+    category: "Security & Data",
+    featured: true,
+    question: "How do you protect our data?",
+    answer:
+      "Each system is designed with scoped data access, least-privilege permissions, approved vendors, defined retention, and logging. We review and agree on data flows with your team before any production data is used. Specific controls depend on your environment and requirements.",
+  },
+  {
+    category: "Security & Data",
+    question: "Can you guarantee security or regulatory compliance?",
+    answer:
+      "No, and we'd be cautious of anyone who does. Our work is designed to reduce risk and help you prepare for audits, customer security reviews, and regulatory expectations. Compliance determinations are made by your auditors, regulators, and legal advisors.",
+  },
+  {
+    category: "Security & Data",
+    question: "Do your AI systems train on our data?",
+    answer:
+      "We select and configure tools so your data isn't used to train third-party models wherever the vendor offers that control, and we document each vendor's data-handling terms as part of the design.",
+  },
+  {
+    category: "Tax",
+    featured: true,
+    question: "Does Mirflow provide tax advice?",
+    answer:
+      "No. Mirflow is a technology and operations partner, not a CPA firm or tax advisor. Our systems support tax professionals by handling document processing, classification, research assistance, and preparation work. Determinations, positions, and filings remain with your team and advisors.",
+  },
+  {
+    category: "Tax",
+    question: "How do you handle high-risk tax decisions?",
+    answer:
+      "We set review thresholds with your tax leaders. Uncertain, high-value, or judgment-based items are routed to qualified professionals before anything is filed or relied on, and those decisions are logged.",
+  },
+  // Legacy small-business automation plan FAQs, used only on /pricing.
   {
     category: "Pricing",
     question: "How is pricing structured?",
@@ -59,36 +109,11 @@ export const faqs: FaqItem[] = [
     answer:
       "We connect to your line and call capture is live within 24 hours, so you get an email for every missed call right away. The text-back needs carrier approval (10DLC) under your business name, which usually takes 2 to 7 business days. Your seven days start when texts go live. At the end you get a plain recap of what came in. If you continue, the $197 is credited toward setup.",
   },
-  {
-    category: "Technical",
-    question: "What systems does Mirflow integrate with?",
-    answer:
-      "Mirflow integrates with most common CRMs, calendars, help desks, and communication platforms out of the box, and we build custom integrations for proprietary or legacy systems as part of enterprise engagements.",
-  },
-  {
-    category: "Technical",
-    question: "Can Mirflow work with our existing phone number and tools?",
-    answer:
-      "Yes. Voice and messaging automations are typically deployed on your existing phone number and channels, so there's no disruption to how customers already reach you.",
-  },
-  {
-    category: "Security",
-    question: "How is our business and customer data protected?",
-    answer:
-      "Data is encrypted in transit and at rest, access is role-based and logged, and we operate under signed data processing agreements. Enterprise plans include dedicated infrastructure and custom compliance support for regulated industries.",
-  },
-  {
-    category: "Security",
-    question: "Is Mirflow compliant with industry regulations like HIPAA?",
-    answer:
-      "For healthcare, legal, and financial clients, we configure deployments to align with relevant regulatory requirements, including signed BAAs where applicable. Talk to our team about your specific compliance needs during onboarding.",
-  },
 ];
 
 export const faqCategories: FaqItem["category"][] = [
   "General",
-  "Implementation",
-  "Pricing",
-  "Technical",
-  "Security",
+  "Engagements",
+  "Security & Data",
+  "Tax",
 ];

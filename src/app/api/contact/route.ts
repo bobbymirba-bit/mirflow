@@ -5,6 +5,8 @@ type ContactPayload = {
   name?: string;
   email?: string;
   company?: string;
+  role?: string;
+  interest?: string;
   website?: string;
   businessType?: string;
   leadVolume?: string;
