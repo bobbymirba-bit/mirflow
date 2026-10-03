@@ -1,6 +1,23 @@
 # Mirflow AI — Marketing Website
 
-Production website for **Mirflow AI** — "The AI operating layer for revenue teams." Built with Next.js App Router, TypeScript, Tailwind CSS v4, and Framer Motion.
+Production website for **Mirflow AI**, an AI transformation company. Mirflow helps finance-heavy and operations-driven businesses safely deploy AI that automates work, protects sensitive data, and improves tax and business operations. Built with Next.js App Router, TypeScript, Tailwind CSS v4, and Framer Motion.
+
+## Site structure
+
+| Route | Purpose |
+| ----- | ------- |
+| `/` | Homepage: positioning, capabilities, outcomes, process, trust, audiences |
+| `/ai-strategy` | AI strategy, roadmaps, copilots, implementation leadership |
+| `/ai-automation` | Workflow automation, agents, finance and operations automation |
+| `/ai-security` | AI governance, privacy, access control, AI risk |
+| `/ai-tax` | AI for tax operations and tax workflow automation |
+| `/ai-product-leadership` | Fractional CPO and AI product leadership |
+| `/about`, `/faq`, `/contact` | Company, FAQ, contact form (`?interest=<slug>` preselects a topic) |
+| `/ai-assessment` | Primary conversion page ("Book an AI Assessment"); `/book-a-call` redirects here |
+
+Capability page content lives in `src/data/capabilities.ts` and renders through `src/components/capability-page.tsx`. Page metadata is built with `pageMetadata()` in `src/lib/metadata.ts`.
+
+The earlier small-business automation pages (`/services`, `/solutions`, `/industries`, `/pricing` with Stripe checkout, `/quote`, `/resources`, `/blog`, `/case-studies`, `/testimonials`) still build and work, but they are no longer linked from the primary navigation.
 
 ## Stack
 
@@ -45,7 +62,7 @@ Create a `.env.local` file (all variables are optional — the site works withou
 
 | Variable                        | Purpose                                                                                       | Default when unset                              |
 | -------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| `NEXT_PUBLIC_CALENDLY_URL`       | Booking link used by every "Book a call" CTA (`src/lib/site-config.ts`)                          | `https://calendly.com/mirflow/intro-call`     |
+| `NEXT_PUBLIC_CALENDLY_URL`       | Booking calendar embedded on `/ai-assessment` (`src/lib/site-config.ts`)                          | `https://calendly.com/mirflow/intro-call`     |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID`  | Google Analytics measurement ID. When set, GA loads only after a visitor accepts the cookie banner (`src/components/analytics.tsx`) | Analytics is disabled entirely                   |
 | `STRIPE_SECRET_KEY` | Stripe secret key used only by the server checkout route | Checkout stays disabled |
 | `STRIPE_FOUNDING_MONTHLY_PRICE_ID` | Recurring Stripe Price for the $199 Founding subscription | Checkout stays disabled |
@@ -73,7 +90,7 @@ Setup:
 
 ## Content
 
-All page copy/data lives in typed data files under `src/data/` (`services.ts`, `solutions.ts`, `industries.ts`, `case-studies.ts`, `blog.ts`, `testimonials.ts`, `pricing.ts`, `faq.ts`, `logos.ts`). Update these files to change site content — page components render from them, including `generateStaticParams` for the dynamic `[slug]` routes under `services/`, `solutions/`, `industries/`, `case-studies/`, and `blog/`.
+All page copy/data lives in typed data files under `src/data/` (`capabilities.ts`, `services.ts`, `solutions.ts`, `industries.ts`, `case-studies.ts`, `blog.ts`, `testimonials.ts`, `pricing.ts`, `faq.ts`, `logos.ts`). Update these files to change site content — page components render from them, including `generateStaticParams` for the dynamic `[slug]` routes under `services/`, `solutions/`, `industries/`, `case-studies/`, and `blog/`.
 
 Brand/nav/SEO defaults live in `src/lib/site-config.ts`.
 

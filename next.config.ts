@@ -10,11 +10,16 @@ const nextConfig: NextConfig = {
       "northfield-realty",
       "veyra-commerce",
       "ironclad-manufacturing",
-    ].map((slug) => ({
-      source: `/case-studies/${slug}`,
-      destination: "/case-studies",
-      permanent: false,
-    }));
+    ]
+      .map((slug) => ({
+        source: `/case-studies/${slug}`,
+        destination: "/case-studies",
+        permanent: false,
+      }))
+      .concat([
+        // The booking flow now lives on the AI Assessment page.
+        { source: "/book-a-call", destination: "/ai-assessment", permanent: true },
+      ]);
   },
 };
 

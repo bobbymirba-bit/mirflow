@@ -4,47 +4,51 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --radius: 0.875rem;
+  --radius: 0.625rem;
 
-  --background: #f3efe7;
-  --foreground: #171713;
+  /* Ink-and-slate palette: calm, high-contrast, enterprise. */
+  --background: #f7f6f2;
+  --foreground: #0e1621;
 
-  --card: #f8f5ee;
-  --card-foreground: #171713;
+  --card: #ffffff;
+  --card-foreground: #0e1621;
 
-  --popover: #f8f5ee;
-  --popover-foreground: #171713;
+  --popover: #ffffff;
+  --popover-foreground: #0e1621;
 
-  --primary: #a84f3d;
-  --primary-foreground: #fffaf1;
+  --primary: #1d3b5a;
+  --primary-foreground: #ffffff;
 
-  --secondary: #e7dfd2;
-  --secondary-foreground: #171713;
+  --secondary: #eceae3;
+  --secondary-foreground: #0e1621;
 
-  --muted: #e7dfd2;
-  --muted-foreground: #686258;
+  --muted: #eceae3;
+  --muted-foreground: #4f5a66;
 
-  --accent: #ddd1c2;
-  --accent-foreground: #171713;
+  --accent: #e3e1d8;
+  --accent-foreground: #0e1621;
 
-  --success: #0d9668;
+  --success: #0f7a55;
   --success-foreground: #ffffff;
-  --warning: #b45309;
-  --destructive: #dc2626;
+  --warning: #9a5b0b;
+  --destructive: #c42b2b;
   --destructive-foreground: #ffffff;
 
-  --border: #cfc4b4;
-  --input: #cfc4b4;
-  --ring: #a84f3d;
+  --border: #d8d5cb;
+  --input: #c9c5b9;
+  --ring: #1d3b5a;
 
-  --brand-violet: #8a6f63;
-  --brand-indigo: #a84f3d;
-  --brand-blue: #6e8791;
-  --brand-mint: #78806c;
-  --brand-coral: #c97861;
+  /* Accent used sparingly for rules and markers on dark surfaces. */
+  --signal: #8fb3d1;
 
-  --grid-line: rgba(23, 23, 19, 0.075);
-  --glow: rgba(168, 79, 61, 0.12);
+  --brand-violet: #5b6b7d;
+  --brand-indigo: #1d3b5a;
+  --brand-blue: #3f6585;
+  --brand-mint: #5d7a6c;
+  --brand-coral: #9a5b0b;
+
+  --grid-line: rgba(14, 22, 33, 0.06);
+  --glow: rgba(29, 59, 90, 0.08);
 }
 
 .dark {
@@ -118,6 +122,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-signal: var(--signal);
 
   --color-brand-violet: var(--brand-violet);
   --color-brand-indigo: var(--brand-indigo);
@@ -198,10 +204,24 @@
   html {
     scroll-behavior: smooth;
   }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    background-image: linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,.12));
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
   ::selection {
     background: var(--primary);
