@@ -1,115 +1,124 @@
-import type { Metadata } from "next";
-import { CalendarClock, MessageSquareText, Rocket, ShieldCheck } from "lucide-react";
+import { Ban, ShieldCheck } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Reveal } from "@/components/motion/reveal";
+import { Icon } from "@/components/icon";
+import { PageHero } from "@/components/page-hero";
+import { ProcessSteps } from "@/components/process-steps";
+import { neverAsk, plans, sessionSteps, sessionTypes } from "@/data/safety";
+import { pageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: "Book a Call",
+export const metadata = pageMetadata({
+  title: "Book a 1:1 AI safety session",
   description:
-    "Book a 30-minute call with Mirflow. We'll map your highest-leverage automation opportunity and show you exactly what it would look like — no obligation.",
-  openGraph: {
-    title: `Book a Call | ${siteConfig.name}`,
-    description: "Book a 30-minute call with Mirflow — no obligation.",
-  },
-};
+    "Book a one-on-one video session to secure your phone, set up AI tools safely, or build a family scam plan. You stay in control of your device the whole time.",
+  path: "/book-a-call",
+});
 
-const steps = [
-  {
-    icon: MessageSquareText,
-    title: "Discovery call (30 min)",
-    description:
-      "We walk through your current workflow, call/lead volume, and where things break down today.",
-  },
-  {
-    icon: Rocket,
-    title: "Custom automation plan",
-    description:
-      "You get a scoped recommendation with expected impact and a flat monthly price — no generic proposal.",
-  },
-  {
-    icon: CalendarClock,
-    title: "Kickoff in days, not months",
-    description:
-      "If it's a fit, we start building against your existing tools and systems right away.",
-  },
-];
+const session = plans.find((plan) => plan.id === "session");
 
-const prepQuestions = [
-  "Roughly how many calls, forms, or messages you get per week",
-  "Which tools you currently use (CRM, phone system, scheduling)",
-  "Where the biggest bottleneck is today",
-  "How soon you'd want this live",
-];
-
-export default function BookACallPage() {
+export default function BookASessionPage() {
   return (
-    <section className="bg-grid bg-radial-glow noise-overlay relative overflow-hidden">
-      <div className="container-page py-16 sm:py-24">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <Reveal>
-            <Badge variant="brand">Book a call</Badge>
-            <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              Let&apos;s map your automation opportunity
-            </h1>
-            <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              30 minutes, no slide deck. We&apos;ll look at your actual workflow and tell
-              you honestly whether Mirflow is a fit — and what it would cost and deliver
-              if it is.
-            </p>
+    <>
+      <PageHero
+        eyebrow="1:1 help"
+        title="Patient, one-on-one help by video"
+        description={
+          <p>
+            Choose a topic, pick a time, and we&apos;ll work through it together at your pace.
+            {session ? ` Sessions are ${session.price}.` : null} You can book for yourself or a
+            parent, and join together.
+          </p>
+        }
+      >
+        <a
+          href="#schedule"
+          className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-primary px-8 text-sm font-semibold uppercase tracking-[0.08em] text-primary-foreground transition-colors hover:bg-foreground"
+        >
+          Choose a time
+        </a>
+      </PageHero>
 
-            <div className="mt-10 flex flex-col gap-6">
-              {steps.map((step) => (
-                <div key={step.title} className="flex gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <step.icon className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">{step.title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10 rounded-2xl border border-border bg-card p-6">
-              <p className="text-sm font-semibold text-foreground">
-                Worth having ready before the call
-              </p>
-              <ul className="mt-4 space-y-2">
-                {prepQuestions.map((question) => (
-                  <li
-                    key={question}
-                    className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    {question}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
-              <ShieldCheck className="h-4 w-4 text-primary" />
-              No obligation. No long-term contract required to start.
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.1} className="min-h-[720px]">
-            <div className="h-full overflow-hidden rounded-3xl border border-border bg-card">
-              <iframe
-                src={`${siteConfig.calendlyUrl}?hide_gdpr_banner=1&hide_event_type_details=1`}
-                title="Schedule a call with Mirflow"
-                className="h-[720px] w-full"
-                loading="lazy"
-              />
-            </div>
-          </Reveal>
+      <section aria-labelledby="topics-heading" className="border-b border-border">
+        <div className="container-page py-16 sm:py-20">
+          <h2 id="topics-heading" className="font-display text-3xl font-normal text-foreground sm:text-4xl">
+            Pick a topic
+          </h2>
+          <ul className="mt-8 grid gap-5 md:grid-cols-3">
+            {sessionTypes.map((type) => (
+              <li key={type.title} className="border border-border bg-card p-6">
+                <Icon name={type.icon} className="h-6 w-6 text-primary" aria-hidden="true" />
+                <h3 className="mt-4 font-display text-2xl text-foreground">{type.title}</h3>
+                <p className="mt-2 text-base leading-relaxed text-muted-foreground">{type.description}</p>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section aria-labelledby="how-heading" className="border-b border-border">
+        <div className="container-page py-16 sm:py-20">
+          <h2 id="how-heading" className="font-display text-3xl font-normal text-foreground sm:text-4xl">
+            How it works
+          </h2>
+          <ProcessSteps steps={sessionSteps} className="mt-8" />
+        </div>
+      </section>
+
+      <section aria-labelledby="safety-heading" className="border-b border-border bg-secondary/50">
+        <div className="container-page grid gap-10 py-16 sm:py-20 lg:grid-cols-2">
+          <div>
+            <h2 id="safety-heading" className="flex items-center gap-3 font-display text-3xl font-normal text-foreground sm:text-4xl">
+              <ShieldCheck className="h-7 w-7 shrink-0 text-primary" aria-hidden="true" />
+              How we keep sessions safe
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-foreground/85">
+              Scammers often pose as tech support and ask to take over your screen. We do the
+              opposite: you share your screen if you choose to, you make every click, and you can
+              end the call at any time.
+            </p>
+          </div>
+          <div className="border-2 border-foreground bg-card p-6">
+            <h3 className="flex items-center gap-2 text-lg font-semibold text-foreground">
+              <Ban className="h-5 w-5 text-destructive" aria-hidden="true" />
+              We will never ask for
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {neverAsk.map((item) => (
+                <li key={item} className="flex gap-2.5 text-base text-foreground/85">
+                  <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="schedule" aria-labelledby="schedule-heading" className="scroll-mt-20 border-b border-border">
+        <div className="container-page grid gap-10 py-16 sm:py-20 lg:grid-cols-[0.7fr_1.3fr]">
+          <div>
+            <h2 id="schedule-heading" className="font-display text-3xl font-normal text-foreground sm:text-4xl">
+              Choose a time
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              Sessions are by video, so you can join from anywhere in the U.S. If the calendar
+              doesn&apos;t load, email{" "}
+              <a href={`mailto:${siteConfig.email}`} className="font-medium text-foreground underline underline-offset-4">
+                {siteConfig.email}
+              </a>
+              .
+            </p>
+          </div>
+          <div className="min-h-[720px] overflow-hidden border border-border bg-card">
+            <iframe
+              src={`${siteConfig.calendlyUrl}?hide_gdpr_banner=1&hide_event_type_details=1`}
+              title="Book a 1:1 session with Mirflow"
+              className="h-[720px] w-full"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

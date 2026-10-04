@@ -43,6 +43,9 @@
   --brand-mint: #78806c;
   --brand-coral: #c97861;
 
+  /* Accent for small markers on dark surfaces. */
+  --signal: #e8b8a4;
+
   --grid-line: rgba(23, 23, 19, 0.075);
   --glow: rgba(168, 79, 61, 0.12);
 }
@@ -118,6 +121,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-signal: var(--signal);
 
   --color-brand-violet: var(--brand-violet);
   --color-brand-indigo: var(--brand-indigo);
@@ -198,10 +203,25 @@
   html {
     scroll-behavior: smooth;
   }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     background-image: linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,.12));
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
   ::selection {
     background: var(--primary);

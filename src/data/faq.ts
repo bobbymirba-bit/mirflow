@@ -1,40 +1,77 @@
 export type FaqItem = {
   question: string;
   answer: string;
-  category: "General" | "Implementation" | "Pricing" | "Technical" | "Security";
+  category: "General" | "Sessions" | "Safety & privacy" | "Plans" | "Pricing";
+  /** Shown on the homepage. */
+  featured?: boolean;
 };
 
 export const faqs: FaqItem[] = [
   {
-    category: "General",
-    question: "What exactly does Mirflow do?",
+    category: "Safety & privacy",
+    featured: true,
+    question: "What will Mirflow never ask for?",
     answer:
-      "Mirflow designs, builds, and operates AI automation systems for your business — from AI receptionists and chatbots to back-office and document automation. We handle the strategy, build, deployment, and ongoing optimization, not just the software.",
+      "We will never ask for your passwords, PINs, or verification codes. We won't ask for card or bank numbers during a session, we never take remote control of your devices, and we will never ask you to pay with gift cards, crypto, or wire transfers. If anyone claiming to be Mirflow asks for these, it isn't us. Hang up and contact us at hello@mirflow.online.",
   },
   {
     category: "General",
-    question: "How is Mirflow different from buying a SaaS AI tool myself?",
+    featured: true,
+    question: "Who is Mirflow for?",
     answer:
-      "Off-the-shelf tools require you to configure, train, and maintain them yourself, and rarely handle more than one narrow task. Mirflow designs a system around your actual workflows, integrates it with your existing tools, and continues optimizing it after launch.",
+      "Anyone who wants to use AI safely or avoid AI-powered scams. That includes adults worried about scams targeting their parents, older adults who want patient one-on-one help, and everyday users who want to try AI tools without exposing personal information.",
   },
   {
-    category: "Implementation",
-    question: "How long does it take to go live?",
+    category: "General",
+    question: "Do I need to be good with technology?",
     answer:
-      "Our standard lead follow-up system can go live within 24 hours after we receive access to your lead source, calendar, and messaging tools. Custom voice agents, multiple workflows, complex integrations, or incomplete account access take longer; we confirm that timeline in your quote before work begins.",
+      "No. Guides are written in plain English, and sessions go at your pace. If you can join a video call, we can help.",
   },
   {
-    category: "Implementation",
-    question: "Do I need technical staff to work with Mirflow?",
+    category: "Sessions",
+    featured: true,
+    question: "How does a 1:1 session work?",
     answer:
-      "No. We handle the technical implementation, integrations, and hosting. Your team's job is to share context about how the business runs — we translate that into a working system.",
+      "You book a time, answer a few short questions, and join a video call. You share your screen and make each change yourself while we guide you. Afterward you get a written summary of what we set up.",
   },
   {
-    category: "Implementation",
-    question: "What if the AI doesn't understand a customer's request?",
+    category: "Sessions",
+    question: "Why don't you take remote control of my device?",
     answer:
-      "Every Mirflow deployment includes clear escalation paths. When the system isn't confident or a request falls outside its scope, it hands off to a human with full context, rather than guessing.",
+      "Because remote-access requests are one of the most common tricks scammers use. We want you to learn one simple rule: never let someone you don't know control your device. So we guide while you click, and you can see everything that happens.",
   },
+  {
+    category: "Sessions",
+    question: "Can I book a session for my parent?",
+    answer:
+      "Yes. You can book on their behalf and join the call too. Many families find it easiest when an adult child and a parent take part together.",
+  },
+  {
+    category: "Safety & privacy",
+    question: "Can you get back money I lost to a scam?",
+    answer:
+      "No. Mirflow can't recover money. If you think you've been scammed, call your bank or card company right away using the number on the back of your card, then report it at ReportFraud.ftc.gov and ic3.gov.",
+  },
+  {
+    category: "Safety & privacy",
+    question: "Is this financial or legal advice?",
+    answer:
+      "No. Mirflow provides general education and personal setup help. For legal or financial decisions, please speak with a qualified professional.",
+  },
+  {
+    category: "Plans",
+    featured: true,
+    question: "How much does it cost?",
+    answer:
+      "Guides and the family scam checklist are free. A one-on-one session is $99. Membership ($12 a month) and the family plan ($29 a month) are opening soon, and you can join the waitlist now.",
+  },
+  {
+    category: "Plans",
+    question: "Do you offer talks for community groups?",
+    answer:
+      "Yes. Libraries, senior centers, and community groups can request a free talk through our contact page.",
+  },
+  // Legacy small-business automation plan FAQs, used only on /pricing.
   {
     category: "Pricing",
     question: "How is pricing structured?",
@@ -59,36 +96,11 @@ export const faqs: FaqItem[] = [
     answer:
       "We connect to your line and call capture is live within 24 hours, so you get an email for every missed call right away. The text-back needs carrier approval (10DLC) under your business name, which usually takes 2 to 7 business days. Your seven days start when texts go live. At the end you get a plain recap of what came in. If you continue, the $197 is credited toward setup.",
   },
-  {
-    category: "Technical",
-    question: "What systems does Mirflow integrate with?",
-    answer:
-      "Mirflow integrates with most common CRMs, calendars, help desks, and communication platforms out of the box, and we build custom integrations for proprietary or legacy systems as part of enterprise engagements.",
-  },
-  {
-    category: "Technical",
-    question: "Can Mirflow work with our existing phone number and tools?",
-    answer:
-      "Yes. Voice and messaging automations are typically deployed on your existing phone number and channels, so there's no disruption to how customers already reach you.",
-  },
-  {
-    category: "Security",
-    question: "How is our business and customer data protected?",
-    answer:
-      "Data is encrypted in transit and at rest, access is role-based and logged, and we operate under signed data processing agreements. Enterprise plans include dedicated infrastructure and custom compliance support for regulated industries.",
-  },
-  {
-    category: "Security",
-    question: "Is Mirflow compliant with industry regulations like HIPAA?",
-    answer:
-      "For healthcare, legal, and financial clients, we configure deployments to align with relevant regulatory requirements, including signed BAAs where applicable. Talk to our team about your specific compliance needs during onboarding.",
-  },
 ];
 
 export const faqCategories: FaqItem["category"][] = [
   "General",
-  "Implementation",
-  "Pricing",
-  "Technical",
-  "Security",
+  "Sessions",
+  "Safety & privacy",
+  "Plans",
 ];
