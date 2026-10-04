@@ -5,6 +5,7 @@ import { industries } from "@/data/industries";
 import { caseStudies } from "@/data/case-studies";
 import { solutions } from "@/data/solutions";
 import { blogPosts } from "@/data/blog";
+import { guides } from "@/data/guides";
 import { siteConfig } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -13,6 +14,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${baseUrl}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${baseUrl}/guides`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    ...guides.map((guide) => ({
+      url: `${baseUrl}/guides/${guide.slug}`,
+      lastModified: new Date(guide.updated),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+    { url: `${baseUrl}/checklist`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/solutions`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/industries`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },

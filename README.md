@@ -1,6 +1,21 @@
 # Mirflow AI — Marketing Website
 
-Production website for **Mirflow AI** — "The AI operating layer for revenue teams." Built with Next.js App Router, TypeScript, Tailwind CSS v4, and Framer Motion.
+Production website for **Mirflow AI**: *AI safety for real people.* Mirflow helps everyday people use AI safely and avoid being fooled by it. Built with Next.js App Router, TypeScript, Tailwind CSS v4, and Framer Motion.
+
+## Site structure
+
+| Route | Purpose |
+| ----- | ------- |
+| `/` | Homepage: checklist signup, three threats, guides, how a session works, pricing, about, FAQ, email signup |
+| `/guides`, `/guides/[slug]` | Free plain-English guides (content in `src/data/guides.ts`) |
+| `/checklist` | Printable family scam checklist (the email lead magnet) |
+| `/book-a-call` | 1:1 session booking (Calendly embed) |
+| `/about`, `/faq`, `/contact` | Company, FAQ, contact form (`?interest=<value>` preselects a topic) |
+| `/api/subscribe` | Checklist email signup; currently **logs** signups and needs an email provider before launch |
+
+Threats, session types, prices, and the "never ask for" list live in `src/data/safety.ts`. Prices there are starting assumptions to test.
+
+The earlier small-business automation pages (`/services`, `/solutions`, `/industries`, `/pricing` with Stripe checkout, `/quote`, `/resources`, `/blog`, `/case-studies`, `/testimonials`) still build and work, but they are no longer linked from the navigation.
 
 ## Stack
 
@@ -45,7 +60,7 @@ Create a `.env.local` file (all variables are optional — the site works withou
 
 | Variable                        | Purpose                                                                                       | Default when unset                              |
 | -------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| `NEXT_PUBLIC_CALENDLY_URL`       | Booking link used by every "Book a call" CTA (`src/lib/site-config.ts`)                          | `https://calendly.com/mirflow/intro-call`     |
+| `NEXT_PUBLIC_CALENDLY_URL`       | Session booking calendar embedded on `/book-a-call` (`src/lib/site-config.ts`)                    | `https://calendly.com/mirflow/intro-call`     |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID`  | Google Analytics measurement ID. When set, GA loads only after a visitor accepts the cookie banner (`src/components/analytics.tsx`) | Analytics is disabled entirely                   |
 | `STRIPE_SECRET_KEY` | Stripe secret key used only by the server checkout route | Checkout stays disabled |
 | `STRIPE_FOUNDING_MONTHLY_PRICE_ID` | Recurring Stripe Price for the $199 Founding subscription | Checkout stays disabled |
@@ -73,7 +88,7 @@ Setup:
 
 ## Content
 
-All page copy/data lives in typed data files under `src/data/` (`services.ts`, `solutions.ts`, `industries.ts`, `case-studies.ts`, `blog.ts`, `testimonials.ts`, `pricing.ts`, `faq.ts`, `logos.ts`). Update these files to change site content — page components render from them, including `generateStaticParams` for the dynamic `[slug]` routes under `services/`, `solutions/`, `industries/`, `case-studies/`, and `blog/`.
+All page copy/data lives in typed data files under `src/data/` (`safety.ts`, `guides.ts`, `services.ts`, `solutions.ts`, `industries.ts`, `case-studies.ts`, `blog.ts`, `testimonials.ts`, `pricing.ts`, `faq.ts`, `logos.ts`). Update these files to change site content — page components render from them, including `generateStaticParams` for the dynamic `[slug]` routes under `services/`, `solutions/`, `industries/`, `case-studies/`, and `blog/`.
 
 Brand/nav/SEO defaults live in `src/lib/site-config.ts`.
 

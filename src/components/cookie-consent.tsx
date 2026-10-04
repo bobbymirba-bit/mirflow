@@ -35,7 +35,7 @@ export function CookieConsent() {
     <div
       role="region"
       aria-label="Cookie consent"
-      className="fixed inset-x-3 bottom-3 z-50 border border-border bg-background/95 shadow-2xl backdrop-blur sm:inset-x-auto sm:bottom-5 sm:right-5 sm:max-w-md"
+      className="fixed inset-x-3 bottom-3 z-50 border print:hidden border-border bg-background/95 shadow-2xl backdrop-blur sm:inset-x-auto sm:bottom-5 sm:right-5 sm:max-w-md"
     >
       <div className="flex flex-col gap-3 p-4">
         <p className="text-xs leading-relaxed text-muted-foreground">
