@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Book a Call",
   description:
-    "Book a 30-minute call with Mirflow. We'll map your highest-leverage automation opportunity and show you exactly what it would look like — no obligation.",
+    "Book a 30-minute call with Mirflow to decide where AI can improve the work, where it should not, and what a sensible first step looks like.",
   openGraph: {
     title: `Book a Call | ${siteConfig.name}`,
     description: "Book a 30-minute call with Mirflow — no obligation.",
@@ -24,9 +24,9 @@ const steps = [
   },
   {
     icon: Rocket,
-    title: "Custom automation plan",
+    title: "A clear recommendation",
     description:
-      "You get a scoped recommendation with expected impact and a flat monthly price — no generic proposal.",
+      "You get a scoped recommendation: what to build, what to buy, what to govern, and what to leave alone.",
   },
   {
     icon: CalendarClock,
@@ -37,10 +37,10 @@ const steps = [
 ];
 
 const prepQuestions = [
-  "Roughly how many calls, forms, or messages you get per week",
-  "Which tools you currently use (CRM, phone system, scheduling)",
-  "Where the biggest bottleneck is today",
-  "How soon you'd want this live",
+  "The workflow that is slow, repetitive, or risky",
+  "Who owns the work today and where judgment is required",
+  "Which tools, documents, and data the process touches",
+  "What a meaningful improvement would look like",
 ];
 
 export default function BookACallPage() {
@@ -51,12 +51,12 @@ export default function BookACallPage() {
           <Reveal>
             <Badge variant="brand">Book a call</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              Let&apos;s map your automation opportunity
+              Let&apos;s find the first workflow worth building
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              30 minutes, no slide deck. We&apos;ll look at your actual workflow and tell
-              you honestly whether Mirflow is a fit — and what it would cost and deliver
-              if it is.
+              30 minutes, no slide deck. We&apos;ll look at the actual work, the team around it,
+              and the risks that matter. You&apos;ll leave with a clearer next move, whether
+              Mirflow is the right partner or not.
             </p>
 
             <div className="mt-10 flex flex-col gap-6">

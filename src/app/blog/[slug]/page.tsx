@@ -158,7 +158,7 @@ export default async function BlogPostPage({
 
       <CtaSection
         title="Ready to put this into practice?"
-        description="Book a 30-minute call. We'll map your highest-leverage automation opportunity — no obligation."
+        description="Bring us the workflow that is slow, repetitive, or risky. We will help you decide what to build, what to buy, and what to leave alone."
       />
     </>
   );

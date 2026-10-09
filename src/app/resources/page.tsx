@@ -15,10 +15,10 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Resources",
   description:
-    "Free tools and guides for evaluating AI automation: an ROI calculator, an AI readiness quiz, and articles on automation strategy, voice AI, and operations.",
+    "Free tools and field notes for deciding where AI can improve the work, how to govern it, and how to help a team adopt it.",
   openGraph: {
     title: `Resources | ${siteConfig.name}`,
-    description: "Free tools and guides for evaluating AI automation.",
+    description: "Free tools and field notes for making better AI decisions.",
   },
 };
 
@@ -32,11 +32,11 @@ export default function ResourcesPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="brand">Resources</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              Tools and guides for evaluating automation
+              Tools and notes for making better AI decisions
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Estimate your ROI, check your automation readiness, and read how other
-              operators think about AI in their business — no email required.
+              Understand where AI can help, what needs a human checkpoint, and how to
+              build capability that stays inside the company — no email required.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
@@ -74,7 +74,7 @@ export default function ResourcesPage() {
         <div className="container-page py-16 sm:py-20">
           <SectionHeading
             eyebrow="AI Readiness Quiz"
-            title="Is your business ready for automation?"
+            title="Is your team ready to use AI well?"
             description="Answer five quick questions to get a directional readiness score and recommendation."
             className="mb-10"
           />
@@ -113,7 +113,7 @@ export default function ResourcesPage() {
 
       <CtaSection
         title="Ready to see this applied to your business?"
-        description="Book a 30-minute call. We'll map your highest-leverage automation opportunity — no obligation."
+        description="Bring us the workflow that is slow, repetitive, or risky. We will help you choose a sensible first move."
       />
     </>
   );

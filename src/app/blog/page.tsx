@@ -10,10 +10,10 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Articles on AI automation strategy, voice AI, operations, and what actually works when deploying automation in a real business.",
+    "Practical notes on AI strategy, team adoption, governance, and the workflows that make a real difference.",
   openGraph: {
     title: `Blog | ${siteConfig.name}`,
-    description: "Articles on AI automation strategy, voice AI, and operations.",
+    description: "Practical notes on AI strategy, adoption, governance, and operations.",
   },
 };
 
@@ -25,11 +25,11 @@ export default function BlogPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="brand">Blog</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              Notes on automation, from the field
+              Notes on useful AI, from the field
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Practical thinking on AI automation strategy, voice AI, and operations —
-              written for operators, not for search engines.
+              Practical thinking on AI strategy, adoption, governance, and operations —
+              written for the people responsible for making the work better.
             </p>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function BlogPage() {
 
       <CtaSection
         title="Ready to put this into practice?"
-        description="Book a 30-minute call. We'll map your highest-leverage automation opportunity — no obligation."
+        description="Bring us the workflow that is slow, repetitive, or risky. We will help you decide what to build, what to buy, and what to leave alone."
       />
     </>
   );

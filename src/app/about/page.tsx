@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Mirflow helps finance-heavy and operations-driven companies adopt AI safely and build the systems that matter.",
   openGraph: {
     title: `About | ${siteConfig.name}`,
-    description: "Mirflow builds practical AI automation for Southern California home-service and appointment-based businesses.",
+  description: "Mirflow helps finance-heavy and operations-driven companies decide what to build, train their teams, and install useful AI systems.",
   },
 };
 
