@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const { name, email, company, message } = payload;
+  const { name, email, message } = payload;
 
   if (!name?.trim() || !email?.trim() || !message?.trim()) {
     return NextResponse.json(

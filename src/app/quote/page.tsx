@@ -3,8 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { QuoteForm } from "@/components/quote-form";
 
 export const metadata: Metadata = {
-  title: "Get a Custom Quote",
-  description: "Tell Mirflow what you want to automate and receive a tailored implementation quote.",
+  title: "AI Readiness & Risk Review",
+  description: "Tell Mirflow where work is slow, repetitive, or risky. We will help you choose the right first move.",
 };
 
 export default async function QuotePage({
@@ -23,11 +23,11 @@ export default async function QuotePage({
         <div className="mx-auto max-w-3xl text-center">
           <Badge variant="brand">Custom quote</Badge>
           <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            Tell us exactly what you need
+            Find the first workflow worth building
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            Share your current process, tools, volume, and goal. We&apos;ll map the right
-            workflow and send a tailored scope and price.
+            Share your current process, tools, team, and concern. We&apos;ll look at what to
+            build, what to buy, what to govern, and what to leave alone.
           </p>
         </div>
         <div className="mx-auto mt-12 max-w-4xl"><QuoteForm initialInterest={initialInterest} /></div>

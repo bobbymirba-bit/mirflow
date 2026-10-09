@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "About Mirflow",
   description:
-    "Mirflow builds practical AI automation for Southern California home-service and appointment-based businesses.",
+    "Mirflow helps finance-heavy and operations-driven companies adopt AI safely and build the systems that matter.",
   openGraph: {
     title: `About | ${siteConfig.name}`,
     description: "Mirflow builds practical AI automation for Southern California home-service and appointment-based businesses.",
@@ -48,10 +48,10 @@ const values = [
 ];
 
 const stats = [
-  { value: "SoCal", label: "Where we serve" },
-  { value: "Home services", label: "First focus" },
-  { value: "Appointments", label: "First focus" },
-  { value: "24/7", label: "System coverage" },
+  { value: "Strategy", label: "Where we start" },
+  { value: "Training", label: "What makes it stick" },
+  { value: "Systems", label: "What we build" },
+  { value: "Human", label: "When judgment matters" },
 ];
 
 export default function AboutPage() {
@@ -62,13 +62,12 @@ export default function AboutPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="brand">About Mirflow</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              Practical AI automation for Southern California businesses
+              AI operating systems for growing companies
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Mirflow exists because most businesses lose revenue to things that never
-              needed a human in the first place — a missed call, a slow follow-up, a
-              manual report. We build the systems that close those gaps and keep running
-              long after launch day.
+              Mirflow exists because companies are being told to adopt AI faster than they
+              can decide what it should actually do. Teams try tools in isolation while
+              sensitive work still moves through inboxes and spreadsheets without an owner.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild variant="gradient" size="lg">
@@ -104,16 +103,13 @@ export default function AboutPage() {
                 leads by hand. Back offices were re-keying the same data across five tools.
               </p>
               <p>
-                Generic software wasn&apos;t solving this. Off-the-shelf AI tools required teams
-                to configure, train, and maintain them — on top of everything else they were
-                already doing. So we built Mirflow to do the opposite: design the system
-                around how the business actually works, deploy it, and keep improving it
-                as a standing part of the relationship, not a one-time software purchase.
+                Mirflow helps leadership teams move from scattered experiments to an operating
+                model: map the work, choose the first useful workflow, establish guardrails,
+                train the team, and build the systems that deserve to exist.
               </p>
               <p>
-                Today, Mirflow deploys automation across more than 40 services and 18
-                industries — from AI receptionists for local service businesses to
-                multi-agent systems for complex back-office operations.
+                The technical tools will keep changing. Our job is to keep the business clear
+                about what to build, what to measure, and where a human should remain in the loop.
               </p>
             </Reveal>
           </div>
@@ -145,8 +141,8 @@ export default function AboutPage() {
       </section>
 
       <CtaSection
-        title="Want to find your highest-impact workflow?"
-        description="Book a 30-minute call. We'll map your highest-leverage automation opportunity and show you exactly what it would look like — no obligation."
+        title="Want to find the first workflow worth building?"
+        description="Book a 30-minute AI Readiness & Risk Review. We will map where AI is already touching the business and what should come next."
       />
     </>
   );

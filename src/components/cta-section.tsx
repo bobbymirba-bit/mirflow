@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 
 export function CtaSection({
-  title = "Ready to stop losing revenue to manual work?",
-  description = "Tell us what happens today, where it breaks, and what the finished workflow should do. We'll return a clear scope and price.",
-  primaryLabel = "Get a custom quote",
+  title = "Find the first workflow worth building.",
+  description = "Tell us where work is slow, repetitive, or risky. We'll help you decide what to build, what to buy, and what to leave alone.",
+  primaryLabel = "Book an AI readiness review",
   primaryHref = "/quote",
-  secondaryLabel = "See pricing",
+  secondaryLabel = "Read workflow examples",
   secondaryHref = "/pricing",
 }: {
   title?: string;
@@ -24,7 +24,7 @@ export function CtaSection({
       <Reveal>
         <div className="container-page grid gap-10 py-20 sm:py-28 lg:grid-cols-[1.35fr_.65fr] lg:items-end">
           <div className="min-w-0 max-w-4xl">
-            <p className="border-b border-white/30 pb-3 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 sm:text-[10px] sm:tracking-[0.22em]">Your next operating system</p>
+            <p className="border-b border-white/30 pb-3 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 sm:text-[10px] sm:tracking-[0.22em]">Your AI operating model</p>
             <h2 className="mt-8 text-balance font-display text-[42px] font-normal leading-[.95] tracking-[-0.045em] text-[#f3efe7] sm:text-6xl">
               {title}
             </h2>

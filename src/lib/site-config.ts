@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "Mirflow",
   legalName: "Mirflow AI",
-  tagline: "Practical AI automation for Southern California businesses",
+  tagline: "AI operating systems for growing companies",
   description:
-    "Mirflow helps Southern California home-service and appointment-based businesses capture more leads, book more work, and give their teams time back with practical AI automation.",
+    "Mirflow helps finance-heavy and operations-driven companies decide what to build, train their teams to use AI well, and install systems that create measurable improvement.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mirflow.online",
   ogImage: "/og.jpg",
-  email: "hello@mirflow.online",
+  email: "bobby@mirflow.online",
   supportEmail: "support@mirflow.online",
   phone: "(949) 422-8674",
   phoneTel: "+19494228674",
@@ -41,125 +41,121 @@ export type NavGroup = {
 
 export const primaryNav: NavGroup[] = [
   {
-    label: "Services",
+    label: "What we do",
     href: "/services",
     columns: [
       {
-        heading: "Conversational & Voice AI",
+        heading: "Build the right thing",
         items: [
-          { label: "AI Chatbots", href: "/services/ai-chatbots" },
-          { label: "Voice AI", href: "/services/voice-ai" },
-          { label: "AI Receptionists", href: "/services/ai-receptionists" },
-          { label: "Inbound Sales AI", href: "/services/inbound-sales-ai" },
+          { label: "AI opportunity mapping", href: "/services" },
+          { label: "Workflow implementation", href: "/services" },
+          { label: "Internal AI tools", href: "/services" },
         ],
       },
       {
-        heading: "Sales & Revenue",
+        heading: "Make it stick",
         items: [
-          { label: "Outbound AI", href: "/services/outbound-ai" },
-          { label: "Lead Qualification", href: "/services/lead-qualification" },
-          { label: "Appointment Booking", href: "/services/appointment-booking" },
-          { label: "CRM Automation", href: "/services/crm-automation" },
+          { label: "Team workshops", href: "/services" },
+          { label: "AI governance", href: "/services" },
+          { label: "Embedded advisory", href: "/services" },
         ],
       },
       {
-        heading: "Support & Operations",
+        heading: "Start with clarity",
         items: [
-          { label: "Customer Support AI", href: "/services/customer-support-ai" },
-          { label: "Document Processing", href: "/services/document-processing" },
-          { label: "Workflow Automation", href: "/services/workflow-automation" },
-          { label: "AI Employees", href: "/services/ai-employees" },
+          { label: "AI Readiness & Risk Review", href: "/quote" },
+          { label: "Build, buy or skip", href: "/case-studies" },
         ],
       },
     ],
     featured: {
-      label: "Explore automation options",
+      label: "See the operating model",
       href: "/services",
-      description: "Explore the workflows we can tailor to your business.",
+      description: "A practical path from scattered experiments to useful systems.",
     },
   },
   {
-    label: "Solutions",
-    href: "/solutions",
-    columns: [
-      {
-        heading: "By outcome",
-        items: [
-          { label: "AI Front Desk", href: "/solutions/ai-front-desk" },
-          { label: "Revenue Engine", href: "/solutions/revenue-engine" },
-          { label: "Support Autopilot", href: "/solutions/support-autopilot" },
-        ],
-      },
-      {
-        heading: "By function",
-        items: [
-          { label: "Back-Office Automation", href: "/solutions/back-office-automation" },
-          { label: "Knowledge & RAG Systems", href: "/solutions/knowledge-rag" },
-          { label: "Multi-Agent Operations", href: "/solutions/multi-agent-operations" },
-        ],
-      },
-    ],
-    featured: {
-      label: "Explore all solutions",
-      href: "/solutions",
-      description: "Packaged automation systems built around business outcomes.",
-    },
-  },
-  {
-    label: "Industries",
+    label: "For teams",
     href: "/industries",
     columns: [
       {
-        heading: "Local & home services",
+        heading: "Finance & operations",
         items: [
-          { label: "HVAC", href: "/industries/hvac" },
-          { label: "Plumbing", href: "/industries/plumbing" },
-          { label: "Roofing", href: "/industries/roofing" },
-          { label: "Cleaning Companies", href: "/industries/cleaning-companies" },
+          { label: "Finance teams", href: "/industries/financial-advisors" },
+          { label: "Accounting & tax firms", href: "/industries/professional-services" },
+          { label: "Operations teams", href: "/industries/logistics" },
         ],
       },
       {
-        heading: "Healthcare & wellness",
+        heading: "What they need",
         items: [
-          { label: "Med Spas", href: "/industries/med-spas" },
-          { label: "Dentists", href: "/industries/dentists" },
-          { label: "Healthcare", href: "/industries/healthcare" },
-        ],
-      },
-      {
-        heading: "Professional & finance",
-        items: [
-          { label: "Law Firms", href: "/industries/law-firms" },
-          { label: "Financial Advisors", href: "/industries/financial-advisors" },
-          { label: "Real Estate", href: "/industries/real-estate" },
+          { label: "Safer AI adoption", href: "/services" },
+          { label: "A first workflow", href: "/quote" },
+          { label: "A senior owner", href: "/services" },
         ],
       },
     ],
     featured: {
-      label: "View all industries",
+      label: "Find your starting point",
       href: "/industries",
-      description: "Start with our focused industry playbooks.",
+      description: "The right first step depends on the workflow, the risk, and the team.",
+    },
+  },
+  {
+    label: "Resources",
+    href: "/resources",
+    columns: [
+      {
+        heading: "Think before you build",
+        items: [
+          { label: "AI readiness", href: "/resources" },
+          { label: "AI governance", href: "/resources" },
+          { label: "Workflow examples", href: "/case-studies" },
+        ],
+      },
+      {
+        heading: "For the buying group",
+        items: [
+          { label: "CFOs & controllers", href: "/industries/financial-advisors" },
+          { label: "COOs & operators", href: "/industries/logistics" },
+          { label: "IT & compliance", href: "/resources" },
+        ],
+      },
+      {
+        heading: "Stay close to the work",
+        items: [
+          { label: "The Mirflow memo", href: "/blog" },
+          { label: "About Mirflow", href: "/about" },
+        ],
+      },
+    ],
+    featured: {
+      label: "Read the field notes",
+      href: "/resources",
+      description: "Practical notes on adoption, risk, and useful systems.",
     },
   },
 ];
 
 export const secondaryNav: NavItem[] = [
+  { label: "How it works", href: "/services" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Resources", href: "/resources" },
+  { label: "Contact", href: "/quote" },
 ];
 
 export const footerNav = {
   Company: [
     { label: "About", href: "/about" },
     { label: "Case Studies", href: "/case-studies" },
+    { label: "AI Readiness & Risk Review", href: "/quote" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],
   Product: [
-    { label: "Services", href: "/services" },
-    { label: "Solutions", href: "/solutions" },
+    { label: "How it works", href: "/services" },
+    { label: "Teams", href: "/industries" },
     { label: "Industries", href: "/industries" },
     { label: "Pricing", href: "/pricing" },
   ],
