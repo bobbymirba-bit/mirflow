@@ -14,7 +14,10 @@ const nextConfig: NextConfig = {
       source: `/case-studies/${slug}`,
       destination: "/case-studies",
       permanent: false,
-    }));
+    })).concat([
+      { source: "/quote", destination: "/ai-assessment", permanent: false },
+      { source: "/book-a-call", destination: "/ai-assessment", permanent: false },
+    ]);
   },
 };
 
