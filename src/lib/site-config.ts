@@ -139,10 +139,10 @@ export const primaryNav: NavGroup[] = [
 
 export const secondaryNav: NavItem[] = [
   { label: "How it works", href: "/services" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Workflows", href: "/#workflows" },
+  { label: "Assessment", href: "/ai-assessment" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/quote" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const footerNav = {
