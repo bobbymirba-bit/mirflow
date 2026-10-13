@@ -13,8 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Logo } from "@/components/logo";
-import { MegaMenu } from "@/components/layout/mega-menu";
-import { primaryNav, secondaryNav } from "@/lib/site-config";
+import { mainNav, siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -40,10 +39,8 @@ export function Navbar() {
       <div className="container-page flex h-[76px] items-center justify-between">
         <Logo />
 
-        <MegaMenu groups={primaryNav} />
-
-        <div className="hidden items-center gap-1 lg:flex">
-          {secondaryNav.map((item) => (
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+          {mainNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -52,12 +49,12 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-        </div>
+        </nav>
 
         <div className="flex items-center gap-2">
           <Button asChild variant="gradient" size="default" className="hidden lg:inline-flex">
-            <Link href="/ai-assessment">
-              Start an assessment
+            <Link href={siteConfig.calendlyUrl}>
+              Book your free audit
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -76,51 +73,34 @@ export function Navbar() {
               </SheetHeader>
 
               <div className="mt-6 flex flex-1 flex-col gap-6">
-                {primaryNav.map((group) => (
-                  <div key={group.label}>
-                    <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                      {group.label}
-                    </p>
-                    <ul className="space-y-2">
-                      {group.columns.flatMap((col) => col.items).map((item) => (
-                        <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="block rounded-lg px-2 py-1.5 text-sm text-foreground/90 hover:bg-accent"
-                          >
-                            {item.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-
-                <div>
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    More
-                  </p>
-                  <ul className="space-y-2">
-                    {secondaryNav.map((item) => (
-                      <li key={item.href}>
-                        <Link
-                          href={item.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="block rounded-lg px-2 py-1.5 text-sm text-foreground/90 hover:bg-accent"
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-2">
+                  {mainNav.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block rounded-lg px-2 py-1.5 text-sm text-foreground/90 hover:bg-accent"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                  <li>
+                    <Link
+                      href="/consulting"
+                      onClick={() => setMobileOpen(false)}
+                      className="block rounded-lg px-2 py-1.5 text-sm text-foreground/90 hover:bg-accent"
+                    >
+                      Consulting
+                    </Link>
+                  </li>
+                </ul>
               </div>
 
               <div className="mt-6 flex items-center justify-end border-t border-border pt-6">
                 <Button asChild variant="gradient">
-                  <Link href="/ai-assessment" onClick={() => setMobileOpen(false)}>
-                    Start an assessment
+                  <Link href={siteConfig.calendlyUrl} onClick={() => setMobileOpen(false)}>
+                    Book your free missed-lead audit
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>

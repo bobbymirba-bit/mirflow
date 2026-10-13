@@ -10,7 +10,8 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Mirflow. For scheduling, book a call directly — for anything else, send us a message and we'll reply within one business day.",
+    "Get in touch with Mirflow about a free missed-lead audit for your practice, or anything else about working together. We reply within one business day.",
+  alternates: { canonical: "/contact" },
   openGraph: {
     title: `Contact | ${siteConfig.name}`,
     description: "Get in touch with Mirflow.",
@@ -34,15 +35,17 @@ export default function ContactPage() {
               Get in touch
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Looking to book a call? That&apos;s the fastest way to talk to us.
-              For anything else — partnerships, press, support — send a message below.
+              Missing calls you are paying to generate? Start with the free missed-lead audit
+              and we will show you exactly what they are costing you. For anything else about
+              working with Mirflow, send a message below and we will reply within one business
+              day.
             </p>
 
             <Link
-              href="/book-a-call"
+              href={siteConfig.calendlyUrl}
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
             >
-              Book a call instead
+              Book your free missed-lead audit
               <ArrowRight className="h-4 w-4" />
             </Link>
 
