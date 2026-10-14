@@ -8,13 +8,14 @@ import { ContactForm } from "@/components/contact-form";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Get Your Demo",
   description:
-    "Get in touch with Mirflow about a free missed-lead audit for your practice, or anything else about working together. We reply within one business day.",
+    "Send your help center link. We build the agent on your pages and send back a working demo answering your most repeated question.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: `Contact | ${siteConfig.name}`,
-    description: "Get in touch with Mirflow.",
+    title: `Get Your Demo | ${siteConfig.name}`,
+    description:
+      "Send your help center link. We build the agent on your pages and send back a working demo answering your most repeated question.",
   },
 };
 
@@ -32,20 +33,19 @@ export default function ContactPage() {
           <Reveal>
             <Badge variant="brand">Contact</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              Get in touch
+              Get your demo.
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Missing calls you are paying to generate? Start with the free missed-lead audit
-              and we will show you exactly what they are costing you. For anything else about
-              working with Mirflow, send a message below and we will reply within one business
-              day.
+              Send your help center link. We build the agent on your pages and send back a
+              working demo answering your most repeated question. In person and phone first
+              if you are in Newport Beach or Beverly Hills; the demo travels by text.
             </p>
 
             <Link
               href={siteConfig.calendlyUrl}
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
             >
-              Book your free missed-lead audit
+              Book a call instead
               <ArrowRight className="h-4 w-4" />
             </Link>
 
