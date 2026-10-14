@@ -25,7 +25,7 @@ export function CtaSection({
       <Reveal>
         <div className="container-page grid gap-10 py-20 sm:py-28 lg:grid-cols-[1.35fr_.65fr] lg:items-end">
           <div className="min-w-0 max-w-4xl">
-            <p className="border-b border-white/30 pb-3 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 sm:text-[10px] sm:tracking-[0.22em]">The Mirflow front-desk system</p>
+            <p className="border-b border-white/30 pb-3 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 sm:text-[10px] sm:tracking-[0.22em]">The Mirflow support agent</p>
             <h2 className="mt-8 text-balance font-display text-[42px] font-normal leading-[.95] tracking-[-0.045em] text-[#f3efe7] sm:text-6xl">
               {title}
             </h2>

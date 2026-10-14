@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Mirflow",
   legalName: "Mirflow AI",
-  tagline: "AI front desk for med spas and cosmetic dental practices",
+  tagline: "AI support agent trained on your own help pages",
   description:
-    "Mirflow answers every call and text for med spas and cosmetic dental practices across Southern California: an AI front desk with missed-call text-back, a review engine, and patient reactivation, set up and managed for you.",
+    "Mirflow builds an AI support agent trained only on your published help pages. It answers the customer questions your team gets asked twice, in your words, around the clock, hands anything it cannot answer to a human, and proves its value in a monthly report.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mirflow.online",
   ogImage: "/og.jpg",
   email: "bobby@mirflow.online",
