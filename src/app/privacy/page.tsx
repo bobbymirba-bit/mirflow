@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: `Privacy Policy for ${siteConfig.name}, explaining what data we collect, how it's used, and the choices you have.`,
 };
 
-const lastUpdated = "June 1, 2026";
+const lastUpdated = "October 16, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -87,7 +87,27 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-foreground">
-                5. Cookies
+                5. Text messaging
+              </h2>
+              <p className="mt-3">
+                If you give us your mobile number and agree to receive text messages
+                from us, for example during a phone call with our team or our AI
+                assistant, we will send you text messages related to that
+                conversation, such as a link to a product demo you asked for and
+                follow-up messages in the same thread. Message frequency varies.
+                Message and data rates may apply. You can opt out at any time by
+                replying STOP, and get help by replying HELP or emailing us.
+              </p>
+              <p className="mt-3">
+                We do not share, sell, rent, or disclose your mobile phone number,
+                text messaging opt-in data, or consent status to third parties or
+                affiliates for their marketing or promotional purposes.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-display text-xl font-semibold text-foreground">
+                6. Cookies
               </h2>
               <p className="mt-3">
                 We use cookies and similar technologies to remember preferences,
@@ -99,7 +119,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-foreground">
-                6. Data retention and security
+                7. Data retention and security
               </h2>
               <p className="mt-3">
                 We retain personal information only as long as necessary for the
@@ -111,7 +131,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-foreground">
-                7. Your choices
+                8. Your choices
               </h2>
               <p className="mt-3">
                 You may request access to, correction of, or deletion of your personal
@@ -128,7 +148,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-foreground">
-                8. Changes to this policy
+                9. Changes to this policy
               </h2>
               <p className="mt-3">
                 We may update this policy from time to time. Material changes will be
@@ -138,7 +158,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-foreground">
-                9. Contact us
+                10. Contact us
               </h2>
               <p className="mt-3">
                 Questions about this policy can be sent to{" "}
