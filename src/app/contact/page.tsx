@@ -8,12 +8,14 @@ import { ContactForm } from "@/components/contact-form";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Get Your Demo",
   description:
-    "Get in touch with Mirflow. For scheduling, book a call directly — for anything else, send us a message and we'll reply within one business day.",
+    "Send your help center link. We build the agent on your pages and send back a working demo answering your most repeated question.",
+  alternates: { canonical: "/contact" },
   openGraph: {
-    title: `Contact | ${siteConfig.name}`,
-    description: "Get in touch with Mirflow.",
+    title: `Get Your Demo | ${siteConfig.name}`,
+    description:
+      "Send your help center link. We build the agent on your pages and send back a working demo answering your most repeated question.",
   },
 };
 
@@ -31,15 +33,16 @@ export default function ContactPage() {
           <Reveal>
             <Badge variant="brand">Contact</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-              Get in touch
+              Get your demo.
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Looking to book a call? That&apos;s the fastest way to talk to us.
-              For anything else — partnerships, press, support — send a message below.
+              Send your help center link. We build the agent on your pages and send back a
+              working demo answering your most repeated question. In person and phone first
+              if you are in Newport Beach or Beverly Hills; the demo travels by text.
             </p>
 
             <Link
-              href="/book-a-call"
+              href={siteConfig.calendlyUrl}
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
             >
               Book a call instead
