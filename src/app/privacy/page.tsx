@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: `Privacy Policy for ${siteConfig.name}, explaining what data we collect, how it's used, and the choices you have.`,
 };
 
-const lastUpdated = "October 19, 2026";
+const lastUpdated = "October 20, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -96,18 +96,43 @@ export default function PrivacyPage() {
                 5. Text messaging
               </h2>
               <p className="mt-3">
-                If you give us your mobile number and agree to receive text messages
-                from us, for example during a phone call with our team or our AI
-                assistant, we will send you text messages related to that
+                Mirflow operates a text messaging program under the name Mirflow.
+                Messages are sent from our business number, +1 (949) 328-5051. If
+                you give us your mobile number and agree to receive text messages
+                from us, for example during a recorded phone call with our team or
+                our AI assistant, we will send you text messages related to that
                 conversation, such as a link to a product demo you asked for and
-                follow-up messages in the same thread. Message frequency varies.
-                Message and data rates may apply. You can opt out at any time by
-                replying STOP, and get help by replying HELP or emailing us.
+                one-to-one follow-up messages in the same thread about our AI
+                support agent service. The exact words our assistant says to ask
+                for your consent are published at{" "}
+                <a href="/sms-consent" className="text-primary hover:underline">
+                  mirflow.online/sms-consent
+                </a>
+                .
               </p>
               <p className="mt-3">
-                We do not share, sell, rent, or disclose your mobile phone number,
-                text messaging opt-in data, or consent status to third parties or
-                affiliates for their marketing or promotional purposes.
+                For this program we collect your mobile phone number, your opt-in
+                and opt-out status, and the content of the messages exchanged. We
+                use this information only to send the messages you agreed to
+                receive, to respond when you reply, and to honor opt-out requests.
+                Message frequency varies. Message and data rates may apply. You
+                can opt out at any time by replying STOP, and get help by replying
+                HELP or emailing{" "}
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="text-primary hover:underline"
+                >
+                  {siteConfig.email}
+                </a>
+                . Consent to receive text messages is not a condition of
+                purchasing any goods or services.
+              </p>
+              <p className="mt-3">
+                All of the categories of information described in this policy
+                exclude text messaging originator opt-in data and consent. We
+                will not share, sell, rent, or disclose your mobile phone number,
+                text messaging opt-in data, or consent status with any third
+                parties or affiliates for marketing or promotional purposes.
               </p>
             </div>
 

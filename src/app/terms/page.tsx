@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: `Terms of Service for ${siteConfig.name}, covering use of our website and services.`,
 };
 
-const lastUpdated = "October 19, 2026";
+const lastUpdated = "October 20, 2026";
 
 export default function TermsPage() {
   return (
@@ -87,7 +87,61 @@ export default function TermsPage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-foreground">
-                6. Disclaimer of warranties
+                6. Text messaging terms
+              </h2>
+              <p className="mt-3">
+                Mirflow operates a text messaging program under the name Mirflow.
+                When you agree during a recorded phone call with our team or our
+                AI assistant to receive text messages from us, we send messages
+                from our business number, +1 (949) 328-5051, related to that
+                conversation, such as a link to a product demo you asked for and
+                one-to-one follow-up messages in the same thread about our AI
+                support agent service. The exact consent script our assistant
+                reads on the call is published at{" "}
+                <a href="/sms-consent" className="text-primary hover:underline">
+                  mirflow.online/sms-consent
+                </a>
+                .
+              </p>
+              <ul className="mt-3 list-disc space-y-2 pl-5">
+                <li>Message frequency varies.</li>
+                <li>Message and data rates may apply.</li>
+                <li>
+                  <strong className="text-foreground">
+                    Reply STOP to opt out at any time. Reply HELP for help.
+                  </strong>
+                </li>
+                <li>
+                  For support, email{" "}
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="text-primary hover:underline"
+                  >
+                    {siteConfig.email}
+                  </a>{" "}
+                  or call +1 (949) 328-5051.
+                </li>
+                <li>
+                  Consent to receive text messages is not a condition of
+                  purchasing any goods or services.
+                </li>
+                <li>Carriers are not liable for delayed or undelivered messages.</li>
+                <li>
+                  Our{" "}
+                  <a href="/privacy" className="text-primary hover:underline">
+                    Privacy Policy
+                  </a>{" "}
+                  explains how we handle your mobile number and messaging data,
+                  including that we do not share mobile opt-in data or consent
+                  with third parties or affiliates for marketing or promotional
+                  purposes.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-display text-xl font-semibold text-foreground">
+                7. Disclaimer of warranties
               </h2>
               <p className="mt-3">
                 The Service is provided &ldquo;as is&rdquo; without warranties of any
@@ -99,7 +153,7 @@ export default function TermsPage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-foreground">
-                7. Limitation of liability
+                8. Limitation of liability
               </h2>
               <p className="mt-3">
                 To the fullest extent permitted by law, {siteConfig.legalName} shall not
@@ -110,7 +164,7 @@ export default function TermsPage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-foreground">
-                8. Changes to these terms
+                9. Changes to these terms
               </h2>
               <p className="mt-3">
                 We may revise these Terms from time to time. Continued use of the
@@ -121,7 +175,7 @@ export default function TermsPage() {
 
             <div>
               <h2 className="font-display text-xl font-semibold text-foreground">
-                9. Contact us
+                10. Contact us
               </h2>
               <p className="mt-3">
                 Questions about these Terms can be sent to{" "}
