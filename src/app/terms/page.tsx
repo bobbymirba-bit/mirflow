@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 
-import { Badge } from "@/components/ui/badge";
-import { Reveal } from "@/components/motion/reveal";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -9,14 +7,14 @@ export const metadata: Metadata = {
   description: `Terms of Service for ${siteConfig.name}, covering use of our website and services.`,
 };
 
-const lastUpdated = "June 1, 2026";
+const lastUpdated = "October 19, 2026";
 
 export default function TermsPage() {
   return (
     <section className="border-b border-border">
       <div className="container-page py-16 sm:py-24">
-        <Reveal className="mx-auto max-w-3xl">
-          <Badge variant="brand">Legal</Badge>
+        <div className="mx-auto max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Legal</p>
           <h1 className="mt-5 font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             Terms of Service
           </h1>
@@ -40,9 +38,11 @@ export default function TermsPage() {
                 2. Description of service
               </h2>
               <p className="mt-3">
-                Mirflow designs, builds, and operates AI automation systems for
-                businesses, including voice AI, chat automation, workflow automation,
-                and related services described on this site. Specific engagements are
+                Mirflow builds AI support agents that answer questions from a
+                company&apos;s own public help pages, including free demo agents and the
+                Launch and Care services described on this site. The example agent on
+                this site answers only from Mirflow&apos;s own FAQ and is provided for
+                demonstration. Specific engagements are
                 governed by a separate service agreement entered into with each client.
               </p>
             </div>
@@ -55,7 +55,7 @@ export default function TermsPage() {
                 You agree not to misuse the Service, including by attempting to access
                 it using a method other than the interface we provide, interfering with
                 its normal operation, or using it for any unlawful purpose. Content on
-                this site — including case studies, examples, and figures — is provided
+                this site — including the example agent and its answers — is provided
                 for illustrative purposes and does not constitute a guarantee of
                 specific results.
               </p>
@@ -79,8 +79,8 @@ export default function TermsPage() {
                 5. Third-party links and services
               </h2>
               <p className="mt-3">
-                The Service may link to or integrate with third-party tools (such as our
-                scheduling provider). We are not responsible for the content, policies,
+                The Service may link to or integrate with third-party tools (such as hosting or
+                email providers). We are not responsible for the content, policies,
                 or practices of third-party services.
               </p>
             </div>
@@ -126,16 +126,16 @@ export default function TermsPage() {
               <p className="mt-3">
                 Questions about these Terms can be sent to{" "}
                 <a
-                  href={`mailto:${siteConfig.supportEmail}`}
+                  href={`mailto:${siteConfig.email}`}
                   className="text-primary hover:underline"
                 >
-                  {siteConfig.supportEmail}
+                  {siteConfig.email}
                 </a>
                 .
               </p>
             </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

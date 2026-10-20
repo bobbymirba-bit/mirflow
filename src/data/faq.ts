@@ -1,94 +1,116 @@
-export type FaqItem = {
+export type FaqEntry = {
+  id: string;
   question: string;
   answer: string;
-  category: "General" | "Implementation" | "Pricing" | "Technical" | "Security";
+  /** Extra search terms (synonyms) that point to this entry. */
+  keywords: string[];
 };
 
-export const faqs: FaqItem[] = [
+/** Mirflow's own FAQ. The example agent on the homepage answers only from these entries. */
+export const faq: FaqEntry[] = [
   {
-    category: "General",
-    question: "What exactly does Mirflow do?",
+    id: "what-is-mirflow",
+    question: "What does Mirflow do?",
     answer:
-      "Mirflow designs, builds, and operates AI automation systems for your business — from AI receptionists and chatbots to back-office and document automation. We handle the strategy, build, deployment, and ongoing optimization, not just the software.",
+      "Mirflow builds AI support agents that answer your customers' questions using only your company's own public help pages. Each answer points to the page it came from, and when the agent isn't sure it hands the conversation to a person on your team.",
+    keywords: ["service", "offer", "about", "company", "build", "chatbot", "support", "bot", "who"],
   },
   {
-    category: "General",
-    question: "How is Mirflow different from buying a SaaS AI tool myself?",
+    id: "free-demo",
+    question: "What is the free demo agent?",
     answer:
-      "Off-the-shelf tools require you to configure, train, and maintain them yourself, and rarely handle more than one narrow task. Mirflow designs a system around your actual workflows, integrates it with your existing tools, and continues optimizing it after launch.",
+      "Send us the URL of your public help center (or your website FAQ). We build a demo agent from those public pages and send you a private link so you can ask it real customer questions. The demo is free and there is no obligation to buy anything.",
+    keywords: ["demo", "free", "trial", "try", "test", "sample", "cost", "obligation", "start"],
   },
   {
-    category: "Implementation",
-    question: "How long does it take to go live?",
+    id: "launch-price",
+    question: "What does Launch include and cost?",
     answer:
-      "Our standard lead follow-up system can go live within 24 hours after we receive access to your lead source, calendar, and messaging tools. Custom voice agents, multiple workflows, complex integrations, or incomplete account access take longer; we confirm that timeline in your quote before work begins.",
+      "Launch is $1,500 one-time. We load your full help center and docs, add a hand-off to a human on your team, and install the agent on your site.",
+    keywords: ["price", "pricing", "cost", "fee", "setup", "one-time", "install", "1500", "how much", "pay"],
   },
   {
-    category: "Implementation",
-    question: "Do I need technical staff to work with Mirflow?",
+    id: "care-price",
+    question: "What is the Care plan?",
     answer:
-      "No. We handle the technical implementation, integrations, and hosting. Your team's job is to share context about how the business runs — we translate that into a working system.",
+      "Care is $299 per month. It covers content refreshes when your help pages change, a monthly report of the questions the agent couldn't answer, and fixes.",
+    keywords: ["monthly", "subscription", "maintenance", "ongoing", "299", "month", "report", "plan", "price", "cost", "retainer"],
   },
   {
-    category: "Implementation",
-    question: "What if the AI doesn't understand a customer's request?",
+    id: "founding-offer",
+    question: "Is there a founding-client discount?",
     answer:
-      "Every Mirflow deployment includes clear escalation paths. When the system isn't confident or a request falls outside its scope, it hands off to a human with full context, rather than guessing.",
+      "Yes. The first 3 clients get Launch for $750 instead of $1,500, in exchange for agreeing to be a reference for future clients.",
+    keywords: ["discount", "founding", "deal", "750", "cheaper", "reference", "first", "promo", "special"],
   },
   {
-    category: "Pricing",
-    question: "How is pricing structured?",
+    id: "sources-only",
+    question: "Where do the agent's answers come from?",
     answer:
-      "Three published plans. The Pilot is $197 one-time for seven days of missed-call text-back, credited toward setup. Starter is $497 setup + $199/mo for an after-hours AI receptionist, text-back, and call summaries. Growth is $997 setup + $399/mo for 24/7 answering, calendar booking, follow-ups, and review requests. No per-seat fees. Multi-location and custom builds are quoted separately.",
+      "Only from your own pages: your help center, docs, or website FAQ. The agent shows the source it used for each answer. If your pages don't cover a question, it says it doesn't know instead of guessing.",
+    keywords: ["source", "sources", "accurate", "accuracy", "hallucinate", "hallucination", "make up", "cite", "citation", "trust", "wrong"],
   },
   {
-    category: "Pricing",
-    question: "Is there a setup fee?",
+    id: "handoff",
+    question: "What happens when the agent can't answer?",
     answer:
-      "Yes, one time. Starter is $497 setup + $199/mo and Growth is $997 setup + $399/mo, both month-to-month with no long-term contract. If you start with the $197 7-Day Missed-Call Text-Back Pilot, the $197 is credited toward either setup fee. Custom and multi-location builds are scoped and quoted separately.",
+      "It says it doesn't know and offers a hand-off to a human, for example by collecting the customer's email for your support team or pointing them to your existing contact channel. With Launch we set up the hand-off that fits how your team already works.",
+    keywords: ["human", "handoff", "hand-off", "escalate", "escalation", "person", "staff", "unsure", "unknown", "live agent"],
   },
   {
-    category: "Pricing",
-    question: "Is there a contract? Can I cancel?",
+    id: "who-for",
+    question: "Who is this for?",
     answer:
-      "No long-term contract. Starter and Growth are month-to-month, and you can cancel anytime. You can also move between plans from one month to the next. Custom builds follow the terms in your quote.",
+      "Small software and e-commerce companies with a public help center are the best fit. Local businesses can use the FAQ on their website as the source instead.",
+    keywords: ["fit", "customers", "saas", "software", "ecommerce", "e-commerce", "shop", "store", "local", "small business", "industry"],
   },
   {
-    category: "Pricing",
-    question: "How does the $197 pilot work?",
+    id: "no-help-center",
+    question: "What if we don't have a help center?",
     answer:
-      "We connect to your line and call capture is live within 24 hours, so you get an email for every missed call right away. The text-back needs carrier approval (10DLC) under your business name, which usually takes 2 to 7 business days. Your seven days start when texts go live. At the end you get a plain recap of what came in. If you continue, the $197 is credited toward setup.",
+      "A clear FAQ page on your website works too. The agent can only be as complete as the pages it reads, so the more of your common questions are written down publicly, the more it can answer.",
+    keywords: ["faq page", "no docs", "documentation", "website", "without", "missing", "content"],
   },
   {
-    category: "Technical",
-    question: "What systems does Mirflow integrate with?",
+    id: "data-privacy",
+    question: "Do you need access to our customer data or systems?",
     answer:
-      "Mirflow integrates with most common CRMs, calendars, help desks, and communication platforms out of the box, and we build custom integrations for proprietary or legacy systems as part of enterprise engagements.",
+      "Not for the demo. We only read your public pages and we respect robots.txt. No customer data, logins, or system access are needed to build the demo agent.",
+    keywords: ["privacy", "data", "security", "access", "login", "credentials", "robots", "crawl", "scrape", "gdpr", "safe", "customer data"],
   },
   {
-    category: "Technical",
-    question: "Can Mirflow work with our existing phone number and tools?",
+    id: "control",
+    question: "Who decides what goes live?",
     answer:
-      "Yes. Voice and messaging automations are typically deployed on your existing phone number and channels, so there's no disruption to how customers already reach you.",
+      "You do. Nothing is installed on your site until you approve it, you choose which pages the agent may use, and you can ask us to remove or change content at any time.",
+    keywords: ["approve", "approval", "control", "review", "publish", "live", "remove", "turn off", "cancel"],
   },
   {
-    category: "Security",
-    question: "How is our business and customer data protected?",
+    id: "timeline",
+    question: "How long does it take?",
     answer:
-      "Data is encrypted in transit and at rest, access is role-based and logged, and we operate under signed data processing agreements. Enterprise plans include dedicated infrastructure and custom compliance support for regulated industries.",
+      "It depends on how many pages you have. We'll tell you the expected timing when you send your help-center URL, and the Launch install is scheduled with you once you've tried the demo.",
+    keywords: ["time", "timeline", "fast", "quick", "days", "weeks", "turnaround", "when", "long"],
   },
   {
-    category: "Security",
-    question: "Is Mirflow compliant with industry regulations like HIPAA?",
+    id: "install",
+    question: "How is the agent installed on our site?",
     answer:
-      "For healthcare, legal, and financial clients, we configure deployments to align with relevant regulatory requirements, including signed BAAs where applicable. Talk to our team about your specific compliance needs during onboarding.",
+      "As part of Launch we install it on your site, typically as a chat widget added with a small snippet. We'll work with whoever manages your website to put it where you want it.",
+    keywords: ["widget", "embed", "snippet", "website", "install", "integrate", "integration", "wordpress", "shopify", "chat"],
   },
-];
-
-export const faqCategories: FaqItem["category"][] = [
-  "General",
-  "Implementation",
-  "Pricing",
-  "Technical",
-  "Security",
+  {
+    id: "cancel-care",
+    question: "Do we have to keep paying for Care?",
+    answer:
+      "Care is optional and month to month. It keeps the agent's content in sync with your help pages and gives you the monthly unanswered-questions report. Talk to us before cancelling about what happens to the hosted agent.",
+    keywords: ["cancel", "contract", "commitment", "optional", "month to month", "stop", "required"],
+  },
+  {
+    id: "contact",
+    question: "How do I contact Mirflow?",
+    answer:
+      "Email bobby@mirflow.online, call (949) 422-8674, or find us on Instagram at @mirflow.ai. You can also request a free demo agent with the form on this page.",
+    keywords: ["email", "phone", "call", "reach", "talk", "contact", "instagram", "speak", "number"],
+  },
 ];

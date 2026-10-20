@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 
-import { Badge } from "@/components/ui/badge";
-import { Reveal } from "@/components/motion/reveal";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -9,14 +7,14 @@ export const metadata: Metadata = {
   description: `Privacy Policy for ${siteConfig.name}, explaining what data we collect, how it's used, and the choices you have.`,
 };
 
-const lastUpdated = "October 16, 2026";
+const lastUpdated = "October 19, 2026";
 
 export default function PrivacyPage() {
   return (
     <section className="border-b border-border">
       <div className="container-page py-16 sm:py-24">
-        <Reveal className="mx-auto max-w-3xl">
-          <Badge variant="brand">Legal</Badge>
+        <div className="mx-auto max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Legal</p>
           <h1 className="mt-5 font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             Privacy Policy
           </h1>
@@ -44,8 +42,9 @@ export default function PrivacyPage() {
                 <li>
                   <strong className="text-foreground">Information you provide directly</strong>{" "}
                   — such as your name, email address, phone number, and company details
-                  when you fill out a contact form, book a call, or otherwise
-                  communicate with us.
+                  when you request a demo agent (your help-center URL, work email, and
+                  optional company name), use the hand-off form, or otherwise communicate
+                  with us.
                 </li>
                 <li>
                   <strong className="text-foreground">Information collected automatically</strong>{" "}
@@ -53,9 +52,16 @@ export default function PrivacyPage() {
                   visited, collected via cookies and similar technologies.
                 </li>
                 <li>
-                  <strong className="text-foreground">Information from third parties</strong>{" "}
-                  — such as scheduling data from our booking provider when you reserve a
-                  call.
+                  <strong className="text-foreground">Public pages you point us to</strong>{" "}
+                  — when you request a demo agent, we read the public help-center or FAQ
+                  pages at the URL you give us, respecting robots.txt. We do not need
+                  logins or customer data to build a demo.
+                </li>
+                <li>
+                  <strong className="text-foreground">The example agent</strong>{" "}
+                  — questions typed into the example agent on our homepage are matched
+                  in your browser against our FAQ and are not sent to us unless you
+                  submit the hand-off form.
                 </li>
               </ul>
             </div>
@@ -65,7 +71,7 @@ export default function PrivacyPage() {
                 3. How we use information
               </h2>
               <ul className="mt-3 list-disc space-y-2 pl-5">
-                <li>To respond to inquiries and schedule calls</li>
+                <li>To respond to inquiries and build the demo agent you requested</li>
                 <li>To provide, maintain, and improve our services</li>
                 <li>To send updates, but only if you&apos;ve opted in</li>
                 <li>To monitor site performance and security</li>
@@ -80,7 +86,7 @@ export default function PrivacyPage() {
               <p className="mt-3">
                 We do not sell your personal information. We share information only with
                 service providers who help us operate the site and deliver our services
-                (such as scheduling, hosting, and analytics providers), each bound by
+                (such as hosting and email delivery providers), each bound by
                 confidentiality obligations, or when required by law.
               </p>
             </div>
@@ -110,10 +116,9 @@ export default function PrivacyPage() {
                 6. Cookies
               </h2>
               <p className="mt-3">
-                We use cookies and similar technologies to remember preferences,
-                understand site usage, and improve performance. You can control cookies
-                through your browser settings or the cookie preferences banner on this
-                site.
+                This site does not set advertising or analytics cookies. Our hosting
+                provider may use strictly necessary technologies to deliver and secure
+                the site. You can control cookies through your browser settings.
               </p>
             </div>
 
@@ -137,10 +142,10 @@ export default function PrivacyPage() {
                 You may request access to, correction of, or deletion of your personal
                 information at any time by emailing{" "}
                 <a
-                  href={`mailto:${siteConfig.supportEmail}`}
+                  href={`mailto:${siteConfig.email}`}
                   className="text-primary hover:underline"
                 >
-                  {siteConfig.supportEmail}
+                  {siteConfig.email}
                 </a>
                 .
               </p>
@@ -163,16 +168,16 @@ export default function PrivacyPage() {
               <p className="mt-3">
                 Questions about this policy can be sent to{" "}
                 <a
-                  href={`mailto:${siteConfig.supportEmail}`}
+                  href={`mailto:${siteConfig.email}`}
                   className="text-primary hover:underline"
                 >
-                  {siteConfig.supportEmail}
+                  {siteConfig.email}
                 </a>{" "}
-                or {siteConfig.address}.
+                or by calling {siteConfig.phone}.
               </p>
             </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

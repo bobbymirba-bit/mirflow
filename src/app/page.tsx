@@ -1,43 +1,159 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, Check, ShieldCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { CtaSection } from "@/components/cta-section";
-import { workflows, assessmentDeliverables } from "@/data/workflows";
+import { DemoForm } from "@/components/demo-form";
+import { ExampleAgent } from "@/components/example-agent";
+import { faq } from "@/data/faq";
+import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: "AI Workflow Consulting for Finance & Operations",
-  description: "Find the first workflow worth automating. Mirflow helps finance and operations teams assess, build, and measure practical AI systems with human review.",
-  alternates: { canonical: "/" },
-};
+const steps = [
+  { title: "Send your URL", body: "Share the link to your public help center or website FAQ, plus a work email." },
+  { title: "We build a demo on your public pages", body: "We read only your public pages, respecting robots.txt, and build an agent that answers from them." },
+  { title: "You try it on a private link", body: "Ask it the questions your customers ask. See the sources it cites and where it hands off." },
+];
+
+const safety = [
+  ["Answers only from your pages", "The agent uses your help center, docs, or FAQ. Nothing else."],
+  ["Sources cited", "Every answer shows the page it came from, so customers and your team can check it."],
+  ["Human hand-off when unsure", "If your pages don't cover it, the agent says so and passes the customer to a person."],
+  ["Public pages only, robots.txt respected", "For the demo we read only what you already publish, and we follow your robots.txt."],
+  ["No customer data for the demo", "No logins, tickets, or customer records are needed to build the demo agent."],
+  ["You control what goes live", "Nothing is installed on your site until you approve it, and you choose the pages it uses."],
+];
 
 export default function Home() {
-  return <>
-    <section className="overflow-hidden border-b border-border bg-[#171713] text-[#f3efe7]">
-      <div className="container-page grid gap-16 py-20 sm:py-28 lg:grid-cols-[1.25fr_1fr] lg:items-center">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[.2em] text-[#d8a58f]">AI for finance & operations</p>
-          <h1 className="mt-7 max-w-3xl font-display text-5xl leading-[1.02] tracking-[-.045em] sm:text-7xl">Less repetitive work.<br /><span className="text-[#d8a58f]">More room to think.</span></h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/75">Turn one slow, manual workflow into a useful AI system. We help you choose the right starting point, build around your existing tools, and keep your team in control.</p>
-          <Button asChild size="lg" variant="gradient" className="mt-9"><Link href="/ai-assessment">Start your workflow assessment <ArrowRight className="h-4 w-4" /></Link></Button>
-          <p className="mt-5 text-sm text-white/60">For CFOs, controllers, COOs, and firm owners.</p>
+
+  return (
+    <>
+      {/* Hero */}
+      <section id="demo" className="scroll-mt-16 border-b border-border">
+        <div className="container-page grid gap-10 py-14 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">AI support agents</p>
+            <h1 className="mt-3 text-balance font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+              An AI support agent that answers only from your own help pages.
+            </h1>
+            <p className="mt-5 max-w-xl text-pretty text-lg text-muted-foreground">
+              Mirflow builds support agents for small software and e-commerce companies. Answers come from your public help
+              center, cite the source, and go to a human when the agent isn&apos;t sure. Local businesses can use their website FAQ.
+            </p>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Try the <a href="#example" className="font-medium text-primary underline-offset-2 hover:underline">live example</a> below, built from our own FAQ.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-6">
+            <h2 className="mb-4 text-lg font-semibold">Get a free demo agent built on your help center</h2>
+            <DemoForm />
+          </div>
         </div>
-        <div className="border border-white/20 bg-white/[.04] p-6 sm:p-8">
-          <div className="flex justify-between gap-4 border-b border-white/20 pb-5 text-[10px] uppercase tracking-[.18em]"><span>Inside a better workflow</span><span className="text-[#d8a58f]">Illustrative example</span></div>
-          <h2 className="mt-7 font-display text-3xl">From inbox to approval.</h2>
-          <div className="mt-8 space-y-3">{["Invoice arrives", "AI prepares & checks the details", "Your team reviews exceptions", "Approved record enters your system"].map((step, i) => <div key={step} className={`flex items-center gap-4 border p-4 ${i === 2 ? "border-[#d8a58f]/60 bg-[#d8a58f]/10" : "border-white/15"}`}><span className="text-xs text-[#d8a58f]">0{i + 1}</span><span className="text-sm">{step}</span>{i === 2 && <ShieldCheck className="ml-auto h-5 w-5 shrink-0 text-[#d8a58f]" />}</div>)}</div>
-          <p className="mt-6 text-sm leading-relaxed text-white/60">Measure the handling time. Keep an approval trail. Improve from a real baseline.</p>
+      </section>
+
+      {/* Example agent */}
+      <section id="example" className="scroll-mt-16 border-b border-border bg-secondary/40">
+        <div className="container-page grid gap-10 py-14 sm:py-20 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+          <div>
+            <h2 className="font-display text-3xl font-semibold tracking-tight">Try a live example</h2>
+            <p className="mt-4 text-muted-foreground">
+              This is an example agent running on Mirflow&apos;s own FAQ. It matches your question against the FAQ entries and
+              replies with the matching entry, showing which one it used. Ask something the FAQ doesn&apos;t cover and it will say it
+              doesn&apos;t know and offer a hand-off to a human.
+            </p>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Your demo agent works on the same principle, built on your help center instead of ours.
+            </p>
+          </div>
+          <ExampleAgent />
         </div>
-      </div>
-    </section>
-    <section className="border-b border-border"><div className="container-page grid gap-5 py-7 text-sm sm:grid-cols-3">{["Built around the tools you already use", "Human approval where it matters", "Progress measured in your workflow"].map(text => <p key={text} className="flex items-center gap-3"><Check className="h-4 w-4 shrink-0 text-primary" />{text}</p>)}</div></section>
-    <section id="workflows" className="container-page scroll-mt-24 py-20 sm:py-28">
-      <p className="text-xs font-semibold uppercase tracking-[.2em] text-primary">Where we start</p>
-      <div className="mt-5 grid gap-6 lg:grid-cols-2"><h2 className="max-w-xl font-display text-4xl tracking-tight sm:text-5xl">Find the friction.<br />Start there.</h2><p className="max-w-lg text-lg leading-relaxed text-muted-foreground">A good first project has repeatable work, a clear owner, and a result you can measure. These are example starting points, tailored to your systems during assessment.</p></div>
-      <div className="mt-12 grid gap-px border border-border bg-border lg:grid-cols-3">{workflows.map(w => <article key={w.id} className="flex flex-col bg-card p-7 sm:p-9"><span className="text-xs text-primary">{w.number} / WORKFLOW</span><h3 className="mt-8 font-display text-3xl">{w.title}</h3><p className="mt-5 font-medium leading-relaxed">{w.pain}</p><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{w.solution}</p><p className="mt-6 border-t border-border pt-5 text-sm">{w.control}</p><p className="mt-4 text-xs text-muted-foreground">Measure: {w.metric}</p><Link href={`/ai-assessment?workflow=${w.id}`} className="mt-auto flex items-center gap-2 pt-8 text-sm font-semibold text-primary">Assess this workflow <ArrowRight className="h-4 w-4" /></Link></article>)}</div>
-    </section>
-    <section className="border-y border-border bg-secondary/50"><div className="container-page grid gap-12 py-20 lg:grid-cols-[.85fr_1.15fr]"><div><p className="text-xs font-semibold uppercase tracking-[.2em] text-primary">The AI Workflow Assessment</p><h2 className="mt-5 font-display text-4xl tracking-tight sm:text-5xl">A clear first move.<br />Before you commit.</h2><p className="mt-6 max-w-md leading-relaxed text-muted-foreground">Start with a 30-minute introductory conversation. We confirm fit, then agree the scope and fee for a focused assessment before any paid work begins.</p><Link href="/ai-assessment" className="mt-7 inline-flex items-center gap-2 font-semibold text-primary">See what you get <ArrowRight className="h-4 w-4" /></Link></div><div className="grid gap-8 sm:grid-cols-2">{assessmentDeliverables.map(([title, body], i) => <div key={title} className="border-t border-border pt-5"><span className="text-xs text-primary">0{i + 1}</span><h3 className="mt-4 text-lg font-semibold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p></div>)}</div></div></section>
-    <section className="container-page py-20 sm:py-28"><p className="text-xs font-semibold uppercase tracking-[.2em] text-primary">From assessment to everyday use</p><h2 className="mt-5 font-display text-4xl sm:text-5xl">Build it. Use it. Keep improving it.</h2><div className="mt-12 grid gap-9 md:grid-cols-3">{[["01 / Assess", "Choose one workflow", "Map the current process, establish a baseline, and decide whether automation is worth doing."], ["02 / Implement", "Put a focused pilot to work", "Connect approved systems, test exceptions, and define human review before rollout."], ["03 / Support", "Make the improvement last", "Train the team, document ownership, and agree any ongoing monitoring and support."]].map(([step, title, body]) => <div key={step} className="border-t border-border pt-6"><p className="text-xs uppercase tracking-wider text-primary">{step}</p><h3 className="mt-5 font-display text-2xl">{title}</h3><p className="mt-3 leading-relaxed text-muted-foreground">{body}</p></div>)}</div></section>
-    <CtaSection title="Which workflow is slowing your team down?" description="Bring one recurring bottleneck. We’ll help you work out whether AI belongs there and what a sensible first project looks like." primaryLabel="Start your assessment" primaryHref="/ai-assessment" secondaryLabel="Explore workflow examples" secondaryHref="/#workflows" />
-  </>;
+      </section>
+
+      {/* How it works */}
+      <section id="how" className="scroll-mt-16 border-b border-border">
+        <div className="container-page py-14 sm:py-20">
+          <h2 className="font-display text-3xl font-semibold tracking-tight">How it works</h2>
+          <ol className="mt-8 grid gap-5 md:grid-cols-3">
+            {steps.map((s, i) => (
+              <li key={s.title} className="rounded-2xl border border-border bg-card p-6">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">{i + 1}</span>
+                <h3 className="mt-4 font-semibold">{s.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section id="pricing" className="scroll-mt-16 border-b border-border bg-secondary/40">
+        <div className="container-page py-14 sm:py-20">
+          <h2 className="font-display text-3xl font-semibold tracking-tight">Pricing</h2>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <h3 className="font-semibold">Free demo agent</h3>
+              <p className="mt-2 text-3xl font-semibold">Free</p>
+              <p className="mt-3 text-sm text-muted-foreground">A demo agent built on your help center, on a private link. No obligation.</p>
+            </div>
+            <div className="rounded-2xl border-2 border-primary bg-card p-6">
+              <h3 className="font-semibold">Launch</h3>
+              <p className="mt-2 text-3xl font-semibold">$1,500 <span className="text-base font-normal text-muted-foreground">one-time</span></p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+                <li>Load your full help center and docs</li>
+                <li>Add a hand-off to a human</li>
+                <li>Install it on your site</li>
+              </ul>
+              <p className="mt-4 rounded-lg bg-primary/10 p-3 text-sm">
+                <strong>Founding offer:</strong> Launch for <strong>$750</strong> for the first 3 clients, in exchange for being a reference.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <h3 className="font-semibold">Care</h3>
+              <p className="mt-2 text-3xl font-semibold">$299<span className="text-base font-normal text-muted-foreground">/mo</span></p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+                <li>Content refreshes</li>
+                <li>Monthly report of unanswered questions</li>
+                <li>Fixes</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#demo" className="mt-8 inline-block rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground">
+            Get a free demo agent built on your help center
+          </a>
+        </div>
+      </section>
+
+      {/* Safety */}
+      <section id="safety" className="scroll-mt-16 border-b border-border">
+        <div className="container-page py-14 sm:py-20">
+          <h2 className="font-display text-3xl font-semibold tracking-tight">Built to stay on your script</h2>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {safety.map(([t, b]) => (
+              <div key={t} className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="font-semibold">{t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{b}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ (also the example agent's source entries) */}
+      <section id="faq" className="scroll-mt-16 border-b border-border bg-secondary/40">
+        <div className="container-page max-w-3xl py-14 sm:py-20">
+          <h2 className="font-display text-3xl font-semibold tracking-tight">FAQ</h2>
+          <p className="mt-3 text-sm text-muted-foreground">These are also the entries the example agent answers from.</p>
+          <div className="mt-8 divide-y divide-border rounded-2xl border border-border bg-card">
+            {faq.map((f) => (
+              <details key={f.id} id={`faq-${f.id}`} className="group scroll-mt-20 p-5">
+                <summary className="cursor-pointer list-none font-medium marker:hidden">
+                  <span className="mr-2 inline-block text-primary transition group-open:rotate-45">+</span>
+                  {f.question}
+                </summary>
+                <p className="mt-3 text-sm text-muted-foreground">{f.answer}</p>
+              </details>
+            ))}
+          </div>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Still have a question? Email <a className="text-primary" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or call{" "}
+            <a className="text-primary" href={`tel:${siteConfig.phoneTel}`}>{siteConfig.phone}</a>.
+          </p>
+        </div>
+      </section>
+    </>
+  );
 }

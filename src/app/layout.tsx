@@ -1,126 +1,74 @@
-import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { JsonLd } from "@/components/json-ld";
-import { CookieConsent } from "@/components/cookie-consent";
-import { Analytics } from "@/components/analytics";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
+
+import { Footer, Header } from "@/components/site-chrome";
+import { faq } from "@/data/faq";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
+const title = `${siteConfig.name}: ${siteConfig.tagline}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
-    template: `%s | ${siteConfig.name}`,
-  },
+  title: { default: title, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
-  keywords: [
-    "AI strategy",
-    "AI governance",
-    "AI training",
-    "AI adoption",
-    "workflow automation",
-    "finance operations",
-    "fractional AI leadership",
-  ],
+  keywords: ["AI support agent", "help center chatbot", "customer support AI", "docs chatbot", "FAQ chatbot", "help desk AI"],
   authors: [{ name: siteConfig.legalName }],
-  creator: siteConfig.legalName,
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", locale: "en_US", url: siteConfig.url, title, description: siteConfig.description, siteName: siteConfig.name },
+  twitter: { card: "summary_large_image", title, description: siteConfig.description },
+  robots: { index: true, follow: true },
 };
 
-const organizationJsonLd = {
+export const viewport: Viewport = { themeColor: "#f3efe7", width: "device-width", initialScale: 1 };
+
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.legalName,
-  alternateName: siteConfig.name,
-  url: siteConfig.url,
-  logo: `${siteConfig.url}${siteConfig.ogImage}`,
-  description: siteConfig.description,
-  email: siteConfig.email,
-  telephone: siteConfig.phoneSchema,
-  foundingDate: siteConfig.founded,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: siteConfig.address,
-  },
-  sameAs: Object.values(siteConfig.social),
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#org`,
+      name: siteConfig.name,
+      legalName: siteConfig.legalName,
+      url: siteConfig.url,
+      email: siteConfig.email,
+      telephone: siteConfig.phoneSchema,
+      description: siteConfig.description,
+      sameAs: [siteConfig.instagramUrl],
+    },
+    {
+      "@type": "Service",
+      name: "AI support agent built on your help pages",
+      provider: { "@id": `${siteConfig.url}/#org` },
+      description: siteConfig.description,
+      offers: [
+        { "@type": "Offer", name: "Free demo agent", price: "0", priceCurrency: "USD" },
+        { "@type": "Offer", name: "Launch (one-time)", price: "1500", priceCurrency: "USD" },
+        {
+          "@type": "Offer",
+          name: "Care",
+          priceCurrency: "USD",
+          priceSpecification: { "@type": "UnitPriceSpecification", price: "299", priceCurrency: "USD", unitCode: "MON" },
+        },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faq.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
+    },
+  ],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
-        <JsonLd data={organizationJsonLd} />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
-        >
-          Skip to main content
-        </a>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          forcedTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <CookieConsent />
-        </ThemeProvider>
-        <Analytics />
+    <html lang="en" className={`${inter.variable} h-full scroll-smooth antialiased`}>
+      <body className="flex min-h-full flex-col bg-background text-foreground">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <Header />
+        <main id="main-content" className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
