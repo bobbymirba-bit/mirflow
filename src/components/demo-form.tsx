@@ -4,6 +4,8 @@ import { useState } from "react";
 
 type Status = "idle" | "sending" | "done" | "error";
 
+const WEEKLY_VOLUME_OPTIONS = ["<50", "50–200", "200–500", "500+"] as const;
+
 export function DemoForm({ prefillQuestion, compact = false }: { prefillQuestion?: string; compact?: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
@@ -51,22 +53,61 @@ export function DemoForm({ prefillQuestion, compact = false }: { prefillQuestion
         <label htmlFor={`url-${compact}`} className="mb-1 block text-sm font-medium">
           Help-center URL
         </label>
-        <input id={`url-${compact}`} name="helpCenterUrl" required placeholder="help.yourcompany.com" className={field} inputMode="url" autoComplete="url" />
+        <input
+          id={`url-${compact}`}
+          name="helpCenterUrl"
+          required
+          placeholder="help.yourcompany.com"
+          className={field}
+          inputMode="url"
+          autoComplete="url"
+        />
       </div>
       <div className={compact ? "space-y-3" : "grid gap-3 sm:grid-cols-2"}>
         <div>
           <label htmlFor={`email-${compact}`} className="mb-1 block text-sm font-medium">
             Work email
           </label>
-          <input id={`email-${compact}`} name="email" type="email" required placeholder="you@company.com" className={field} autoComplete="email" />
+          <input
+            id={`email-${compact}`}
+            name="email"
+            type="email"
+            required
+            placeholder="you@company.com"
+            className={field}
+            autoComplete="email"
+          />
         </div>
         <div>
           <label htmlFor={`company-${compact}`} className="mb-1 block text-sm font-medium">
             Company <span className="font-normal text-muted-foreground">(optional)</span>
           </label>
-          <input id={`company-${compact}`} name="company" placeholder="Company name" className={field} autoComplete="organization" />
+          <input
+            id={`company-${compact}`}
+            name="company"
+            placeholder="Company name"
+            className={field}
+            autoComplete="organization"
+          />
         </div>
       </div>
+      {!compact ? (
+        <div>
+          <label htmlFor={`volume-${compact}`} className="mb-1 block text-sm font-medium">
+            Weekly support volume <span className="font-normal text-muted-foreground">(optional)</span>
+          </label>
+          <select id={`volume-${compact}`} name="weeklyVolume" className={field} defaultValue="">
+            <option value="" disabled>
+              Select a range
+            </option>
+            {WEEKLY_VOLUME_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+        </div>
+      ) : null}
       {prefillQuestion ? <input type="hidden" name="question" value={prefillQuestion} /> : null}
       <input type="text" name="websiteTrap" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <button
@@ -74,7 +115,7 @@ export function DemoForm({ prefillQuestion, compact = false }: { prefillQuestion
         disabled={status === "sending"}
         className="w-full rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground shadow-sm transition hover:brightness-110 disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : "Get a free demo agent built on your help center"}
+        {status === "sending" ? "Sending…" : "Get my free demo agent"}
       </button>
       {status === "error" ? (
         <p role="alert" className="text-sm text-destructive">
@@ -82,7 +123,7 @@ export function DemoForm({ prefillQuestion, compact = false }: { prefillQuestion
         </p>
       ) : null}
       <p className="text-xs text-muted-foreground">
-        We only read public pages and respect robots.txt. No payment or customer data needed.
+        We only read public pages and respect robots.txt. No payment or customer data needed. No obligation.
       </p>
     </form>
   );

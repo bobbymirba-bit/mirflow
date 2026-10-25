@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Mirflow",
   legalName: "Mirflow AI",
-  tagline: "AI support agents that answer only from your own help pages",
+  tagline: "Stop guessing what your chatbot will say.",
   description:
-    "Mirflow builds AI support agents that answer customer questions only from your company's own public help pages, cite the source, and hand off to a human when unsure. Get a free demo agent built on your help center.",
+    "Mirflow builds support agents that answer from your public help center or FAQ, cite the source, and hand off to a human when they aren't sure. Get a free demo agent built only on your help pages — no customer data needed for the demo.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mirflow.online",
   email: "bobby@mirflow.online",
   phone: "(949) 422-8674",

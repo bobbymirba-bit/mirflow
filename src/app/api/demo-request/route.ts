@@ -21,6 +21,10 @@ const schema = z.object({
   company: optional(150),
   question: optional(1000),
   source: optional(50),
+  weeklyVolume: z
+    .union([z.enum(["<50", "50–200", "200–500", "500+"]), z.literal("")])
+    .optional()
+    .transform((v) => (v === "" || v === undefined ? undefined : v)),
   websiteTrap: optional(200),
 });
 
@@ -44,6 +48,7 @@ async function deliver(lead: Lead): Promise<string> {
           `Company: ${lead.company || "-"}`,
           `Question / notes: ${lead.question || "-"}`,
           `Source: ${lead.source || "form"}`,
+          `Weekly volume: ${lead.weeklyVolume || "-"}`,
         ].join("\n"),
       }),
       signal: AbortSignal.timeout(10000),
