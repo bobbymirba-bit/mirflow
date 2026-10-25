@@ -23,6 +23,13 @@ export const faq: FaqEntry[] = [
     keywords: ["demo", "free", "trial", "try", "test", "sample", "cost", "obligation", "start"],
   },
   {
+    id: "who-qualifies-demo",
+    question: "Who qualifies for a free demo?",
+    answer:
+      "Small software and e-commerce teams with a public help center or a clear website FAQ. We build the demo only from those public pages (robots.txt respected). No customer data, logins, or obligation are required.",
+    keywords: ["qualify", "qualifies", "eligible", "eligibility", "who can", "requirements", "fit", "free demo"],
+  },
+  {
     id: "launch-price",
     question: "What does Launch include and cost?",
     answer:

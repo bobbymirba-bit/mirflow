@@ -17,7 +17,9 @@ export function Header() {
           <Link href="/#safety" className="hover:text-foreground">Safety</Link>
           <Link href="/#faq" className="hover:text-foreground">FAQ</Link>
         </nav>
-        <Link href="/#demo" className="rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground">Free demo</Link>
+        <Link href="/#demo" className="rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground">
+          Get free demo
+        </Link>
       </div>
     </header>
   );
@@ -29,7 +31,7 @@ export function Footer() {
       <div className="container-page flex flex-col gap-6 py-10 text-sm text-muted-foreground sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="font-semibold text-foreground">{siteConfig.name}</p>
-          <p className="mt-1 max-w-xs">AI support agents that answer only from your own help pages.</p>
+          <p className="mt-1 max-w-xs">{siteConfig.tagline}</p>
         </div>
         <ul className="space-y-1.5">
           <li><a href={`tel:${siteConfig.phoneTel}`} className="hover:text-foreground">{siteConfig.phone}</a></li>
