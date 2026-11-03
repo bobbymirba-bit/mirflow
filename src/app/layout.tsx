@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
 import { Footer, Header } from "@/components/site-chrome";
-import { faq } from "@/data/faq";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
@@ -14,7 +13,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: { default: title, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
-  keywords: ["AI support agent", "help center chatbot", "customer support AI", "docs chatbot", "FAQ chatbot", "help desk AI"],
+  keywords: [
+    "all-in-one digital agency",
+    "website redesign",
+    "social media management",
+    "email marketing automation",
+    "local SEO",
+    "AI voice agent",
+    "AI receptionist",
+    "business automation",
+  ],
   authors: [{ name: siteConfig.legalName }],
   alternates: { canonical: "/" },
   openGraph: { type: "website", locale: "en_US", url: siteConfig.url, title, description: siteConfig.description, siteName: siteConfig.name },
@@ -40,23 +48,28 @@ const jsonLd = {
     },
     {
       "@type": "Service",
-      name: "AI support agent built on your help pages",
+      name: "All-in-one digital partner for business owners",
       provider: { "@id": `${siteConfig.url}/#org` },
       description: siteConfig.description,
       offers: [
-        { "@type": "Offer", name: "Free demo agent", price: "0", priceCurrency: "USD" },
-        { "@type": "Offer", name: "Launch (one-time)", price: "1500", priceCurrency: "USD" },
         {
           "@type": "Offer",
-          name: "Care",
+          name: "Setup",
+          price: String(siteConfig.pricing.setupFee),
           priceCurrency: "USD",
-          priceSpecification: { "@type": "UnitPriceSpecification", price: "299", priceCurrency: "USD", unitCode: "MON" },
+        },
+        {
+          "@type": "Offer",
+          name: "Monthly retainer",
+          priceCurrency: "USD",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: String(siteConfig.pricing.monthlyRetainer),
+            priceCurrency: "USD",
+            unitCode: "MON",
+          },
         },
       ],
-    },
-    {
-      "@type": "FAQPage",
-      mainEntity: faq.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
     },
   ],
 };

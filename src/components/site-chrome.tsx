@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { siteConfig } from "@/lib/site-config";
+import { primaryNav, siteConfig } from "@/lib/site-config";
 
 export function Header() {
   return (
@@ -11,14 +11,15 @@ export function Header() {
           {siteConfig.name}
         </Link>
         <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-          <Link href="/#example" className="hover:text-foreground">Example agent</Link>
-          <Link href="/#how" className="hover:text-foreground">How it works</Link>
-          <Link href="/#pricing" className="hover:text-foreground">Pricing</Link>
-          <Link href="/local-services" className="hover:text-foreground">Local Services</Link>
-          <Link href="/#safety" className="hover:text-foreground">Safety</Link>
-          <Link href="/#faq" className="hover:text-foreground">FAQ</Link>
+          {primaryNav.map((item) => (
+            <Link key={item.href} href={item.href} className="hover:text-foreground">
+              {item.label}
+            </Link>
+          ))}
         </nav>
-        <Link href="/#demo" className="rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground">Free demo</Link>
+        <Link href="/#audit" className="rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground">
+          Get Free Digital Audit
+        </Link>
       </div>
     </header>
   );
@@ -30,8 +31,13 @@ export function Footer() {
       <div className="container-page flex flex-col gap-6 py-10 text-sm text-muted-foreground sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="font-semibold text-foreground">{siteConfig.name}</p>
-          <p className="mt-1 max-w-xs">AI support agents that answer only from your own help pages.</p>
+          <p className="mt-1 max-w-xs">Your entire digital presence, handled — web, social, email, SEO, and AI, run as one system.</p>
         </div>
+        <ul className="space-y-1.5">
+          {primaryNav.map((item) => (
+            <li key={item.href}><Link href={item.href} className="hover:text-foreground">{item.label}</Link></li>
+          ))}
+        </ul>
         <ul className="space-y-1.5">
           <li><a href={`tel:${siteConfig.phoneTel}`} className="hover:text-foreground">{siteConfig.phone}</a></li>
           <li><a href={`mailto:${siteConfig.email}`} className="hover:text-foreground">{siteConfig.email}</a></li>
