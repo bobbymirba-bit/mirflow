@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Mirflow",
   legalName: "Mirflow AI",
-  tagline: "AI support agents that answer only from your own help pages",
+  tagline: "Your entire digital presence, handled.",
   description:
-    "Mirflow builds AI support agents that answer customer questions only from your company's own public help pages, cite the source, and hand off to a human when unsure. Get a free demo agent built on your help center.",
+    "Mirflow is the all-in-one digital partner and operational growth engine for business owners: web design & remodels, omnichannel social media, email marketing, SEO, AI workflows, and 24/7 AI voice agents — so you can run your business while tracking it in real time from your pocket.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mirflow.online",
   email: "bobby@mirflow.online",
   phone: "(949) 422-8674",
@@ -12,4 +12,18 @@ export const siteConfig = {
   instagramHandle: "@mirflow.ai",
   instagramUrl: "https://www.instagram.com/mirflow.ai/",
   founded: "2026",
+  pricing: {
+    setupFee: 2997,
+    monthlyRetainer: 1497,
+  },
 };
+
+export type NavItem = { label: string; href: string };
+
+export const primaryNav: NavItem[] = [
+  { label: "Services", href: "/#services" },
+  { label: "How It Works", href: "/#process" },
+  { label: "Pocket Command", href: "/#pocket-command" },
+  { label: "Case Studies", href: "/#case-studies" },
+  { label: "Pricing / Audit", href: "/#audit" },
+];
