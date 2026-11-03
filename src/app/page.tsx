@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { DemoForm } from "@/components/demo-form";
 import { ExampleAgent } from "@/components/example-agent";
 import { faq } from "@/data/faq";
@@ -22,6 +24,24 @@ export default function Home() {
 
   return (
     <>
+      {/* Audience toggle */}
+      <section className="border-b border-border bg-secondary/40">
+        <div className="container-page flex flex-col items-center gap-3 py-4 text-center sm:flex-row sm:justify-center sm:gap-6">
+          <p className="text-xs font-semibold uppercase tracking-[.14em] text-muted-foreground">Which one is you?</p>
+          <div className="flex gap-3">
+            <span className="rounded-full border border-primary bg-primary px-4 py-1.5 text-xs font-semibold text-primary-foreground">
+              Software & e-commerce
+            </span>
+            <Link
+              href="/local-services"
+              className="rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-foreground/80 transition-colors hover:border-primary hover:text-primary"
+            >
+              Local service business
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Hero */}
       <section id="demo" className="scroll-mt-16 border-b border-border">
         <div className="container-page grid gap-10 py-14 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:items-center">

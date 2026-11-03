@@ -14,6 +14,7 @@ export function Header() {
           <Link href="/#example" className="hover:text-foreground">Example agent</Link>
           <Link href="/#how" className="hover:text-foreground">How it works</Link>
           <Link href="/#pricing" className="hover:text-foreground">Pricing</Link>
+          <Link href="/local-services" className="hover:text-foreground">Local Services</Link>
           <Link href="/#safety" className="hover:text-foreground">Safety</Link>
           <Link href="/#faq" className="hover:text-foreground">FAQ</Link>
         </nav>
