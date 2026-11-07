@@ -14,7 +14,7 @@ export const siteConfig = {
   founded: "2026",
   pricing: {
     setupFee: 2997,
-    monthlyRetainer: 1497,
+    monthlyRetainer: 500,
   },
 };
 
