@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Mirflow: Managed front desk for med spas";
+export const alt = "Mirflow: Digital agency for owner-led businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -13,10 +13,10 @@ export default async function OpengraphImage() {
           Mirflow
         </div>
         <div style={{ marginTop: 40, fontSize: 64, fontWeight: 700, lineHeight: 1.1, display: "flex" }}>
-          Managed front desk for med spas
+          We run your digital side. You run your business.
         </div>
         <div style={{ marginTop: 30, fontSize: 30, color: "#686258", display: "flex" }}>
-          After-hours calls, text follow-up, and consult handoffs.
+          Websites, marketing, and AI systems managed by one team.
         </div>
       </div>
     ),

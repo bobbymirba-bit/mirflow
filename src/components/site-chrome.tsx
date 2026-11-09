@@ -18,7 +18,7 @@ export function Header() {
           ))}
         </nav>
         <Link href="/#walkthrough" className="rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground">
-          Request a walkthrough
+          Talk to Bobby
         </Link>
       </div>
     </header>
@@ -31,7 +31,7 @@ export function Footer() {
       <div className="container-page flex flex-col gap-6 py-10 text-sm text-muted-foreground sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="font-semibold text-foreground">{siteConfig.name}</p>
-          <p className="mt-1 max-w-xs">Managed front desk for Southern California med spas.</p>
+          <p className="mt-1 max-w-xs">Websites, marketing, and AI systems managed by one team.</p>
         </div>
         <ul className="space-y-1.5">
           {primaryNav.map((item) => (
