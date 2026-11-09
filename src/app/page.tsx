@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { FrontDeskDemos } from "@/components/front-desk-demos";
+import { FrontDeskPreview } from "@/components/front-desk-preview";
 import { proofPoints } from "@/data/proof-points";
 import { siteConfig } from "@/lib/site-config";
 
@@ -21,8 +23,8 @@ const coverage = [
 export default function Home() {
   return (
     <>
-      <section aria-labelledby="hero-title" className="border-b border-border">
-        <div className="container-page grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+      <section aria-labelledby="hero-title" className="border-b border-border bg-[radial-gradient(ellipse_at_85%_10%,#edd9d0,transparent_60%)]">
+        <div className="container-page grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-primary">Managed front desk for Southern California med spas</p>
             <h1 id="hero-title" className="mt-4 max-w-2xl text-balance font-display text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
@@ -36,23 +38,17 @@ export default function Home() {
               <Link href="/#walkthrough" className="rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
                 Request a front desk walkthrough
               </Link>
-              <Link href="/#pricing" className="text-sm font-semibold underline underline-offset-4 hover:text-primary">
-                See what&rsquo;s included
+              <Link href="/#demos" className="text-sm font-semibold underline underline-offset-4 hover:text-primary">
+                Watch sample calls
               </Link>
             </div>
           </div>
 
-          <aside aria-label="Example after-hours call" className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Example after-hours call</p>
-            <p className="mt-4 font-display text-2xl">&ldquo;I&rsquo;m new. Do I need a consultation first?&rdquo;</p>
-            <ol className="mt-5 list-decimal space-y-3 border-t border-border pt-5 pl-5 text-sm text-muted-foreground">
-              <li>Answer using the clinic&rsquo;s approved policy.</li>
-              <li>Offer to text the consult booking link.</li>
-              <li>Send questions about treatment suitability to clinic staff.</li>
-            </ol>
-          </aside>
+          <FrontDeskPreview />
         </div>
       </section>
+
+      <FrontDeskDemos />
 
       <section id="benchmarks" className="scroll-mt-16 border-b border-border bg-secondary/40">
         <div className="container-page py-14 sm:py-20">

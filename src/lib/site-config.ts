@@ -23,6 +23,7 @@ export const siteConfig = {
 export type NavItem = { label: string; href: string };
 
 export const primaryNav: NavItem[] = [
+  { label: "Demo videos", href: "/#demos" },
   { label: "Offer & pricing", href: "/#pricing" },
   { label: "Meet Bobby", href: "/#founder" },
 ];
