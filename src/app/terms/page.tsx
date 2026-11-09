@@ -38,9 +38,8 @@ export default function TermsPage() {
                 2. Description of service
               </h2>
               <p className="mt-3">
-                Mirflow builds AI support agents that answer questions from a
-                company&apos;s own public help pages, including free demo agents and the
-                Launch and Care services described on this site. The example agent on
+                Mirflow provides managed front desk workflows and builds support agents
+                that answer from a company&apos;s published help pages. The example agent on
                 this site answers only from Mirflow&apos;s own FAQ and is provided for
                 demonstration. Specific engagements are
                 governed by a separate service agreement entered into with each client.

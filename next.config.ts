@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 /**
- * One-page site (help-page demo agent offer). Every retired page redirects to "/".
+ * Legacy routes for previous offers.
  * permanent: true  -> 308 (gone for good)
  * permanent: false -> 307 (may come back: pricing, faq, contact, checkout, case studies, blog)
  */
@@ -26,8 +26,8 @@ const gone = [
 
 const mayReturn: [string, string][] = [
   ["/pricing", "/#pricing"],
-  ["/faq", "/#faq"],
-  ["/contact", "/#demo"],
+  ["/faq", "/support-agent#faq"],
+  ["/contact", "/#walkthrough"],
   ["/checkout", "/"],
   ["/checkout/:path*", "/"],
   ["/case-studies", "/"],

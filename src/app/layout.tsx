@@ -13,16 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: { default: title, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
-  keywords: [
-    "all-in-one digital agency",
-    "website redesign",
-    "social media management",
-    "email marketing automation",
-    "local SEO",
-    "AI voice agent",
-    "AI receptionist",
-    "business automation",
-  ],
+  keywords: ["med spa AI receptionist", "med spa front desk", "missed-call text-back", "Southern California med spas"],
   authors: [{ name: siteConfig.legalName }],
   alternates: { canonical: "/" },
   openGraph: { type: "website", locale: "en_US", url: siteConfig.url, title, description: siteConfig.description, siteName: siteConfig.name },
@@ -48,7 +39,8 @@ const jsonLd = {
     },
     {
       "@type": "Service",
-      name: "All-in-one digital partner for business owners",
+      name: siteConfig.offerName,
+      url: `${siteConfig.url}/#pricing`,
       provider: { "@id": `${siteConfig.url}/#org` },
       description: siteConfig.description,
       offers: [
