@@ -17,8 +17,8 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <Link href="/#audit" className="rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground">
-          Get Free Digital Audit
+        <Link href="/#walkthrough" className="rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground">
+          Request a walkthrough
         </Link>
       </div>
     </header>
@@ -31,7 +31,7 @@ export function Footer() {
       <div className="container-page flex flex-col gap-6 py-10 text-sm text-muted-foreground sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="font-semibold text-foreground">{siteConfig.name}</p>
-          <p className="mt-1 max-w-xs">Your entire digital presence, handled — web, social, email, SEO, and AI, run as one system.</p>
+          <p className="mt-1 max-w-xs">Managed front desk for Southern California med spas.</p>
         </div>
         <ul className="space-y-1.5">
           {primaryNav.map((item) => (
@@ -44,6 +44,7 @@ export function Footer() {
           <li><a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">Instagram {siteConfig.instagramHandle}</a></li>
         </ul>
         <ul className="space-y-1.5">
+          <li><Link href="/support-agent" className="hover:text-foreground">Help-center support agent</Link></li>
           <li><Link href="/privacy" className="hover:text-foreground">Privacy</Link></li>
           <li><Link href="/terms" className="hover:text-foreground">Terms</Link></li>
           <li>&copy; {new Date().getFullYear()} {siteConfig.legalName}</li>

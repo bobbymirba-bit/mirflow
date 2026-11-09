@@ -4,14 +4,14 @@ import { useMemo, useRef, useState, useEffect } from "react";
 
 import { faq, type FaqEntry } from "@/data/faq";
 import { buildIndex } from "@/lib/faq-search";
-import { DemoForm } from "@/components/demo-form";
+import { siteConfig } from "@/lib/site-config";
 
 type Msg =
   | { role: "user"; text: string }
   | { role: "agent"; entry: FaqEntry }
   | { role: "agent-unknown"; question: string };
 
-const suggestions = ["How much does Launch cost?", "Where do answers come from?", "Do you need our customer data?", "What's the weather tomorrow?"];
+const suggestions = ["How much does setup cost?", "Where do answers come from?", "Do you need our customer data?", "What's the weather tomorrow?"];
 
 export function ExampleAgent() {
   const search = useMemo(() => buildIndex(faq), []);
@@ -73,8 +73,10 @@ export function ExampleAgent() {
         )}
         {handoffFor ? (
           <div className="rounded-xl border border-border bg-white p-4">
-            <p className="mb-3 text-sm">Leave your details and a person will follow up. Your question is included.</p>
-            <DemoForm compact prefillQuestion={handoffFor} />
+            <p className="mb-3 text-sm">Email your question to Mirflow for a human reply.</p>
+            <a href={`mailto:${siteConfig.email}?subject=Support%20agent%20question&body=${encodeURIComponent(handoffFor)}`} className="text-sm font-semibold text-primary underline underline-offset-2">
+              Email Mirflow
+            </a>
           </div>
         ) : null}
       </div>

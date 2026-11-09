@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Mirflow: AI support agents that answer only from your own help pages";
+export const alt = "Mirflow: Managed front desk for med spas";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -13,10 +13,10 @@ export default async function OpengraphImage() {
           Mirflow
         </div>
         <div style={{ marginTop: 40, fontSize: 64, fontWeight: 700, lineHeight: 1.1, display: "flex" }}>
-          AI support agents that answer only from your own help pages
+          Managed front desk for med spas
         </div>
         <div style={{ marginTop: 30, fontSize: 30, color: "#686258", display: "flex" }}>
-          Sources cited. Human hand-off when unsure. Free demo built on your help center.
+          After-hours calls, text follow-up, and consult handoffs.
         </div>
       </div>
     ),

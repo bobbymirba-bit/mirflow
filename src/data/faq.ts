@@ -6,42 +6,35 @@ export type FaqEntry = {
   keywords: string[];
 };
 
-/** Mirflow's own FAQ. The example agent on the homepage answers only from these entries. */
+/** Mirflow's own FAQ. The example on the support-agent page answers only from these entries. */
 export const faq: FaqEntry[] = [
   {
     id: "what-is-mirflow",
-    question: "What does Mirflow do?",
+    question: "What does the support agent do?",
     answer:
       "Mirflow builds AI support agents that answer your customers' questions using only your company's own public help pages. Each answer points to the page it came from, and when the agent isn't sure it hands the conversation to a person on your team.",
     keywords: ["service", "offer", "about", "company", "build", "chatbot", "support", "bot", "who"],
   },
   {
     id: "free-demo",
-    question: "What is the free demo agent?",
+    question: "How can we try the agent?",
     answer:
-      "Send us the URL of your public help center (or your website FAQ). We build a demo agent from those public pages and send you a private link so you can ask it real customer questions. The demo is free and there is no obligation to buy anything.",
-    keywords: ["demo", "free", "trial", "try", "test", "sample", "cost", "obligation", "start"],
+      "Try the live example on this page to see how answers, sources, and human handoffs work. Email us with your public help-center URL to discuss a setup for your company.",
+    keywords: ["demo", "free", "trial", "try", "test", "sample", "start"],
   },
   {
     id: "launch-price",
-    question: "What does Launch include and cost?",
+    question: "How much does setup cost?",
     answer:
-      "Launch is $1,500 one-time. We load your full help center and docs, add a hand-off to a human on your team, and install the agent on your site.",
-    keywords: ["price", "pricing", "cost", "fee", "setup", "one-time", "install", "1500", "how much", "pay"],
+      "Setup costs $2,000. We load your published help content, set up a human handoff, and install the agent on your site. If it is still failing to answer real questions after 14 live days, we refund the setup fee under the agreed terms.",
+    keywords: ["price", "pricing", "cost", "fee", "setup", "one-time", "install", "2000", "refund", "how much", "pay"],
   },
   {
     id: "care-price",
-    question: "What is the Care plan?",
+    question: "What does the monthly fee cover?",
     answer:
-      "Care is $299 per month. It covers content refreshes when your help pages change, a monthly report of the questions the agent couldn't answer, and fixes.",
-    keywords: ["monthly", "subscription", "maintenance", "ongoing", "299", "month", "report", "plan", "price", "cost", "retainer"],
-  },
-  {
-    id: "founding-offer",
-    question: "Is there a founding-client discount?",
-    answer:
-      "Yes. The first 3 clients get Launch for $750 instead of $1,500, in exchange for agreeing to be a reference for future clients.",
-    keywords: ["discount", "founding", "deal", "750", "cheaper", "reference", "first", "promo", "special"],
+      "The $500 monthly fee covers content refreshes when your help pages change, a report of unanswered questions, and ongoing fixes.",
+    keywords: ["monthly", "subscription", "maintenance", "ongoing", "500", "month", "report", "plan", "price", "cost", "retainer"],
   },
   {
     id: "sources-only",
@@ -54,7 +47,7 @@ export const faq: FaqEntry[] = [
     id: "handoff",
     question: "What happens when the agent can't answer?",
     answer:
-      "It says it doesn't know and offers a hand-off to a human, for example by collecting the customer's email for your support team or pointing them to your existing contact channel. With Launch we set up the hand-off that fits how your team already works.",
+      "It says it doesn't know and offers a hand-off to a human, for example by collecting the customer's email for your support team or pointing them to your existing contact channel. During setup we configure the hand-off that fits how your team already works.",
     keywords: ["human", "handoff", "hand-off", "escalate", "escalation", "person", "staff", "unsure", "unknown", "live agent"],
   },
   {
@@ -75,7 +68,7 @@ export const faq: FaqEntry[] = [
     id: "data-privacy",
     question: "Do you need access to our customer data or systems?",
     answer:
-      "Not for the demo. We only read your public pages and we respect robots.txt. No customer data, logins, or system access are needed to build the demo agent.",
+      "The agent uses your public help pages. During setup we confirm how to install it and where to send questions that need your team.",
     keywords: ["privacy", "data", "security", "access", "login", "credentials", "robots", "crawl", "scrape", "gdpr", "safe", "customer data"],
   },
   {
@@ -89,28 +82,21 @@ export const faq: FaqEntry[] = [
     id: "timeline",
     question: "How long does it take?",
     answer:
-      "It depends on how many pages you have. We'll tell you the expected timing when you send your help-center URL, and the Launch install is scheduled with you once you've tried the demo.",
+      "It depends on how many pages you have. We'll tell you the expected timing when you send your help-center URL, and we schedule the installation with you.",
     keywords: ["time", "timeline", "fast", "quick", "days", "weeks", "turnaround", "when", "long"],
   },
   {
     id: "install",
     question: "How is the agent installed on our site?",
     answer:
-      "As part of Launch we install it on your site, typically as a chat widget added with a small snippet. We'll work with whoever manages your website to put it where you want it.",
+      "During setup we install it on your site, typically as a chat widget added with a small snippet. We'll work with whoever manages your website to put it where you want it.",
     keywords: ["widget", "embed", "snippet", "website", "install", "integrate", "integration", "wordpress", "shopify", "chat"],
-  },
-  {
-    id: "cancel-care",
-    question: "Do we have to keep paying for Care?",
-    answer:
-      "Care is optional and month to month. It keeps the agent's content in sync with your help pages and gives you the monthly unanswered-questions report. Talk to us before cancelling about what happens to the hosted agent.",
-    keywords: ["cancel", "contract", "commitment", "optional", "month to month", "stop", "required"],
   },
   {
     id: "contact",
     question: "How do I contact Mirflow?",
     answer:
-      "Email bobby@mirflow.online, call (949) 422-8674, or find us on Instagram at @mirflow.ai. You can also request a free demo agent with the form on this page.",
+      "Email bobby@mirflow.online, call (949) 422-8674, or find us on Instagram at @mirflow.ai.",
     keywords: ["email", "phone", "call", "reach", "talk", "contact", "instagram", "speak", "number"],
   },
 ];
