@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Mirflow",
   legalName: "Mirflow AI",
-  tagline: "AI lead response for service businesses",
+  tagline: "Your all-in-one digital partner",
   description:
-    "Mirflow builds and manages an AI front desk that answers calls, texts back missed callers, and follows up with new leads.",
+    "Mirflow is your all-in-one digital partner. We manage websites, social media, LinkedIn outreach, ads, email and SMS marketing, SEO, AI workflows, and voice agents so you can focus on your business.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mirflow.online",
   email: "bobby@mirflow.online",
   phone: "(949) 422-8674",
@@ -14,7 +14,7 @@ export const siteConfig = {
   instagramHandle: "@mirflow.ai",
   instagramUrl: "https://www.instagram.com/mirflow.ai/",
   founded: "2026",
-  contactEmail: "mailto:bobby@mirflow.online?subject=Mirflow%20AI%20Front%20Desk%20walkthrough",
+  contactEmail: "mailto:bobby@mirflow.online?subject=Mirflow%20free%20digital%20audit",
 };
 
 export const frontDeskOffer = {
@@ -26,7 +26,7 @@ export const frontDeskOffer = {
 export type NavItem = { label: string; href: string };
 
 export const primaryNav: NavItem[] = [
-  { label: "AI Front Desk", href: "/ai-receptionist" },
-  { label: "Pricing", href: "/#pricing" },
   { label: "Services", href: "/services" },
+  { label: "AI Front Desk", href: "/ai-receptionist" },
+  { label: "AI Support", href: "/support-agent" },
 ];

@@ -31,7 +31,7 @@ export function Footer() {
       <div className="container-page flex flex-col gap-6 pt-10 pb-24 text-sm text-muted-foreground sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="font-semibold text-foreground">{siteConfig.name}</p>
-          <p className="mt-1 max-w-xs">AI front desk, missed-call text-back, and lead follow-up managed for you.</p>
+          <p className="mt-1 max-w-xs">Your all-in-one partner for websites, marketing, and AI.</p>
         </div>
         <ul className="space-y-1.5">
           {primaryNav.map((item) => (

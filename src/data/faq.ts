@@ -12,7 +12,7 @@ export const faq: FaqEntry[] = [
     id: "what-is-mirflow",
     question: "What does the support agent do?",
     answer:
-      "Mirflow builds and manages customer support workflows alongside its AI front desk and lead follow-up service. We help customers get routine answers, find a booking path, or reach the right person, then keep improving how those steps work together.",
+      "Mirflow builds and manages customer support workflows as part of its all-in-one digital service. We help customers get routine answers, find a booking path, or reach the right person, then keep improving how those steps work together.",
     keywords: ["service", "offer", "about", "company", "build", "chatbot", "support", "bot", "who"],
   },
   {
