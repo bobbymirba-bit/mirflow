@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { MessageCircle, Send, X } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 
+import { frontDeskOffer } from "@/lib/site-config";
 import { buildIndex } from "@/lib/faq-search";
 
 const topics = [
@@ -12,7 +13,7 @@ const topics = [
     id: "services",
     question: "What does Mirflow do?",
     keywords: ["services", "digital agency", "website social marketing automation", "what do you offer"],
-    answer: "Mirflow is your all-in-one digital team. We manage websites, social posting, LinkedIn outreach, paid ads, AI ad creative, and the systems that answer inquiries and follow up.",
+    answer: "Mirflow starts with an AI front desk that answers calls, texts back missed callers, and follows up with new leads. We can add website, marketing, and workflow support once lead response is in place.",
     href: "/services",
     label: "Explore services",
   },
@@ -44,8 +45,8 @@ const topics = [
     id: "price",
     question: "How does pricing work?",
     keywords: ["price", "pricing", "cost", "how much", "retainer", "rates", "setup fee", "budget"],
-    answer: "Mirflow quotes a setup fee and a monthly plan based on what you want us to manage. We agree on the scope before work starts.",
-    href: "/services#pricing",
+    answer: `${frontDeskOffer.name} is ${frontDeskOffer.price}, month to month. ${frontDeskOffer.refund} Additional services are quoted separately.`,
+    href: "/#pricing",
     label: "See how we work",
   },
   {

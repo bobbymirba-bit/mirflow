@@ -23,7 +23,7 @@ const gone = [
 ];
 
 const mayReturn: [string, string][] = [
-  ["/pricing", "/services#pricing"],
+  ["/pricing", "/#pricing"],
   ["/services/:path+", "/services"],
   ["/faq", "/support-agent#faq"],
   ["/contact", "/#walkthrough"],

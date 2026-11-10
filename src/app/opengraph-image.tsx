@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Mirflow: Your all-in-one digital team";
+export const alt = "Mirflow: AI lead response for service businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -13,10 +13,10 @@ export default async function OpengraphImage() {
           Mirflow
         </div>
         <div style={{ marginTop: 40, fontSize: 64, fontWeight: 700, lineHeight: 1.1, display: "flex" }}>
-          We run your digital side. You run your business.
+          Give every new inquiry a clear next step.
         </div>
         <div style={{ marginTop: 30, fontSize: 30, color: "#4b5f7e", display: "flex" }}>
-          Websites, marketing, and AI systems managed by one team.
+          AI front desk · Missed-call text-back · Lead follow-up
         </div>
       </div>
     ),

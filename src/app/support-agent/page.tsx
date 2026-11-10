@@ -6,7 +6,7 @@ import { ExampleAgent } from "@/components/example-agent";
 import { faq } from "@/data/faq";
 
 const title = "AI Support and Lead Routing";
-const description = "Mirflow builds and manages AI support as part of your all-in-one digital service. Answer routine questions, route leads, and give your team the context to follow up.";
+const description = "Mirflow builds and manages AI support alongside your front desk and lead follow-up. Answer routine questions, route leads, and give your team the context to follow up.";
 
 const outcomes = [
   { title: "Give people a useful answer", detail: "Use your approved service details, hours, policies, and other business information to answer the questions people ask before they buy.", icon: MessagesSquare },
@@ -27,7 +27,7 @@ export default function SupportAgent() {
     <>
       <section className="blue-hero border-b border-border">
         <div className="container-page py-14 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Part of your all-in-one digital service</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Support alongside your AI front desk</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">
             We handle the path from first question to follow-up
           </h1>
@@ -39,7 +39,7 @@ export default function SupportAgent() {
             <Link href="/#walkthrough" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
               Talk to Bobby <ArrowRight size={16} aria-hidden="true" />
             </Link>
-            <Link href="/services" className="text-sm font-semibold text-primary underline underline-offset-4">See the full service</Link>
+            <Link href="/services" className="text-sm font-semibold text-primary underline underline-offset-4">Explore additional services</Link>
           </div>
         </div>
       </section>

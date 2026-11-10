@@ -12,7 +12,7 @@ export const faq: FaqEntry[] = [
     id: "what-is-mirflow",
     question: "What does the support agent do?",
     answer:
-      "Mirflow builds and manages customer support workflows as part of its all-in-one digital service. We help customers get routine answers, find a booking path, or reach the right person, then keep improving how those steps work together.",
+      "Mirflow builds and manages customer support workflows alongside its AI front desk and lead follow-up service. We help customers get routine answers, find a booking path, or reach the right person, then keep improving how those steps work together.",
     keywords: ["service", "offer", "about", "company", "build", "chatbot", "support", "bot", "who"],
   },
   {
@@ -26,14 +26,14 @@ export const faq: FaqEntry[] = [
     id: "launch-price",
     question: "How much does setup cost?",
     answer:
-      "Setup is scoped around the channels, customer questions, and follow-up you want us to manage. We agree on a setup fee and ongoing plan before work starts.",
+      "The AI Front Desk is $2,000 setup plus $500 per month, month to month. If it is still failing to handle real customer questions after 14 live days under the agreed checks, we refund the setup fee. Additional support workflows are scoped separately.",
     keywords: ["price", "pricing", "cost", "fee", "setup", "one-time", "install", "how much", "pay"],
   },
   {
     id: "care-price",
     question: "What does the monthly fee cover?",
     answer:
-      "Your monthly plan covers the work you ask Mirflow to run. For AI support, that can include updating answers, reviewing gaps, and improving how your team gets the inquiries that need a person.",
+      "The AI Front Desk monthly plan covers ongoing management of the agreed front desk and follow-up workflow. Additional support work, such as new channels or integrations, is scoped with you separately.",
     keywords: ["monthly", "subscription", "maintenance", "ongoing", "month", "report", "plan", "price", "cost", "retainer"],
   },
   {

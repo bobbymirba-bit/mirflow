@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Globe2, Megaphone, Workflow } from "lucide-react";
 
-const title = "Digital marketing and AI services";
-const description = "Explore Mirflow’s website design, social media management, LinkedIn outreach, paid ads, AI ad creative, and lead follow-up services.";
+const title = "Services beyond your AI front desk";
+const description = "Start with Mirflow’s AI front desk, then add website, marketing, and workflow support as your business needs them.";
 
 export const metadata: Metadata = {
   title,
@@ -58,9 +58,9 @@ export default function ServicesPage() {
       <section className="border-b border-border blue-hero">
         <div className="container-page grid gap-8 py-14 sm:py-20 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Mirflow services</p>
-            <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">One team to run your website, marketing, and AI</h1>
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">We take the day-to-day work off your plate, from keeping your site current to running campaigns and making sure inquiries get a response.</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Build on your front desk</p>
+            <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">Keep improving the path from inquiry to customer</h1>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">Start with answering calls and following up with leads. Once that is working, we can manage the website, campaigns, and workflows that support the next stage of growth.</p>
             <Link href="/#walkthrough" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110">
               Talk to Bobby <ArrowRight size={16} aria-hidden="true" />
             </Link>
@@ -128,7 +128,7 @@ export default function ServicesPage() {
             ))}
           </ol>
           <p className="mt-6 max-w-2xl text-sm text-muted-foreground">
-            You get a scoped setup fee and a monthly plan for the work you want us to manage. We agree on the scope before work starts.
+            The AI Front Desk starts at $2,000 setup plus $500 per month. Additional website, marketing, and workflow services are scoped separately.
           </p>
         </div>
       </section>
