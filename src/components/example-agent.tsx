@@ -11,7 +11,7 @@ type Msg =
   | { role: "agent"; entry: FaqEntry }
   | { role: "agent-unknown"; question: string };
 
-const suggestions = ["How much does setup cost?", "Where do answers come from?", "Do you need our customer data?", "What's the weather tomorrow?"];
+const suggestions = ["How much does setup cost?", "Where do answers come from?", "What does the support agent do?", "What's the weather tomorrow?"];
 
 export function ExampleAgent() {
   const search = useMemo(() => buildIndex(faq), []);
@@ -41,14 +41,14 @@ export function ExampleAgent() {
       <div className="flex items-center justify-between gap-3 border-b border-border bg-white/60 px-4 py-3">
         <div>
           <p className="text-sm font-semibold">Mirflow example agent</p>
-          <p className="text-xs text-muted-foreground">Example running on Mirflow&apos;s own FAQ ({faq.length} entries). No AI model; answers are retrieved, never invented.</p>
+          <p className="text-xs text-muted-foreground">A quick example with answers from the Mirflow site.</p>
         </div>
         <span className="shrink-0 rounded-full bg-success/15 px-2.5 py-1 text-xs font-medium text-success">Live</span>
       </div>
 
       <div ref={logRef} className="h-80 space-y-3 overflow-y-auto px-4 py-4 sm:h-96" aria-live="polite" data-testid="agent-log">
         <div className="max-w-[85%] rounded-xl rounded-tl-sm bg-muted px-3.5 py-2.5 text-sm">
-          Hi! Ask me anything about Mirflow&apos;s offer. I only answer from Mirflow&apos;s FAQ and I&apos;ll show you the entry I used.
+          Hi! Ask how Mirflow handles customer questions, follow-up, or the wider digital service.
         </div>
         {messages.map((m, i) =>
           m.role === "user" ? (

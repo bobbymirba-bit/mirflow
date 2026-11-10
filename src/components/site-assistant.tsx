@@ -12,7 +12,7 @@ const topics = [
     id: "services",
     question: "What does Mirflow do?",
     keywords: ["services", "digital agency", "website social marketing automation", "what do you offer"],
-    answer: "Mirflow manages websites, social posting, LinkedIn management and outreach, paid ads, AI ad creative, and automations that help you handle inquiries and follow up.",
+    answer: "Mirflow is your all-in-one digital team. We manage websites, social posting, LinkedIn outreach, paid ads, AI ad creative, and the systems that answer inquiries and follow up.",
     href: "/services",
     label: "Explore services",
   },
@@ -21,7 +21,7 @@ const topics = [
     question: "Can you redesign my website?",
     keywords: ["website", "web design", "redesign", "build a site", "rebuild", "maintain", "search"],
     answer: "Yes. Mirflow designs, rebuilds, and maintains websites, with search-friendly pages and clear ways for visitors to get in touch.",
-    href: "/services",
+    href: "/services#presence",
     label: "See website services",
   },
   {
@@ -29,7 +29,7 @@ const topics = [
     question: "Do you manage social media, LinkedIn, and paid ads?",
     keywords: ["post", "social media", "linkedin", "outreach", "ads", "advertising", "campaigns", "creative"],
     answer: "Yes. We plan and publish social posts, manage LinkedIn content and outreach, and run paid campaigns. We use AI to help create and test ad variations.",
-    href: "/services",
+    href: "/services#growth",
     label: "See marketing services",
   },
   {

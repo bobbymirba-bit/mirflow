@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    id: "presence",
     title: "Build your presence",
     icon: Globe2,
     description: "Give people a clear reason to trust you and an easy way to get in touch.",
@@ -24,6 +25,7 @@ const services = [
     ],
   },
   {
+    id: "growth",
     title: "Bring in new business",
     icon: Megaphone,
     description: "Reach the people you want to work with and learn what gets them to respond.",
@@ -33,6 +35,7 @@ const services = [
     ],
   },
   {
+    id: "response",
     title: "Handle the response",
     icon: Workflow,
     description: "Make sure the work you put into getting noticed leads to a useful conversation.",
@@ -46,34 +49,46 @@ const services = [
 const steps = [
   ["Find the bottleneck", "We look at how people find you, where leads go after they reach out, and which tasks keep pulling you away from the business."],
   ["Build what matters first", "We agree on the scope and start where the work can help most, whether that’s a website, an outreach campaign, or a better way to handle calls."],
-  ["Manage it together", "We run the channels and systems in scope, report what happened, and adjust based on the inquiries, conversations, and bookings we can track."],
+  ["We run and improve it", "We handle the day-to-day work, show you what happened, and use what we learn from inquiries, conversations, and bookings to make the next round better."],
 ];
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="border-b border-border bg-[radial-gradient(ellipse_at_85%_10%,#edd9d0,transparent_65%)]">
-        <div className="container-page py-14 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Mirflow services</p>
-          <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">One team for your website, marketing, and AI</h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">Start with the work taking up the most time, then add channels and automation as your business needs them.</p>
-          <Link href="/#walkthrough" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
-            Talk to Bobby <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+      <section className="border-b border-border blue-hero">
+        <div className="container-page grid gap-8 py-14 sm:py-20 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Mirflow services</p>
+            <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">One team to run your website, marketing, and AI</h1>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">We take the day-to-day work off your plate, from keeping your site current to running campaigns and making sure inquiries get a response.</p>
+            <Link href="/#walkthrough" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110">
+              Talk to Bobby <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+          <nav aria-label="Jump to a service" className="rounded-2xl border border-border bg-card/90 p-4 shadow-lg shadow-blue-950/5 sm:p-5">
+            <p className="px-2 pb-2 text-xs font-semibold uppercase tracking-widest text-primary">Explore by goal</p>
+            {services.map(({ id, title, icon: Icon }) => (
+              <Link key={id} href={`/services#${id}`} className="group flex items-center gap-3 rounded-xl p-2 text-sm font-semibold transition-colors hover:bg-secondary">
+                <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-secondary text-primary"><Icon size={17} aria-hidden="true" /></span>
+                <span className="flex-1">{title}</span>
+                <ArrowRight size={15} className="text-primary transition-transform motion-safe:group-hover:translate-x-0.5" aria-hidden="true" />
+              </Link>
+            ))}
+          </nav>
         </div>
       </section>
-      <section id="services" aria-labelledby="services-heading" className="scroll-mt-28 md:scroll-mt-16 border-b border-border bg-card">
+      <section id="services" aria-labelledby="services-heading" className="scroll-mt-28 md:scroll-mt-16 border-b border-border bg-background">
         <div className="container-page py-14 sm:py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">What we manage</p>
           <h2 id="services-heading" className="mt-3 max-w-3xl text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             From getting found to getting back to people
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Your website, marketing, and follow-up shape the same customer experience. We manage them together so you have one team to call.
+            We connect the work from the first impression to the next conversation. Campaigns have somewhere to send people, and your team knows what to do when a lead comes in.
           </p>
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
-            {services.map(({ title, icon: Icon, description, items }, index) => (
-              <article key={title} className="rounded-2xl border border-border bg-background p-5 sm:p-6">
+            {services.map(({ id, title, icon: Icon, description, items }, index) => (
+              <article id={id} key={id} className="scroll-mt-28 rounded-2xl border border-border bg-card bg-linear-to-b from-secondary/55 to-transparent to-45% p-5 shadow-sm shadow-blue-950/5 sm:p-6 md:scroll-mt-20">
                 <div className="flex items-center justify-between">
                   <span className="grid size-11 place-items-center rounded-xl bg-secondary text-primary"><Icon size={21} aria-hidden="true" /></span>
                   <span aria-hidden="true" className="text-xs font-semibold tracking-widest text-muted-foreground">0{index + 1}</span>
@@ -90,6 +105,7 @@ export default function ServicesPage() {
                     </div>
                   ))}
                 </dl>
+                {id === "response" && <Link href="/support-agent" className="mt-4 inline-block text-sm font-semibold text-primary underline underline-offset-4">Explore AI support and lead routing</Link>}
               </article>
             ))}
           </div>
@@ -104,7 +120,7 @@ export default function ServicesPage() {
           </h2>
           <ol className="mt-8 grid gap-5 md:grid-cols-3">
             {steps.map(([title, detail], index) => (
-              <li key={title} className="rounded-2xl border border-border bg-card p-5 sm:p-6">
+              <li key={title} className="rounded-2xl border border-border bg-card p-5 shadow-sm shadow-blue-950/5 sm:p-6">
                 <span className="font-display text-3xl text-primary" aria-hidden="true">0{index + 1}</span>
                 <h3 className="mt-3 font-semibold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{detail}</p>

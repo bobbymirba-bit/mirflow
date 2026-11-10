@@ -12,35 +12,35 @@ export const faq: FaqEntry[] = [
     id: "what-is-mirflow",
     question: "What does the support agent do?",
     answer:
-      "Mirflow builds AI support agents that answer your customers' questions using only your company's own public help pages. Each answer points to the page it came from, and when the agent isn't sure it hands the conversation to a person on your team.",
+      "Mirflow builds and manages customer support workflows as part of its all-in-one digital service. We help customers get routine answers, find a booking path, or reach the right person, then keep improving how those steps work together.",
     keywords: ["service", "offer", "about", "company", "build", "chatbot", "support", "bot", "who"],
   },
   {
     id: "free-demo",
     question: "How can we try the agent?",
     answer:
-      "Try the live example on this page to see how answers, sources, and human handoffs work. Email us with your public help-center URL to discuss a setup for your company.",
+      "Try the example on this page to see a website answer and handoff. On the AI Receptionist page you can also listen to a recording or call our voice agent.",
     keywords: ["demo", "free", "trial", "try", "test", "sample", "start"],
   },
   {
     id: "launch-price",
     question: "How much does setup cost?",
     answer:
-      "Setup costs $2,000. We load your published help content, set up a human handoff, and install the agent on your site. If it is still failing to answer real questions after 14 live days, we refund the setup fee under the agreed terms.",
-    keywords: ["price", "pricing", "cost", "fee", "setup", "one-time", "install", "2000", "refund", "how much", "pay"],
+      "Setup is scoped around the channels, customer questions, and follow-up you want us to manage. We agree on a setup fee and ongoing plan before work starts.",
+    keywords: ["price", "pricing", "cost", "fee", "setup", "one-time", "install", "how much", "pay"],
   },
   {
     id: "care-price",
     question: "What does the monthly fee cover?",
     answer:
-      "The $500 monthly fee covers content refreshes when your help pages change, a report of unanswered questions, and ongoing fixes.",
-    keywords: ["monthly", "subscription", "maintenance", "ongoing", "500", "month", "report", "plan", "price", "cost", "retainer"],
+      "Your monthly plan covers the work you ask Mirflow to run. For AI support, that can include updating answers, reviewing gaps, and improving how your team gets the inquiries that need a person.",
+    keywords: ["monthly", "subscription", "maintenance", "ongoing", "month", "report", "plan", "price", "cost", "retainer"],
   },
   {
     id: "sources-only",
     question: "Where do the agent's answers come from?",
     answer:
-      "Only from your own pages: your help center, docs, or website FAQ. The agent shows the source it used for each answer. If your pages don't cover a question, it says it doesn't know instead of guessing.",
+      "We work from business information you approve, such as your services, hours, policies, FAQs, and booking rules. We also agree on when to send a question to your team.",
     keywords: ["source", "sources", "accurate", "accuracy", "hallucinate", "hallucination", "make up", "cite", "citation", "trust", "wrong"],
   },
   {
@@ -54,35 +54,35 @@ export const faq: FaqEntry[] = [
     id: "who-for",
     question: "Who is this for?",
     answer:
-      "Small software and e-commerce companies with a public help center are the best fit. Local businesses can use the FAQ on their website as the source instead.",
+      "It’s for businesses that want help answering repeat questions and moving inquiries to the right next step. We configure the workflow around your customers and how your team works.",
     keywords: ["fit", "customers", "saas", "software", "ecommerce", "e-commerce", "shop", "store", "local", "small business", "industry"],
   },
   {
     id: "no-help-center",
     question: "What if we don't have a help center?",
     answer:
-      "A clear FAQ page on your website works too. The agent can only be as complete as the pages it reads, so the more of your common questions are written down publicly, the more it can answer.",
+      "We can start with the service details, policies, and common questions your team already uses. During setup we turn those into approved answers and agree on what should go to a person.",
     keywords: ["faq page", "no docs", "documentation", "website", "without", "missing", "content"],
   },
   {
     id: "data-privacy",
     question: "Do you need access to our customer data or systems?",
     answer:
-      "The agent uses your public help pages. During setup we confirm how to install it and where to send questions that need your team.",
+      "We agree with you on what information the agent can use, which channels it will work in, and where it should send questions that need your team.",
     keywords: ["privacy", "data", "security", "access", "login", "credentials", "robots", "crawl", "scrape", "gdpr", "safe", "customer data"],
   },
   {
     id: "control",
     question: "Who decides what goes live?",
     answer:
-      "You do. Nothing is installed on your site until you approve it, you choose which pages the agent may use, and you can ask us to remove or change content at any time.",
+      "You approve what the agent can use and how it should handle customer inquiries. Mirflow handles setup, testing, and updates.",
     keywords: ["approve", "approval", "control", "review", "publish", "live", "remove", "turn off", "cancel"],
   },
   {
     id: "timeline",
     question: "How long does it take?",
     answer:
-      "It depends on how many pages you have. We'll tell you the expected timing when you send your help-center URL, and we schedule the installation with you.",
+      "Timing depends on the channels and handoffs involved. We agree on the first workflow, what needs testing, and a launch plan before setup.",
     keywords: ["time", "timeline", "fast", "quick", "days", "weeks", "turnaround", "when", "long"],
   },
   {

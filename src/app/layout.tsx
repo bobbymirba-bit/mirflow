@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export const viewport: Viewport = { themeColor: "#f3efe7", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#f4f8ff", width: "device-width", initialScale: 1 };
 
 const jsonLd = {
   "@context": "https://schema.org",

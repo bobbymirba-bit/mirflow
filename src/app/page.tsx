@@ -9,16 +9,16 @@ const primaryButton = "inline-flex items-center gap-2 rounded-lg bg-primary px-5
 export default function Home() {
   return (
     <>
-      <section aria-labelledby="hero-title" className="border-b border-border bg-[radial-gradient(ellipse_at_85%_10%,#edd9d0,transparent_60%)]">
+      <section aria-labelledby="hero-title" className="border-b border-border blue-hero">
         <div className="container-page grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary">A digital agency for owner-led businesses</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Your all-in-one digital team</p>
             <h1 id="hero-title" className="mt-4 max-w-2xl text-balance font-display text-4xl font-semibold leading-[1.06] tracking-tight sm:text-6xl">
               We run your digital side. You run your business.
             </h1>
             <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Mirflow is your outsourced digital team. We build your website, manage social and LinkedIn, run ads and outreach,
-              and put AI to work answering calls and following up with leads.
+              We build and manage your website, publish your social content, run LinkedIn outreach and ads, and put AI to work
+              answering calls and following up with leads. You get one team to run it, track what&rsquo;s working, and keep it moving.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-4">
               <Link href="/#walkthrough" className={primaryButton}>
@@ -35,11 +35,11 @@ export default function Home() {
 
       <section id="services" aria-label="Explore Mirflow" className="scroll-mt-28 border-b border-border bg-card md:scroll-mt-16">
         <div className="container-page grid gap-4 py-12 sm:grid-cols-2">
-          <Link id="pricing" href="/services" className="scroll-mt-28 rounded-2xl border border-border bg-background p-6 hover:border-primary md:scroll-mt-16">
+          <Link id="pricing" href="/services" className="scroll-mt-28 rounded-2xl border border-border bg-background p-6 shadow-sm shadow-blue-950/5 transition-colors hover:border-primary hover:bg-secondary/60 md:scroll-mt-16">
             <span className="flex items-center justify-between gap-3 font-display text-2xl font-semibold">Explore our services <ArrowRight size={19} className="shrink-0 text-primary" aria-hidden="true" /></span>
-            <span className="mt-2 block text-sm text-muted-foreground">See what we manage and how an engagement works.</span>
+            <span className="mt-2 block text-sm text-muted-foreground">See what we build, run, and improve for you.</span>
           </Link>
-          <Link id="demos" href="/ai-receptionist" className="scroll-mt-28 rounded-2xl border border-border bg-background p-6 hover:border-primary md:scroll-mt-16">
+          <Link id="demos" href="/ai-receptionist" className="scroll-mt-28 rounded-2xl border border-border bg-background p-6 shadow-sm shadow-blue-950/5 transition-colors hover:border-primary hover:bg-secondary/60 md:scroll-mt-16">
             <span className="flex items-center justify-between gap-3 font-display text-2xl font-semibold">Hear the AI receptionist <ArrowRight size={19} className="shrink-0 text-primary" aria-hidden="true" /></span>
             <span className="mt-2 block text-sm text-muted-foreground">Listen to the real Grok voice and see how it handles calls.</span>
           </Link>
