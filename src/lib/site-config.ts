@@ -18,7 +18,6 @@ export const siteConfig = {
 export type NavItem = { label: string; href: string };
 
 export const primaryNav: NavItem[] = [
-  { label: "Services", href: "/#services" },
-  { label: "How we work", href: "/#pricing" },
-  { label: "Hear a demo", href: "/#demos" },
+  { label: "Services", href: "/services" },
+  { label: "AI Receptionist", href: "/ai-receptionist" },
 ];

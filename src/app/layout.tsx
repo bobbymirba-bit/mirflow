@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
+import { SiteAssistant } from "@/components/site-assistant";
 import { Footer, Header } from "@/components/site-chrome";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
@@ -40,7 +41,7 @@ const jsonLd = {
     {
       "@type": "Service",
       name: "Managed digital marketing and AI automation",
-      url: `${siteConfig.url}/#services`,
+      url: `${siteConfig.url}/services`,
       provider: { "@id": `${siteConfig.url}/#org` },
       description: siteConfig.description,
     },
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
+        <SiteAssistant />
       </body>
     </html>
   );

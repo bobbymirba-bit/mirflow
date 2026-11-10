@@ -16,7 +16,7 @@ const examples = [
 
 export function FrontDeskDemos() {
   return (
-    <section id="demos" aria-labelledby="demo-heading" className="scroll-mt-16 border-b border-[#6c4957] bg-[#2f202e] text-[#fff4e9]">
+    <section id="demos" aria-labelledby="demo-heading" className="scroll-mt-28 border-b border-[#6c4957] bg-[#2f202e] text-[#fff4e9] md:scroll-mt-16">
       <div className="container-page grid gap-8 py-14 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-[#fbb592]">AI in practice</p>
