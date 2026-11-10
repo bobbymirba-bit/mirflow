@@ -11,7 +11,7 @@ const services = [
     icon: Globe2,
     description: "Give people a clear reason to trust you and an easy way to get in touch.",
     items: [
-      ["Websites & redesigns", "Design, build, and maintain a site that makes it easy to understand what you offer and take the next step."],
+      ["Websites & redesigns", "Design, build, and maintain a site with search-friendly pages and a clear next step for visitors."],
       ["Social media management", "Plan, create, and publish posts consistently across the channels that matter to your business."],
     ],
   },
@@ -30,7 +30,7 @@ const services = [
     description: "Make sure the work you put into getting noticed leads to a useful conversation.",
     items: [
       ["AI voice receptionist", "Answer calls when your team is busy, handle routine questions, and route booking requests and callbacks."],
-      ["AI workflows & follow-up", "Connect your forms, inboxes, and CRM so inquiries reach the right person and repeat tasks take less staff time."],
+      ["AI workflows & follow-up", "Connect your forms, inboxes, and CRM. Route inquiries, follow up by email or text, and automate recurring tasks."],
     ],
   },
 ];

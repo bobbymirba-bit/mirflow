@@ -21,16 +21,38 @@ export function FrontDeskDemos() {
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-[#fbb592]">AI in practice</p>
           <h2 id="demo-heading" className="mt-3 max-w-lg text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            A front desk that can answer when you&rsquo;re busy
+            Hear the Mirflow receptionist in action
           </h2>
           <p className="mt-4 max-w-md text-[#ead3cc]">
-            We configure the AI receptionist around your hours, services, and booking rules, with a clear path to a person when the call needs one.
+            Listen to two excerpts from a real call. Mirflow&rsquo;s receptionist answers in its Grok voice, then makes sure the team
+            knows why the caller reached out and when to follow up.
           </p>
           <Link href="/#walkthrough" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#fbb592] underline underline-offset-4">
-            Ask to hear the receptionist <ArrowUpRight size={16} aria-hidden="true" />
+            Talk through your call flow <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
         </div>
-        <div className="grid gap-4">
+        <div className="overflow-hidden rounded-2xl border border-[#a27b81]/45 bg-[#251a27]/60">
+          <video
+            aria-label="Two recorded excerpts of the Mirflow AI receptionist"
+            className="aspect-video w-full bg-[#251a27]"
+            controls
+            playsInline
+            preload="none"
+            poster="/demos/recorded-receptionist.webp"
+            width={960}
+            height={540}
+          >
+            <source src="/demos/recorded-receptionist.mp4" type="video/mp4" />
+            <track kind="captions" src="/demos/recorded-receptionist.vtt" srcLang="en" label="English" default />
+            <a href="/demos/recorded-receptionist.mp4">Open the recorded demo</a>
+          </video>
+          <details className="border-t border-[#a27b81]/45 p-4 text-sm">
+            <summary className="cursor-pointer font-medium text-[#fbb592]">Read transcript</summary>
+            <p className="mt-3 text-[#ead3cc]">&ldquo;Thanks for calling Mirflow. This is the Mirflow assistant. How can I help?&rdquo;</p>
+            <p className="mt-2 text-[#ead3cc]"><span className="font-semibold">Later in the call.</span> &ldquo;Great. I&rsquo;ll note that it&rsquo;s about a demo follow-up. Do you have a window in mind that works best?&rdquo;</p>
+          </details>
+        </div>
+        <div className="grid gap-4 lg:col-span-2 sm:grid-cols-2">
           {examples.map(({ title, body, icon: Icon }) => (
             <article key={title} className="flex gap-4 rounded-xl border border-[#a27b81]/45 bg-[#251a27]/60 p-5">
               <Icon size={21} className="mt-0.5 shrink-0 text-[#fbb592]" aria-hidden="true" />
