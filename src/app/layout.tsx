@@ -8,7 +8,7 @@ import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 
-const title = `${siteConfig.name}: ${siteConfig.tagline}`;
+const title = "Mirflow | Digital Marketing & AI Automation Agency";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

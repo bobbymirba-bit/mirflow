@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/sms-consent" },
   title: "Text Message Consent",
   description: `How ${siteConfig.name} asks for and records consent to send text messages, including the exact script read on calls.`,
 };
