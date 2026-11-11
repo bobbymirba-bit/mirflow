@@ -5,8 +5,8 @@ import { ArrowRight, Headphones, PhoneCall } from "lucide-react";
 import { FrontDeskDemos } from "@/components/front-desk-demos";
 import { frontDeskOffer, siteConfig } from "@/lib/site-config";
 
-const title = "AI Front Desk";
-const description = "Hear Mirflow’s Grok-powered voice receptionist and see how it answers calls, handles routine questions, and routes callbacks.";
+const title = "AI Receptionist for Small Businesses";
+const description = "Mirflow sets up and manages an AI voice receptionist to answer calls, handle routine questions, and route booking requests and callbacks. Hear the live demo.";
 
 export const metadata: Metadata = {
   title,

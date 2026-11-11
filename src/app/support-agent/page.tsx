@@ -5,7 +5,7 @@ import { ArrowRight, MessagesSquare, Route, SlidersHorizontal } from "lucide-rea
 import { ExampleAgent } from "@/components/example-agent";
 import { faq } from "@/data/faq";
 
-const title = "AI Support and Lead Routing";
+const title = "AI Customer Support & Lead Routing";
 const description = "Mirflow builds and manages AI support as part of your all-in-one digital service. Answer routine questions, route leads, and give your team the context to follow up.";
 
 const outcomes = [
