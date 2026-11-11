@@ -1,124 +1,84 @@
 import Link from "next/link";
+import { ArrowDownRight, ArrowRight } from "lucide-react";
 
-import { proofPoints } from "@/data/proof-points";
+import { DigitalOverview } from "@/components/digital-overview";
 import { siteConfig } from "@/lib/site-config";
 
-const coverage = [
-  {
-    title: "Answer and follow up",
-    body: "Cover overflow and after-hours calls, answer common questions about your clinic, and set up text follow-up for missed calls.",
-  },
-  {
-    title: "Give callers a clear next step",
-    body: "Send your existing consult booking link or route a callback to the right person. Your team handles treatment advice and questions that need clinical judgment.",
-  },
-  {
-    title: "See what happened",
-    body: "Get a weekly summary of inquiries, bookings we can verify, and callbacks your team still needs to make. We review the workflow and adjust it with you.",
-  },
-];
+const primaryButton = "inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110";
 
 export default function Home() {
   return (
     <>
-      <section aria-labelledby="hero-title" className="border-b border-border">
-        <div className="container-page grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+      <section aria-labelledby="hero-title" className="border-b border-border blue-hero">
+        <div className="container-page grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Managed front desk for Southern California med spas</p>
-            <h1 id="hero-title" className="mt-4 max-w-2xl text-balance font-display text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
-              Your med spa can answer while you&rsquo;re with a patient.
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Your all-in-one digital team</p>
+            <h1 id="hero-title" className="mt-4 max-w-2xl text-balance font-display text-4xl font-semibold leading-[1.06] tracking-tight sm:text-6xl">
+              We run your digital side. You run your business.
             </h1>
-            <p className="mt-5 max-w-xl text-pretty text-lg text-muted-foreground">
-              Mirflow sets up and runs your after-hours and overflow front desk. We answer common questions, follow up by text,
-              and give new patients a clear path to book a consultation. When someone needs your team, you&rsquo;ll know why they called.
+            <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
+              Mirflow is your all-in-one digital partner. We handle your website, social media, LinkedIn outreach, ads,
+              email and SMS marketing, SEO, AI workflows, and 24/7 voice agents, so you can focus on running your business.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-4">
-              <Link href="/#walkthrough" className="rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
-                Request a front desk walkthrough
+              <Link href="/#walkthrough" className={primaryButton}>
+                Get a free digital audit <ArrowRight size={16} aria-hidden="true" />
               </Link>
-              <Link href="/#pricing" className="text-sm font-semibold underline underline-offset-4 hover:text-primary">
-                See what&rsquo;s included
+              <Link href="/services" className="inline-flex items-center gap-1.5 text-sm font-semibold underline underline-offset-4 hover:text-primary">
+                Explore services <ArrowDownRight size={15} aria-hidden="true" />
               </Link>
             </div>
           </div>
-
-          <aside aria-label="Example after-hours call" className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Example after-hours call</p>
-            <p className="mt-4 font-display text-2xl">&ldquo;I&rsquo;m new. Do I need a consultation first?&rdquo;</p>
-            <ol className="mt-5 list-decimal space-y-3 border-t border-border pt-5 pl-5 text-sm text-muted-foreground">
-              <li>Answer using the clinic&rsquo;s approved policy.</li>
-              <li>Offer to text the consult booking link.</li>
-              <li>Send questions about treatment suitability to clinic staff.</li>
-            </ol>
-          </aside>
+          <DigitalOverview />
         </div>
       </section>
 
-      <section id="benchmarks" className="scroll-mt-16 border-b border-border bg-secondary/40">
-        <div className="container-page py-14 sm:py-20">
-          <h2 className="font-display text-3xl font-semibold tracking-tight">What happens before the appointment matters</h2>
-          <p className="mt-3 text-sm text-muted-foreground">Findings from industry research</p>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {proofPoints.map((point) => (
-              <div key={point.stat} className="flex flex-col rounded-2xl border border-border bg-card p-6">
-                <p className="font-display text-4xl font-semibold text-primary">{point.stat}</p>
-                <h3 className="mt-3 font-semibold">{point.title}</h3>
-                <p className="mt-2 grow text-sm text-muted-foreground">{point.body}</p>
-                <a href={point.href} className="mt-4 text-sm font-medium text-primary underline underline-offset-4">
-                  {point.source}
-                </a>
-              </div>
-            ))}
+      <section id="pricing" aria-label="How the engagement works" className="scroll-mt-28 border-b border-border bg-secondary/40 md:scroll-mt-16">
+        <div className="container-page grid gap-6 py-10 sm:grid-cols-2">
+          <div>
+            <p className="font-semibold text-primary">One setup fee</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">We agree on the scope, build your website and systems, and connect the channels you want us to manage.</p>
+          </div>
+          <div>
+            <p className="font-semibold text-primary">One monthly retainer</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">We manage the ongoing work, keep your content and campaigns moving, and report on how the whole system is performing.</p>
           </div>
         </div>
       </section>
 
-      <section id="pricing" className="scroll-mt-16 border-b border-border">
-        <div className="container-page py-14 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">{siteConfig.offerName}</p>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Start with the calls your team can&rsquo;t pick up</h2>
-          <p className="mt-4 text-xl font-semibold">
-            ${siteConfig.pricing.setupFee.toLocaleString("en-US")} setup + ${siteConfig.pricing.monthlyRetainer.toLocaleString("en-US")}/month
-          </p>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            Start with one location, the phone number your patients already use, and one path to book a consult.
-            We agree on included call and text volume before you sign.
-          </p>
-          <ul className="mt-8 grid gap-5 md:grid-cols-3">
-            {coverage.map((item) => (
-              <li key={item.title} className="rounded-2xl border border-border bg-card p-6">
-                <h3 className="font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-6 max-w-3xl rounded-xl border border-border bg-secondary/40 p-5">
-            <h3 className="font-semibold">A 14-day live check</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Before launch, we agree on what the front desk needs to handle and how we&rsquo;ll review it if call volume is low.
-              If it still fails the agreed checks on real inquiries after 14 live days, we refund the setup fee.
-            </p>
-          </div>
+      <section id="services" aria-label="Explore Mirflow" className="scroll-mt-28 border-b border-border bg-card md:scroll-mt-16">
+        <div className="container-page grid gap-4 py-12 sm:grid-cols-2">
+          <Link href="/services" className="scroll-mt-28 rounded-2xl border border-border bg-background p-6 shadow-sm shadow-blue-950/5 transition-colors hover:border-primary hover:bg-secondary/60 md:scroll-mt-16">
+            <span className="flex items-center justify-between gap-3 font-display text-2xl font-semibold">Explore our services <ArrowRight size={19} className="shrink-0 text-primary" aria-hidden="true" /></span>
+            <span className="mt-2 block text-sm text-muted-foreground">See what we build, run, and improve for you.</span>
+          </Link>
+          <Link id="demos" href="/ai-receptionist" className="scroll-mt-28 rounded-2xl border border-border bg-background p-6 shadow-sm shadow-blue-950/5 transition-colors hover:border-primary hover:bg-secondary/60 md:scroll-mt-16">
+            <span className="flex items-center justify-between gap-3 font-display text-2xl font-semibold">Hear the AI receptionist <ArrowRight size={19} className="shrink-0 text-primary" aria-hidden="true" /></span>
+            <span className="mt-2 block text-sm text-muted-foreground">Listen to the real Grok voice and see how it handles calls.</span>
+          </Link>
         </div>
       </section>
 
-      <section id="founder" className="scroll-mt-16 border-b border-border">
+      <section id="founder" aria-labelledby="founder-heading" className="scroll-mt-28 border-b border-border bg-card md:scroll-mt-16">
         <div className="container-page py-14 sm:py-20">
-          <h2 className="font-display text-3xl font-semibold tracking-tight">A front desk built with hospitality in mind</h2>
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Founder-led in Southern California</p>
+          <h2 id="founder-heading" className="mt-3 font-display text-3xl font-semibold tracking-tight">Good service is an operating habit</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
             I&rsquo;m Bobby Mir, founder of Mirflow. I spent 11 years in luxury hospitality and earned my MBA at USC Marshall.
-            I bring that experience to the moments before someone walks through your door. They should get a clear answer,
-            know what happens next, and feel expected when they arrive.
+            That experience shapes how I work. I care about what customers see, how quickly someone gets back to them,
+            and whether your team has a process it can rely on when things get busy.
           </p>
         </div>
       </section>
 
-      <section id="walkthrough" className="scroll-mt-16 bg-secondary/40">
+      <section id="walkthrough" aria-labelledby="contact-heading" className="scroll-mt-28 bg-secondary/40 md:scroll-mt-16">
         <div className="container-page py-14 sm:py-20">
-          <h2 className="font-display text-3xl font-semibold tracking-tight">Bring one call your team gets every week</h2>
-          <p className="mt-4 max-w-xl text-muted-foreground">We&rsquo;ll walk through how Mirflow would handle it, from the first answer to booking or a staff callback.</p>
-          <a href={siteConfig.walkthroughEmail} className="mt-6 inline-block rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
-            Email Bobby to request a walkthrough
+          <h2 id="contact-heading" className="max-w-2xl text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">Start with a free digital audit</h2>
+          <p className="mt-4 max-w-xl text-muted-foreground">
+            Tell us about your business and the digital work you want off your plate. We&rsquo;ll review what you have, identify the gaps, and talk through a plan.
+          </p>
+          <a href={siteConfig.contactEmail} className={`mt-6 ${primaryButton}`}>
+            Request your free audit <ArrowRight size={16} aria-hidden="true" />
           </a>
         </div>
       </section>

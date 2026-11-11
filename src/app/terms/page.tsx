@@ -38,10 +38,9 @@ export default function TermsPage() {
                 2. Description of service
               </h2>
               <p className="mt-3">
-                Mirflow provides managed front desk workflows and builds support agents
-                that answer from a company&apos;s published help pages. The example agent on
-                this site answers only from Mirflow&apos;s own FAQ and is provided for
-                demonstration. Specific engagements are
+                Mirflow provides managed website, marketing, and AI services, including
+                customer support and front desk workflows. The example agent on this
+                site uses Mirflow&apos;s FAQ for demonstration. Specific engagements are
                 governed by a separate service agreement entered into with each client.
               </p>
             </div>

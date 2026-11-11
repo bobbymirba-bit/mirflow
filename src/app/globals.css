@@ -3,29 +3,30 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 :root {
   --radius: 0.875rem;
 
-  --background: #f3efe7;
-  --foreground: #171713;
+  --background: #f4f8ff;
+  --foreground: #102344;
 
-  --card: #f8f5ee;
-  --card-foreground: #171713;
+  --card: #ffffff;
+  --card-foreground: #102344;
 
-  --popover: #f8f5ee;
-  --popover-foreground: #171713;
+  --popover: #ffffff;
+  --popover-foreground: #102344;
 
-  --primary: #a84f3d;
-  --primary-foreground: #fffaf1;
+  --primary: #1e50c5;
+  --primary-foreground: #ffffff;
 
-  --secondary: #e7dfd2;
-  --secondary-foreground: #171713;
+  --secondary: #e7efff;
+  --secondary-foreground: #102344;
 
-  --muted: #e7dfd2;
-  --muted-foreground: #686258;
+  --muted: #e7efff;
+  --muted-foreground: #4b5f7e;
 
-  --accent: #ddd1c2;
-  --accent-foreground: #171713;
+  --accent: #dce9ff;
+  --accent-foreground: #102344;
 
   --success: #0d9668;
   --success-foreground: #ffffff;
@@ -33,18 +34,18 @@
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
 
-  --border: #cfc4b4;
-  --input: #cfc4b4;
-  --ring: #a84f3d;
+  --border: #cedcf0;
+  --input: #cedcf0;
+  --ring: #1e50c5;
 
-  --brand-violet: #8a6f63;
-  --brand-indigo: #a84f3d;
-  --brand-blue: #6e8791;
-  --brand-mint: #78806c;
-  --brand-coral: #c97861;
+  --brand-violet: #6f77cd;
+  --brand-indigo: #1e50c5;
+  --brand-blue: #4192db;
+  --brand-mint: #3b8e9f;
+  --brand-coral: #739df6;
 
-  --grid-line: rgba(23, 23, 19, 0.075);
-  --glow: rgba(168, 79, 61, 0.12);
+  --grid-line: rgba(30, 80, 197, 0.08);
+  --glow: rgba(60, 118, 235, 0.18);
 }
 
 .dark {
@@ -212,6 +213,15 @@
 @layer utilities {
   .container-page {
     @apply mx-auto w-full max-w-[1280px] px-6 lg:px-8;
+  }
+
+  .blue-hero {
+    background-color: var(--background);
+    background-image:
+      radial-gradient(ellipse at 90% 0%, rgba(169, 202, 255, 0.53), transparent 65%),
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: auto, 48px 48px, 48px 48px;
   }
 
   .text-gradient {

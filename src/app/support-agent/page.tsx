@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, MessagesSquare, Route, SlidersHorizontal } from "lucide-react";
 
 import { ExampleAgent } from "@/components/example-agent";
 import { faq } from "@/data/faq";
-import { siteConfig } from "@/lib/site-config";
 
-const title = "Help-center support agent";
-const description = "A managed AI support agent for software and e-commerce teams. It answers from your published help center, cites its sources, and hands off to your team.";
+const title = "AI Support and Lead Routing";
+const description = "Mirflow builds and manages AI support as part of your all-in-one digital service. Answer routine questions, route leads, and give your team the context to follow up.";
+
+const outcomes = [
+  { title: "Give people a useful answer", detail: "Use your approved service details, hours, policies, and other business information to answer the questions people ask before they buy.", icon: MessagesSquare },
+  { title: "Get inquiries to the right person", detail: "Give people a booking link, route a callback, or pass the conversation to your team with enough context to take over.", icon: Route },
+  { title: "Keep it working as you grow", detail: "We set up the workflow, review where customers get stuck, and update answers and handoffs as your business changes.", icon: SlidersHorizontal },
+];
 
 export const metadata: Metadata = {
   title,
@@ -18,41 +25,52 @@ export const metadata: Metadata = {
 export default function SupportAgent() {
   return (
     <>
-      <section className="border-b border-border">
+      <section className="blue-hero border-b border-border">
         <div className="container-page py-14 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">For software and e-commerce teams</p>
-          <h1 className="mt-4 max-w-2xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            An AI support agent that answers from your own help pages.
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Part of your all-in-one digital service</p>
+          <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            We handle the path from first question to follow-up
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Your agent cites the page it used and hands questions it can&rsquo;t answer to your team.
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Mirflow builds and manages AI support around how your business actually works. We connect website chat,
+            phone reception, and lead routing so customers get an answer and your team knows what to do next.
           </p>
-          <p className="mt-5 font-semibold">$2,000 setup + $500/month</p>
-          <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-            If the agent is still failing to answer real questions after 14 live days, we refund the setup fee under the agreed terms.
-          </p>
-          <a href={`mailto:${siteConfig.email}?subject=Help-center%20support%20agent`} className="mt-6 inline-block rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
-            Email us about your help center
-          </a>
+          <div className="mt-6 flex flex-wrap items-center gap-5">
+            <Link href="/#walkthrough" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
+              Talk to Bobby <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+            <Link href="/services" className="text-sm font-semibold text-primary underline underline-offset-4">Explore additional services</Link>
+          </div>
         </div>
       </section>
-      <section id="example" className="scroll-mt-16 border-b border-border bg-secondary/40">
+      <section aria-label="What Mirflow handles" className="border-b border-border bg-background">
+        <div className="container-page grid gap-4 py-10 lg:grid-cols-3">
+          {outcomes.map(({ title, detail, icon: Icon }) => (
+            <article key={title} className="rounded-2xl border border-border bg-card p-5 shadow-sm shadow-blue-950/5">
+              <Icon size={23} className="text-primary" aria-hidden="true" />
+              <h2 className="mt-3 font-display text-xl font-semibold">{title}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section id="example" className="scroll-mt-28 md:scroll-mt-16 border-b border-border bg-secondary/40">
         <div className="container-page grid gap-8 py-14 sm:py-20 lg:grid-cols-2">
           <div>
             <h2 className="font-display text-3xl font-semibold tracking-tight">Try the live example</h2>
             <p className="mt-3 max-w-md text-muted-foreground">
-              This example searches our own FAQ. Ask a question to see the source, then try one outside the FAQ to see the handoff.
+              See how a visitor gets an answer or reaches a person. This small example uses Mirflow’s own FAQ.
             </p>
           </div>
           <ExampleAgent />
         </div>
       </section>
-      <section id="faq" className="scroll-mt-16">
+      <section id="faq" className="scroll-mt-28 md:scroll-mt-16">
         <div className="container-page py-14 sm:py-20">
           <h2 className="font-display text-3xl font-semibold tracking-tight">Frequently asked questions</h2>
           <div className="mt-6 max-w-3xl divide-y divide-border rounded-2xl border border-border bg-card">
             {faq.map((entry) => (
-              <details key={entry.id} id={`faq-${entry.id}`} className="scroll-mt-20 p-5">
+              <details key={entry.id} id={`faq-${entry.id}`} className="scroll-mt-28 p-5 md:scroll-mt-20">
                 <summary className="cursor-pointer font-medium">{entry.question}</summary>
                 <p className="mt-3 text-sm text-muted-foreground">{entry.answer}</p>
               </details>
