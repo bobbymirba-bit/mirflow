@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { callTextConsent } from "@/lib/lead-copy";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   description: `Privacy Policy for ${siteConfig.name}, explaining what data we collect, how it's used, and the choices you have.`,
 };
 
-const lastUpdated = "October 20, 2026";
+const lastUpdated = "November 13, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -42,10 +43,13 @@ export default function PrivacyPage() {
               <ul className="mt-3 list-disc space-y-2 pl-5">
                 <li>
                   <strong className="text-foreground">Information you provide directly</strong>{" "}
-                  — such as your name, email address, phone number, and company details
-                  when you request a demo agent (your help-center URL, work email, and
-                  optional company name), use the hand-off form, or otherwise communicate
-                  with us.
+                  — such as your name, business name, phone number, and optional email
+                  when you request a free digital audit, and your agreement that Mirflow
+                  may call or text that number about the request. If the page address
+                  includes campaign parameters (utm_source, utm_medium, utm_campaign,
+                  utm_term, or utm_content), those are sent with the request. The same
+                  kinds of details are collected if you request a demo agent or otherwise
+                  write to us.
                 </li>
                 <li>
                   <strong className="text-foreground">Information collected automatically</strong>{" "}
@@ -112,6 +116,9 @@ export default function PrivacyPage() {
                 .
               </p>
               <p className="mt-3">
+                On the website form, checking the box means you agree: {callTextConsent}
+              </p>
+              <p className="mt-3">
                 For this program we collect your mobile phone number, your opt-in
                 and opt-out status, and the content of the messages exchanged. We
                 use this information only to send the messages you agreed to
@@ -142,9 +149,11 @@ export default function PrivacyPage() {
                 6. Cookies
               </h2>
               <p className="mt-3">
-                This site does not set advertising or analytics cookies. Our hosting
-                provider may use strictly necessary technologies to deliver and secure
-                the site. You can control cookies through your browser settings.
+                This site does not set advertising or analytics cookies. Page views are
+                counted with Vercel Web Analytics, which does not use advertising cookies
+                or ad pixels. Our hosting provider may use strictly necessary technologies
+                to deliver and secure the site. You can control cookies through your
+                browser settings.
               </p>
             </div>
 

@@ -14,12 +14,16 @@ export const siteConfig = {
   instagramHandle: "@mirflow.ai",
   instagramUrl: "https://www.instagram.com/mirflow.ai/",
   founded: "2026",
-  contactEmail: "mailto:bobby@mirflow.online?subject=Mirflow%20free%20digital%20audit",
 };
+
+/** The only public price. */
+export const listPrice = {
+  label: "$2,997 one-time setup + $500/mo retainer, month-to-month",
+} as const;
 
 export const frontDeskOffer = {
   name: "AI Front Desk",
-  price: "$2,000 setup + $500/month",
+  price: listPrice.label,
   refund: "If the front desk is still failing to handle real customer questions after 14 live days under the agreed checks, we refund the setup fee.",
 };
 

@@ -6,6 +6,7 @@ import { MessageCircle, Send, X } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 
 import { buildIndex } from "@/lib/faq-search";
+import { listPrice } from "@/lib/site-config";
 
 const topics = [
   {
@@ -44,7 +45,7 @@ const topics = [
     id: "price",
     question: "How does pricing work?",
     keywords: ["price", "pricing", "cost", "how much", "retainer", "rates", "setup fee", "budget"],
-    answer: "One setup fee covers the agreed build, and one monthly retainer covers ongoing management. We confirm the channels, deliverables, and price with you before work starts.",
+    answer: `${listPrice.label}. One setup fee covers the agreed build, and the monthly retainer covers ongoing management. We confirm the channels, deliverables, and price with you before work starts.`,
     href: "/services#pricing",
     label: "See how we work",
   },
@@ -52,7 +53,7 @@ const topics = [
     id: "contact",
     question: "How can I talk to Bobby?",
     keywords: ["bobby", "contact", "human", "email", "speak to someone", "reach out", "get started"],
-    answer: "Use the contact section to email Bobby. Share what you want to grow or what’s taking up too much of your team’s time.",
+    answer: "Use the form in the contact section. Share what you want to grow or what’s taking up too much of your team’s time.",
     href: "/#walkthrough",
     label: "Talk to Bobby",
   },
