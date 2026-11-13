@@ -1,110 +1,60 @@
 /**
  * Mirflow packages.
  *
- * `status` is the approval state of the *amount*, and it is the thing to keep
- * honest:
+ * `listPrice` is the only amount this file is allowed to publish, and it is the
+ * thing to keep honest:
  *
- *   "approved" — Bobby has published this price. Today that is only the AI
- *                Front Desk offer, which already reads $2,000 setup + $500/month
- *                in src/lib/site-config.ts and renders on /ai-receptionist.
- *   "draft"    — proposed by this branch, NOT confirmed. Rendered with a visible
- *                draft badge and excluded from structured data.
+ *   { setupCents, monthlyCents } — Bobby's settled list price. Safe to render.
+ *   null                         — no settled amount. The page shows the scope
+ *                                  and "Book a call for pricing", and renders
+ *                                  no figure at all. Never put a proposal here.
  *
- * Nothing here can cause a charge on its own. A package is only purchasable
- * when its Stripe Price IDs are present in the environment AND the live Stripe
- * amounts match the figures below — see src/lib/checkout-config.ts.
+ * Proposed-but-unsettled amounts live in docs/pricing-proposal.md, not in code.
+ *
+ * Publishing an amount is NOT approval to charge it. A package can only be
+ * bought online when it is in the APPROVED_PACKAGES constant in
+ * src/lib/checkout-config.ts (empty today, so nothing is purchasable), its
+ * Stripe Price IDs are in the environment, AND the live Stripe amounts match
+ * the figures below.
  *
  * Package ids are stable and map to env var names:
- *   STRIPE_<ID>_SETUP_PRICE_ID / STRIPE_<ID>_MONTHLY_PRICE_ID
+ *   STRIPE_<ENV_KEY>_SETUP_PRICE_ID / STRIPE_<ENV_KEY>_MONTHLY_PRICE_ID
  */
 
-export type PackageStatus = "approved" | "draft";
+export type ListPrice = { setupCents: number; monthlyCents: number };
 
 export type ServicePackage = {
   id: string;
   envKey: string;
   name: string;
-  status: PackageStatus;
   summary: string;
-  setupCents: number;
-  monthlyCents: number;
+  /** Settled list price, or null when the amount is not published yet. */
+  listPrice: ListPrice | null;
   includes: string[];
   note?: string;
-  featured?: boolean;
 };
 
 export const servicePackages: ServicePackage[] = [
   {
-    id: "front-desk",
-    envKey: "FRONT_DESK",
-    name: "AI Front Desk",
-    status: "approved",
+    id: "all-in-one",
+    envKey: "ALL_IN_ONE",
+    name: "All-in-one digital partner",
     summary:
-      "The voice receptionist on its own. Answers calls around your hours, handles routine questions, and routes booking requests and callbacks to your team.",
-    setupCents: 200_000,
-    monthlyCents: 50_000,
-    includes: [
-      "AI voice receptionist configured to your hours, services, and routing rules",
-      "Call handling for routine questions, booking requests, and callbacks",
-      "Message and booking details delivered to your team",
-      "Script and answer tuning as your business changes",
-      "Ongoing monitoring and support",
-    ],
-    note: "If the front desk is still failing to handle real customer questions after 14 live days under the agreed checks, we refund the setup fee.",
-  },
-  {
-    id: "presence",
-    envKey: "PRESENCE",
-    name: "Presence",
-    status: "draft",
-    summary:
-      "Get the basics right: a site people trust, found in local search, with a social channel that doesn't go quiet.",
-    setupCents: 250_000,
-    monthlyCents: 90_000,
+      "The whole digital side handled: the website people land on, the channels that bring them in, the follow-up that keeps them warm, and the voice agent that answers when you can't.",
+    listPrice: { setupCents: 299_700, monthlyCents: 149_700 },
     includes: [
       "Website design, build, or redesign",
-      "Local SEO and Google Business Profile setup",
-      "One managed social channel, posted on an agreed schedule",
-      "Contact and inquiry routing to your inbox",
-      "Monthly report on traffic, search visibility, and inquiries",
-    ],
-  },
-  {
-    id: "growth",
-    envKey: "GROWTH",
-    name: "Growth",
-    status: "draft",
-    summary:
-      "Everything in Presence, plus the outbound work: LinkedIn, paid ads with AI creative, and email and SMS follow-up.",
-    setupCents: 400_000,
-    monthlyCents: 180_000,
-    includes: [
-      "Everything in Presence",
-      "Up to three managed social channels",
+      "Local SEO and Google Business Profile setup, then an ongoing SEO program",
+      "Managed social channels, posted on an agreed schedule",
       "LinkedIn management and outreach",
       "Paid ads management with AI-generated ad creative and testing",
       "Email and SMS marketing, including follow-up sequences",
+      "AI voice receptionist configured to your hours, services, and routing rules",
+      "AI workflows connecting your forms, inbox, calendar, and CRM",
+      "Contact and inquiry routing to your inbox",
       "Monthly report across channels, campaigns, and leads",
     ],
-    featured: true,
-  },
-  {
-    id: "full-service",
-    envKey: "FULL_SERVICE",
-    name: "Full Service",
-    status: "draft",
-    summary:
-      "The whole digital side handled, including the AI voice receptionist and the workflows behind it.",
-    setupCents: 600_000,
-    monthlyCents: 320_000,
-    includes: [
-      "Everything in Growth",
-      "AI voice receptionist included",
-      "AI workflows connecting your forms, inbox, calendar, and CRM",
-      "Ongoing SEO program beyond local search",
-      "Priority turnaround on requests",
-      "Monthly working session on what to do next",
-    ],
+    note: "Scope is agreed before anything starts. If you only want part of this, we price the smaller scope on a call rather than publishing a tier for it.",
   },
 ];
 
