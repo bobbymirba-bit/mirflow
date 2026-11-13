@@ -28,7 +28,7 @@ export default function ReceptionistPage() {
             and send booking requests or callback details to your team.
           </p>
           <p className="mt-4 font-semibold">{frontDeskOffer.price}</p>
-          <Link href="/#pricing" className="mt-2 inline-block text-sm text-primary underline underline-offset-4">See what’s included and the 14-day setup guarantee</Link>
+          <Link href="/pricing" className="mt-2 inline-block text-sm text-primary underline underline-offset-4">See what’s included and the 14-day setup guarantee</Link>
           <div className="mt-6 flex flex-wrap items-center gap-5">
             <a href={`tel:${siteConfig.voiceAgentTel}`} className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110">
               <PhoneCall size={17} aria-hidden="true" /> Call the AI voice agent {siteConfig.voiceAgentPhone}

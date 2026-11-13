@@ -3,14 +3,13 @@ import type { NextConfig } from "next";
 /**
  * Legacy routes for previous offers.
  * permanent: true  -> 308 (gone for good)
- * permanent: false -> 307 (may come back: pricing, faq, contact, checkout, case studies, blog)
+ * permanent: false -> 307 (may come back: faq, contact, case studies, blog)
  */
 const gone = [
   "/about",
   "/ai-assessment",
   "/ai-readiness",
   "/assessment",
-  "/book-a-call",
   "/quote",
   "/roi-calculator",
   "/industries",
@@ -23,12 +22,11 @@ const gone = [
 ];
 
 const mayReturn: [string, string][] = [
-  ["/pricing", "/services#pricing"],
+  ["/book-a-call", "/pricing#book"],
   ["/services/:path+", "/services"],
   ["/faq", "/support-agent#faq"],
   ["/contact", "/#walkthrough"],
-  ["/checkout", "/"],
-  ["/checkout/:path*", "/"],
+  ["/checkout", "/pricing"],
   ["/case-studies", "/"],
   ["/case-studies/:path*", "/"],
   ["/blog", "/"],

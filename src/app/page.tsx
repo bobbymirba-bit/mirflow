@@ -43,6 +43,9 @@ export default function Home() {
             <p className="font-semibold text-primary">One monthly retainer</p>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">We manage the ongoing work, keep your content and campaigns moving, and report on how the whole system is performing.</p>
           </div>
+          <Link href="/pricing" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline underline-offset-4 sm:col-span-2">
+            See packages, what&rsquo;s included, and what&rsquo;s not <ArrowRight size={15} aria-hidden="true" />
+          </Link>
         </div>
       </section>
 

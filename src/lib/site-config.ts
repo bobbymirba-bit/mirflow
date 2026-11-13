@@ -27,6 +27,7 @@ export type NavItem = { label: string; href: string };
 
 export const primaryNav: NavItem[] = [
   { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
   { label: "AI Front Desk", href: "/ai-receptionist" },
   { label: "AI Support", href: "/support-agent" },
 ];
