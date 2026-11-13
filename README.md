@@ -48,38 +48,45 @@ than breaking a page. See `.env.example` for the full list.
 | Variable | Purpose | When unset |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin used for metadata and the sitemap | `https://mirflow.online` |
-| `NEXT_PUBLIC_CALENDLY_URL` | Public booking link. Must be `https:`. Calendly URLs are also embedded inline on `/pricing` | Booking UI is hidden; CTAs fall back to the inquiry form, phone, and email |
+| `NEXT_PUBLIC_CALENDLY_URL` | Overrides the booking link. Must be `https:`. Calendly URLs are also embedded inline on `/pricing` | The checked default in `src/lib/booking.ts` (`https://calendly.com/bobbymirba/30min`) is used site-wide |
 | `RESEND_API_KEY` / `CONTACT_FROM_EMAIL` / `CONTACT_TO_EMAIL` | Email delivery for form submissions and paid-order notifications | Log-only; visitors still get a success response |
-| `STRIPE_SECRET_KEY` | Server-only Stripe key. An `sk_test_` key puts `/pricing` in test mode and shows a test-mode banner | Checkout is off; every package button books a call |
+| `STRIPE_SECRET_KEY` | Server-only Stripe key. An `sk_test_` key puts `/pricing` in test mode and shows a test-mode banner. **Preview and development must use `sk_test_` keys** — a live key on a non-production deployment makes `/api/checkout` refuse | Checkout is off; every package button books a call |
 | `STRIPE_WEBHOOK_SECRET` | Signing secret for `/api/stripe-webhook` | Webhook returns 503 and ignores events |
 | `STRIPE_<PACKAGE>_SETUP_PRICE_ID` | One-time Stripe Price for a package's setup fee | That package cannot be bought online |
 | `STRIPE_<PACKAGE>_MONTHLY_PRICE_ID` | Recurring monthly Stripe Price for a package | That package cannot be bought online |
 
-`<PACKAGE>` is the `envKey` from `src/data/pricing.ts`: `FRONT_DESK`, `PRESENCE`,
-`GROWTH`, `FULL_SERVICE`.
+`<PACKAGE>` is the `envKey` from `src/data/pricing.ts`: `ALL_IN_ONE`.
 
 ## Pricing and Checkout
 
 Package copy and amounts live in [`src/data/pricing.ts`](src/data/pricing.ts) and
-render on [`/pricing`](src/app/pricing/page.tsx). Each package carries a `status`:
+render on [`/pricing`](src/app/pricing/page.tsx). A package's `listPrice` is
+either a settled amount Bobby has published, or `null` — in which case the page
+shows the scope and "Book a call for pricing" and renders no figure at all.
+Proposed-but-unsettled amounts belong in
+[`docs/pricing-proposal.md`](docs/pricing-proposal.md), never in code.
 
-- `approved` — a price Bobby has published. Today only **AI Front Desk**
-  ($2,000 setup + $500/month), which also reads from `frontDeskOffer` in
-  `src/lib/site-config.ts`.
-- `draft` — proposed, not confirmed. Rendered with a visible *Draft* badge and
-  deliberately excluded from structured data so an unapproved amount cannot be
-  picked up by search engines.
+**Nothing on the site is purchasable today.** Publishing an amount is not
+approval to charge it.
 
-### Two gates stand between a visitor and a charge
+### Four gates stand between a visitor and a charge
 
-1. **Configuration.** A purchase button only appears when `STRIPE_SECRET_KEY`
-   and *both* of that package's Price IDs are set. An unset variable means no
-   button and no session — so a price that does not exist in Stripe cannot be
-   bought. The button falls back to "Book a call".
-2. **Amount verification.** Before creating a Checkout Session,
+1. **Purchase approval, in code.** The package id must be listed in
+   `APPROVED_PACKAGES` in [`src/lib/checkout-config.ts`](src/lib/checkout-config.ts).
+   That constant is **empty**, so no package is purchasable on any environment —
+   preview or production, test keys or live. Approving a price means editing
+   that file in a commit, on purpose. No environment variable can override it.
+2. **A published amount.** The package must have a settled `listPrice`.
+3. **Configuration.** `STRIPE_SECRET_KEY` and *both* of that package's Price IDs
+   must be set.
+4. **Amount verification.** Before creating a Checkout Session,
    [`verifyPackagePrices`](src/lib/checkout-config.ts) fetches each Price from
    Stripe and requires an exact match on amount, currency, one-time vs
    recurring, and monthly interval. A mismatch refuses the session and logs why.
+
+`/api/checkout` additionally refuses outright when a live (non-`sk_test_`) key is
+configured on a non-production deployment, and rate-limits attempts per IP
+(best-effort, per instance).
 
 The browser posts a package id and nothing else to
 [`/api/checkout`](src/app/api/checkout/route.ts) — amounts are never
@@ -95,14 +102,16 @@ the redirect, and distinguishes paid, still-processing, and unconfirmable orders
 
 ### Enabling a package
 
+Only once Bobby has signed off the amount:
+
 1. Create the two Prices in the [Stripe Dashboard](https://dashboard.stripe.com/products)
    — one-time for setup, recurring monthly for the retainer — with amounts that
    match `src/data/pricing.ts` exactly.
 2. Set the matching `STRIPE_*_PRICE_ID` variables.
-3. For a `draft` package, flip its `status` to `approved` and drop the draft
-   badge only once the amount is actually signed off.
+3. Add the package id to `APPROVED_PACKAGES` in `src/lib/checkout-config.ts`.
 4. Test with Stripe **test mode** keys and card `4242 4242 4242 4242` before
-   switching the production environment to live keys.
+   switching the production environment to live keys. Previews must never hold
+   a live key.
 
 ## Stripe Webhook
 
@@ -114,16 +123,25 @@ works). Subscribe the endpoint to `checkout.session.completed`,
 `invoice.payment_failed`, `customer.subscription.updated`, and
 `customer.subscription.deleted`.
 
-Two limitations are deliberate and still open:
+**This endpoint is not ready for live payments.** Two limitations are open, and
+both are documented in detail at the top of the route file:
 
-- **Deduplication is in-memory**, so it only holds within one warm instance.
-  Retries landing on a cold or different instance will be processed again. A
-  durable store is required before fulfillment does anything that must not
-  happen twice.
+- **Deduplication is in-memory**, so it only holds within one warm instance. On
+  serverless that means retries landing on a cold or different instance *will*
+  be processed again — in-memory dedup is insufficient here. Fixing it needs a
+  shared store with an atomic insert-if-absent on the Stripe event id: a
+  free-tier Postgres table (Neon, Supabase) keyed on `event_id`, a
+  Redis-compatible store with `SET NX`, Vercel Edge Config, or Stripe itself as
+  the record of what has already been fulfilled.
 - **Fulfillment is a notification, not provisioning.** A paid event emails the
-  team so onboarding can start by hand. No account is created, no access is
-  granted, nothing is written to a CRM. A logged event is not a completed
-  onboarding.
+  team so onboarding can start by hand. Explicitly missing, all still manual:
+  an onboarding email to the customer, a reliable notification to Bobby, a CRM
+  record, a kickoff booking link, and account/channel provisioning. A logged
+  event is not a completed onboarding.
+
+When Resend *is* configured and the notification fails, the route answers **500**
+so Stripe retries rather than treating a lost order as delivered. With Resend
+unconfigured the endpoint is deliberately log-only and accepts the event.
 
 ## Contact Form
 

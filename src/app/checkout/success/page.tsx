@@ -2,14 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AlertTriangle, CheckCircle2 } from "lucide-react";
 
+import { BookACall } from "@/components/book-a-call";
 import { formatUsd, servicePackages } from "@/data/pricing";
 import { stripeSecret } from "@/lib/checkout-config";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Order confirmed",
-  description: "Your Mirflow order confirmation.",
+  title: "Payment received",
+  description: "Your Mirflow payment confirmation.",
   robots: { index: false, follow: false },
+  // Its own canonical, so this page does not inherit the site root's.
+  alternates: { canonical: "/checkout/success" },
 };
 
 type SessionView =
@@ -55,10 +58,12 @@ export default async function CheckoutSuccessPage({
   const session = await loadSession(sessionId);
 
   // Landing on this URL proves nothing on its own, so each state gets its own
-  // honest wording. Only Stripe confirming `paid` earns a success message.
+  // honest wording. Only Stripe confirming `paid` earns a success message —
+  // and "paid" means money received, not onboarding done, so it does not say
+  // the customer is booked in. Nothing books itself; see the webhook route.
   const heading =
     session.state === "paid"
-      ? "Thanks — you're booked in"
+      ? "Payment received"
       : session.state === "pending"
         ? "Your payment is still processing"
         : "We couldn't confirm this order";
@@ -80,7 +85,8 @@ export default async function CheckoutSuccessPage({
               {session.packageName
                 ? `Your ${session.packageName} subscription is active.`
                 : "Your subscription is active."}{" "}
-              Stripe has emailed your receipt{session.email ? ` to ${session.email}` : ""}.
+              Stripe has emailed your receipt{session.email ? ` to ${session.email}` : ""}. Nothing is scheduled yet —
+              Bobby will reach out, and you can book the kickoff call yourself below.
             </p>
             {session.total !== null ? (
               <p className="mt-2 text-sm text-muted-foreground">
@@ -106,10 +112,15 @@ export default async function CheckoutSuccessPage({
           <>
             <h2 className="mt-8 font-semibold">What happens next</h2>
             <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
-              <li>Bobby emails you within one business day to confirm the scope in writing.</li>
+              <li>Book your kickoff call, or wait for Bobby to email you within one business day.</li>
+              <li>We confirm the scope in writing.</li>
               <li>We collect access to the accounts and channels in your package.</li>
               <li>Setup work starts once the scope is agreed.</li>
             </ol>
+            <BookACall
+              label="Book your kickoff call"
+              className="mt-5 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110"
+            />
           </>
         )}
 

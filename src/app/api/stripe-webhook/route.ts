@@ -10,21 +10,42 @@ import { formatUsd, servicePackages } from "@/data/pricing";
  * Verification is done by hand (HMAC-SHA256 over `${timestamp}.${payload}`) so
  * the route stays dependency-free, matching the checkout route.
  *
- * Known gaps, deliberately left visible rather than papered over:
- *  - Deduplication is in-memory, so it only protects within a single warm
- *    server instance. Stripe retries that land on a cold instance, or on a
- *    different one, will be processed again. A durable store (Redis, Postgres,
- *    Vercel KV-style storage) is needed before fulfillment does anything that
- *    must not happen twice.
- *  - Fulfillment is a notification, not provisioning. A paid event emails the
- *    team so onboarding can start by hand; no account is created, no access is
- *    granted, and nothing is written to a CRM. A logged event is not a
- *    completed onboarding.
+ * NOT READY FOR LIVE PAYMENTS. Two gaps are real, and neither is fixed here
+ * because fixing them properly needs infrastructure decisions, not code:
+ *
+ * 1. IDEMPOTENCY IS NOT DURABLE. Deduplication is an in-memory Map, which on
+ *    Vercel Functions means per-instance and lost on every cold start. Stripe
+ *    retries that land on a cold or different instance WILL be processed again.
+ *    In-memory dedup is therefore insufficient for anything that must not
+ *    happen twice. What is needed before fulfillment does real work: a shared
+ *    store with an atomic "insert if absent" on the Stripe event id and a TTL
+ *    of a few days. Any of these would do, none of them a paid add-on beyond
+ *    what the project already has:
+ *      - a Postgres/SQLite table with `event_id` as the primary key, inserted
+ *        before handling (a unique-violation means "already handled"), via a
+ *        free-tier Marketplace database such as Neon or Supabase;
+ *      - Vercel Edge Config / a Redis-compatible store from the Marketplace
+ *        with SET NX;
+ *      - Stripe itself as the store: re-read the object and skip when the work
+ *        already shows as done (e.g. a metadata flag set during fulfillment).
+ *    Until one exists, treat this endpoint as notification-only.
+ *
+ * 2. FULFILLMENT IS A NOTIFICATION, NOT ONBOARDING. A paid event emails the
+ *    team so a human can start. Explicitly MISSING, and all still manual:
+ *      - onboarding/welcome email to the customer (Stripe's receipt is all
+ *        they get today);
+ *      - a reliable notification to Bobby (today: one Resend email, and only
+ *        when RESEND_API_KEY + CONTACT_TO_EMAIL are set);
+ *      - a CRM record of the customer, package, and subscription;
+ *      - a kickoff booking link sent to the customer;
+ *      - account/channel provisioning and access collection;
+ *      - any written-scope step beyond a manual note in the team email.
+ *    A logged event is not a completed onboarding.
  */
 
 const TOLERANCE_SECONDS = 300;
 
-/** Best-effort, per-instance replay guard. See the caveat above. */
+/** Best-effort, per-instance replay guard. See gap 1 above. */
 const MAX_SEEN = 500;
 const seenEvents = new Map<string, number>();
 
@@ -86,8 +107,15 @@ type CheckoutSession = {
   subscription?: string | null;
 };
 
+/** True when email notification is configured and therefore expected to work. */
+function notificationsConfigured(): boolean {
+  return Boolean(process.env.RESEND_API_KEY && process.env.CONTACT_TO_EMAIL);
+}
+
+type Delivery = "sent" | "log-only" | `resend-${string}`;
+
 /** Emails the team so a human can start onboarding. No-ops when unconfigured. */
-async function notify(subject: string, lines: string[]): Promise<string> {
+async function notify(subject: string, lines: string[]): Promise<Delivery> {
   const { RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL } = process.env;
   if (!RESEND_API_KEY || !CONTACT_TO_EMAIL) return "log-only";
   try {
@@ -108,6 +136,20 @@ async function notify(subject: string, lines: string[]): Promise<string> {
   }
 }
 
+/**
+ * Throws when notification was expected to work and didn't. Throwing means the
+ * route answers 500, so Stripe retries instead of the order being silently
+ * lost — the whole fulfillment path today is that one email.
+ *
+ * When notification is not configured at all, the event is logged and accepted:
+ * that is the deliberate log-only mode, and retrying would not help.
+ */
+function requireDelivery(delivery: Delivery, context: string): void {
+  if (notificationsConfigured() && delivery !== "sent") {
+    throw new Error(`${context}: notification failed (${delivery})`);
+  }
+}
+
 async function handleCheckoutCompleted(session: CheckoutSession) {
   // `checkout.session.completed` can fire while payment is still pending for
   // delayed payment methods, so treat only a paid session as money received.
@@ -125,7 +167,11 @@ async function handleCheckoutCompleted(session: CheckoutSession) {
     `Checkout session: ${session.id ?? "-"}`,
     `Subscription: ${session.subscription ?? "-"}`,
     "",
-    "Onboarding is manual: confirm the scope in writing, then collect account access.",
+    "Onboarding is manual. Nothing else has happened automatically:",
+    "- confirm the scope in writing",
+    "- send the customer a kickoff booking link",
+    "- collect account access",
+    "- record the customer and subscription wherever you track them",
   ]);
 
   console.log("[stripe-webhook] order paid", {
@@ -134,6 +180,8 @@ async function handleCheckoutCompleted(session: CheckoutSession) {
     email: session.customer_details?.email,
     delivery,
   });
+
+  requireDelivery(delivery, `order ${session.id ?? "-"}`);
 }
 
 export async function POST(request: Request) {
@@ -159,6 +207,7 @@ export async function POST(request: Request) {
   }
 
   // Ack duplicates with 200 so Stripe stops retrying an event we already took.
+  // Only as good as the in-memory map — see gap 1 at the top of this file.
   if (event.id && alreadyHandled(event.id)) {
     return NextResponse.json({ received: true, duplicate: true });
   }
@@ -172,12 +221,13 @@ export async function POST(request: Request) {
       case "checkout.session.async_payment_failed":
       case "invoice.payment_failed": {
         const object = (event.data?.object ?? {}) as { id?: string; customer?: string };
-        await notify("Mirflow payment failed", [
+        const delivery = await notify("Mirflow payment failed", [
           `Event: ${event.type}`,
           `Object: ${object.id ?? "-"}`,
           `Customer: ${object.customer ?? "-"}`,
         ]);
-        console.log("[stripe-webhook] payment failed", { type: event.type, id: object.id });
+        console.log("[stripe-webhook] payment failed", { type: event.type, id: object.id, delivery });
+        requireDelivery(delivery, `payment failure ${object.id ?? "-"}`);
         break;
       }
       case "customer.subscription.updated":
@@ -194,7 +244,8 @@ export async function POST(request: Request) {
         console.log("[stripe-webhook] unhandled event", event.type);
     }
   } catch (error) {
-    // Forget the event so Stripe's retry gets a real second attempt.
+    // Forget the event so Stripe's retry gets a real second attempt, and answer
+    // non-2xx so Stripe actually retries rather than considering it delivered.
     if (event.id) seenEvents.delete(event.id);
     console.error("[stripe-webhook] handler failed", { type: event.type, error });
     return NextResponse.json({ error: "Handler failed." }, { status: 500 });
