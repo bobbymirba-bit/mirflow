@@ -1,18 +1,21 @@
 /**
  * Booking link handling.
  *
- * The Calendly URL is configuration, not code: no working Calendly link
- * survives in Git history (every URL found there now 404s), so the site ships
- * with booking "unconfigured" and degrades to the inquiry form until
- * NEXT_PUBLIC_CALENDLY_URL is set.
+ * DEFAULT_BOOKING_URL is the one Calendly link that has been checked and
+ * responds (HTTP 200, "30 Minute Meeting - bobby mir"). Every URL found in Git
+ * history 404s, so those are gone. Bobby should still confirm this is the event
+ * he wants bookings to land on; until then it is the site-wide default so
+ * "Book a call" goes somewhere that works instead of to a form.
  *
- * `publicBookingUrl` is recovered verbatim in spirit from
- * src/lib/booking-url.ts on origin/cursor/lead-form-one-price-d6d0 (7ff0780):
- * anything that is not a clean https URL hides the booking UI rather than
- * rendering a dead or hostile link.
+ * NEXT_PUBLIC_CALENDLY_URL overrides it without a deploy. An override that
+ * isn't a clean https URL is ignored in favour of the default, rather than
+ * rendering a dead or hostile link — the behaviour recovered from
+ * src/lib/booking-url.ts on origin/cursor/lead-form-one-price-d6d0 (7ff0780).
  */
 
-/** https booking links only. Anything else disables the booking UI. */
+export const DEFAULT_BOOKING_URL = "https://calendly.com/bobbymirba/30min";
+
+/** https booking links only. Anything else is rejected. */
 export function publicBookingUrl(value: string | undefined | null): string | null {
   if (!value?.trim()) return null;
   try {
@@ -36,7 +39,8 @@ export function isCalendlyUrl(value: string | null): boolean {
   }
 }
 
-/** Where "Book a call" points when no booking URL is configured. */
-export const INQUIRY_FALLBACK_HREF = "/#walkthrough";
+/** The inquiry form. Kept as the secondary path, never as "Book a call". */
+export const INQUIRY_HREF = "/#walkthrough";
 
-export const bookingUrl = publicBookingUrl(process.env.NEXT_PUBLIC_CALENDLY_URL);
+export const bookingUrl =
+  publicBookingUrl(process.env.NEXT_PUBLIC_CALENDLY_URL) ?? DEFAULT_BOOKING_URL;

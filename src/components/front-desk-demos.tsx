@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { ArrowUpRight, CalendarDays, PhoneCall } from "lucide-react";
+import { CalendarDays, PhoneCall } from "lucide-react";
+
+import { BookACall } from "@/components/book-a-call";
 
 const examples = [
   {
@@ -27,9 +28,11 @@ export function FrontDeskDemos() {
             Listen to two excerpts from a real call. Mirflow&rsquo;s receptionist answers in its Grok voice, then makes sure the team
             knows why the caller reached out and when to follow up.
           </p>
-          <Link href="/#walkthrough" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#99c7ff] underline underline-offset-4">
-            Talk through your call flow <ArrowUpRight size={16} aria-hidden="true" />
-          </Link>
+          <BookACall
+            label="Talk through your call flow"
+            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#99c7ff] underline underline-offset-4"
+            showIcon={false}
+          />
         </div>
         <div className="overflow-hidden rounded-2xl border border-[#7399d5]/45 bg-[#102748]/60">
           <video

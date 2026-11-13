@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, CalendarDays } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 
 import { CalendlyEmbed } from "@/components/calendly-embed";
-import { INQUIRY_FALLBACK_HREF, bookingUrl, isCalendlyUrl } from "@/lib/booking";
+import { INQUIRY_HREF, bookingUrl, isCalendlyUrl } from "@/lib/booking";
 import { siteConfig } from "@/lib/site-config";
 
 const primaryButton =
@@ -11,10 +11,10 @@ const primaryButton =
 /**
  * Booking block used at the bottom of /pricing.
  *
- * With NEXT_PUBLIC_CALENDLY_URL set we embed the scheduler *and* keep a direct
- * link visible, so booking still works if the embed is blocked by a content
- * blocker or fails to load. With it unset we never render a guessed link —
- * visitors get the inquiry form and Bobby's real phone and email instead.
+ * The scheduler is embedded *and* the direct link stays visible, so booking
+ * still works if the embed is blocked by a content blocker or fails to load.
+ * Phone, email, and the inquiry form stay as secondary paths for anyone who
+ * would rather not use a scheduler.
  */
 export function BookingSection() {
   const canEmbed = isCalendlyUrl(bookingUrl);
@@ -31,37 +31,22 @@ export function BookingSection() {
           work would actually cover. You get a written scope and price before any work or payment starts.
         </p>
 
-        {bookingUrl ? (
-          <>
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
-              <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className={primaryButton}>
-                <CalendarDays size={17} aria-hidden="true" /> Pick a time
-              </a>
-              <a href={`tel:${siteConfig.phoneTel}`} className="text-sm font-semibold text-primary underline underline-offset-4">
-                Or call {siteConfig.phone}
-              </a>
-            </div>
-            {canEmbed ? <CalendlyEmbed url={bookingUrl} /> : null}
-          </>
-        ) : (
-          <div className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-sm shadow-blue-950/5 sm:p-6">
-            <p className="text-sm font-semibold">Online scheduling isn&rsquo;t connected yet</p>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              Send us the details and we&rsquo;ll come back with times, or call and we&rsquo;ll book it on the spot.
-            </p>
-            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-              <Link href={INQUIRY_FALLBACK_HREF} className={primaryButton}>
-                Request a call <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-              <a href={`tel:${siteConfig.phoneTel}`} className="text-sm font-semibold text-primary underline underline-offset-4">
-                Call {siteConfig.phone}
-              </a>
-              <a href={`mailto:${siteConfig.email}`} className="text-sm font-semibold text-primary underline underline-offset-4">
-                {siteConfig.email}
-              </a>
-            </div>
-          </div>
-        )}
+        <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+          <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className={primaryButton}>
+            <CalendarDays size={17} aria-hidden="true" /> Pick a time
+          </a>
+          <a href={`tel:${siteConfig.phoneTel}`} className="text-sm font-semibold text-primary underline underline-offset-4">
+            Or call {siteConfig.phone}
+          </a>
+          <a href={`mailto:${siteConfig.email}`} className="text-sm font-semibold text-primary underline underline-offset-4">
+            {siteConfig.email}
+          </a>
+          <Link href={INQUIRY_HREF} className="text-sm font-semibold text-primary underline underline-offset-4">
+            Or send the details instead
+          </Link>
+        </div>
+
+        {canEmbed ? <CalendlyEmbed url={bookingUrl} /> : null}
       </div>
     </section>
   );

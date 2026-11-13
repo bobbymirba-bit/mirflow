@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, MessagesSquare, Route, SlidersHorizontal } from "lucide-react";
+import { MessagesSquare, Route, SlidersHorizontal } from "lucide-react";
 
+import { BookACall } from "@/components/book-a-call";
 import { ExampleAgent } from "@/components/example-agent";
 import { faq } from "@/data/faq";
+import { siteConfig } from "@/lib/site-config";
 
 const title = "AI Customer Support & Lead Routing";
 const description = "Mirflow builds and manages AI support as part of your all-in-one digital service. Answer routine questions, route leads, and give your team the context to follow up.";
@@ -36,9 +38,10 @@ export default function SupportAgent() {
             phone reception, and lead routing so customers get an answer and your team knows what to do next.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-5">
-            <Link href="/#walkthrough" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
-              Talk to Bobby <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+            <BookACall className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground" />
+            <a href={`mailto:${siteConfig.email}`} className="text-sm font-semibold text-primary underline underline-offset-4">
+              Or email Bobby
+            </a>
             <Link href="/services" className="text-sm font-semibold text-primary underline underline-offset-4">Explore additional services</Link>
           </div>
         </div>
