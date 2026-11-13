@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ArrowDownRight, ArrowRight } from "lucide-react";
 
 import { DigitalOverview } from "@/components/digital-overview";
-import { siteConfig } from "@/lib/site-config";
+import { LeadSection } from "@/components/lead-section";
+import { listPrice } from "@/lib/site-config";
 
 const primaryButton = "inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110";
 
@@ -34,14 +35,17 @@ export default function Home() {
       </section>
 
       <section id="pricing" aria-label="How the engagement works" className="scroll-mt-28 border-b border-border bg-secondary/40 md:scroll-mt-16">
-        <div className="container-page grid gap-6 py-10 sm:grid-cols-2">
-          <div>
-            <p className="font-semibold text-primary">One setup fee</p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">We agree on the scope, build your website and systems, and connect the channels you want us to manage.</p>
-          </div>
-          <div>
-            <p className="font-semibold text-primary">One monthly retainer</p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">We manage the ongoing work, keep your content and campaigns moving, and report on how the whole system is performing.</p>
+        <div className="container-page py-10">
+          <p className="font-semibold text-foreground">{listPrice.label}</p>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            <div>
+              <p className="font-semibold text-primary">One setup fee</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">We agree on the scope, build your website and systems, and connect the channels you want us to manage.</p>
+            </div>
+            <div>
+              <p className="font-semibold text-primary">One monthly retainer</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">We manage the ongoing work, keep your content and campaigns moving, and report on how the whole system is performing.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -71,17 +75,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="walkthrough" aria-labelledby="contact-heading" className="scroll-mt-28 bg-secondary/40 md:scroll-mt-16">
-        <div className="container-page py-14 sm:py-20">
-          <h2 id="contact-heading" className="max-w-2xl text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">Start with a free digital audit</h2>
-          <p className="mt-4 max-w-xl text-muted-foreground">
-            Tell us about your business and the digital work you want off your plate. We&rsquo;ll review what you have, identify the gaps, and talk through a plan.
-          </p>
-          <a href={siteConfig.contactEmail} className={`mt-6 ${primaryButton}`}>
-            Request your free audit <ArrowRight size={16} aria-hidden="true" />
-          </a>
-        </div>
-      </section>
+      <LeadSection
+        source="home"
+        heading="Start with a free digital audit"
+        lede="Tell us about your business and the digital work you want off your plate. We’ll review what you have, identify the gaps, and talk through a plan."
+      />
     </>
   );
 }

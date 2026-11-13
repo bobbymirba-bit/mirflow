@@ -11,7 +11,6 @@ const gone = [
   "/ai-readiness",
   "/assessment",
   "/book-a-call",
-  "/quote",
   "/roi-calculator",
   "/industries",
   "/industries/:path*",

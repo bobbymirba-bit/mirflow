@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 
 import { SiteAssistant } from "@/components/site-assistant";
 import { Footer, Header } from "@/components/site-chrome";
+import { UtmCapture } from "@/components/utm-capture";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
@@ -57,6 +60,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
         <SiteAssistant />
+        <Suspense fallback={null}>
+          <UtmCapture />
+        </Suspense>
+        <Analytics />
       </body>
     </html>
   );

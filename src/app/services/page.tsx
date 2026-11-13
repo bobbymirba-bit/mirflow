@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Globe2, Megaphone, Workflow } from "lucide-react";
 
+import { listPrice } from "@/lib/site-config";
+
 const title = "Digital marketing and AI services";
 const description = "Explore Mirflow’s website design, social media management, LinkedIn outreach, paid ads, AI ad creative, and lead follow-up services.";
 
@@ -128,7 +130,7 @@ export default function ServicesPage() {
             ))}
           </ol>
           <p className="mt-6 max-w-2xl text-sm text-muted-foreground">
-            One setup fee covers the agreed build. One monthly retainer covers ongoing management. We confirm the channels, deliverables, and pricing before work starts.
+            <span className="font-semibold text-foreground">{listPrice.label}.</span> One setup fee covers the agreed build. One monthly retainer covers ongoing management. We confirm the channels, deliverables, and pricing before work starts.
           </p>
         </div>
       </section>

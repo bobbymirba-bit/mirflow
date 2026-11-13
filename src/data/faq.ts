@@ -1,3 +1,5 @@
+import { frontDeskOffer, listPrice } from "@/lib/site-config";
+
 export type FaqEntry = {
   id: string;
   question: string;
@@ -26,14 +28,14 @@ export const faq: FaqEntry[] = [
     id: "launch-price",
     question: "How much does setup cost?",
     answer:
-      "The AI Front Desk is $2,000 setup plus $500 per month, month to month. If it is still failing to handle real customer questions after 14 live days under the agreed checks, we refund the setup fee. Additional support workflows are scoped separately.",
+      `The AI Front Desk is ${listPrice.label}. ${frontDeskOffer.refund} Additional support workflows are scoped separately.`,
     keywords: ["price", "pricing", "cost", "fee", "setup", "one-time", "install", "how much", "pay"],
   },
   {
     id: "care-price",
     question: "What does the monthly fee cover?",
     answer:
-      "The AI Front Desk monthly plan covers ongoing management of the agreed front desk and follow-up workflow. Additional support work, such as new channels or integrations, is scoped with you separately.",
+      "The $500/mo retainer is month-to-month and covers ongoing management of the agreed front desk and follow-up workflow. Additional support work, such as new channels or integrations, is scoped with you separately.",
     keywords: ["monthly", "subscription", "maintenance", "ongoing", "month", "report", "plan", "price", "cost", "retainer"],
   },
   {
@@ -96,7 +98,7 @@ export const faq: FaqEntry[] = [
     id: "contact",
     question: "How do I contact Mirflow?",
     answer:
-      "Email bobby@mirflow.online, call (949) 422-8674, or find us on Instagram at @mirflow.ai.",
+      "Use the form on mirflow.online to request a free digital audit, email bobby@mirflow.online, or call (949) 422-8674. You can also find us on Instagram at @mirflow.ai.",
     keywords: ["email", "phone", "call", "reach", "talk", "contact", "instagram", "speak", "number"],
   },
 ];

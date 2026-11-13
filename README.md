@@ -45,31 +45,23 @@ Create a `.env.local` file (all variables are optional — the site works withou
 
 | Variable                        | Purpose                                                                                       | Default when unset                              |
 | -------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| `NEXT_PUBLIC_CALENDLY_URL`       | Booking link used by every "Book a call" CTA (`src/lib/site-config.ts`)                          | `https://calendly.com/mirflow/intro-call`     |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID`  | Google Analytics measurement ID. When set, GA loads only after a visitor accepts the cookie banner (`src/components/analytics.tsx`) | Analytics is disabled entirely                   |
-| `STRIPE_SECRET_KEY` | Stripe secret key used only by the server checkout route | Checkout stays disabled |
-| `STRIPE_FOUNDING_MONTHLY_PRICE_ID` | Recurring Stripe Price for the $199 Founding subscription | Checkout stays disabled |
-| `STRIPE_FOUNDING_SETUP_PRICE_ID` | One-time Stripe Price for the $500 Founding setup | Checkout stays disabled |
-| `STRIPE_GROWTH_MONTHLY_PRICE_ID` | Recurring Stripe Price for the $349 Growth subscription | Checkout stays disabled |
-| `STRIPE_GROWTH_SETUP_PRICE_ID` | One-time Stripe Price for the $1,000 Growth setup | Checkout stays disabled |
-| `STRIPE_WEBHOOK_SECRET` | Signing secret for the Stripe webhook endpoint (`src/app/api/stripe-webhook/route.ts`) | Webhook returns 503 and ignores events |
+| `NEXT_PUBLIC_BOOKING_URL` | Public https link for the “Book a 15-minute call” button. Hidden when unset. | Button hidden |
+| `RESEND_API_KEY` | Server-only Resend API key for the lead form | Form returns 503 |
+| `CONTACT_FROM_EMAIL` | Verified sender, `Mirflow <leads@mirflow.online>` | Falls back to that sender |
+| `STRIPE_SECRET_KEY` | Unused. Checkout is retired. | Checkout stays disabled |
+| `STRIPE_FOUNDING_MONTHLY_PRICE_ID` | Unused. The Founding tier is not offered. | Checkout stays disabled |
+| `STRIPE_FOUNDING_SETUP_PRICE_ID` | Unused. The Founding tier is not offered. | Checkout stays disabled |
+| `STRIPE_GROWTH_MONTHLY_PRICE_ID` | Unused. The Growth tier is not offered. | Checkout stays disabled |
+| `STRIPE_GROWTH_SETUP_PRICE_ID` | Unused. The Growth tier is not offered. | Checkout stays disabled |
+| `STRIPE_WEBHOOK_SECRET` | Signing secret for the retired Stripe webhook (`src/app/api/stripe-webhook/route.ts`) | Webhook returns 503 and ignores events |
 
-## Stripe
+## Price
 
-Checkout ([`/api/checkout`](src/app/api/checkout/route.ts)) creates a Stripe Checkout Session combining the recurring plan price and the one-time setup price. It calls Stripe's REST API directly, so no `stripe` npm dependency is needed.
+The only public price is **$2,997 one-time setup + $500/mo retainer, month-to-month** (`listPrice` in `src/lib/site-config.ts`). Checkout is retired. `/api/checkout` stays inert unless `CHECKOUT_ENABLED=true`, and even then it does not create a payment.
 
-Fulfillment runs through the webhook at [`/api/stripe-webhook`](src/app/api/stripe-webhook/route.ts), which verifies Stripe's signature manually (HMAC-SHA256, 5-minute replay tolerance) and currently **logs** events rather than provisioning anything.
+## Lead form
 
-Setup:
-
-1. Create the four Prices in the [Stripe Dashboard](https://dashboard.stripe.com/products) (recurring for plans, one-time for setup fees) and set the `STRIPE_*_PRICE_ID` vars above.
-2. Add a webhook endpoint at `https://mirflow.online/api/stripe-webhook` subscribed to `checkout.session.completed`, `invoice.payment_failed`, `customer.subscription.updated`, and `customer.subscription.deleted`. Copy its signing secret into `STRIPE_WEBHOOK_SECRET`.
-3. Replace the `console.log` calls in the webhook's switch statement with real fulfillment before taking live payments.
-4. Test in Stripe **test mode** with card `4242 4242 4242 4242` (any future expiry/CVC), then swap Vercel's production env to live keys.
-
-## Contact Form
-
-`src/app/api/contact/route.ts` validates and currently **logs** submissions server-side (`console.log`) instead of sending them anywhere. Before going live, wire it up to a real provider — e.g. [Resend](https://resend.com), Postmark, or a CRM webhook (HubSpot, Salesforce) — using an API key stored as an environment variable/secret, never committed to the repo.
+`src/app/api/audit-request/route.ts` validates the audit form and emails the lead to bobby@mirflow.online through Resend. Set `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` (`Mirflow <leads@mirflow.online>`) in the host. The route returns 503 when the API key is missing and 502 when delivery fails. It does not log the submission. Page views use `@vercel/analytics`. There is no ad pixel.
 
 ## Content
 
@@ -87,9 +79,9 @@ Brand/nav/SEO defaults live in `src/lib/site-config.ts`.
 
 The project deploys cleanly to any Next.js-compatible host (Vercel, Netlify, etc.):
 
-1. Set the environment variables above in the hosting platform's dashboard (if you want Calendly/GA overrides).
+1. Set `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, and `NEXT_PUBLIC_BOOKING_URL` (only if there is a real booking link) in the hosting platform's dashboard.
 2. Deploy from the `main` branch — `npm run build` is the build command, and the app is a standard Next.js server (no special output mode configured).
-3. Point the production domain's DNS at the host, then update `NEXT_PUBLIC_CALENDLY_URL`/`siteConfig.url` if the domain differs from what's hardcoded in `src/lib/site-config.ts`.
+3. Point the production domain's DNS at the host. Production deploys come from `main`. Preview deploys come from pull requests.
 
 ### Vercel
 
