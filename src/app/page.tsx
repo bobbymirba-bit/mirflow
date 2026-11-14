@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowDownRight, ArrowRight } from "lucide-react";
 
+import { BookACall } from "@/components/book-a-call";
 import { DigitalOverview } from "@/components/digital-overview";
 import { siteConfig } from "@/lib/site-config";
 
@@ -21,8 +22,9 @@ export default function Home() {
               email and SMS marketing, SEO, AI workflows, and 24/7 voice agents, so you can focus on running your business.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-4">
-              <Link href="/#walkthrough" className={primaryButton}>
-                Get a free digital audit <ArrowRight size={16} aria-hidden="true" />
+              <BookACall className={primaryButton} />
+              <Link href="/#walkthrough" className="inline-flex items-center gap-1.5 text-sm font-semibold underline underline-offset-4 hover:text-primary">
+                Or get a free digital audit <ArrowDownRight size={15} aria-hidden="true" />
               </Link>
               <Link href="/services" className="inline-flex items-center gap-1.5 text-sm font-semibold underline underline-offset-4 hover:text-primary">
                 Explore services <ArrowDownRight size={15} aria-hidden="true" />
@@ -43,6 +45,9 @@ export default function Home() {
             <p className="font-semibold text-primary">One monthly retainer</p>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">We manage the ongoing work, keep your content and campaigns moving, and report on how the whole system is performing.</p>
           </div>
+          <Link href="/pricing" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline underline-offset-4 sm:col-span-2">
+            See packages, what&rsquo;s included, and what&rsquo;s not <ArrowRight size={15} aria-hidden="true" />
+          </Link>
         </div>
       </section>
 
@@ -77,9 +82,12 @@ export default function Home() {
           <p className="mt-4 max-w-xl text-muted-foreground">
             Tell us about your business and the digital work you want off your plate. We&rsquo;ll review what you have, identify the gaps, and talk through a plan.
           </p>
-          <a href={siteConfig.contactEmail} className={`mt-6 ${primaryButton}`}>
-            Request your free audit <ArrowRight size={16} aria-hidden="true" />
-          </a>
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+            <BookACall className={primaryButton} />
+            <a href={siteConfig.contactEmail} className="text-sm font-semibold text-primary underline underline-offset-4">
+              Or email Bobby for a free audit
+            </a>
+          </div>
         </div>
       </section>
     </>

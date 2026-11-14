@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Headphones, PhoneCall } from "lucide-react";
+import { Headphones, PhoneCall } from "lucide-react";
 
+import { BookACall } from "@/components/book-a-call";
 import { FrontDeskDemos } from "@/components/front-desk-demos";
 import { frontDeskOffer, siteConfig } from "@/lib/site-config";
 
@@ -27,8 +28,8 @@ export default function ReceptionistPage() {
             We set up a voice receptionist around your business hours, services, and routing rules. It can answer routine questions
             and send booking requests or callback details to your team.
           </p>
-          <p className="mt-4 font-semibold">{frontDeskOffer.price}</p>
-          <Link href="/#pricing" className="mt-2 inline-block text-sm text-primary underline underline-offset-4">See what’s included and the 14-day setup guarantee</Link>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">{frontDeskOffer.refund}</p>
+          <Link href="/pricing" className="mt-2 inline-block text-sm text-primary underline underline-offset-4">See what the all-in-one package covers</Link>
           <div className="mt-6 flex flex-wrap items-center gap-5">
             <a href={`tel:${siteConfig.voiceAgentTel}`} className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110">
               <PhoneCall size={17} aria-hidden="true" /> Call the AI voice agent {siteConfig.voiceAgentPhone}
@@ -36,9 +37,7 @@ export default function ReceptionistPage() {
             <Link href="/ai-receptionist#demos" className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-3 text-sm font-semibold text-primary hover:border-primary">
               <Headphones size={17} aria-hidden="true" /> Hear a real call
             </Link>
-            <Link href="/#walkthrough" className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline underline-offset-4">
-              Talk to Bobby <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+            <BookACall className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline underline-offset-4" />
           </div>
         </div>
       </section>

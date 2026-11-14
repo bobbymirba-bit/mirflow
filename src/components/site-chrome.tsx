@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BookACall } from "@/components/book-a-call";
 import { primaryNav, siteConfig } from "@/lib/site-config";
 
 export function Header() {
@@ -17,9 +18,10 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <Link href="/#walkthrough" className="justify-self-end rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground">
-          Talk to Bobby
-        </Link>
+        <BookACall
+          className="justify-self-end rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground"
+          showIcon={false}
+        />
       </div>
     </header>
   );

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { MessageCircle, Send, X } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 
+import { bookingUrl } from "@/lib/booking";
 import { buildIndex } from "@/lib/faq-search";
 
 const topics = [
@@ -44,17 +45,18 @@ const topics = [
     id: "price",
     question: "How does pricing work?",
     keywords: ["price", "pricing", "cost", "how much", "retainer", "rates", "setup fee", "budget"],
-    answer: "One setup fee covers the agreed build, and one monthly retainer covers ongoing management. We confirm the channels, deliverables, and price with you before work starts.",
-    href: "/services#pricing",
-    label: "See how we work",
+    answer: "One setup fee covers the agreed build, and one monthly retainer covers ongoing management. The pricing page has the list price, what’s included, and what isn’t. We confirm your scope and price in writing before work starts.",
+    href: "/pricing",
+    label: "See pricing",
   },
   {
     id: "contact",
     question: "How can I talk to Bobby?",
     keywords: ["bobby", "contact", "human", "email", "speak to someone", "reach out", "get started"],
-    answer: "Use the contact section to email Bobby. Share what you want to grow or what’s taking up too much of your team’s time.",
-    href: "/#walkthrough",
-    label: "Talk to Bobby",
+    answer: "Book a 30-minute call with Bobby and tell him what you want to grow or what’s taking up too much of your team’s time. You can also email him from the contact section.",
+    href: bookingUrl,
+    label: "Book a call",
+    external: true,
   },
 ];
 
@@ -67,11 +69,12 @@ const quickQuestions = [
 const search = buildIndex(topics);
 const fallback = {
   answer: "I couldn’t find an answer to that on the site. Bobby can help with questions about your specific business or project.",
-  href: "/#walkthrough",
-  label: "Talk to Bobby",
+  href: bookingUrl,
+  label: "Book a call",
+  external: true,
 };
 
-type Reply = { answer: string; href: string; label: string };
+type Reply = { answer: string; href: string; label: string; external?: boolean };
 type Turn = { question: string; reply: Reply };
 
 export function SiteAssistant() {
@@ -145,7 +148,11 @@ export function SiteAssistant() {
                 <p className="ml-7 rounded-xl bg-primary px-3 py-2 break-words text-primary-foreground"><span className="sr-only">You. </span>{asked}</p>
                 <div className="mr-5 rounded-xl bg-secondary/55 px-3 py-2">
                   <p><span className="sr-only">Mirflow. </span>{reply.answer}</p>
-                  <Link href={reply.href} onClick={() => setOpen(false)} className="mt-1 inline-block font-semibold text-primary underline underline-offset-4">{reply.label}</Link>
+                  {reply.external ? (
+                    <a href={reply.href} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="mt-1 inline-block font-semibold text-primary underline underline-offset-4">{reply.label}</a>
+                  ) : (
+                    <Link href={reply.href} onClick={() => setOpen(false)} className="mt-1 inline-block font-semibold text-primary underline underline-offset-4">{reply.label}</Link>
+                  )}
                 </div>
               </div>
             ))}

@@ -17,9 +17,13 @@ export const siteConfig = {
   contactEmail: "mailto:bobby@mirflow.online?subject=Mirflow%20free%20digital%20audit",
 };
 
+/**
+ * The voice receptionist offer. No amount here on purpose: the old
+ * "$2,000 setup + $500/month" figure is superseded, and the front desk is now
+ * quoted as part of the all-in-one scope on a call. See /pricing.
+ */
 export const frontDeskOffer = {
   name: "AI Front Desk",
-  price: "$2,000 setup + $500/month",
   refund: "If the front desk is still failing to handle real customer questions after 14 live days under the agreed checks, we refund the setup fee.",
 };
 
@@ -27,6 +31,7 @@ export type NavItem = { label: string; href: string };
 
 export const primaryNav: NavItem[] = [
   { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
   { label: "AI Front Desk", href: "/ai-receptionist" },
   { label: "AI Support", href: "/support-agent" },
 ];

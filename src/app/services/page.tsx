@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Globe2, Megaphone, Workflow } from "lucide-react";
 
+import { BookACall } from "@/components/book-a-call";
+
 const title = "Digital marketing and AI services";
 const description = "Explore Mirflow’s website design, social media management, LinkedIn outreach, paid ads, AI ad creative, and lead follow-up services.";
 
@@ -61,9 +63,12 @@ export default function ServicesPage() {
             <p className="text-xs font-semibold uppercase tracking-widest text-primary">Mirflow services</p>
             <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">One team to run your website, marketing, and AI</h1>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">We take the day-to-day work off your plate, from keeping your site current to running campaigns and making sure inquiries get a response.</p>
-            <Link href="/#walkthrough" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110">
-              Talk to Bobby <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <BookACall className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110" />
+              <Link href="/pricing" className="text-sm font-semibold text-primary underline underline-offset-4">
+                See what it costs
+              </Link>
+            </div>
           </div>
           <nav aria-label="Jump to a service" className="rounded-2xl border border-border bg-card/90 p-4 shadow-lg shadow-blue-950/5 sm:p-5">
             <p className="px-2 pb-2 text-xs font-semibold uppercase tracking-widest text-primary">Explore by goal</p>

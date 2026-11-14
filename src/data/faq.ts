@@ -26,7 +26,7 @@ export const faq: FaqEntry[] = [
     id: "launch-price",
     question: "How much does setup cost?",
     answer:
-      "The AI Front Desk is $2,000 setup plus $500 per month, month to month. If it is still failing to handle real customer questions after 14 live days under the agreed checks, we refund the setup fee. Additional support workflows are scoped separately.",
+      "We quote the front desk as part of the scope we agree with you: one setup fee for the build and one monthly retainer for the ongoing management. The pricing page has the current list price, and you get your figure in writing before anything starts. If the front desk is still failing to handle real customer questions after 14 live days under the agreed checks, we refund the setup fee.",
     keywords: ["price", "pricing", "cost", "fee", "setup", "one-time", "install", "how much", "pay"],
   },
   {
