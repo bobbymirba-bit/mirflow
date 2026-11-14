@@ -1,6 +1,6 @@
 import { LeadForm } from "@/components/lead-form";
 import { publicBookingUrl } from "@/lib/booking-url";
-import { listPrice } from "@/lib/site-config";
+import { foundingOffer, listPrice } from "@/lib/site-config";
 
 export function LeadSection({
   id = "walkthrough",
@@ -8,12 +8,14 @@ export function LeadSection({
   source,
   heading,
   lede,
+  showPrice = true,
 }: {
   id?: string;
   headingId?: string;
   source: string;
   heading: string;
   lede: string;
+  showPrice?: boolean;
 }) {
   const bookingUrl = publicBookingUrl(process.env.NEXT_PUBLIC_BOOKING_URL);
 
@@ -25,7 +27,12 @@ export function LeadSection({
             {heading}
           </h2>
           <p className="mt-4 max-w-xl text-muted-foreground">{lede}</p>
-          <p className="mt-4 font-semibold text-foreground">{listPrice.label}</p>
+          {showPrice ? (
+            <div className="mt-4 space-y-1">
+              <p className="font-semibold text-foreground">{foundingOffer.who}: {foundingOffer.label}</p>
+              <p className="text-sm text-muted-foreground">All-in-one list price: {listPrice.label}.</p>
+            </div>
+          ) : null}
         </div>
         <div className="min-w-0 rounded-2xl border border-border bg-card p-5 shadow-sm shadow-blue-950/5 sm:p-6">
           <LeadForm source={source} bookingUrl={bookingUrl} />

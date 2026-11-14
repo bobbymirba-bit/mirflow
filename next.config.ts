@@ -26,6 +26,7 @@ const mayReturn: [string, string][] = [
   ["/services/:path+", "/services"],
   ["/faq", "/support-agent#faq"],
   ["/contact", "/#walkthrough"],
+  ["/founding", "/med-spa"],
   ["/checkout", "/"],
   ["/checkout/:path*", "/"],
   ["/case-studies", "/"],

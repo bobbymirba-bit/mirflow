@@ -3,7 +3,7 @@ import { ArrowDownRight, ArrowRight } from "lucide-react";
 
 import { DigitalOverview } from "@/components/digital-overview";
 import { LeadSection } from "@/components/lead-section";
-import { listPrice } from "@/lib/site-config";
+import { foundingOffer, listPrice } from "@/lib/site-config";
 
 const primaryButton = "inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110";
 
@@ -36,7 +36,8 @@ export default function Home() {
 
       <section id="pricing" aria-label="How the engagement works" className="scroll-mt-28 border-b border-border bg-secondary/40 md:scroll-mt-16">
         <div className="container-page py-10">
-          <p className="font-semibold text-foreground">{listPrice.label}</p>
+          <p className="font-semibold text-foreground">{foundingOffer.who}: {foundingOffer.label}</p>
+          <p className="mt-1 text-sm text-muted-foreground">All-in-one list price: {listPrice.label}.</p>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
             <div>
               <p className="font-semibold text-primary">One setup fee</p>

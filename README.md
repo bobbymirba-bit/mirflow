@@ -57,7 +57,7 @@ Create a `.env.local` file (all variables are optional — the site works withou
 
 ## Price
 
-The only public price is **$2,997 one-time setup + $500/mo retainer, month-to-month** (`listPrice` in `src/lib/site-config.ts`). Checkout is retired. `/api/checkout` stays inert unless `CHECKOUT_ENABLED=true`, and even then it does not create a payment.
+The med spa receptionist founding rate for the first three med spas is **$497 setup + $500/month**. The all-in-one list price is **$2,997 setup + $1,497/month**. Both live in `src/lib/site-config.ts`. Checkout is retired. `/api/checkout` stays inert unless `CHECKOUT_ENABLED=true`, and even then it does not create a payment.
 
 ## Lead form
 

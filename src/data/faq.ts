@@ -1,4 +1,4 @@
-import { frontDeskOffer, listPrice } from "@/lib/site-config";
+import { foundingOffer, listPrice } from "@/lib/site-config";
 
 export type FaqEntry = {
   id: string;
@@ -28,14 +28,14 @@ export const faq: FaqEntry[] = [
     id: "launch-price",
     question: "How much does setup cost?",
     answer:
-      `The AI Front Desk is ${listPrice.label}. ${frontDeskOffer.refund} Additional support workflows are scoped separately.`,
+      `For the first three med spas, the AI receptionist and missed-call text-back is ${foundingOffer.label}. ${foundingOffer.term} The all-in-one list price is ${listPrice.label}.`,
     keywords: ["price", "pricing", "cost", "fee", "setup", "one-time", "install", "how much", "pay"],
   },
   {
     id: "care-price",
     question: "What does the monthly fee cover?",
     answer:
-      "The $500/mo retainer is month-to-month and covers ongoing management of the agreed front desk and follow-up workflow. Additional support work, such as new channels or integrations, is scoped with you separately.",
+      `At the founding rate, $500/month covers ongoing management of the agreed receptionist and missed-call text-back. The all-in-one package is $1,497/month. ${foundingOffer.term}`,
     keywords: ["monthly", "subscription", "maintenance", "ongoing", "month", "report", "plan", "price", "cost", "retainer"],
   },
   {

@@ -16,16 +16,18 @@ export const siteConfig = {
   founded: "2026",
 };
 
-/** The only public price. */
+/** All-in-one package. This is the list price and the post-cohort rate. */
 export const listPrice = {
-  label: "$2,997 one-time setup + $500/mo retainer, month-to-month",
+  name: "All-in-one package",
+  label: "$2,997 setup + $1,497/month",
 } as const;
 
-export const frontDeskOffer = {
-  name: "AI Front Desk",
-  price: listPrice.label,
-  refund: "If the front desk is still failing to handle real customer questions after 14 live days under the agreed checks, we refund the setup fee.",
-};
+/** AI receptionist and missed-call text-back for the first three med spas. */
+export const foundingOffer = {
+  who: "First three med spas",
+  label: "$497 setup + $500/month",
+  term: "The first 30 days are committed. After that, the plan is month to month and you can cancel with 14 days’ notice. A founding client agrees to a case study and a recorded testimonial interview within 60 days of go-live.",
+} as const;
 
 export type NavItem = { label: string; href: string };
 

@@ -6,7 +6,7 @@ import { MessageCircle, Send, X } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 
 import { buildIndex } from "@/lib/faq-search";
-import { listPrice } from "@/lib/site-config";
+import { foundingOffer, listPrice } from "@/lib/site-config";
 
 const topics = [
   {
@@ -45,9 +45,9 @@ const topics = [
     id: "price",
     question: "How does pricing work?",
     keywords: ["price", "pricing", "cost", "how much", "retainer", "rates", "setup fee", "budget"],
-    answer: `${listPrice.label}. One setup fee covers the agreed build, and the monthly retainer covers ongoing management. We confirm the channels, deliverables, and price with you before work starts.`,
-    href: "/services#pricing",
-    label: "See how we work",
+    answer: `For the first three med spas, the receptionist and missed-call text-back is ${foundingOffer.label}. The first 30 days are committed, then it is month to month with 14 days’ notice. The all-in-one list price is ${listPrice.label}.`,
+    href: "/med-spa",
+    label: "See the med spa offer",
   },
   {
     id: "contact",

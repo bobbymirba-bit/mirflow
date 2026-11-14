@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Headphones, PhoneCall } from "lucide-react";
 
 import { FrontDeskDemos } from "@/components/front-desk-demos";
-import { frontDeskOffer, siteConfig } from "@/lib/site-config";
+import { foundingOffer, listPrice, siteConfig } from "@/lib/site-config";
 
 const title = "AI Receptionist for Small Businesses";
 const description = "Mirflow sets up and manages an AI voice receptionist to answer calls, handle routine questions, and route booking requests and callbacks. Hear the live demo.";
@@ -27,8 +27,9 @@ export default function ReceptionistPage() {
             We set up a voice receptionist around your business hours, services, and routing rules. It can answer routine questions
             and send booking requests or callback details to your team.
           </p>
-          <p className="mt-4 font-semibold">{frontDeskOffer.price}</p>
-          <Link href="/#pricing" className="mt-2 inline-block text-sm text-primary underline underline-offset-4">See what’s included and the 14-day setup guarantee</Link>
+          <p className="mt-4 font-semibold">{foundingOffer.who}: {foundingOffer.label}</p>
+          <p className="mt-1 text-sm text-muted-foreground">All-in-one list price: {listPrice.label}.</p>
+          <Link href="/med-spa" className="mt-2 inline-block text-sm text-primary underline underline-offset-4">See the med spa receptionist</Link>
           <div className="mt-6 flex flex-wrap items-center gap-5">
             <a href={`tel:${siteConfig.voiceAgentTel}`} className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110">
               <PhoneCall size={17} aria-hidden="true" /> Call the AI voice agent {siteConfig.voiceAgentPhone}
