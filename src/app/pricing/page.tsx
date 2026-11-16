@@ -20,8 +20,7 @@ export const metadata: Metadata = {
   twitter: { title, description },
 };
 
-const primaryButton =
-  "inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110";
+const primaryButton = "btn-primary px-5 py-3";
 
 /**
  * No Offer structured data yet. Offer markup asserts a buyable price, and
@@ -97,7 +96,7 @@ export default async function PricingPage({
               return (
                 <article
                   key={pkg.id}
-                  className="flex flex-col rounded-2xl border border-primary bg-card p-5 shadow-sm shadow-blue-950/5 sm:p-7"
+                  className="flex flex-col rounded-2xl border border-primary/50 bg-card p-5 shadow-[0_0_48px_-22px_rgba(34,211,238,0.65)] sm:p-7"
                 >
                   <div className="flex flex-wrap items-center gap-3">
                     <h3 className="font-display text-2xl font-semibold tracking-tight">{pkg.name}</h3>

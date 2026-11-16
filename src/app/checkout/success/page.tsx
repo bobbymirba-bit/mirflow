@@ -119,7 +119,7 @@ export default async function CheckoutSuccessPage({
             </ol>
             <BookACall
               label="Book your kickoff call"
-              className="mt-5 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110"
+              className="btn-primary mt-5 px-5 py-3"
             />
           </>
         )}
@@ -139,7 +139,7 @@ export default async function CheckoutSuccessPage({
         <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110"
+            className="btn-primary px-5 py-3"
           >
             Back to the homepage
           </Link>

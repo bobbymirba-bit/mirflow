@@ -5,8 +5,7 @@ import { CalendlyEmbed } from "@/components/calendly-embed";
 import { INQUIRY_HREF, bookingUrl, isCalendlyUrl } from "@/lib/booking";
 import { siteConfig } from "@/lib/site-config";
 
-const primaryButton =
-  "inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110";
+const primaryButton = "btn-primary px-5 py-3";
 
 /**
  * Booking block used at the bottom of /pricing.

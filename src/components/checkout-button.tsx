@@ -41,7 +41,7 @@ export function CheckoutButton({ packageId, label }: { packageId: string; label:
         type="button"
         onClick={startCheckout}
         disabled={loading}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110 disabled:cursor-progress disabled:opacity-70"
+        className="btn-primary w-full px-5 py-3 disabled:cursor-progress disabled:opacity-70"
       >
         {loading ? (
           <>

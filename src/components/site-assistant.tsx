@@ -166,7 +166,7 @@ export function SiteAssistant() {
           </form>
         </section>
       )}
-      <button ref={launcher} type="button" aria-expanded={open} aria-controls={open ? "mirflow-chat" : undefined} onClick={() => open ? close() : setOpen(true)} className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg hover:brightness-110">
+      <button ref={launcher} type="button" aria-expanded={open} aria-controls={open ? "mirflow-chat" : undefined} onClick={() => open ? close() : setOpen(true)} className="btn-primary px-4 py-2.5">
         <MessageCircle size={17} aria-hidden="true" /> Ask Mirflow
       </button>
     </div>
