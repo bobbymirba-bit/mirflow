@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { url: `${baseUrl}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${baseUrl}/sms-consent`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
   ];
 
   const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({

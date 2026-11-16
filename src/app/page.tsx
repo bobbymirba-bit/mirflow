@@ -24,6 +24,7 @@ import { DemoVideos } from "@/components/visuals/demo-videos";
 import { IntegrationsMarquee } from "@/components/visuals/integrations-marquee";
 import { SpotlightCard } from "@/components/visuals/spotlight-card";
 import { workflows, assessmentDeliverables } from "@/data/workflows";
+import { AuditForm } from "@/components/audit-form";
 
 export const metadata: Metadata = {
   title: "AI Workflow Consulting for Finance & Operations",
@@ -104,8 +105,8 @@ export default function Home() {
             <Reveal delay={0.24}>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button asChild size="lg" variant="gradient">
-                  <Link href="/ai-assessment">
-                    Start your workflow assessment
+                  <Link href="#audit">
+                    Get your free digital audit
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
@@ -333,11 +334,42 @@ export default function Home() {
       <CtaSection
         title="Which workflow is slowing your team down?"
         description="Bring one recurring bottleneck. We’ll help you work out whether AI belongs there and what a sensible first project looks like."
-        primaryLabel="Start your assessment"
-        primaryHref="/ai-assessment"
+        primaryLabel="Get your free digital audit"
+        primaryHref="/#audit"
         secondaryLabel="Explore workflow examples"
         secondaryHref="/#workflows"
       />
+
+      <section id="audit" className="scroll-mt-28 border-t border-white/5 py-20 sm:py-28">
+        <div className="container-page">
+          <Reveal>
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#07090f] p-8 sm:p-14">
+              <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-70 [mask-image:radial-gradient(ellipse_at_center,black,transparent_78%)]" />
+              <div aria-hidden className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-[radial-gradient(closest-side,rgba(34,211,238,.3),transparent)] blur-2xl" />
+              <div aria-hidden className="pointer-events-none absolute -bottom-40 -right-24 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(closest-side,rgba(139,92,246,.3),transparent)] blur-2xl" />
+              <div aria-hidden className="hairline-gradient absolute inset-x-10 top-0" />
+
+              <div className="relative grid gap-12 lg:grid-cols-2 lg:items-start">
+                <div className="min-w-0 max-w-xl">
+                  <Badge variant="brand">Free digital audit</Badge>
+                  <h2 className="mt-7 text-balance font-display text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl">
+                    Get your free digital audit
+                  </h2>
+                  <p className="mt-6 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    Request a free digital audit of your business&apos;s online presence and missed-lead leaks. Bobby
+                    reviews each request. The audit is a written look at what is already public. It does not promise
+                    revenue, rankings, or more leads.
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    Phone and website are optional. You can also book a call if you would rather talk it through.
+                  </p>
+                </div>
+                <AuditForm />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

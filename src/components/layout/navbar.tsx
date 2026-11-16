@@ -57,8 +57,8 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <Button asChild variant="gradient" size="default" className="hidden lg:inline-flex">
-              <Link href="/ai-assessment">
-                Start an assessment
+              <Link href="/#audit">
+                Get your free digital audit
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -120,8 +120,8 @@ export function Navbar() {
 
                 <div className="mt-6 flex items-center justify-end border-t border-white/10 pt-6">
                   <Button asChild variant="gradient">
-                    <Link href="/ai-assessment" onClick={() => setMobileOpen(false)}>
-                      Start an assessment
+                    <Link href="/#audit" onClick={() => setMobileOpen(false)}>
+                      Get your free digital audit
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>

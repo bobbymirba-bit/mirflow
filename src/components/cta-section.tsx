@@ -8,8 +8,8 @@ import { Reveal } from "@/components/motion/reveal";
 export function CtaSection({
   title = "Find the first workflow worth building.",
   description = "Tell us where work is slow, repetitive, or risky. We'll help you decide what to build, what to buy, and what to leave alone.",
-  primaryLabel = "Start your workflow assessment",
-  primaryHref = "/ai-assessment",
+  primaryLabel = "Get your free digital audit",
+  primaryHref = "/#audit",
   secondaryLabel = "Read workflow examples",
   secondaryHref = "/#workflows",
 }: {
