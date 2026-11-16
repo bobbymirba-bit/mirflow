@@ -1,3 +1,25 @@
+const DEFAULT_CALENDLY_URL = "https://calendly.com/bobbymirba/30min";
+
+/** Honor NEXT_PUBLIC_CALENDLY_URL only when it is an https URL on calendly.com. */
+function resolveCalendlyUrl(value: string | undefined): string {
+  const raw = value?.trim();
+  if (!raw) return DEFAULT_CALENDLY_URL;
+  try {
+    const url = new URL(raw);
+    const host = url.hostname.toLowerCase();
+    const onCalendly = host === "calendly.com" || host.endsWith(".calendly.com");
+    if (url.protocol !== "https:" || !onCalendly || url.username || url.password) {
+      return DEFAULT_CALENDLY_URL;
+    }
+    url.hash = "";
+    url.search = "";
+    if (url.pathname.length > 1) url.pathname = url.pathname.replace(/\/+$/, "");
+    return url.toString();
+  } catch {
+    return DEFAULT_CALENDLY_URL;
+  }
+}
+
 export const siteConfig = {
   name: "Mirflow",
   legalName: "Mirflow AI",
@@ -19,8 +41,7 @@ export const siteConfig = {
     github: "https://github.com/bobbymirba-bit/mirflow",
     youtube: "https://youtube.com/@mirflow",
   },
-  calendlyUrl:
-    process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/mirflow/intro-call",
+  calendlyUrl: resolveCalendlyUrl(process.env.NEXT_PUBLIC_CALENDLY_URL),
 };
 
 export type NavItem = {
@@ -179,6 +200,7 @@ export const footerNav = {
   Legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
+    { label: "Text Message Consent", href: "/sms-consent" },
   ],
 };
   
