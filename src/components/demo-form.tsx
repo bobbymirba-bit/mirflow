@@ -43,7 +43,7 @@ export function DemoForm({ prefillQuestion, compact = false }: { prefillQuestion
   }
 
   const field =
-    "w-full rounded-lg border border-input bg-white px-3.5 py-2.5 text-base text-foreground placeholder:text-muted-foreground/70 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/30";
+    "w-full rounded-lg border border-input bg-background px-3.5 py-2.5 text-base text-foreground placeholder:text-muted-foreground/70 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/30";
 
   return (
     <form onSubmit={onSubmit} className="space-y-3 text-left" noValidate={false}>
@@ -72,7 +72,7 @@ export function DemoForm({ prefillQuestion, compact = false }: { prefillQuestion
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground shadow-sm transition hover:brightness-110 disabled:opacity-60"
+        className="btn-primary w-full px-5 py-3 disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : "Get a free demo agent built on your help center"}
       </button>

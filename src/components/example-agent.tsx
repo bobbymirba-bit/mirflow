@@ -21,7 +21,8 @@ export function ExampleAgent() {
   const logRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    logRef.current?.scrollTo({ top: logRef.current.scrollHeight, behavior: "smooth" });
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    logRef.current?.scrollTo({ top: logRef.current.scrollHeight, behavior: reduce ? "auto" : "smooth" });
   }, [messages, handoffFor]);
 
   function ask(q: string) {
@@ -38,7 +39,7 @@ export function ExampleAgent() {
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-      <div className="flex items-center justify-between gap-3 border-b border-border bg-white/60 px-4 py-3">
+      <div className="flex items-center justify-between gap-3 border-b border-border bg-white/[0.04] px-4 py-3">
         <div>
           <p className="text-sm font-semibold">Mirflow example agent</p>
           <p className="text-xs text-muted-foreground">A quick example with answers from the Mirflow site.</p>
@@ -72,7 +73,7 @@ export function ExampleAgent() {
           )
         )}
         {handoffFor ? (
-          <div className="rounded-xl border border-border bg-white p-4">
+          <div className="rounded-xl border border-border bg-white/[0.04] p-4">
             <p className="mb-3 text-sm">Email your question to Mirflow for a human reply.</p>
             <a href={`mailto:${siteConfig.email}?subject=Support%20agent%20question&body=${encodeURIComponent(handoffFor)}`} className="text-sm font-semibold text-primary underline underline-offset-2">
               Email Mirflow
@@ -84,7 +85,7 @@ export function ExampleAgent() {
       <div className="border-t border-border px-4 py-3">
         <div className="mb-2 flex flex-wrap gap-2">
           {suggestions.map((s) => (
-            <button key={s} type="button" onClick={() => ask(s)} className="rounded-full border border-border bg-white px-3 py-1 text-xs text-muted-foreground transition hover:border-primary hover:text-foreground">
+            <button key={s} type="button" onClick={() => ask(s)} className="rounded-full border border-border bg-white/[0.04] px-3 py-1 text-xs text-muted-foreground transition hover:border-primary hover:text-foreground">
               {s}
             </button>
           ))}
@@ -102,7 +103,7 @@ export function ExampleAgent() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask a question…"
-            className="min-w-0 flex-1 rounded-lg border border-input bg-white px-3.5 py-2.5 text-base focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/30"
+            className="min-w-0 flex-1 rounded-lg border border-input bg-background px-3.5 py-2.5 text-base focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/30"
           />
           <button type="submit" className="rounded-lg bg-foreground px-4 py-2.5 text-sm font-semibold text-background">Ask</button>
         </form>

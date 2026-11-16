@@ -4,6 +4,8 @@ import { Headphones, PhoneCall } from "lucide-react";
 
 import { BookACall } from "@/components/book-a-call";
 import { FrontDeskDemos } from "@/components/front-desk-demos";
+import { Badge } from "@/components/ui/badge";
+import { HeroCanvas } from "@/components/visuals/hero-canvas";
 import { frontDeskOffer, siteConfig } from "@/lib/site-config";
 
 const title = "AI Receptionist for Small Businesses";
@@ -20,10 +22,13 @@ export const metadata: Metadata = {
 export default function ReceptionistPage() {
   return (
     <>
-      <section className="border-b border-border blue-hero">
-        <div className="container-page py-14 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Mirflow AI Front Desk</p>
-          <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">Give callers a next step when you can’t pick up</h1>
+      <section className="relative overflow-hidden border-b border-white/5">
+        <HeroCanvas className="absolute inset-0 h-full w-full opacity-45" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-70 [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
+        <div className="container-page relative py-14 sm:py-20">
+          <Badge variant="brand">Mirflow AI Front Desk</Badge>
+          <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Give callers a next step when you can’t pick up</h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
             We set up a voice receptionist around your business hours, services, and routing rules. It can answer routine questions
             and send booking requests or callback details to your team.
@@ -31,10 +36,10 @@ export default function ReceptionistPage() {
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">{frontDeskOffer.refund}</p>
           <Link href="/pricing" className="mt-2 inline-block text-sm text-primary underline underline-offset-4">See what the all-in-one package covers</Link>
           <div className="mt-6 flex flex-wrap items-center gap-5">
-            <a href={`tel:${siteConfig.voiceAgentTel}`} className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110">
+            <a href={`tel:${siteConfig.voiceAgentTel}`} className="btn-primary px-5 py-3">
               <PhoneCall size={17} aria-hidden="true" /> Call the AI voice agent {siteConfig.voiceAgentPhone}
             </a>
-            <Link href="/ai-receptionist#demos" className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-3 text-sm font-semibold text-primary hover:border-primary">
+            <Link href="/ai-receptionist#demos" className="btn-outline px-5 py-3">
               <Headphones size={17} aria-hidden="true" /> Hear a real call
             </Link>
             <BookACall className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline underline-offset-4" />

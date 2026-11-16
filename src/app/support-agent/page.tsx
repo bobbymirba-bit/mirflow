@@ -4,6 +4,7 @@ import { MessagesSquare, Route, SlidersHorizontal } from "lucide-react";
 
 import { BookACall } from "@/components/book-a-call";
 import { ExampleAgent } from "@/components/example-agent";
+import { SpotlightCard } from "@/components/visuals/spotlight-card";
 import { faq } from "@/data/faq";
 import { siteConfig } from "@/lib/site-config";
 
@@ -38,7 +39,7 @@ export default function SupportAgent() {
             phone reception, and lead routing so customers get an answer and your team knows what to do next.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-5">
-            <BookACall className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground" />
+            <BookACall className="btn-primary px-5 py-3" />
             <a href={`mailto:${siteConfig.email}`} className="text-sm font-semibold text-primary underline underline-offset-4">
               Or email Bobby
             </a>
@@ -49,11 +50,11 @@ export default function SupportAgent() {
       <section aria-label="What Mirflow handles" className="border-b border-border bg-background">
         <div className="container-page grid gap-4 py-10 lg:grid-cols-3">
           {outcomes.map(({ title, detail, icon: Icon }) => (
-            <article key={title} className="rounded-2xl border border-border bg-card p-5 shadow-sm shadow-blue-950/5">
+            <SpotlightCard key={title} className="p-5">
               <Icon size={23} className="text-primary" aria-hidden="true" />
               <h2 className="mt-3 font-display text-xl font-semibold">{title}</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{detail}</p>
-            </article>
+            </SpotlightCard>
           ))}
         </div>
       </section>

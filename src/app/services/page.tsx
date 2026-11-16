@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowRight, Globe2, Megaphone, Workflow } from "lucide-react";
 
 import { BookACall } from "@/components/book-a-call";
+import { Badge } from "@/components/ui/badge";
+import { SpotlightCard } from "@/components/visuals/spotlight-card";
 
 const title = "Digital marketing and AI services";
 const description = "Explore Mirflow’s website design, social media management, LinkedIn outreach, paid ads, AI ad creative, and lead follow-up services.";
@@ -60,11 +62,11 @@ export default function ServicesPage() {
       <section className="border-b border-border blue-hero">
         <div className="container-page grid gap-8 py-14 sm:py-20 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Mirflow services</p>
+            <Badge variant="brand">Mirflow services</Badge>
             <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">One team to run your website, marketing, and AI</h1>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">We take the day-to-day work off your plate, from keeping your site current to running campaigns and making sure inquiries get a response.</p>
             <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
-              <BookACall className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:brightness-110" />
+              <BookACall className="btn-primary px-5 py-3" />
               <Link href="/pricing" className="text-sm font-semibold text-primary underline underline-offset-4">
                 See what it costs
               </Link>
@@ -93,7 +95,8 @@ export default function ServicesPage() {
           </p>
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {services.map(({ id, title, icon: Icon, description, items }, index) => (
-              <article id={id} key={id} className="scroll-mt-28 rounded-2xl border border-border bg-card bg-linear-to-b from-secondary/55 to-transparent to-45% p-5 shadow-sm shadow-blue-950/5 sm:p-6 md:scroll-mt-20">
+              <article id={id} key={id} className="scroll-mt-28 h-full md:scroll-mt-20">
+              <SpotlightCard className="h-full p-5 sm:p-6">
                 <div className="flex items-center justify-between">
                   <span className="grid size-11 place-items-center rounded-xl bg-secondary text-primary"><Icon size={21} aria-hidden="true" /></span>
                   <span aria-hidden="true" className="text-xs font-semibold tracking-widest text-muted-foreground">0{index + 1}</span>
@@ -111,6 +114,7 @@ export default function ServicesPage() {
                   ))}
                 </dl>
                 {id === "response" && <Link href="/support-agent" className="mt-4 inline-block text-sm font-semibold text-primary underline underline-offset-4">Explore AI support and lead routing</Link>}
+              </SpotlightCard>
               </article>
             ))}
           </div>
@@ -125,10 +129,12 @@ export default function ServicesPage() {
           </h2>
           <ol className="mt-8 grid gap-5 md:grid-cols-3">
             {steps.map(([title, detail], index) => (
-              <li key={title} className="rounded-2xl border border-border bg-card p-5 shadow-sm shadow-blue-950/5 sm:p-6">
+              <li key={title}>
+                <SpotlightCard className="h-full p-5 sm:p-6">
                 <span className="font-display text-3xl text-primary" aria-hidden="true">0{index + 1}</span>
                 <h3 className="mt-3 font-semibold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{detail}</p>
+                </SpotlightCard>
               </li>
             ))}
           </ol>
