@@ -1,67 +1,36 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowRight, Loader2 } from "lucide-react";
+import * as React from "react";
+import { Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-/**
- * Starts Stripe Checkout for one package. Sends only the package id — the
- * server resolves the Price IDs and verifies the amounts, so there is nothing
- * here a visitor could tamper with to change what they are charged.
- */
-export function CheckoutButton({ packageId, label }: { packageId: string; label: string }) {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+export function CheckoutButton({ plan }: { plan: string }) {
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState("");
 
-  async function startCheckout() {
+  async function checkout() {
     setLoading(true);
     setError("");
-    try {
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ packageId }),
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok || !data.url) {
-        setError(data.error ?? "We couldn't start checkout. Please try again.");
-        setLoading(false);
-        return;
-      }
-      // Leaving the page, so `loading` intentionally stays true.
-      window.location.href = data.url;
-    } catch {
-      setError("We couldn't reach the payment page. Check your connection and try again.");
+    const response = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ plan }),
+    });
+    const data = await response.json();
+    if (!response.ok || !data.url) {
+      setError(data.error ?? "Checkout is not available yet.");
       setLoading(false);
+      return;
     }
+    window.location.href = data.url;
   }
 
   return (
-    <div className="mt-6">
-      <button
-        type="button"
-        onClick={startCheckout}
-        disabled={loading}
-        className="btn-primary w-full px-5 py-3 disabled:cursor-progress disabled:opacity-70"
-      >
-        {loading ? (
-          <>
-            <Loader2 size={16} className="motion-safe:animate-spin" aria-hidden="true" /> Opening secure checkout…
-          </>
-        ) : (
-          <>
-            {label} <ArrowRight size={16} aria-hidden="true" />
-          </>
-        )}
-      </button>
-      <p aria-live="polite" className="sr-only">
-        {loading ? "Opening secure checkout" : ""}
-      </p>
-      {error ? (
-        <p role="alert" className="mt-3 text-sm font-medium text-destructive">
-          {error}
-        </p>
-      ) : null}
-      <p className="mt-3 text-xs text-muted-foreground">Payments are processed securely by Stripe.</p>
+    <div>
+      <Button onClick={checkout} variant="gradient" size="lg" className="w-full" disabled={loading}>
+        {loading ? <><Loader2 className="h-4 w-4 animate-spin" />Opening secure checkout…</> : "Continue to secure checkout"}
+      </Button>
+      {error ? <p className="mt-3 text-sm text-destructive">{error}</p> : null}
     </div>
   );
 }

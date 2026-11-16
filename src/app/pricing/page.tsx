@@ -1,224 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check, Info } from "lucide-react";
-
-import { BookACall } from "@/components/book-a-call";
-import { BookingSection } from "@/components/booking-section";
-import { CheckoutButton } from "@/components/checkout-button";
-import { exclusions, formatUsd, servicePackages } from "@/data/pricing";
-import { isTestMode, purchasablePackageIds } from "@/lib/checkout-config";
-
-const title = "Pricing";
-const description =
-  "Mirflow's all-in-one package for websites, social media, LinkedIn outreach, paid ads, email and SMS, SEO, AI workflows, and AI voice reception. One setup fee, one monthly retainer, and what it excludes.";
+import { ArrowRight, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CtaSection } from "@/components/cta-section";
 
 export const metadata: Metadata = {
-  title,
-  description,
+  title: "Pricing",
+  description: "Start with a 30-minute introductory conversation, followed by a fixed-scope AI Workflow Assessment and separately scoped implementation.",
   alternates: { canonical: "/pricing" },
-  openGraph: { title, description, url: "/pricing" },
-  twitter: { title, description },
 };
 
-const primaryButton = "btn-primary px-5 py-3";
+const stages = [
+  { number: "01", name: "Introductory conversation", price: "$0", suffix: "30 minutes", description: "Bring one recurring finance or operations bottleneck. We confirm whether it is a sensible assessment candidate and explain what information we would need.", features: ["One workflow discussed", "Initial fit and risk check", "No payment or commitment", "Assessment scope proposed afterward"], cta: "Request a conversation", href: "/ai-assessment" },
+  { number: "02", name: "AI Workflow Assessment", price: "Fixed fee", suffix: "agreed before work begins", description: "We map the current process, establish a measurable baseline, define human checkpoints, and recommend whether to build, buy, or leave the workflow alone.", features: ["Current-state workflow map", "Business case and success measures", "Data, security, and approval boundaries", "Scoped first-project recommendation"], cta: "Start with the assessment", href: "/ai-assessment", featured: true },
+  { number: "03", name: "Implementation & support", price: "Custom scope", suffix: "separate proposal", description: "If the assessment supports moving forward, we can build a focused pilot, connect approved systems, train the team, and provide ongoing support where useful.", features: ["Focused pilot or implementation", "Testing and exception handling", "Team training and documentation", "Optional ongoing improvement"], cta: "Discuss a workflow", href: "/ai-assessment" },
+];
 
-/**
- * No Offer structured data yet. Offer markup asserts a buyable price, and
- * nothing here is buyable until a package is added to APPROVED_PACKAGES with
- * matching Stripe Prices. Add it then, not before.
- */
-export default async function PricingPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ checkout?: string }>;
-}) {
-  const { checkout } = await searchParams;
-  const purchasable = purchasablePackageIds();
-  const testMode = isTestMode();
+const questions = [
+  ["Why isn’t there one assessment price?", "A single-team reporting workflow and a multi-system finance process require different access, interviews, and analysis. After the introductory conversation, we define the deliverables and give you one fixed fee before work begins."],
+  ["Do we need to commit to implementation?", "No. The assessment stands on its own. You receive a build, buy, or skip recommendation and can decide what to do next."],
+  ["Are software and AI usage included?", "Any third-party software, model usage, hosting, or integration costs are identified in the implementation proposal. Nothing is purchased on your behalf without agreement."],
+  ["Can you work within a budget?", "Yes. Share the investment range and constraints during the introductory conversation. We will tell you whether a useful assessment or first project fits that range."],
+];
 
-  return (
-    <>
-      <section className="border-b border-border blue-hero">
-        <div className="container-page py-14 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Pricing</p>
-          <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            One setup fee. One monthly retainer. Scope agreed up front.
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            A one-time setup fee for the build, then a flat monthly retainer for the ongoing management. We confirm the
-            channels, the deliverables, and the price in writing before any work or payment starts.
-          </p>
-          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
-            <Link href="/pricing#book" className={primaryButton}>
-              Book a call <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-            <Link href="/services" className="text-sm font-semibold text-primary underline underline-offset-4">
-              See what each service covers
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {checkout === "cancelled" ? (
-        <div role="status" className="border-b border-border bg-secondary/60">
-          <p className="container-page py-4 text-sm">
-            <strong className="font-semibold">Checkout cancelled.</strong> Nothing was charged.{" "}
-            <Link href="/pricing#book" className="text-primary underline underline-offset-4">
-              Book a call
-            </Link>{" "}
-            and we&rsquo;ll talk it through.
-          </p>
-        </div>
-      ) : null}
-
-      {testMode ? (
-        <div role="status" className="border-b border-border bg-warning/15">
-          <p className="container-page py-4 text-sm">
-            <strong className="font-semibold">Stripe test mode.</strong> This deployment uses Stripe test keys. No real
-            card can be charged here.
-          </p>
-        </div>
-      ) : null}
-
-      <section id="packages" aria-labelledby="packages-heading" className="scroll-mt-28 border-b border-border md:scroll-mt-16">
-        <div className="container-page py-14 sm:py-20">
-          <h2 id="packages-heading" className="max-w-3xl text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            What it costs
-          </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            We run the whole digital side as one package rather than selling the pieces separately. If you only need
-            part of it, we scope and price that on a call.
-          </p>
-
-          <div className="mt-9 grid max-w-3xl gap-5">
-            {servicePackages.map((pkg) => {
-              const canBuy = purchasable.has(pkg.id);
-              return (
-                <article
-                  key={pkg.id}
-                  className="flex flex-col rounded-2xl border border-primary/50 bg-card p-5 shadow-[0_0_48px_-22px_rgba(34,211,238,0.65)] sm:p-7"
-                >
-                  <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="font-display text-2xl font-semibold tracking-tight">{pkg.name}</h3>
-                    {pkg.listPrice ? (
-                      <span className="rounded-full border border-primary/40 bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
-                        List price
-                      </span>
-                    ) : null}
-                  </div>
-
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pkg.summary}</p>
-
-                  {pkg.listPrice ? (
-                    <dl className="mt-6 grid gap-4 border-y border-border py-5 sm:grid-cols-2">
-                      <div>
-                        <dt className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Setup</dt>
-                        <dd className="mt-1 font-display text-3xl font-semibold">{formatUsd(pkg.listPrice.setupCents)}</dd>
-                        <dd className="mt-1 text-xs text-muted-foreground">One time, covers the build</dd>
-                      </div>
-                      <div>
-                        <dt className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Monthly</dt>
-                        <dd className="mt-1 font-display text-3xl font-semibold">
-                          {formatUsd(pkg.listPrice.monthlyCents)}
-                          <span className="text-base font-normal text-muted-foreground">/mo</span>
-                        </dd>
-                        <dd className="mt-1 text-xs text-muted-foreground">Ongoing management, month to month</dd>
-                      </div>
-                    </dl>
-                  ) : (
-                    <div className="mt-6 border-y border-border py-5">
-                      <p className="font-display text-2xl font-semibold">Book a call for pricing</p>
-                      <p className="mt-1.5 text-sm text-muted-foreground">
-                        We quote this scope on a call and confirm the figure in writing. No amount is published here
-                        until it is settled.
-                      </p>
-                    </div>
-                  )}
-
-                  <h4 className="mt-6 text-xs font-semibold uppercase tracking-widest text-primary">What&rsquo;s included</h4>
-                  <ul className="mt-3 space-y-2.5 text-sm">
-                    {pkg.includes.map((item) => (
-                      <li key={item} className="flex gap-2.5">
-                        <Check size={16} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
-                        <span className="leading-relaxed text-muted-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {pkg.note ? <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{pkg.note}</p> : null}
-
-                  <div className="mt-auto">
-                    {canBuy ? (
-                      <CheckoutButton packageId={pkg.id} label={`Start ${pkg.name}`} />
-                    ) : (
-                      <div className="mt-6">
-                        <BookACall className={`w-full justify-center ${primaryButton}`} />
-                        <p className="mt-3 text-xs text-muted-foreground">
-                          We don&rsquo;t take card payments online yet. We agree the scope on the call and invoice you
-                          directly.
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className="mt-8 flex max-w-3xl gap-3 rounded-2xl border border-border bg-secondary/40 p-5">
-            <Info size={18} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              <strong className="font-semibold text-foreground">This is the list price, not a quote.</strong> What you
-              pay depends on the scope we agree — the channels you want managed, what already exists, and how much of
-              the build is new. You get that in writing before anything starts.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="billing-heading" className="border-b border-border bg-card">
-        <div className="container-page py-14 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">How billing works</p>
-          <h2 id="billing-heading" className="mt-3 max-w-3xl text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            What you pay, and when
-          </h2>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {[
-              ["When you start", "The one-time setup fee and your first month are invoiced together, once the scope is agreed in writing."],
-              ["Every month after", "Only the monthly retainer renews, on the same day each month, until you cancel."],
-              ["Cancelling", "Tell us and we stop the retainer at the end of the current month. The setup fee is not refundable except where a package says otherwise."],
-            ].map(([heading, detail]) => (
-              <div key={heading} className="rounded-2xl border border-border bg-background p-5 shadow-sm shadow-blue-950/5 sm:p-6">
-                <h3 className="font-semibold">{heading}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="exclusions-heading" className="border-b border-border">
-        <div className="container-page py-14 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Not included</p>
-          <h2 id="exclusions-heading" className="mt-3 max-w-3xl text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            What the fees don&rsquo;t cover
-          </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            These are real costs on most engagements. They&rsquo;re billed by the vendor rather than marked up by us, and
-            we agree on the budget before anything starts.
-          </p>
-          <dl className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
-            {exclusions.map(([name, detail]) => (
-              <div key={name} className="border-t border-border pt-5">
-                <dt className="font-semibold">{name}</dt>
-                <dd className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{detail}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      <BookingSection />
-    </>
-  );
+export default function PricingPage() {
+  return <>
+    <section className="border-b border-border bg-[#070910]/60 text-foreground"><div className="container-page py-20 sm:py-28"><p className="text-xs font-semibold uppercase tracking-[.2em] text-primary">Pricing</p><div className="mt-6 grid gap-7 lg:grid-cols-[1.1fr_.9fr] lg:items-end"><h1 className="max-w-3xl font-display text-5xl leading-[1.02] tracking-[-.045em] sm:text-7xl">Start with clarity.<br />Price the work you need.</h1><p className="max-w-xl text-lg leading-relaxed text-white/70">Every engagement starts with a free 30-minute conversation. We then define a focused assessment and give you a fixed fee before any paid work begins.</p></div></div></section>
+    <section className="container-page py-16 sm:py-24"><div className="grid gap-px border border-border bg-border lg:grid-cols-3">{stages.map(stage => <article key={stage.number} className={`flex flex-col p-7 sm:p-9 ${stage.featured ? "bg-[#070910]/60 text-foreground" : "bg-card"}`}><p className={`text-xs uppercase tracking-[.18em] ${stage.featured ? "text-primary" : "text-primary"}`}>{stage.number} / {stage.name}</p><p className="mt-8 font-display text-4xl">{stage.price}</p><p className={`mt-2 text-sm ${stage.featured ? "text-white/55" : "text-muted-foreground"}`}>{stage.suffix}</p><p className={`mt-7 min-h-24 text-sm leading-relaxed ${stage.featured ? "text-white/70" : "text-muted-foreground"}`}>{stage.description}</p><ul className={`mt-7 space-y-3 border-t pt-6 text-sm ${stage.featured ? "border-white/20" : "border-border"}`}>{stage.features.map(feature => <li key={feature} className="flex gap-3"><Check className={`mt-0.5 h-4 w-4 shrink-0 ${stage.featured ? "text-primary" : "text-primary"}`} />{feature}</li>)}</ul><Button asChild variant={stage.featured ? "gradient" : "outline"} className="mt-9 w-full"><Link href={stage.href}>{stage.cta}<ArrowRight className="h-4 w-4" /></Link></Button></article>)}</div><p className="mt-7 max-w-3xl text-sm leading-relaxed text-muted-foreground">Assessment fees depend on the workflow, systems involved, stakeholder access, and required analysis. Implementation is quoted separately so you can use the assessment without being locked into a build. Tax, legal, payment, and compliance decisions remain with your qualified professionals.</p></section>
+    <section className="border-y border-border bg-secondary/50"><div className="container-page grid gap-12 py-16 sm:py-24 lg:grid-cols-[.8fr_1.2fr]"><div><p className="text-xs font-semibold uppercase tracking-[.2em] text-primary">Common questions</p><h2 className="mt-5 font-display text-4xl tracking-tight sm:text-5xl">Know what you are buying.</h2></div><dl className="space-y-8">{questions.map(([question, answer]) => <div key={question} className="border-t border-border pt-5"><dt className="text-lg font-semibold">{question}</dt><dd className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">{answer}</dd></div>)}</dl></div></section>
+    <CtaSection title="Bring us one workflow." description="We’ll confirm fit, define the assessment, and give you a fixed fee before any paid work begins." primaryLabel="Request an introductory conversation" primaryHref="/ai-assessment" secondaryLabel="Explore workflow examples" secondaryHref="/#workflows" />
+  </>;
 }

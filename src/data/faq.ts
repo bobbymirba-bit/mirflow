@@ -1,102 +1,94 @@
-export type FaqEntry = {
-  id: string;
+export type FaqItem = {
   question: string;
   answer: string;
-  /** Extra search terms (synonyms) that point to this entry. */
-  keywords: string[];
+  category: "General" | "Implementation" | "Pricing" | "Technical" | "Security";
 };
 
-/** Mirflow's own FAQ. The example on the support-agent page answers only from these entries. */
-export const faq: FaqEntry[] = [
+export const faqs: FaqItem[] = [
   {
-    id: "what-is-mirflow",
-    question: "What does the support agent do?",
+    category: "General",
+    question: "What exactly does Mirflow do?",
     answer:
-      "Mirflow builds and manages customer support workflows as part of its all-in-one digital service. We help customers get routine answers, find a booking path, or reach the right person, then keep improving how those steps work together.",
-    keywords: ["service", "offer", "about", "company", "build", "chatbot", "support", "bot", "who"],
+      "Mirflow designs, builds, and operates AI automation systems for your business — from AI receptionists and chatbots to back-office and document automation. We handle the strategy, build, deployment, and ongoing optimization, not just the software.",
   },
   {
-    id: "free-demo",
-    question: "How can we try the agent?",
+    category: "General",
+    question: "How is Mirflow different from buying a SaaS AI tool myself?",
     answer:
-      "Try the example on this page to see a website answer and handoff. On the AI Receptionist page you can also listen to a recording or call our voice agent.",
-    keywords: ["demo", "free", "trial", "try", "test", "sample", "start"],
+      "Off-the-shelf tools require you to configure, train, and maintain them yourself, and rarely handle more than one narrow task. Mirflow designs a system around your actual workflows, integrates it with your existing tools, and continues optimizing it after launch.",
   },
   {
-    id: "launch-price",
-    question: "How much does setup cost?",
+    category: "Implementation",
+    question: "How long does it take to go live?",
     answer:
-      "We quote the front desk as part of the scope we agree with you: one setup fee for the build and one monthly retainer for the ongoing management. The pricing page has the current list price, and you get your figure in writing before anything starts. If the front desk is still failing to handle real customer questions after 14 live days under the agreed checks, we refund the setup fee.",
-    keywords: ["price", "pricing", "cost", "fee", "setup", "one-time", "install", "how much", "pay"],
+      "Our standard lead follow-up system can go live within 24 hours after we receive access to your lead source, calendar, and messaging tools. Custom voice agents, multiple workflows, complex integrations, or incomplete account access take longer; we confirm that timeline in your quote before work begins.",
   },
   {
-    id: "care-price",
-    question: "What does the monthly fee cover?",
+    category: "Implementation",
+    question: "Do I need technical staff to work with Mirflow?",
     answer:
-      "The AI Front Desk monthly plan covers ongoing management of the agreed front desk and follow-up workflow. Additional support work, such as new channels or integrations, is scoped with you separately.",
-    keywords: ["monthly", "subscription", "maintenance", "ongoing", "month", "report", "plan", "price", "cost", "retainer"],
+      "No. We handle the technical implementation, integrations, and hosting. Your team's job is to share context about how the business runs — we translate that into a working system.",
   },
   {
-    id: "sources-only",
-    question: "Where do the agent's answers come from?",
+    category: "Implementation",
+    question: "What if the AI doesn't understand a customer's request?",
     answer:
-      "We work from business information you approve, such as your services, hours, policies, FAQs, and booking rules. We also agree on when to send a question to your team.",
-    keywords: ["source", "sources", "accurate", "accuracy", "hallucinate", "hallucination", "make up", "cite", "citation", "trust", "wrong"],
+      "Every Mirflow deployment includes clear escalation paths. When the system isn't confident or a request falls outside its scope, it hands off to a human with full context, rather than guessing.",
   },
   {
-    id: "handoff",
-    question: "What happens when the agent can't answer?",
+    category: "Pricing",
+    question: "How is pricing structured?",
     answer:
-      "It says it doesn't know and offers a hand-off to a human, for example by collecting the customer's email for your support team or pointing them to your existing contact channel. During setup we configure the hand-off that fits how your team already works.",
-    keywords: ["human", "handoff", "hand-off", "escalate", "escalation", "person", "staff", "unsure", "unknown", "live agent"],
+      "Three published plans. The Pilot is $197 one-time for seven days of missed-call text-back, credited toward setup. Starter is $497 setup + $199/mo for an after-hours AI receptionist, text-back, and call summaries. Growth is $997 setup + $399/mo for 24/7 answering, calendar booking, follow-ups, and review requests. No per-seat fees. Multi-location and custom builds are quoted separately.",
   },
   {
-    id: "who-for",
-    question: "Who is this for?",
+    category: "Pricing",
+    question: "Is there a setup fee?",
     answer:
-      "It’s for businesses that want help answering repeat questions and moving inquiries to the right next step. We configure the workflow around your customers and how your team works.",
-    keywords: ["fit", "customers", "saas", "software", "ecommerce", "e-commerce", "shop", "store", "local", "small business", "industry"],
+      "Yes, one time. Starter is $497 setup + $199/mo and Growth is $997 setup + $399/mo, both month-to-month with no long-term contract. If you start with the $197 7-Day Missed-Call Text-Back Pilot, the $197 is credited toward either setup fee. Custom and multi-location builds are scoped and quoted separately.",
   },
   {
-    id: "no-help-center",
-    question: "What if we don't have a help center?",
+    category: "Pricing",
+    question: "Is there a contract? Can I cancel?",
     answer:
-      "We can start with the service details, policies, and common questions your team already uses. During setup we turn those into approved answers and agree on what should go to a person.",
-    keywords: ["faq page", "no docs", "documentation", "website", "without", "missing", "content"],
+      "No long-term contract. Starter and Growth are month-to-month, and you can cancel anytime. You can also move between plans from one month to the next. Custom builds follow the terms in your quote.",
   },
   {
-    id: "data-privacy",
-    question: "Do you need access to our customer data or systems?",
+    category: "Pricing",
+    question: "How does the $197 pilot work?",
     answer:
-      "We agree with you on what information the agent can use, which channels it will work in, and where it should send questions that need your team.",
-    keywords: ["privacy", "data", "security", "access", "login", "credentials", "robots", "crawl", "scrape", "gdpr", "safe", "customer data"],
+      "We connect to your line and call capture is live within 24 hours, so you get an email for every missed call right away. The text-back needs carrier approval (10DLC) under your business name, which usually takes 2 to 7 business days. Your seven days start when texts go live. At the end you get a plain recap of what came in. If you continue, the $197 is credited toward setup.",
   },
   {
-    id: "control",
-    question: "Who decides what goes live?",
+    category: "Technical",
+    question: "What systems does Mirflow integrate with?",
     answer:
-      "You approve what the agent can use and how it should handle customer inquiries. Mirflow handles setup, testing, and updates.",
-    keywords: ["approve", "approval", "control", "review", "publish", "live", "remove", "turn off", "cancel"],
+      "Mirflow integrates with most common CRMs, calendars, help desks, and communication platforms out of the box, and we build custom integrations for proprietary or legacy systems as part of enterprise engagements.",
   },
   {
-    id: "timeline",
-    question: "How long does it take?",
+    category: "Technical",
+    question: "Can Mirflow work with our existing phone number and tools?",
     answer:
-      "Timing depends on the channels and handoffs involved. We agree on the first workflow, what needs testing, and a launch plan before setup.",
-    keywords: ["time", "timeline", "fast", "quick", "days", "weeks", "turnaround", "when", "long"],
+      "Yes. Voice and messaging automations are typically deployed on your existing phone number and channels, so there's no disruption to how customers already reach you.",
   },
   {
-    id: "install",
-    question: "How is the agent installed on our site?",
+    category: "Security",
+    question: "How is our business and customer data protected?",
     answer:
-      "During setup we install it on your site, typically as a chat widget added with a small snippet. We'll work with whoever manages your website to put it where you want it.",
-    keywords: ["widget", "embed", "snippet", "website", "install", "integrate", "integration", "wordpress", "shopify", "chat"],
+      "Data is encrypted in transit and at rest, access is role-based and logged, and we operate under signed data processing agreements. Enterprise plans include dedicated infrastructure and custom compliance support for regulated industries.",
   },
   {
-    id: "contact",
-    question: "How do I contact Mirflow?",
+    category: "Security",
+    question: "Is Mirflow compliant with industry regulations like HIPAA?",
     answer:
-      "Email bobby@mirflow.online, call (949) 422-8674, or find us on Instagram at @mirflow.ai.",
-    keywords: ["email", "phone", "call", "reach", "talk", "contact", "instagram", "speak", "number"],
+      "For healthcare, legal, and financial clients, we configure deployments to align with relevant regulatory requirements, including signed BAAs where applicable. Talk to our team about your specific compliance needs during onboarding.",
   },
+];
+
+export const faqCategories: FaqItem["category"][] = [
+  "General",
+  "Implementation",
+  "Pricing",
+  "Technical",
+  "Security",
 ];

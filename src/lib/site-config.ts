@@ -1,37 +1,184 @@
 export const siteConfig = {
   name: "Mirflow",
   legalName: "Mirflow AI",
-  tagline: "Your all-in-one digital partner",
+  tagline: "AI operating systems for growing companies",
   description:
-    "Mirflow is your all-in-one digital partner. We manage websites, social media, LinkedIn outreach, ads, email and SMS marketing, SEO, AI workflows, and voice agents so you can focus on your business.",
+    "Mirflow helps finance-heavy and operations-driven companies decide what to build, train their teams to use AI well, and install systems that create measurable improvement.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mirflow.online",
+  ogImage: "/og.jpg",
   email: "bobby@mirflow.online",
+  supportEmail: "support@mirflow.online",
   phone: "(949) 422-8674",
   phoneTel: "+19494228674",
-  voiceAgentPhone: "(949) 328-5051",
-  voiceAgentTel: "+19493285051",
   phoneSchema: "+1-949-422-8674",
-  instagramHandle: "@mirflow.ai",
-  instagramUrl: "https://www.instagram.com/mirflow.ai/",
+  address: "Serving Southern California",
   founded: "2026",
-  contactEmail: "mailto:bobby@mirflow.online?subject=Mirflow%20free%20digital%20audit",
+  social: {
+    twitter: "https://twitter.com/mirflow",
+    linkedin: "https://www.linkedin.com/company/mirflow",
+    github: "https://github.com/bobbymirba-bit/mirflow",
+    youtube: "https://youtube.com/@mirflow",
+  },
+  calendlyUrl:
+    process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/mirflow/intro-call",
 };
 
-/**
- * The voice receptionist offer. No amount here on purpose: the old
- * "$2,000 setup + $500/month" figure is superseded, and the front desk is now
- * quoted as part of the all-in-one scope on a call. See /pricing.
- */
-export const frontDeskOffer = {
-  name: "AI Front Desk",
-  refund: "If the front desk is still failing to handle real customer questions after 14 live days under the agreed checks, we refund the setup fee.",
+export type NavItem = {
+  label: string;
+  href: string;
+  description?: string;
 };
 
-export type NavItem = { label: string; href: string };
+export type NavGroup = {
+  label: string;
+  href: string;
+  columns: {
+    heading: string;
+    items: NavItem[];
+  }[];
+  featured?: NavItem & { badge?: string };
+};
 
-export const primaryNav: NavItem[] = [
-  { label: "Services", href: "/services" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "AI Front Desk", href: "/ai-receptionist" },
-  { label: "AI Support", href: "/support-agent" },
+export const primaryNav: NavGroup[] = [
+  {
+    label: "What we do",
+    href: "/services",
+    columns: [
+      {
+        heading: "Build the right thing",
+        items: [
+          { label: "AI opportunity mapping", href: "/services" },
+          { label: "Workflow implementation", href: "/services" },
+          { label: "Internal AI tools", href: "/services" },
+        ],
+      },
+      {
+        heading: "Make it stick",
+        items: [
+          { label: "Team workshops", href: "/services" },
+          { label: "AI governance", href: "/services" },
+          { label: "Embedded advisory", href: "/services" },
+        ],
+      },
+      {
+        heading: "Start with clarity",
+        items: [
+          { label: "AI Readiness & Risk Review", href: "/quote" },
+          { label: "Build, buy or skip", href: "/case-studies" },
+        ],
+      },
+    ],
+    featured: {
+      label: "See the operating model",
+      href: "/services",
+      description: "A practical path from scattered experiments to useful systems.",
+    },
+  },
+  {
+    label: "For teams",
+    href: "/industries",
+    columns: [
+      {
+        heading: "Finance & operations",
+        items: [
+          { label: "Finance teams", href: "/industries/financial-advisors" },
+          { label: "Accounting & tax firms", href: "/industries/professional-services" },
+          { label: "Operations teams", href: "/industries/logistics" },
+        ],
+      },
+      {
+        heading: "Local service businesses",
+        items: [
+          { label: "Med spas", href: "/industries/med-spas" },
+          { label: "Dentists", href: "/industries/dentists" },
+          { label: "HVAC", href: "/industries/hvac" },
+          { label: "Plumbing", href: "/industries/plumbing" },
+        ],
+      },
+      {
+        heading: "What they need",
+        items: [
+          { label: "Safer AI adoption", href: "/services" },
+          { label: "A first workflow", href: "/quote" },
+          { label: "A senior owner", href: "/services" },
+        ],
+      },
+    ],
+    featured: {
+      label: "Find your starting point",
+      href: "/industries",
+      description: "The right first step depends on the workflow, the risk, and the team.",
+    },
+  },
+  {
+    label: "Resources",
+    href: "/resources",
+    columns: [
+      {
+        heading: "Think before you build",
+        items: [
+          { label: "AI readiness", href: "/resources" },
+          { label: "AI governance", href: "/resources" },
+          { label: "Workflow examples", href: "/case-studies" },
+        ],
+      },
+      {
+        heading: "For the buying group",
+        items: [
+          { label: "CFOs & controllers", href: "/industries/financial-advisors" },
+          { label: "COOs & operators", href: "/industries/logistics" },
+          { label: "IT & compliance", href: "/resources" },
+        ],
+      },
+      {
+        heading: "Stay close to the work",
+        items: [
+          { label: "The Mirflow memo", href: "/blog" },
+          { label: "About Mirflow", href: "/about" },
+        ],
+      },
+    ],
+    featured: {
+      label: "Read the field notes",
+      href: "/resources",
+      description: "Practical notes on adoption, risk, and useful systems.",
+    },
+  },
 ];
+
+export const secondaryNav: NavItem[] = [
+  { label: "How it works", href: "/services" },
+  { label: "Workflows", href: "/#workflows" },
+  { label: "Assessment", href: "/ai-assessment" },
+  { label: "Local Services", href: "/local-services" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
+export const footerNav = {
+  Company: [
+    { label: "About", href: "/about" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "AI Readiness & Risk Review", href: "/quote" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact", href: "/contact" },
+  ],
+  Product: [
+    { label: "How it works", href: "/services" },
+    { label: "Teams", href: "/industries" },
+    { label: "Industries", href: "/industries" },
+    { label: "Local Services", href: "/local-services" },
+    { label: "Pricing", href: "/pricing" },
+  ],
+  Resources: [
+    { label: "Resource Hub", href: "/resources" },
+    { label: "FAQ", href: "/faq" },
+    { label: "ROI Calculator", href: "/resources#roi-calculator" },
+    { label: "AI Readiness Quiz", href: "/resources#readiness-quiz" },
+  ],
+  Legal: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+  ],
+};
+  
