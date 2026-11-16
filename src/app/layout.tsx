@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 
 import { SiteAssistant } from "@/components/site-assistant";
 import { Footer, Header } from "@/components/site-chrome";
@@ -7,6 +7,8 @@ import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
+const spaceGrotesk = Space_Grotesk({ variable: "--font-space-grotesk", subsets: ["latin"], display: "swap" });
+const jetbrainsMono = JetBrains_Mono({ variable: "--font-jetbrains-mono", subsets: ["latin"], display: "swap" });
 
 const title = "Mirflow | Digital Marketing & AI Automation Agency";
 
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export const viewport: Viewport = { themeColor: "#f4f8ff", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#05060a", width: "device-width", initialScale: 1 };
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -50,7 +52,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full scroll-smooth antialiased`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full scroll-smooth antialiased`}>
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Header />

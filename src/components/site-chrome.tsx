@@ -8,7 +8,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
       <div className="container-page grid min-h-14 grid-cols-[1fr_auto] items-center gap-x-3 pt-2 md:grid-cols-[1fr_auto_1fr] md:gap-x-8 md:pt-0">
         <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span aria-hidden className="inline-block size-6 rounded-[0.5rem] bg-linear-to-br from-[#568dff] to-primary shadow-sm" />
+          <span aria-hidden className="inline-block size-6 rounded-[0.5rem] bg-linear-to-br from-primary to-[#8b5cf6] shadow-[0_0_14px_rgba(34,211,238,.5)]" />
           {siteConfig.name}
         </Link>
         <nav aria-label="Main navigation" className="order-3 col-span-2 flex items-center gap-5 border-t border-border/70 py-2 text-sm text-muted-foreground md:order-0 md:col-span-1 md:border-0 md:py-0">
@@ -19,7 +19,7 @@ export function Header() {
           ))}
         </nav>
         <BookACall
-          className="justify-self-end rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground"
+          className="justify-self-end rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:brightness-110 transition-all"
           showIcon={false}
         />
       </div>
