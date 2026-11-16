@@ -87,6 +87,15 @@ export const primaryNav: NavGroup[] = [
         ],
       },
       {
+        heading: "Local service businesses",
+        items: [
+          { label: "Med spas", href: "/industries/med-spas" },
+          { label: "Dentists", href: "/industries/dentists" },
+          { label: "HVAC", href: "/industries/hvac" },
+          { label: "Plumbing", href: "/industries/plumbing" },
+        ],
+      },
+      {
         heading: "What they need",
         items: [
           { label: "Safer AI adoption", href: "/services" },
@@ -141,6 +150,7 @@ export const secondaryNav: NavItem[] = [
   { label: "How it works", href: "/services" },
   { label: "Workflows", href: "/#workflows" },
   { label: "Assessment", href: "/ai-assessment" },
+  { label: "Local Services", href: "/local-services" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -157,6 +167,7 @@ export const footerNav = {
     { label: "How it works", href: "/services" },
     { label: "Teams", href: "/industries" },
     { label: "Industries", href: "/industries" },
+    { label: "Local Services", href: "/local-services" },
     { label: "Pricing", href: "/pricing" },
   ],
   Resources: [

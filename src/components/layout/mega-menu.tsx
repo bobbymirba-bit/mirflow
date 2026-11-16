@@ -50,8 +50,8 @@ export function MegaMenu({ groups }: { groups: NavGroup[] }) {
             aria-controls={`mega-menu-panel-${index}`}
             onClick={() => toggle(index)}
             className={cn(
-              "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground",
-              openIndex === index && "bg-accent text-foreground"
+              "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-foreground/75 transition-colors hover:bg-white/[0.06] hover:text-foreground",
+              openIndex === index && "bg-white/[0.06] text-foreground"
             )}
           >
             {group.label}
@@ -73,7 +73,7 @@ export function MegaMenu({ groups }: { groups: NavGroup[] }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 8 }}
                 transition={{ duration: 0.16, ease: "easeOut" }}
-                className="absolute left-1/2 top-full z-50 mt-2 w-[min(720px,90vw)] -translate-x-1/3 rounded-2xl border border-border bg-popover p-6 shadow-2xl"
+                className="absolute left-1/2 top-full z-50 mt-3 w-[min(720px,90vw)] -translate-x-1/3 rounded-2xl border border-white/10 bg-popover/95 p-6 shadow-2xl shadow-black/60 backdrop-blur-xl"
                 onMouseEnter={() => open(index)}
               >
                 <div className="grid grid-cols-3 gap-6">

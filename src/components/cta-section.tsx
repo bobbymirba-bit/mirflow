@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/motion/reveal";
 
 export function CtaSection({
@@ -20,31 +21,40 @@ export function CtaSection({
   secondaryHref?: string;
 }) {
   return (
-    <section className="border-y border-border bg-[#171713] text-[#f3efe7]">
-      <Reveal>
-        <div className="container-page grid gap-10 py-20 sm:py-28 lg:grid-cols-[1.35fr_.65fr] lg:items-end">
-          <div className="min-w-0 max-w-4xl">
-            <p className="border-b border-white/30 pb-3 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 sm:text-[10px] sm:tracking-[0.22em]">Your AI operating model</p>
-            <h2 className="mt-8 text-balance font-display text-[42px] font-normal leading-[.95] tracking-[-0.045em] text-[#f3efe7] sm:text-6xl">
-              {title}
-            </h2>
-            <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/65 sm:text-lg">
-              {description}
-            </p>
+    <section className="relative py-20 sm:py-28">
+      <div className="container-page">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#07090f] p-8 sm:p-14">
+            <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-70 [mask-image:radial-gradient(ellipse_at_center,black,transparent_78%)]" />
+            <div aria-hidden className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-[radial-gradient(closest-side,rgba(34,211,238,.3),transparent)] blur-2xl animate-float" />
+            <div aria-hidden className="pointer-events-none absolute -bottom-40 -right-24 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(closest-side,rgba(139,92,246,.3),transparent)] blur-2xl animate-float [animation-delay:-5s]" />
+            <div aria-hidden className="hairline-gradient absolute inset-x-10 top-0" />
+
+            <div className="relative grid gap-10 lg:grid-cols-[1.3fr_.7fr] lg:items-end">
+              <div className="min-w-0 max-w-3xl">
+                <Badge variant="brand">Your AI operating model</Badge>
+                <h2 className="mt-7 text-balance font-display text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-6xl">
+                  {title}
+                </h2>
+                <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  {description}
+                </p>
+              </div>
+              <div className="flex min-w-0 flex-col gap-3">
+                <Button asChild variant="gradient" size="lg" className="w-full">
+                  <Link href={primaryHref}>
+                    {primaryLabel}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="w-full">
+                  <Link href={secondaryHref}>{secondaryLabel}</Link>
+                </Button>
+              </div>
+            </div>
           </div>
-          <div className="flex min-w-0 flex-col gap-3 lg:items-stretch">
-              <Button asChild variant="gradient" size="lg" className="w-full px-3 text-[11px] sm:px-6 sm:text-sm">
-                <Link href={primaryHref}>
-                  {primaryLabel}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="w-full border-white/40 px-3 text-[11px] text-white hover:bg-white hover:text-black sm:px-6 sm:text-sm">
-                <Link href={secondaryHref}>{secondaryLabel}</Link>
-              </Button>
-          </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   );
 }
